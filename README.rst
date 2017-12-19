@@ -9,13 +9,13 @@ English documention
 Setup
 ~~~~~
 
-First install `sphinx`, `sphinx-autobuild`, and `sphinx_rtd_theme` (in an virtual env):
+First install `sphinx`, `sphinx-autobuild`, and `sphinx_rtd_theme`:
 
 .. code:: bash
 
     pip install -r requirements.txt
 
-then the HTML files can be created using:
+Then, the HTML files can be created using:
 
 .. code:: bash
 
