@@ -6,22 +6,25 @@ RDMO is a tool to support the systematic planning, organisation and implementati
 English documention
 -------------------
 
-Home Page
-  https://rdmorganiser.github.io
+Setup
+~~~~~
 
-Source code
-  https://github.com/rdmorganiser/rdmo
+First install `sphinx`, `sphinx-autobuild`, and `sphinx_rtd_theme` (in an virtual env):
 
-Documentation
-  http://rdmo.readthedocs.io
+.. code:: bash
 
-Mailing list
-  https://www.listserv.dfn.de/sympa/subscribe/rdmo
+    pip install -r requirements.txt
 
-Slack
-  https://rdmo.slack.com
+then the HTML files can be created using:
 
-Demo
-  https://rdmo.aip.de
+.. code:: bash
 
-Warning: This software is currently under development and not production ready.
+    make html
+
+A live server, which auto-updates itself after a file is saved, can be started using:
+
+.. code:: bash
+
+    make live
+
+The documentation is then available on localhost:8000.
