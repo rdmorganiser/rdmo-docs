@@ -27,4 +27,4 @@ A live server, which auto-updates itself after a file is saved, can be started u
 
     make live
 
-The documentation is then available on localhost:8000.
+The documentation is then available on http://localhost:8000.
