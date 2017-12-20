@@ -3,7 +3,7 @@ Users and Groups
 
 The users and groups of your RDMO instance can be managed under **AUTHENTICATION AND AUTHORIZATION**. You can create and update users and set their password directly, but most of the time this will be done by the users themselves using the account menu.
 
-The user created in the installation process can access all features of RDMO. In order to allow other users to access the management or the admin interface, they need to have the needed permissions assigned to them. This can be done in two ways: through groups or using the superuser flag.
+The user created in the installation process can access all features of RDMO. In order to allow other users to access the management or the admin interface, they need to have the required permissions assigned to them. This can be done in two ways: through groups or using the superuser flag.
 
 Groups
 """"""
@@ -25,7 +25,7 @@ Existing users can be assigned to these groups to gain access to these functions
 
 2. Click on the user to be changed.
 
-3. Click on the group to be added to the user in the **Available groups** field.
+3. Click on the group to be assigned to the user in the **Available groups** field.
 
 4. Click on the little arrow to move the group to the **Chosen groups** field.
 
