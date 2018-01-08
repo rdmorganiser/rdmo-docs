@@ -8,7 +8,7 @@ Options and option sets can be managed under *Options* in the management menu in
 
    Screenshot of the options management interface.
 
-On the left-hand side is the main display of all the option sets and options available in this installation of RDMO. Option sets show their key, while options show their path and their text. On the left side of each elements panel, icons indicate ways to interact the element. The following options are available:
+On the left-hand side is the main display of all the option sets and options available in this installation of RDMO. Option sets show their key, while options show their path and their text. On the right side of each elements panel, icons indicate ways to interact the element. The following options are available:
 
 * **Add** (|add|) a new option to an option set.
 * **Update** (|update|) an option set or option to change its properties.
@@ -20,7 +20,7 @@ On the left-hand side is the main display of all the option sets and options ava
 .. |conditions| image:: ../_static/img/icons/conditions.png
 .. |delete| image:: ../_static/img/icons/delete.png
 
-The sidebar on the left shows additional interface items:
+The sidebar on the right shows additional interface items:
 
 * **Filter** filters the view according to a user given string. Only elements containing this string in their path will be shown.
 * **Options** offers additional operations:

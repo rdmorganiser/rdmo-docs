@@ -8,7 +8,7 @@ Conditions can be created and managed under *Conditions* in the management menu 
 
    Screenshot of the conditions management interface.
 
-On the left-hand side is the main display of all the conditions available in this installation of RDMO. Conditions show their key and a textual representation of what they evaluate. On the left side of each conditions panel, icons indicate ways to interact the element. The following options are available:
+On the left-hand side is the main display of all the conditions available in this installation of RDMO. Conditions show their key and a textual representation of what they evaluate. On the right side of each conditions panel, icons indicate ways to interact the element. The following options are available:
 
 * **Update** (|update|) a condition to change its properties.
 * **Delete** (|delete|) a condition. **This action cannot be undone!**
@@ -16,7 +16,7 @@ On the left-hand side is the main display of all the conditions available in thi
 .. |update| image:: ../_static/img/icons/update.png
 .. |delete| image:: ../_static/img/icons/delete.png
 
-The sidebar on the left shows additional interface items:
+The sidebar on the right shows additional interface items:
 
 * **Filter** filters the view according to a user given string. Only conditions containing this string in their path will be shown.
 * **Options** offers additional operations:
@@ -25,7 +25,7 @@ The sidebar on the left shows additional interface items:
 
 * **Export** exports the conditions to one of the displayed formats. While the textual formats are mainly for presentation purposes, the XML export can be used to transfer the conditions to a different installation of RDMO.
 
-Conditions have different properties to control their behavior. As descibed in :doc:`the introduction <index>`, all elements have an URI Prefix, a key, and an internal comment only to be seen by other managers of the RDMO installation. In addition, you can edit the parameters below:
+Conditions have different properties to control their behavior. As described in :doc:`the introduction <index>`, all elements have an URI Prefix, a key, and an internal comment only to be seen by other managers of the RDMO installation. In addition, you can edit the parameters below:
 
 Condition
 """""""""

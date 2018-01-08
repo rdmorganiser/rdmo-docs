@@ -8,7 +8,7 @@ The questions management is available under *Questions* in the management menu i
 
    Screenshot of the questions management interface.
 
-On the left-hand side is the main display of sections, subsections, and questions for the current catalog. For sections and subsections the title and the key is shown. For questions and question set the key and the key of the attribute or entity they are connected with is shown. The order of the different elements is the same as in the structured interview shown to the user. On the left side of each elements panel, icons indicate ways to interact the element. The following options are available:
+On the left-hand side is the main display of sections, subsections, and questions for the current catalog. For sections and subsections the title and the key is shown. For questions and question set the key and the key of the attribute or entity they are connected with is shown. The order of the different elements is the same as in the structured interview shown to the user. On the right side of each elements panel, icons indicate ways to interact the element. The following options are available:
 
 * **Add** (|add|) a new subsection to a section, a new question or question set to a subsection or a new question to a questionset.
 * **Update** (|update|) an element to change its properties.

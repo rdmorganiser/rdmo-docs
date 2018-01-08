@@ -8,7 +8,7 @@ Tasks can be configured under *Tasks* in the management menu in the navigation b
 
    Screenshot of the tasks management interface.
 
-On the left-hand side is the main display of all the tasks available in this installation of RDMO. Tasks show their key, title and the text describing the task. On the left side of each tasks panel, icons indicate ways to interact the element. The following options are available:
+On the left-hand side is the main display of all the tasks available in this installation of RDMO. Tasks show their key, title and the text describing the task. On the right side of each tasks panel, icons indicate ways to interact the element. The following options are available:
 
 * **Update** (|update|) a task to change its properties.
 * **Update conditions** (|conditions|) of a task. A task will only be shown to the user, if all of its conditions are evaluated ``True``. The conditions themselved are configured in :doc:`the conditions management <conditions>`.
@@ -20,7 +20,7 @@ On the left-hand side is the main display of all the tasks available in this ins
 .. |timeframe| image:: ../_static/img/icons/timeframe.png
 .. |delete| image:: ../_static/img/icons/delete.png
 
-The sidebar on the left shows additional interface items:
+The sidebar on the right-hand side shows additional interface items:
 
 * **Filter** filters the view according to a user given string. Only tasks containing this string in their path will be shown.
 * **Options** offers additional operations:

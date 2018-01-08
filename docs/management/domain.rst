@@ -8,7 +8,7 @@ The domain model can be managed under *Domain* in the management menu in the nav
 
    Screenshot of the domain management interface.
 
-On the left-hand side is the main display of all the entities and attributes available in this installation of RDMO. The attributes and entities show their path and if they are configured to be a collection. On the left side of each elements panel, icons indicate ways to interact the element. The following options are available:
+On the left-hand side is the main display of all the entities and attributes available in this installation of RDMO. The attributes and entities show their path and if they are configured to be a collection. On the right side of each elements panel, icons indicate ways to interact the element. The following options are available:
 
 * **Add** (|add|) a new attribute or entity to an entity.
 * **Update** (|update|) an entity or attribute to change its properties.
@@ -26,7 +26,7 @@ On the left-hand side is the main display of all the entities and attributes ava
 .. |optionsets| image:: ../_static/img/icons/optionsets.png
 .. |delete| image:: ../_static/img/icons/delete.png
 
-The sidebar on the left-hand side shows additional interface items:
+The sidebar on the right-hand side shows additional interface items:
 
 * **Filter** filters the view according to a user given string. Only elements containing this string in their path will be shown.
 * **Options** offers additional operations:

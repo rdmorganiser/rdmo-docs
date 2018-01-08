@@ -8,7 +8,7 @@ Views can be configured under *Views* in the management menu in the navigation b
 
    Screenshot of the views management interface.
 
-On the left-hand side is the main display of all the views available in this installation of RDMO. Views show their key, title and description. On the left side of each views panel, icons indicate ways to interact the element. The following options are available:
+On the left-hand side is the main display of all the views available in this installation of RDMO. Views show their key, title and description. On the right side of each views panel, icons indicate ways to interact the element. The following options are available:
 
 * **Update** (|update|) a view to change its properties.
 * **Edit the template** (|template|) of a view.
