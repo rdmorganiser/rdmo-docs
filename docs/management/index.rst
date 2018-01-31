@@ -45,3 +45,4 @@ The key is used as an internal identifier and determines, together with the URI 
    views
    tasks
    export
+   roles
