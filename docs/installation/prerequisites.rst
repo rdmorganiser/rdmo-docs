@@ -1,7 +1,7 @@
 Install prerequisites
 ---------------------
 
-Installing the prerequisites for RDMO differs on the different operating systems and is therefore covered in different sections.
+Installing the prerequisites for RDMO differs on the different operating systems and is therefore covered in different sections. Here, you must use the superuser.
 
 Linux
 ~~~~~
