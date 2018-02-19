@@ -13,7 +13,7 @@ An installation of RDMO contains of three parts:
 
 This chapter shows how these components are set up. Optional components can be installed afterwards and are covered under :doc:`Configuration </configuration/index>`.
 
-For testing and development, you can run RDMO using your regular user account. On a production system, a dedicated user account should be used. We suggest to create a user called ``rdmo`` with the group ``rdmo`` and the home directory ``/srv/rdmo``. We will use this user throughout this documantation.
+For testing and development, you can run RDMO using your regular user account. On a production system, a dedicated user account should be used. We suggest to create a user called ``rdmo`` with the group ``rdmo`` and the home directory ``/srv/rdmo``: ``sudo adduser rdmo --home /srv/rdmo`` . We will use this user throughout this documantation.
 
 Do not use the ``root`` user to run RDMO! It is a bad idea anyway and several steps of the installation will not work. ``sudo`` is used in the installation when needing root-privileges to install packages.
 
