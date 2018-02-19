@@ -1,7 +1,7 @@
 Obtaining the app directory
 ---------------------------
 
-The next step is to create the ``rdmo-app`` directory by cloning the corresponding repository:
+The next step is to create the ``rdmo-app`` directory by cloning the corresponding repository into the home directory of you ``rdmo`` user:
 
 .. code:: bash
 
