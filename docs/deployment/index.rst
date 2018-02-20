@@ -7,7 +7,7 @@ As already mentioned, RDMO can be run in two different setups:
 
 * in production, using a web server and the `wsgi <https://docs.djangoproject.com/en/1.10/howto/deployment/wsgi/>`_ protocoll. We suggest to use one of the two following setups:
 
-    * :doc:`Apache2 and mod_wsgi <apache>`
+    * :doc:`Apache2 and mod_wsgi <apache>` (Shibboleth can only be used with this version.)
     * :doc:`nginx, gunicorn and systemd <nginx>`
 
 .. toctree::
