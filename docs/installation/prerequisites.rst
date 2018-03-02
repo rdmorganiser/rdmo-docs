@@ -76,6 +76,10 @@ For the Microsoft C++ Build Tools:
 
 * download from http://landinghub.visualstudio.com/visual-cpp-build-tools
 
+For Pandoc:
+
+* download from https://github.com/jgm/pandoc/releases
+
 For pdflatex (optional, for pdf export):
 
 * download from http://miktex.org/

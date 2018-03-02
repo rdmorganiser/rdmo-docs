@@ -23,13 +23,6 @@ After the virtual environment is activated, the ``rdmo`` package can be installe
 
     pip install rdmo
 
-On windows, pandoc needs to be installed in an additional step:
-
-.. code:: bash
-
-    # only on Windows
-    python -c "import pypandoc; pypandoc.download_pandoc()"
-
 The virtual environment encapsulates your RDMO installation from the rest of the system. This makes it possible to run several applications with different python dependencies on one machine and to install the dependencies without root permissions.
 
 **Important:** The virtual enviroment needs to be activated, using ``source env/bin/activate`` or ``call env\Scripts\activate.bat``, everytime a new terminal is used.
