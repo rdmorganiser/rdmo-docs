@@ -1,19 +1,32 @@
 Testing
--------
+=======
 
-For running the test suite use:
+Setup tests
+-----------
 
-.. code:: bash
-
-    ./manage.py test
-
-
-For a coverage report use:
+First, create a ``local.py`` file:
 
 .. code:: bash
 
-    ./manage.py coverage
-    ./manage.py coverage --html  # for an HTML coverage report
+    cp testing/config/settings/sample.local.py testing/config/settings/local.py
+
+Afterwards edit the ``local.py`` as for a regular RDMO instance.
+
+Running tests
+-------------
+
+.. code:: bash
+
+    python testing/runtests.py
+    python testing/runtests.py -k              # keep the database between test runs
+    python testing/runtests.py rdmo.domain     # test only the domain app
 
 
-The HTML report can be viewed by opening ``htmlcov/index.html`` in a browser.
+Coverage
+--------
+
+.. code:: bash
+
+    coverage run testing/runtests.py
+    coverage report                     # show a coverage report in the terminal
+    coverage html                       # create browsable coverage report in htmlcov/

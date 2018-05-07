@@ -1,15 +1,22 @@
 Internationalisation
 ====================
 
-To update the locale files automatiacally run:
+To update the locale files, change to the `rdmo` directory **inside** the `rdmo` repository and run:
 
 .. code:: bash
 
-    python manage.py makemessages -a --ignore=env/* --ignore=htmlcov/*
+    django-admin makemessages
 
-
-Then, edit the ``.po`` files in the ``locale`` directory. Afterwards run
+Then, edit the ``.po`` files in the ``locale`` directory. This is can be done using `Poedit <https://poedit.net>`_, e.g.
 
 .. code:: bash
 
-    python manage.py compilemessages
+    poedit locale/de/LC_MESSAGES/django.po
+
+Afterwards run
+
+.. code:: bash
+
+    django-admin compilemessages
+
+to compile the ``.po`` file to a ``.mo`` file.

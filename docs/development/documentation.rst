@@ -1,7 +1,7 @@
 Documentation
 =============
 
-In order to build the documetation, additional dependencies must be installed in your virtual enviroment:
+In order to build the documetation, the following dependencies must be installed in your virtual enviroment:
 
 .. code:: bash
 
