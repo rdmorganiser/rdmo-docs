@@ -29,6 +29,12 @@ After the upgrade a database migration might be necessary:
 .. code:: bash
 
     python manage.py migrate
+    
+In any case you have to deploy the changes:
+
+.. code:: bash
+
+    python manage.py deploy
 
 Please check the release notes if this, or other, steps are necessary.
 
