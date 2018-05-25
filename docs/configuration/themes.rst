@@ -30,4 +30,8 @@ Navigation bar
 Home page text
     https://github.com/rdmorganiser/rdmo/blob/master/rdmo/core/templates/core/home_text_en.html and https://github.com/rdmorganiser/rdmo/blob/master/rdmo/core/templates/core/home_text_de.html can be copied to ``theme/templates/core/home_text_en.html`` and ``theme/templates/core/home_text_de.html`` and be used to customize text on the home page.
 
+Terms of Use
+    The content displayed in the Terms of Use dialogue can be customized by putting templates to the appropriate locations. Two different files resembling the available languages can be used and should be located at ``theme/templates/account/terms_of_use_de.html`` and  ``theme/templates/account/terms_of_use_en.html``.
+
+
 Note that updates to the RDMO package might render your theme incompatible to the RDMO code and cause errors. In this case the files in ``theme`` need to be adjusted to match their RDMO counterparts in functionality.
