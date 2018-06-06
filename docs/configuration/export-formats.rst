@@ -1,7 +1,7 @@
 Export formats
 --------------
 
-RDMO supports exports to certain formats using the excellent `pandoc <https://pandoc.org/>`_ converter. The list of formats to select can be customized by changing the ``EXPORT_FORMATS`` setting in your ``config/settings/local.py``.
+RDMO supports exports to certain formats using the excellent `Pandoc <https://pandoc.org/>`_ converter. The list of formats to select can be customized by changing the ``EXPORT_FORMATS`` setting in your ``config/settings/local.py``.
 
 .. code:: python
 
@@ -16,13 +16,11 @@ RDMO supports exports to certain formats using the excellent `pandoc <https://pa
         ('tex', _('LaTeX'))
     )
 
-The different formats supported by pandoc can be found `on the pandoc homepage <https://pandoc.org/>`_.
+The different formats supported by Pandoc can be found `on the Pandoc homepage <https://pandoc.org/>`_.
 
-For the export formats of .docx and .odt custom styles can be applied. This is achieved by defining reference documents in the ``config/settings/local.py``.
+The page style and different other format settings can be adjusted using reference documents. Since Pandoc is used for document conversion you can find an exhaustive list of supported settings on the `Pandoc manual page <https://pandoc.org/MANUAL.html>`_ under the paragraph '--reference-doc'. Reference documents can be used for the export formats of .docx and .odt. This is achieved by defining reference documents in the ``config/settings/local.py``. If these settings are not in your config default styles will be applied.
 
 .. code:: python
 
     EXPORT_REFERENCE_DOCX='FULL PATH OF YOUR REFERENCE DOCX'
     EXPORT_REFERENCE_ODT='FULL PATH OF YOUR REFERENCE ODT'
-
-The page style and different other format settings can be adjusted. Since pandoc is used for document conversion you can find an exhaustive list of supported settings at the `pandoc manual page <https://pandoc.org/MANUAL.html>`_ under the paragraph '--reference-doc'.
