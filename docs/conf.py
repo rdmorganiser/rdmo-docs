@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-RDMO_VERSION = '0.10.3'
+RDMO_VERSION = '0.10.5'
 
 # RDMO Documentation documentation build configuration file, created by
 # sphinx-quickstart on Fri Mar  3 11:25:56 2017.
