@@ -7,6 +7,6 @@ Development
 
    testing
    i18n
-   figures
    swagger
+   figures
    documentation

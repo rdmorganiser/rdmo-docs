@@ -1,5 +1,5 @@
-Swagger
-=======
+Swagger / OpenAPI
+=================
 
 What is Swagger?
 ----------------
