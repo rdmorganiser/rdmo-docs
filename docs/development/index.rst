@@ -8,5 +8,5 @@ Development
    testing
    i18n
    figures
-   swagger / OpenAPI
+   swagger
    documentation
