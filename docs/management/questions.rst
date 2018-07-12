@@ -1,7 +1,9 @@
 Questions
 ---------
 
-The questions management is available under *Questions* in the management menu in the navigation bar. The link in the navbar opens the first catalog. Other catalogs can be selected in the sidebar afterwards.
+The questions management is available under *Questions* in the management menu in the navigation bar. This page will be empty after a fresh RDMo installation. We ask you to import first our domain and, if you like, our general questionaire. The corresponding XML-files are available at https://github.com/rdmorganiser/rdmo-catalog .
+
+If there is at least one questionaire imported, it will be shown automatically. Other catalogs can be selected in the sidebar on the right-hand side afterwards.
 
 .. figure:: ../_static/img/screens/questions.png
    :target: ../_static/img/screens/questions.png

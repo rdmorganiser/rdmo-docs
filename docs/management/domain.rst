@@ -8,6 +8,9 @@ The domain model can be managed under *Domain* in the management menu in the nav
 
    Screenshot of the domain management interface.
 
+After the installation of RDMO the domain is initially empty. Please import our domain available at https://github.com/rdmorganiser/rdmo-catalog . Afterwards you can extend the domain, but the domain is the core data model which guarantess interoperability and cooperativity amongst diverse RDMO instances and it is always the starting point to create questionaires.
+
+
 On the left-hand side is the main display of all the entities and attributes available in this installation of RDMO. The attributes and entities show their path and if they are configured to be a collection. On the right side of each elements panel, icons indicate ways to interact the element. The following options are available:
 
 * **Add** (|add|) a new attribute or entity to an entity.
