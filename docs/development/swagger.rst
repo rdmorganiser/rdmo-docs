@@ -10,13 +10,15 @@ Enable Swagger Tools
 --------------------
 If you want to have a look at a detailed description of all the API interfaces that RDMO provides you need to add the necessary import and setup a url scheme to access the view.
 
-All this can be achieved by adding the following two lines to the ``config/settings/urls.py`` in your RDMO-App. Please note that ``urlpatterns`` is an array. Do not simply copy the snippet from below but add the array entry into your already existing one.
+All this can be achieved by adding two lines to the ``config/settings/urls.py`` in your RDMO-App. Please note that ``urlpatterns`` is an array. Do not simply copy the snippet from below but add the array entry into your already existing one.
 
 .. code:: python
 
     from rdmo.core.swagger import swagger_schema_view
 
-    url(r'^swagger$', swagger_schema_view.as_view()),
+    urlpatterns = [
+        url(r'^swagger$', swagger_schema_view.as_view()),
+    ]
 
 
 The Swagger page can now be accessed at the defined URL scheme. In the case of the example above at ``swagger/``. Of course you are free to change this to fit your needs.
