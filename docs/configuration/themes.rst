@@ -22,7 +22,7 @@ Usually, the RDMO template files are located in the your virtual environment, e.
 Some files you might want to override are:
 
 SASS variables
-    https://github.com/rdmorganiser/rdmo/blob/master/rdmo/core/static/core/css/variables.scss can be copied to ``theme/static/css/variables.scss`` and be used to customize colors.
+    https://github.com/rdmorganiser/rdmo/blob/master/rdmo/core/static/core/css/variables.scss can be copied to ``theme/static/core/css/variables.scss`` and be used to customize colors.
 
 Navigation bar
     https://github.com/rdmorganiser/rdmo/blob/master/rdmo/core/templates/core/base_navigation.html can be copied to ``theme/templates/core/base_navigation.html`` and be used to customize the navbar.
