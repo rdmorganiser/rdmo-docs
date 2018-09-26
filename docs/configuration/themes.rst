@@ -35,7 +35,7 @@ There is a ``manage.py`` script to simplify the theme creation. The script will 
     python manage.py make_theme
 
 Working with themes
--------------------
+```````````````````
 
 If you have completed these steps templates and static files in the ``theme`` directory are used instead of the original files as long as they have the same relative path, e.g. the template ``theme/templates/core/base_navigation.html`` overrides ``rdmo/core/templates/core/base_navigation.html`` from the original code.
 
