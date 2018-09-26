@@ -39,7 +39,7 @@ Working with themes
 
 If you have completed these steps templates and static files in the ``theme`` directory are used instead of the original files as long as they have the same relative path, e.g. the template ``theme/templates/core/base_navigation.html`` overrides ``rdmo/core/templates/core/base_navigation.html`` from the original code.
 
-Usually, the RDMO template files are located in the your virtual environment, e.g. ``/srv/rdmo/rdmo-app/env/lib/python2.7/site-packages/rdmo/core/static/core/css/variables.scss``. The exact path depends on your Python version and platform. We recomended to download the original files from the `rdmo repository <https://github.com/rdmorganiser/rdmo>`_ instead. For the example above, this would be https://raw.githubusercontent.com/rdmorganiser/rdmo/master/rdmo/core/static/core/css/variables.scss. Please make sure that you use the raw files if you download from github. If you accidentally grab the website html source RDMO will break.
+Usually, the RDMO template files are located in the your virtual environment, e.g. ``/srv/rdmo/rdmo-app/env/lib/python2.7/site-packages/rdmo/core/static/core/css/variables.scss``. The exact path depends on your Python version and platform. We recomended to download the original files from the `rdmo repository <https://github.com/rdmorganiser/rdmo>`_ instead. For the example above, this would be https://raw.githubusercontent.com/rdmorganiser/rdmo/master/rdmo/core/static/core/css/variables.scss. Please make sure to use the raw files when downloading from github. If you accidentally grab the website's html source code RDMO will throw an error.
 
 Some files you might want to override are:
 
