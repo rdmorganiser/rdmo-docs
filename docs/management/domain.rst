@@ -40,14 +40,5 @@ If it is parent in the domain model changing it will move this parent and all of
 
 Both types hold an information set which consists of different atoms.
 
-URI Prefix
-    identifies the entity who created this element
-
-Key
-    is the internal identifier for this element
-
-Comment
-    internal comment to share information to be seen by users with access to the management backend
-
 Parent attribute
     indicates the parent attribute

@@ -31,9 +31,6 @@ Condition
 """""""""
 Conditions are configured with a source attribute, which will be evaluated, a relation like "equal" or "greater than" and a target. The target is a text string or an option. As an example, if the source is the attribute ``project/legal_aspects/ipr/yesno``, the relation is "equal to", and the target text is "1", the condition will be true for a project where the answer to the question connected to the attribute ``project/legal_aspects/ipr/yesno`` is "1" (or "yes" for a yesno widget).
 
-Comment
-    internal comment to share information to be seen by users with access to the management backend
-
 Source
   The Attribute this condition is evaluating.
 
