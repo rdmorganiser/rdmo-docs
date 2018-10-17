@@ -55,16 +55,24 @@ Template
 
 Each view has a template, which determines how the answers given by the user are mapped to a textual document. The template is composed using the `Django template <https://docs.djangoproject.com/en/1.11/ref/templates/language/>`_ syntax, which is a combination of regular HTML, variables, which get replaced with values when the template is evaluated (``{{ a_variable }}``), and tags, which control the logic of the template (``{% a_tag %}``).
 
-Two variables can be used when used in RDMO templates:
+In the first line of the view template you will find the load command for the available view tags. It makes the logic of the template available and should always be there.
 
-* ``values``, which contains nested dictionary mapping the users answers to their attributes.
-* ``conditions``, which is a dictionary mapping the keys of the conditions to the evaluated conditions according to the current project (i.e. ``True`` or ``False``).
+.. code:: django
 
-Consider an attribute ``project/research_question/title`` (more specific an attribute ``title`` in the entity ``research_question`` in the entity ``project``) and a user, who answered the question connected to this attribute with "To boldly go where no man has gone before.". The attribute would be available in the template as ``values.project.research_question.title`` (note the ``.`` instead of ``/``). Used in the template using the sytax for a variable:
+    {% load view_tags %}
+
+Immediately afterwards there will probably be variable declarations which load sets into place holders and make them available throughout the whole template. These variables can for example be used in for loops as you will see later.
+
+.. code:: django
+
+    {% get_set 'project/partner' as partners %}
+    {% get_set 'project/dataset' as datasets %}
+
+Consider an attribute ``project/research_question/title`` and a user, who answered the question connected to this attribute with "To boldly go where no man has gone before.". The attribute would be available in the template as ``project/research_question/title``.
 
 .. code-block:: django
 
-    The main research question of the project is: {{ values.project.research_question.title }}
+    The main research question of the project is: {% render_value 'project/research_question/title' %}
 
 would, when evaluated in the context by a user in his/her project, render:
 
@@ -77,35 +85,46 @@ Collections can be rendered using the ``for`` tag of the Django template syntax.
 .. code-block:: django
 
     <ul>
-    {% for keyword in project.research_question.keywords %}
-        <li>{{ keyword }}</li>
+    {% for keyword in 'project/research_question/keywords' %}
+        <li>{% render_value keyword %}</li>
     {% endfor %}
     </ul>
 
-The usual filters of the Django syntax can also be used, e.g.
+Lists of multiple values can also be rendered.
 
 .. code-block:: django
 
     <p>
-        {{ values.project.research_question.keywords | join:', ' }}
+        {% render_value_inline_list 'project/research_question/keywords' %}
     </p>
 
-For collection entities, you can use:
+For set entities, you can use:
 
 .. code-block:: django
 
-    {% for dataset in values.project.dataset %}
+    {% for dataset in 'project/dataset' %}
     <p>
-        <i>Dataset {{ dataset.id }}:</i> {{ dataset.usage_description }}
+        <i>Dataset {% render_set_value dataset 'project/dataset/id' %}:</i> {% 'project/dataset/usage_description' %}
     </p>
     {% endfor %}
 
-Conditions can be used using the ``if`` tag:
+If you prefer to use innitially declared variables. Your code would look more like this.
 
 .. code-block:: django
 
-    {% if conditions.personal_data %}
-    This will be only rendered if personal_data resolves to be true.
+    {% for dataset in datasets %}
+    <p>
+        {% render_set_value dataset 'project/dataset/id' %}
+    </p>
+    {% endfor %}
+
+Values can be used if they meet certain conditions. If you want to display something based on a certain value being ``true`` you can for example do this. Note that there is an ``.is_false`` function as well which can be used just as the mentioned counterpart.
+
+.. code-block:: django
+
+    {% get_value 'conditions.personal_data' as val %}
+    {% if val.is_true %}
+        This will be only rendered if personal_data resolves to be true.
     {% endif %}
 
 Please consult the documentation of the Django template syntax for all the available tags and filters: https://docs.djangoproject.com/en/1.11/ref/templates/language.
