@@ -4,7 +4,7 @@ Themes
 Introduction
 ````````````
 
-RDMO is based on Django, which allows a high level of customization by modifying the Django *templates* as well as the *static assets* (CSS file, images, etc.). There is a powerful method by which the set of files getting imported can be changed. If you create a ``theme`` folder in your ``rdmo-app`` directory the framework will use the files in this folder and not their counterparts from the RDMO installation. By doing this you can override any template or static file you desire as long as you get the folder structure right. There are two ways to create a theme.
+RDMO is based on Django, which allows a high level of customization by modifying the Django *templates* as well as the *static assets* (CSS files, images, etc.). There is a powerful method by which the set of files getting imported can be changed. If you create a ``theme`` folder in your ``rdmo-app`` directory the framework will use the files in this folder and not their counterparts from the RDMO installation. By doing this you can override any template or static file you desire as long as you get the folder structure right. There are two ways to create a theme.
 
 Create manually
 ```````````````
@@ -37,7 +37,7 @@ There is a ``manage.py`` script to simplify the theme creation. The script will 
 Working with themes
 ```````````````````
 
-If you have completed these steps templates and static files in the ``theme`` directory are used instead of the original files as long as they have the same relative path, e.g. the template ``theme/templates/core/base_navigation.html`` overrides ``rdmo/core/templates/core/base_navigation.html`` from the original code.
+If you have completed the steps above templates and static files in the ``theme`` directory are used instead of the original files as long as they have the same relative path, e.g. the template ``theme/templates/core/base_navigation.html`` overrides ``rdmo/core/templates/core/base_navigation.html`` from the original code.
 
 Usually, the RDMO template files are located in the your virtual environment, e.g. ``/srv/rdmo/rdmo-app/env/lib/python2.7/site-packages/rdmo/core/static/core/css/variables.scss``. The exact path depends on your Python version and platform. We recomended to download the original files from the `rdmo repository <https://github.com/rdmorganiser/rdmo>`_ instead. For the example above, this would be https://raw.githubusercontent.com/rdmorganiser/rdmo/master/rdmo/core/static/core/css/variables.scss. Please make sure to use the raw files when downloading from github. If you accidentally grab the website's html source code RDMO will throw an error.
 
