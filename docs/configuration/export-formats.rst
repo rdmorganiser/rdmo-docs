@@ -18,7 +18,7 @@ RDMO supports exports to certain formats using the excellent `Pandoc <https://pa
 
 The different formats supported by Pandoc can be found `on the Pandoc homepage <https://pandoc.org/>`_.
 
-The page style and different other format settings can be adjusted using reference documents. Since Pandoc is used for document conversion you can find an exhaustive list of supported settings on the `Pandoc manual page <https://pandoc.org/MANUAL.html>`_ under the paragraph '--reference-doc'. Reference documents can be used for the export formats of .docx and .odt. This is achieved by defining reference documents in the ``config/settings/local.py``. If these settings are not in your config default styles will be applied.
+The page style and different other format settings can be adjusted using reference documents. Since Pandoc is used for document conversion you can find an exhaustive list of supported settings on the `Pandoc manual page <https://pandoc.org/MANUAL.html>`_ under the paragraph '--reference-doc'. Reference documents can be used for the export formats of ``.docx`` and ``.odt``. This is achieved by defining reference documents in the ``config/settings/local.py``. If these settings are not in your config default styles will be applied.
 
 .. code:: python
 
