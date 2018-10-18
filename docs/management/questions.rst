@@ -10,7 +10,7 @@ If there is at least one questionaire imported, it will be shown automatically. 
 
    Screenshot of the questions management interface.
 
-On the left-hand side is the main display of sections, subsections, and questions for the current catalog. For sections and subsections the title and the key is shown. For questions and question set the key and the key of the attribute or entity they are connected with is shown. The order of the different elements is the same as in the structured interview shown to the user. On the right side of each elements panel, icons indicate ways to interact the element. The following options are available:
+On the left-hand side is the main display of sections, subsections, and questions for the current catalog. For sections and subsections the title and the key is shown. For questions and question set the key and the key of the attribute they are connected to is shown. The order of the different elements is the same as in the structured interview shown to the user. On the right side of each elements panel, icons indicate ways to interact the element. The following options are available:
 
 * **Add** (|add|) a new subsection to a section, a new question or question set to a subsection or a new question to a questionset.
 * **Update** (|update|) an element to change its properties.
@@ -87,57 +87,99 @@ Title (de)
 Question sets
 """""""""""""
 
-Subsection
-  The subsection this question set belongs to. Changing the subsection will move the question set into another section.
+Tab General
+  Subsection
+    The subsection this question set belongs to. Changing the subsection will move the question set into another section.
 
-Order
-  Controls the position of the subsection in lists or in the interview.
+  Order
+    Controls the position of the subsection in lists or in the interview.
 
-Entity
-  The entity from the domain model this question set is connected to. Note that the way the question set is presented to the user is partly determined by the entity. A question connected to a collection entity will allow for answers for different sets.
+  Attribute
+    Indicates the attribute that the questionset is connected to
 
-Title (en)
-  The English title for the subsection to be displayed to the user.
+  Is Collection
+    Designates whether this questionset is a collection
 
-Title (de)
-  The German title for the subsection to be displayed to the user.
+Tab English
+  Name
+    The English name displayed for this question.
+
+  Help
+    The English help text for the question. The help text will be shown in grey to the user.
+
+  Plural name
+    English plural name displayed for this questions (e.g projects)
+
+*The German tab contains the same elements as the English one but obviously for German language content.*
+
+Tab Conditions
+  Conditions
+    Displays the conditions of the question set.
 
 
 Questions
 """""""""
 
-Subsection
-  The subsection this question belongs to. Changing the subsection will move the question set into another section.
+Tab General
+  Questionset
+    The questionset this question belongs to. Changing the subsection will move the question set into another section.
 
-Parent
-  The question set this question belongs to. This should be "- - -" for a question added directly to a subsection and not to a question set.
+  Order
+    Controls the position of the subsection in lists or in the interview.
 
-Order
-  Controls the position of the subsection in lists or in the interview.
+  Attribute
+    The attribute from the domain model this question is connected to. Note that the way the question is presented to the user is partly determined by the attribute. A question connected to an collection attribute will allow for more than one answer and shows an "Add item" button.
 
-Attribute
-  The attribute from the domain model this question is connected to. Note that the way the question is presented to the user is partly determined by the entity. A question connected to an collection entity will allow for more than one answer and shows an "Add item" button.
+  Is Collection
+    Designates whether this questionset is a collection
 
-Widget type
-  The type of widget for the question. The following widgets can be selected:
+  Widget type
+    The type of widget for the question. The following widgets can be selected:
 
-  * **Text** (a one line text field)
-  * **Textarea** (a multi-line text field)
-  * **Yes/No** (a set of radio buttons for "Yes" and "No")
-  * **Checkboxes** (a set of check boxes, the connected attribute needs to be a collection)
-  * **Radio Buttons** (a set of radio buttons, the connected attribute needs to have an option set)
-  * **Select drop down** (a drop down menu, the connected attribute needs to have an option set)
-  * **Range slider** (a horizontal slider, the connected attribute needs to have a range)
-  * **Date picker** (a drop down element with a calender to select a date, the connected attribute needs to have the value type datetime)
+    * **Text** (a one line text field)
+    * **Textarea** (a multi-line text field)
+    * **Yes/No** (a set of radio buttons for "Yes" and "No")
+    * **Checkboxes** (a set of check boxes, the connected attribute needs to be a collection)
+    * **Radio Buttons** (a set of radio buttons, the connected attribute needs to have an option set)
+    * **Select drop down** (a drop down menu, the connected attribute needs to have an option set)
+    * **Range slider** (a horizontal slider, the connected attribute needs to have a range)
+    * **Date picker** (a drop down element with a calender to select a date, the connected attribute needs to have the value type datetime)
 
-Text (en)
-  The English text for the question. The text will be shown in bold face to the user.
+  Value Type
+    Type of value for this attribute. The following types can be selected:
+    Text, URL, Integer, Float, Boolean, Datetime, Options
 
-Title (de)
-  The German text for the question. The text will be shown in bold face to the user.
+  Unit
+    Unit for this attribute. The unit will be displayed in the different output features.
 
-Help (en)
-  The English help text for the question. The help text will be shown in grey to the user.
+Tab English
+  Text
+    The English text for the question. The text will be shown in bold face to the user.
 
-Help (de)
-  The German help text for the question. The help text will be shown in grey to the user.
+  Name
+    The English name displayed for this question.
+
+  Help
+    The English help text for the question. The help text will be shown in grey to the user.
+
+  Plural name
+    English plural name displayed for this questions (e.g projects)
+
+*The German tab contains the same elements as the English one but obviously for German language content.*
+
+Tab Option sets and conditions
+  Option sets
+    Displays the option sets of the question set.
+
+  Conditions
+    Displays the conditions of the question set.
+
+Tab Range
+  Maximum
+    Maximum value for the answer of this question
+
+  Minimum
+    Minimum value for the answer of this question
+
+  Step
+    Step in which the value of the answer can be incremented or decremented
