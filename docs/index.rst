@@ -33,4 +33,3 @@ Warning: This software is currently under development and not production ready.
    administration/index
    management/index
    upgrade/index
-   development/index
