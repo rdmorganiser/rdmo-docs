@@ -1,7 +1,7 @@
 Export and Import
 -----------------
 
-RDMO offers export and import functions which are available in the right handed sidebar. The two categories offering the equally named functions do appear for every datatype (e.g. Questions, Domain, etc.). Note that these functions are context sensitive. If you for example use the ``Export`` or ``Import`` being in ``Tasks`` you can only ex- or import ``Tasks``. This is especially important to know for the import, because it will fail and display an error if you pick an xml file that does not contain the fitting content.
+RDMO offers export and import functions which are available in the right handed sidebar. The two categories offering the equally named functions do appear for every datatype (e.g. Questions, Domain, etc.). Note that these functions are context sensitive. If you for example use the ``Export`` or ``Import`` being in ``Tasks`` you can only ex- or import ``Tasks``. This is especially important to know for the import, because it will fail and display an error if you pick an xml file that does not contain fitting content.
 
 Export
 ``````
