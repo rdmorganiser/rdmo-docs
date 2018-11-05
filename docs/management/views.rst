@@ -85,9 +85,9 @@ Collections can be rendered using the ``for`` tag of the Django template syntax.
 .. code-block:: django
 
     <ul>
-    {% for keyword in 'project/research_question/keywords' %}
-        <li>{% render_value keyword %}</li>
-    {% endfor %}
+        {% for keyword in 'project/research_question/keywords' %}
+            <li>{% render_value keyword %}</li>
+        {% endfor %}
     </ul>
 
 Lists of multiple values can also be rendered.
@@ -103,9 +103,9 @@ For set entities, you can use:
 .. code-block:: django
 
     {% for dataset in 'project/dataset' %}
-    <p>
-        <i>Dataset {% render_set_value dataset 'project/dataset/id' %}:</i> {% 'project/dataset/usage_description' %}
-    </p>
+        <p>
+            <i>Dataset {% render_set_value dataset 'project/dataset/id' %}:</i> {% 'project/dataset/usage_description' %}
+        </p>
     {% endfor %}
 
 If you prefer to use innitially declared variables. Your code would look more like this.
@@ -113,9 +113,9 @@ If you prefer to use innitially declared variables. Your code would look more li
 .. code-block:: django
 
     {% for dataset in datasets %}
-    <p>
-        {% render_set_value dataset 'project/dataset/id' %}
-    </p>
+        <p>
+            {% render_set_value dataset 'project/dataset/id' %}
+        </p>
     {% endfor %}
 
 Values can be used if they meet certain conditions. If you want to display something based on a certain value being ``true`` you can for example do this. Note that there is an ``.is_false`` function as well which can be used just as the mentioned counterpart.

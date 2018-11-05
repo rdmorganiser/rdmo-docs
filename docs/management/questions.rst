@@ -110,7 +110,7 @@ Tab English
   Plural name
     English plural name displayed for this questions (e.g projects)
 
-*The German tab contains the same elements as the English one but obviously for German language content.*
+*The ``German`` tab contains the same elements as the English one but obviously for German language content.*
 
 Tab Conditions
   Conditions
