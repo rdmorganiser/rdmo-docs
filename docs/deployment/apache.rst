@@ -37,6 +37,7 @@ For Debian/Ubuntu use:
                 home=/srv/rdmo/rdmo-app python-home=/srv/rdmo/rdmo-app/env
             WSGIProcessGroup rdmo
             WSGIScriptAlias / /srv/rdmo/rdmo-app/config/wsgi.py process-group=rdmo
+            WSGIPassAuthorization On
 
             <Directory /srv/rdmo/rdmo-app/config/>
                 <Files wsgi.py>
@@ -64,6 +65,7 @@ for CentOS 7:
                 python-path=/srv/rdmo/rdmo-app:/srv/rdmo/rdmo-app/env/lib/python2.7/site-packages
             WSGIProcessGroup rdmo
             WSGIScriptAlias / /srv/rdmo/rdmo-app/config/wsgi.py process-group=rdmo
+            WSGIPassAuthorization On
 
             <Directory /srv/rdmo/rdmo-app/config/>
                 <Files wsgi.py>
