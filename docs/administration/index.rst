@@ -14,4 +14,4 @@ That being said, the admin interface is needed, especially after installation, t
    site
    users
    allauth
-   tokens
+   api
