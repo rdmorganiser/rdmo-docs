@@ -25,44 +25,46 @@ The RDMO API has the following endpoints.
 
 .. code-block:: none
 
-    /api/v1/accounts/users/
-    /api/v1/accounts/users/{id}/
-    /api/v1/conditions/conditions/
-    /api/v1/conditions/conditions/{id}/
+    /api/v1/accounts/users
+    /api/v1/accounts/users/{id}
 
-    /api/v1/domain/attributes/
-    /api/v1/domain/attributes/{id}/
-    /api/v1/domain/entities/
-    /api/v1/domain/entities/{id}/
+    /api/v1/conditions/conditions
+    /api/v1/conditions/conditions/{id}
 
-    /api/v1/options/options/
-    /api/v1/options/options/{id}/
-    /api/v1/options/optionsets/
-    /api/v1/options/optionsets/{id}/
+    /api/v1/domain/attributes
+    /api/v1/domain/attributes/{id}
+    /api/v1/domain/entities
+    /api/v1/domain/entities/{id}
 
-    /api/v1/projects/projects/
-    /api/v1/projects/projects/{id}/
-    /api/v1/projects/snapshots/
-    /api/v1/projects/snapshots/{id}/
-    /api/v1/projects/values/
-    /api/v1/projects/values/{id}/
+    /api/v1/options/options
+    /api/v1/options/optionsets
+    /api/v1/options/optionsets/{id}
+    /api/v1/options/options/{id}
 
-    /api/v1/questions/catalogs/
-    /api/v1/questions/catalogs/{id}/
-    /api/v1/questions/questions/
-    /api/v1/questions/questions/{id}/
-    /api/v1/questions/questionsets/
-    /api/v1/questions/questionsets/{id}/
-    /api/v1/questions/sections/
-    /api/v1/questions/sections/{id}/
-    /api/v1/questions/subsections/
-    /api/v1/questions/subsections/{id}/
+    /api/v1/projects/projects
+    /api/v1/projects/projects/{id}
+    /api/v1/projects/snapshots
+    /api/v1/projects/snapshots/{id}
+    /api/v1/projects/values
+    /api/v1/projects/values/{id}
 
-    /api/v1/tasks/tasks/
-    /api/v1/tasks/tasks/{id}/
+    /api/v1/questions/catalogs
+    /api/v1/questions/catalogs/{id}
+    /api/v1/questions/questions
+    /api/v1/questions/questionsets
+    /api/v1/questions/questionsets/{id}
+    /api/v1/questions/questions/{id}
+    /api/v1/questions/sections
+    /api/v1/questions/sections/{id}
+    /api/v1/questions/subsections
+    /api/v1/questions/subsections/{id}
 
-    /api/v1/views/views/
-    /api/v1/views/views/{id}/
+    /api/v1/tasks/tasks
+    /api/v1/tasks/tasks/{id}
+
+    /api/v1/views/views
+    /api/v1/views/views/{id}
+
 
 As you can see roughly the structure is determined by the element types of which data can be fetched. The ``{id}`` placeholder at the end of the URLs is indicating that an element ID can be provided to fetch data of a distinct single element. So basically we have to types of requests. The first returning lists of elements and the second returning single elements. Many of the endpoints provide multiple filter functions that are accessible using request parameters. If you for example would like to retrieve information about the admin user you could use ``?username=admin`` as filter parameter at the end of the url.
 
