@@ -7,7 +7,7 @@ A few general settings should be included in your ``config/settings/local.py``. 
 
     DEBUG = True
 
-In debug mode, verbose error pages are shown in the case something goes wrong and static assets such as CSS and JavaScript files are found by the development server automatically. The debug mode *must not* be enabled when running RDMO in production connected to the internet.
+In debug mode, verbose error pages are shown in the case something goes wrong and static assets such as CSS and JavaScript files are found by the development server automatically. The debug mode **must not** be enabled when running RDMO in production connected to the internet.
 
 Django needs a `secret key <https://docs.djangoproject.com/en/1.10/ref/settings/#std:setting-SECRET_KEY>`_, which "should be set to a unique, unpredictable value":
 

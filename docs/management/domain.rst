@@ -3,15 +3,14 @@ Domain
 
 The domain model can be managed under *Domain* in the management menu in the navigation bar.
 
+After the installation of RDMO the domain is initially empty. **We suggest that all RDMO operators initially import the domain model provided by the RDMO project.** Using a common domain over all RDMO instances allows us to exchange questionaires, views and other content, and could lead to a common metadata application profile for data management planning. Our domain is available at https://github.com/rdmorganiser/rdmo-catalog. The domain is meant to be extendable, but the core data model enables interoperability and cooperativity amongst RDMO instances and it is a good starting point to create questionaires.
+
 .. figure:: ../_static/img/screens/domain.png
    :target: ../_static/img/screens/domain.png
 
    Screenshot of the domain management interface.
 
-After the installation of RDMO the domain is initially empty. Please import our domain available at https://github.com/rdmorganiser/rdmo-catalog . Afterwards you can extend the domain, but the domain is the core data model which guarantess interoperability and cooperativity amongst diverse RDMO instances and it is always the starting point to create questionaires.
-
-
-On the left-hand side is the main display of all the attributes available in this installation of RDMO. The attributes display their path and if they are configured to be a collection. On the right side of each elements panel, icons indicate ways to interact the element. The following options are available:
+On the left-hand side is the main display of all the attributes available in this installation of RDMO. On the right side of each elements panel, icons indicate ways to interact the element. The following options are available:
 
 * **Add** (|add|) a new attribute.
 * **Update** (|update|) an attribute to change its properties.
@@ -32,13 +31,9 @@ The sidebar on the right-hand side shows additional interface items:
 
 The different elements of the domain model have different properties to control their behavior. As descibed in :doc:`the introduction <index>`, all elements have an URI Prefix, a key, and an internal comment only to be seen by other managers of the RDMO installation. In addition, you can edit the parameters below:
 
+
 Attribute
 """""""""
-An Attribute can be value or parent.
-
-If it is parent in the domain model changing it will move this parent and all of it's decendents to a different branch of the domain model tree. A question set connected to a parent attribute will show interface elements to create new sets of answers. All attributes in the tree below a collection attribute adopt this behavior, so that questions about the same set can be spread over several question sets on separate pages of the interview.
-
-Both types hold an information set which consists of different atoms.
 
 Parent attribute
-    indicates the parent attribute
+    Indicates the parent attribute in the domain model.
