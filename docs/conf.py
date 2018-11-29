@@ -21,6 +21,25 @@ RDMO_VERSION = '0.10.5'
 
 import sphinx_rtd_theme
 
+# -- Markdown dependencies and config -------------------------------------
+from recommonmark.parser import CommonMarkParser
+from recommonmark.transform import AutoStructify
+
+source_parsers = {
+    '.md': CommonMarkParser,
+}
+
+
+def setup(app):
+    app.add_config_value('recommonmark_config', {
+        # 'auto_toc_tree_section': 'Contents',
+        'enable_auto_toc_tree': False,
+        'enable_eval_rst': True,
+    }, True)
+    app.add_transform(AutoStructify)
+
+
+
 # -- General configuration ------------------------------------------------
 
 # If your documentation needs a minimal Sphinx version, state it here.
