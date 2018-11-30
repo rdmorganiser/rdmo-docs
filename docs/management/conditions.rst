@@ -1,7 +1,7 @@
 Conditions
 ----------
 
-Conditions can be created and managed under *Conditions* in the management menu in the navigation bar. They are later connected to Entities, Attributes, Option sets, or Tasks.
+Conditions can be created and managed under *Conditions* in the management menu in the navigation bar. They are later connected to Question sets, Option sets, or Tasks.
 
 .. figure:: ../_static/img/screens/conditions.png
    :target: ../_static/img/screens/conditions.png
@@ -29,7 +29,6 @@ Conditions have different properties to control their behavior. As described in 
 
 Condition
 """""""""
-
 Conditions are configured with a source attribute, which will be evaluated, a relation like "equal" or "greater than" and a target. The target is a text string or an option. As an example, if the source is the attribute ``project/legal_aspects/ipr/yesno``, the relation is "equal to", and the target text is "1", the condition will be true for a project where the answer to the question connected to the attribute ``project/legal_aspects/ipr/yesno`` is "1" (or "yes" for a yesno widget).
 
 Source
@@ -39,7 +38,7 @@ Relation
   The Relation this condition is using.
 
 Target (Text)
-  If using a regular attribute, the text value this condition is checking against.
+  If using a regular value, the text value this condition is checking against (for boolean values use 1 and 0).
 
 Target (Option)
-  If using an options attribute, the option this condition is checking against.
+  If using a value pointing to an option, the option this condition is checking against.

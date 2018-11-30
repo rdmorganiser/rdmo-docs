@@ -12,7 +12,7 @@ On the left-hand side is the main display of all the option sets and options ava
 
 * **Add** (|add|) a new option to an option set.
 * **Update** (|update|) an option set or option to change its properties.
-* **Update conditions** (|conditions|) of an option set. A question connected to an attribute, which is itself connected to an option set with one or more conditions, will not show the options of the set in the questionaire, if the condition is evaluated to be false. The conditions themselves are configured in :doc:`the conditions management <conditions>`.
+* **Update conditions** (|conditions|) of an option set. A question connected to an option set with one or more conditions, will not show the options of the set in the questionaire, if the condition is evaluated to be false. The conditions themselves are configured in :doc:`the conditions management <conditions>`.
 * **Delete** (|delete|) an option set or option and, in the case of an option set, all of it's options. **This action cannot be undone!**
 
 .. |add| image:: ../_static/img/icons/add.png
@@ -32,11 +32,13 @@ The sidebar on the right shows additional interface items:
 
 Option sets and options model have different properties to control their behavior. As descibed in :doc:`the introduction <index>`, all elements have an URI Prefix, a key, and an internal comment only to be seen by other managers of the RDMO installation. In addition, you can edit the parameters below:
 
+
 Option set
 """"""""""
 
 Order
   Controls the position of the option set in lists or in the interview (if an attribute has more than one option set).
+
 
 Option
 """"""

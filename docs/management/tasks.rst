@@ -52,7 +52,6 @@ Time frame
 Start date attribute
   The attribute that sets the start date for this task. The attribute needs to be of value type *datetime*.
 
-
 End date attribute
   The Attribute that sets the end date for this task (optional, if no end date attribute is given, the start date attribute sets also the end date). The attribute needs to be of value type *datetime*.
 

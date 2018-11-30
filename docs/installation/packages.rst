@@ -3,7 +3,7 @@ Install python packages
 
 After you have obtained the ``rdmo-app``, you need to install the ``rdmo`` package and the other python dependencies.
 
-Change to the ``rdmo-app`` directory and create a `virtualenv <https://virtualenv.readthedocs.org>`_ (this is done as your user or the created ``rdmo`` user, not as ``root``):
+Change to the ``rdmo-app`` directory and create a `Virtual Environment <https://docs.python.org/3/tutorial/venv.html>`_ (this is done as your user or the created ``rdmo`` user, not as ``root``):
 
 .. code:: bash
 

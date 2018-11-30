@@ -12,7 +12,7 @@ You can use ``config/settings/sample.local.py`` as template, i.e.:
 
 Most of the settings of your RDMO instance are specified in this file. The different settings are explained in detail :doc:`later in the documentation </configuration/index>`. For a minimal configuration, you need to set ``DEBUG = True`` to see verbose error messages and serve static files, and ``SECRET_KEY`` to a long random string, which you will keep secret. Your database connection is configured using the ``DATABASES`` variable. Database configuration is covered :doc:`later in the documentation </configuration/databases>`. If no ``DATABASE`` setting is given ``sqlite3`` will be used as database backend.
 
-Then, initialize the database of the application, using:
+Then, initialize the application, using:
 
 .. code:: bash
 
@@ -27,4 +27,4 @@ After these steps, RDMO can be run using Djangos intergrated development server:
 
     python manage.py runserver
 
-Then, RDMO is available on http://127.0.0.1:8000 in your (local) browser. The different ways RDMO can be deployed are covered in the next chapter.
+Then, RDMO is available on http://127.0.0.1:8000 in your (local) browser. The different ways RDMO can be deployed are covered in the next chapter. The newly installed RDMO instance is still empty, i.e. no questionaire or views are available. They need to be :doc:`imported </management/export>` and/or created as described under :doc:`Management </management/index>`.

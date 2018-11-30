@@ -17,7 +17,7 @@ Then, test ``gunicorn`` using:
 
 This should serve the application like ``runserver``, but without the static assets, like CSS files and images. After the test kill the ``gunicorn`` process again.
 
-Now, create a systemd service file for RDMO. Systemd will launch the gunicorn process on startup and keep running. Create a new file in `/etc/systemd/system/rdmo.service` and enter (you will need root/sudo permissions for that):
+Systemd will launch the gunicorn process on startup and keep running. Create a new systemd service file in `/etc/systemd/system/rdmo.service` and enter (you will need root/sudo permissions for that):
 
 ::
 
@@ -29,7 +29,8 @@ Now, create a systemd service file for RDMO. Systemd will launch the gunicorn pr
     User=rdmo
     Group=rdmo
     WorkingDirectory=/srv/rdmo/rdmo-app
-    ExecStart=/srv/rdmo/rdmo-app/env/bin/gunicorn --bind unix:/srv/rdmo/rdmo.sock config.wsgi:application
+    ExecStart=/srv/rdmo/rdmo-app/env/bin/gunicorn \
+        --bind unix:/srv/rdmo/rdmo.sock config.wsgi:application
 
     [Install]
     WantedBy=multi-user.target
@@ -41,7 +42,7 @@ This service needs to be started and enabled like any other service:
     sudo systemctl start rdmo
     sudo systemctl enable rdmo
 
-Next, install nginx
+Next, install nginx:
 
 .. code:: bash
 
