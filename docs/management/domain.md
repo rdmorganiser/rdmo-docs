@@ -4,12 +4,8 @@ The domain model can be managed under *Domain* in the management menu in the nav
 
 After the installation of RDMO the domain is initially empty. **We suggest that all RDMO operators initially import the domain model provided by the RDMO project.** Using a common domain over all RDMO instances allows us to exchange questionaires, views and other content, and could lead to a common metadata application profile for data management planning. Our domain is available at https://github.com/rdmorganiser/rdmo-catalog. The domain is meant to be extendable, but the core data model enables interoperability and cooperativity amongst RDMO instances and it is a good starting point to create questionaires.
 
-```eval_rst
-.. figure:: ../_static/img/screens/domain.png
-   :target: ../_static/img/screens/domain.png
-
-   Screenshot of the domain management interface.
-```
+![](/_static/img/screens/domain.png)
+> *Screenshot of the domain management interface*
 
 On the left-hand side is the main display of all the attributes available in this installation of RDMO. On the right side of each elements panel, icons indicate ways to interact the element. The following options are available:
 

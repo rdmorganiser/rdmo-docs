@@ -4,12 +4,8 @@ The questions management is available under *Questions* in the management menu i
 
 If there is at least one questionaire imported, it will be shown automatically. Other catalogs can be selected in the sidebar on the right-hand side afterwards.
 
-```eval_rst
-.. figure:: ../_static/img/screens/questions.png
-   :target: ../_static/img/screens/questions.png
-
-   Screenshot of the questions management interface.
-```
+![](/_static/img/screens/questions.png)
+> *Screenshot of the questions management interface*
 
 On the left-hand side is the main display of sections, questionsets, and questions for the current catalog. For sections and questionsets the title and the key is shown. For questions and question set the key and the key of the attribute they are connected to is shown. The order of the different elements is the same as in the structured interview shown to the user. On the right side of each elements panel, icons indicate ways to interact the element. The following options are available:
 

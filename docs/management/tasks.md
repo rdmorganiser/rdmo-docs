@@ -2,12 +2,8 @@
 
 Tasks can be configured under *Tasks* in the management menu in the navigation bar.
 
-```eval_rst
-.. figure:: ../_static/img/screens/tasks.png
-   :target: ../_static/img/screens/tasks.png
-
-   Screenshot of the tasks management interface.
-```
+![](/_static/img/screens/tasks.png)
+> *Screenshot of the tasks management interface*
 
 On the left-hand side is the main display of all the tasks available in this installation of RDMO. Tasks show their key, title and the text describing the task. On the right side of each tasks panel, icons indicate ways to interact the element. The following options are available:
 

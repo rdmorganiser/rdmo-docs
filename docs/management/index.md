@@ -2,12 +2,8 @@
 
 A freshly installed instance of RDMO is not very useful without a questionaire to fill out by the user and a set of DMP templates later to be populated by the given answers. The main idea of RDMO is that every question and every output can be customized by you. This, however, introduces a certain level of complexity. RDMO employs a datamodel organized along different Django apps and models (representing database tables). A graphical overview is given in the figure below:
 
-```eval_rst
-.. figure:: ../_static/img/datamodel.svg
-   :target: ../_static/img/datamodel.svg
-
-   Overview of the RDMO data model.
-```
+![](/_static/img/datamodel.svg)
+> *Overview of the RDMO data model*
 
 Here, we explain the different parts of the data model. Each section has a link to a more detailed explanation how to create and edit the relevant elements.
 

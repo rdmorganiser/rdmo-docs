@@ -2,12 +2,8 @@
 
 Options and option sets can be managed under *Options* in the management menu in the navigation bar.
 
-```eval_rst
-.. figure:: ../_static/img/screens/options.png
-   :target: ../_static/img/screens/options.png
-
-   Screenshot of the options management interface.
-```
+![](/_static/img/screens/options.png)
+> *Screenshot of the options management interface*
 
 On the left-hand side is the main display of all the option sets and options available in this installation of RDMO. Option sets show their key, while options show their path and their text. On the right side of each elements panel, icons indicate ways to interact the element. The following options are available:
 
