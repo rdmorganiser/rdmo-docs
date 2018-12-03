@@ -47,7 +47,7 @@ The different elements of the questionaire have different properties to control 
 |Name|Explanation|
 |-|-|
 |Catalog|The catalog this section belongs to. Changing the catalog will<br>move the section to a different catalog. Therefore it will not<br>be visible in the current view anymore|
-|Order|Controls the position of the section in lists or in the interview.|
+|Order|Controls the position of the section in lists or in the interview|
 |Title (en)|The English title for the section to be displayed to the user|
 |Title (de)|The German title for the section to be displayed to the user|
 
@@ -57,14 +57,14 @@ The different elements of the questionaire have different properties to control 
 |Name|Explanation|
 |-|-|
 |**Tab General**||
-|Section|The section this question set belongs to. Changing the section<br>will move the question set into another section.|
-|Order|Controls the position of the question set in lists or in the interview.|
-|Attribute|Indicates the attribute that the questionset is connected to. Only used, if<br>**Is collection** is activated.|
-|Is collection|Designates whether this question set allows for seperate answers for different<br>sets (e.g. datasets, project partners).|
+|Section|The section this question set belongs to. Changing the section<br>will move the question set into another section|
+|Order|Controls the position of the question set in lists or in the interview|
+|Attribute|Indicates the attribute that the questionset is connected to. Only used, if<br>**Is collection** is activated|
+|Is collection|Designates whether this question set allows for seperate answers for different<br>sets (e.g. datasets, project partners)|
 |**Tab English**||
-|Help|The English help text for the question. The help text will be shown in grey to the user.|
-|Name|The English name displayed for the sets, if **Is collection** is activated (e.g. dataset).|
-|Plural name|English plural name displayed for the sets, if **Is collection** is activated (e.g. datasets).|
+|Help|The English help text for the question. The help text will be shown in grey to the user|
+|Name|The English name displayed for the sets, if **Is collection** is activated (e.g. dataset)|
+|Plural name|English plural name displayed for the sets, if **Is collection** is activated (e.g. datasets)|
 |**Tab German**|*contains the same elements as the English one but obviously for German language content*|
 |**Tab Conditions**|
 |Conditions|Displays the conditions of the question set. If **all** select ted Conditions evaluate<br>negative, the question set is skipped in the Interview|
@@ -74,10 +74,10 @@ The different elements of the questionaire have different properties to control 
 |Name|Explanation|
 |-|-|
 |**Tab General**||
-|Question set|The question set this question belongs to. Changing the question set will move the<br>question into another question set.|
-|Order|Controls the position of the question in lists or in the interview.|
-|Attribute|The attribute from the domain model this question is connected to. The answers<br>of the users will be connected to this attribute in the database and tasks and<br>views reference answers using their attribute.|
-|Is collection|Designates whether this question allows for multiple answers. In this case additional<br>interface elements are added to the interview to add or remove answers.|
+|Question set|The question set this question belongs to. Changing the question set will move the<br>question into another question set|
+|Order|Controls the position of the question in lists or in the interview|
+|Attribute|The attribute from the domain model this question is connected to. The answers<br>of the users will be connected to this attribute in the database and tasks and<br>views reference answers using their attribute|
+|Is collection|Designates whether this question allows for multiple answers. In this case additional<br>interface elements are added to the interview to add or remove answers|
 |Widget type|The type of widget for the question. The following widgets can be selected:<br>- **Text** (a one line text field)<br>- **Textarea** (a multi-line text field)<br>- **Yes/No** (a set of radio buttons for "Yes" and "No")<br>- **Checkboxes** (a set of check boxes, the connected attribute needs to be a collection)<br>- **Radio Buttons** (a set of radio buttons, the connected attribute<br>&nbsp;&nbsp;needs to have an option set)<br>- **Select drop down** (a drop down menu, the connected attribute needs to<br>&nbsp;&nbsp;have an option set)<br>- **Range slider** (a horizontal slider, the connected attribute needs to have a range)<br>- **Date picker** (a drop down element with a calender to select a date,<br>&nbsp;&nbsp;the connected attribute needs to have the value type datetime)|
 |Value Type|Type of value for this attribute. The following types can be<br>selected: Text, URL, Integer, Float, Boolean, Datetime, Options|
 |Unit|Unit for this attribute. The unit will be displayed in the different output features|
