@@ -30,5 +30,6 @@ The different elements of the domain model have different properties to control 
 
 ## Parameters
 
-### Parent attribute
-Indicates the parent attribute in the domain model.
+|Name|Explanation|
+|-|-|
+|Parent attribute|Indicates the parent attribute in the domain model|

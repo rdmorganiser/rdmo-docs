@@ -9,13 +9,13 @@ The user created in the installation process can access all features of RDMO. In
 During the installation, the `./manage create-groups` command created 3 groups:
 
 ### Editor
-Users of the group editor can access the :doc:`management interface </management/index>` and can edit all elements of the data model, except the user data entered through the structured inteview.
+Users of the group editor can access the [management interface](/management/index.html) and can edit all elements of the data model, except the user data entered through the structured inteview.
 
 ### Reviewer
-Users of the group reviewer can access the :doc:`management interface </management/index>`, like editors, but are not allowed to change them (Save will not work). This group can be used to demonstrate the management backend of RDMO to certain users.
+Users of the group reviewer can access the [management interface](/management/index.html), like editors, but are not allowed to change them (Save will not work). This group can be used to demonstrate the management backend of RDMO to certain users.
 
 ### API
-Users of the group api can use the programmable API to access all elements of the data model. They will need a :doc:`token <tokens>` to use an api client.
+Users of the group api can use the programmable API to access all elements of the data model. They will need a [token](/administration/api.html#authentication) to use an api client.
 
 Existing users can be assigned to these groups to gain access to these functions:
 
