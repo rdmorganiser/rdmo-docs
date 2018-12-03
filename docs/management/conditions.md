@@ -23,21 +23,17 @@ The sidebar on the right shows additional interface items:
 
 * **Export** exports the conditions to one of the displayed formats. While the textual formats are mainly for presentation purposes, the XML export can be used to transfer the conditions to a different installation of RDMO.
 
-Conditions have different properties to control their behavior. As described in :doc:`the introduction <index>`, all elements have an URI Prefix, a key, and an internal comment only to be seen by other managers of the RDMO installation. In addition, you can edit the parameters below.
+Conditions have different properties to control their behavior. As described in [the introduction](/index.html), all elements have an URI Prefix, a key, and an internal comment only to be seen by other managers of the RDMO installation. In addition, you can edit the parameters below.
 
 ## Configuration
 
 Conditions are configured with a source attribute, which will be evaluated, a relation like "equal" or "greater than" and a target. The target is a text string or an option. As an example, if the source is the attribute `project/legal_aspects/ipr/yesno`, the relation is "equal to", and the target text is "1", the condition will be true for a project where the answer to the question connected to the attribute `project/legal_aspects/ipr/yesno` is "1" (or "yes" for a yesno widget).
 
 ## Parameters
-### Source
-The Attribute this condition is evaluating.
 
-### Relation
-The Relation this condition is using.
-
-### Target (Text)
-If using a regular value, the text value this condition is checking against (for boolean values use 1 and 0).
-
-### Target (Option)
-If using a value pointing to an option, the option this condition is checking against.
+|Name|Explanation|
+|-|-|
+|Source|The Attribute this condition is evaluating|
+|Relation|The Relation this condition is using|
+|Target (Text)|If using a regular value, the text value this condition<br>is checking against (for boolean values use 1 and 0)|
+|Target (Option)|If using a value pointing to an option, the option<br>this condition is checking against|

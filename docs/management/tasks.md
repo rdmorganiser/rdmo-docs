@@ -12,7 +12,7 @@ Tasks can be configured under *Tasks* in the management menu in the navigation b
 On the left-hand side is the main display of all the tasks available in this installation of RDMO. Tasks show their key, title and the text describing the task. On the right side of each tasks panel, icons indicate ways to interact the element. The following options are available:
 
 * **Update** (![](/_static/img/icons/update.png)) a task to change its properties.
-* **Update conditions** (![](/_static/img/icons/conditions.png)) of a task. A task will only be shown to the user, if all of its conditions are evaluated `True`. The conditions themselved are configured in :doc:`the conditions management <conditions>`.
+* **Update conditions** (![](/_static/img/icons/conditions.png)) of a task. A task will only be shown to the user, if all of its conditions are evaluated `True`. The conditions themselved are configured in [the conditions management](/management/conditions.html).
 * **Update the time frame** (![](/_static/img/icons/timeframe.png)) of a task. The time frame is constructed from one or two dates from the user's answers. This allows for tasks about a specific deadline or special period.
 * **Delete** (![](/_static/img/icons/delete.png)) a task. **This action cannot be undone!**
 
@@ -25,33 +25,24 @@ The sidebar on the right-hand side shows additional interface items:
 
 * **Export** exports the conditions to one of the displayed formats. While the textual formats are mainly for presentation purposes, the XML export can be used to transfer the tasks to a different installation of RDMO.
 
-Tasks have different properties to control their behavior. As descibed in :doc:`the introduction <index>`, all elements have an URI Prefix, a key, and an internal comment only to be seen by other managers of the RDMO installation. In addition, you can edit the parameters below:
+Tasks have different properties to control their behavior. As descibed in [the introduction](/index.html), all elements have an URI Prefix, a key, and an internal comment only to be seen by other managers of the RDMO installation. In addition, you can edit the parameters below:
 
 ## Parameters
+
 ### Task
 
-#### Title (en)
-The English title for the view. The title will be shown in the projects overview.
-
-#### Title (de)
-The German title for the view. The title will be shown in the projects overview.
-
-#### Text (en)
-The English text for the view. The text will be shown in the projects overview.
-
-#### Text (de)
-The German text for the view. The text will be shown in the projects overview.
+|Name|Explanation|
+|-|-|
+|Title (en)|The English title for the view. The title will be shown in the projects overview|
+|Title (de)|The German title for the view. The title will be shown in the projects overview|
+|Text (en)|The English text for the view. The text will be shown in the projects overview|
+|Text (de)|The German text for the view. The text will be shown in the projects overview|
 
 ### Time frame
 
-#### Start date attribute
-The attribute that sets the start date for this task. The attribute needs to be of value type *datetime*.
-
-#### End date attribute
-The Attribute that sets the end date for this task (optional, if no end date attribute is given, the start date attribute sets also the end date). The attribute needs to be of value type *datetime*.
-
-#### Days before
-Additional days before the start date.
-
-#### Days after
-Additional days after the end date.
+|Name|Explanation|
+|-|-|
+|Start date attribute|The attribute that sets the start date for this task. The attribute<br>needs to be of value type *datetime*|
+|End date attribute|The Attribute that sets the end date for this task (optional, if no<br>end date attribute is given, the start date attribute sets also the end date).<br>The attribute needs to be of value type *datetime*|
+|Days before|Additional days before the start date|
+|Days after|Additional days after the end date|

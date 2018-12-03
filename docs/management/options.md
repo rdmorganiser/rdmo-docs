@@ -26,28 +26,21 @@ The sidebar on the right shows additional interface items:
 
 * **Export** exports the options sets to one of the displayed formats. While the textual formats are mainly for presentation purposes, the XML export can be used to transfer the options sets to a different installation of RDMO.
 
-Option sets and options model have different properties to control their behavior. As descibed in :doc:`the introduction <index>`, all elements have an URI Prefix, a key, and an internal comment only to be seen by other managers of the RDMO installation. In addition, you can edit the parameters below:
+Option sets and options model have different properties to control their behavior. As descibed in [the introduction](/index.html), all elements have an URI Prefix, a key, and an internal comment only to be seen by other managers of the RDMO installation. In addition, you can edit the parameters below:
 
 ## Parameters
 ### Option set
 
-#### Order
-Controls the position of the option set in lists or in the interview (if an attribute has more than one option set).
-
+|Name|Explanation|
+|-|-|
+|Order|Controls the position of the option set in lists or in the<br>interview (if an attribute has more than one option set)|
 
 ### Option
 
-#### Option set
-The option set this option belongs to. Changing the option set will move the option to a different option set.
-
-#### Order
-Controls the position of the option in lists or in the interview.
-
-#### Text (en)
-The English text for the option to be displayed to the user.
-
-#### Text (de)
-The German text for the option to be displayed to the user.
-
-#### Additional input
-Designates whether an additional input is possible for this option. In this case a text box is displayed to the radio button or check box. Usually this is used for an option "Other".
+|Name|Explanation|
+|-|-|
+|Option set|The option set this option belongs to. Changing the<br>option set will move the option to a different option set
+|Order|Controls the position of the option in lists or in the interview
+|Text (en)|The English text for the option to be displayed to the user
+|Text (de)|The German text for the option to be displayed to the user
+|Additional input|Designates whether an additional input is possible for this<br>option. In this case a text box is displayed to the radio button<br>or check box. Usually this is used for an option "Other".
