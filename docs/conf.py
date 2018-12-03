@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-RDMO_VERSION = '0.10.5'
+RDMO_VERSION = '0.11'
 
 # RDMO Documentation documentation build configuration file, created by
 # sphinx-quickstart on Fri Mar  3 11:25:56 2017.
@@ -37,7 +37,6 @@ def setup(app):
         'enable_eval_rst': True,
     }, True)
     app.add_transform(AutoStructify)
-
 
 
 # -- General configuration ------------------------------------------------
