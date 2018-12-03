@@ -1,5 +1,4 @@
-Administration
-==============
+# Administration
 
 The Django framework offers a rich administration (or short admin) interface, which allows you to directly manipulate most of the entries in the database directly. Obviously, only users with the correct permissions are allowed to use this interface. The user created during the installation process using ``./manage.py createsuperuser`` has this *superuser* status.
 
@@ -7,11 +6,12 @@ The admin interface is available under the link *Admin* in the navigation bar. I
 
 That being said, the admin interface is needed, especially after installation, to set the title and URL of the :doc:`site <site>`, to configure :doc:`users and groups <users>`, to configure the connection to :doc:`OAUTH providers <allauth>`, and to create :doc:`tokens <tokens>` to be used with the API.
 
+```eval_rst
 .. toctree::
-   :caption: Index
    :maxdepth: 2
 
    site
    users
    allauth
    api
+```

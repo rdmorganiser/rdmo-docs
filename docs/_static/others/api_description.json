@@ -5,7 +5,7 @@
         "description": "",
         "version": ""
     },
-    "host": "rdmo",
+    "host": "localhost",
     "schemes": ["http"],
     "paths": {
         "/api/v1/accounts/users/": {
@@ -252,84 +252,6 @@
                     "in": "query"
                 }],
                 "operationId": "attributes_read"
-            }
-        },
-        "/api/v1/domain/entities/": {
-            "get": {
-                "tags": ["domain"],
-                "responses": {
-                    "200": {
-                        "description": ""
-                    }
-                },
-                "parameters": [{
-                    "description": "",
-                    "required": false,
-                    "type": "string",
-                    "name": "uri",
-                    "in": "query"
-                }, {
-                    "description": "",
-                    "required": false,
-                    "type": "string",
-                    "name": "path",
-                    "in": "query"
-                }, {
-                    "description": "",
-                    "required": false,
-                    "type": "string",
-                    "name": "key",
-                    "in": "query"
-                }, {
-                    "description": "",
-                    "required": false,
-                    "type": "string",
-                    "name": "parent",
-                    "in": "query"
-                }],
-                "operationId": "entities_list"
-            }
-        },
-        "/api/v1/domain/entities/{id}/": {
-            "get": {
-                "tags": ["domain"],
-                "responses": {
-                    "200": {
-                        "description": ""
-                    }
-                },
-                "parameters": [{
-                    "description": "A unique integer value identifying this Attribute entity.",
-                    "required": true,
-                    "type": "integer",
-                    "name": "id",
-                    "in": "path"
-                }, {
-                    "description": "",
-                    "required": false,
-                    "type": "string",
-                    "name": "uri",
-                    "in": "query"
-                }, {
-                    "description": "",
-                    "required": false,
-                    "type": "string",
-                    "name": "path",
-                    "in": "query"
-                }, {
-                    "description": "",
-                    "required": false,
-                    "type": "string",
-                    "name": "key",
-                    "in": "query"
-                }, {
-                    "description": "",
-                    "required": false,
-                    "type": "string",
-                    "name": "parent",
-                    "in": "query"
-                }],
-                "operationId": "entities_read"
             }
         },
         "/api/v1/options/options/": {
@@ -818,13 +740,7 @@
                     "description": "",
                     "required": false,
                     "type": "string",
-                    "name": "subsection",
-                    "in": "query"
-                }, {
-                    "description": "",
-                    "required": false,
-                    "type": "string",
-                    "name": "parent",
+                    "name": "questionset",
                     "in": "query"
                 }],
                 "operationId": "questions_list"
@@ -866,13 +782,7 @@
                     "description": "",
                     "required": false,
                     "type": "string",
-                    "name": "subsection",
-                    "in": "query"
-                }, {
-                    "description": "",
-                    "required": false,
-                    "type": "string",
-                    "name": "parent",
+                    "name": "questionset",
                     "in": "query"
                 }],
                 "operationId": "questions_read"
@@ -908,7 +818,7 @@
                     "description": "",
                     "required": false,
                     "type": "string",
-                    "name": "subsection",
+                    "name": "section",
                     "in": "query"
                 }],
                 "operationId": "questionsets_list"
@@ -923,7 +833,7 @@
                     }
                 },
                 "parameters": [{
-                    "description": "A unique integer value identifying this Question entity.",
+                    "description": "A unique integer value identifying this Question set.",
                     "required": true,
                     "type": "integer",
                     "name": "id",
@@ -950,7 +860,7 @@
                     "description": "",
                     "required": false,
                     "type": "string",
-                    "name": "subsection",
+                    "name": "section",
                     "in": "query"
                 }],
                 "operationId": "questionsets_read"
@@ -1032,84 +942,6 @@
                     "in": "query"
                 }],
                 "operationId": "sections_read"
-            }
-        },
-        "/api/v1/questions/subsections/": {
-            "get": {
-                "tags": ["questions"],
-                "responses": {
-                    "200": {
-                        "description": ""
-                    }
-                },
-                "parameters": [{
-                    "description": "",
-                    "required": false,
-                    "type": "string",
-                    "name": "uri",
-                    "in": "query"
-                }, {
-                    "description": "",
-                    "required": false,
-                    "type": "string",
-                    "name": "path",
-                    "in": "query"
-                }, {
-                    "description": "",
-                    "required": false,
-                    "type": "string",
-                    "name": "key",
-                    "in": "query"
-                }, {
-                    "description": "",
-                    "required": false,
-                    "type": "string",
-                    "name": "section",
-                    "in": "query"
-                }],
-                "operationId": "subsections_list"
-            }
-        },
-        "/api/v1/questions/subsections/{id}/": {
-            "get": {
-                "tags": ["questions"],
-                "responses": {
-                    "200": {
-                        "description": ""
-                    }
-                },
-                "parameters": [{
-                    "description": "A unique integer value identifying this Subsection.",
-                    "required": true,
-                    "type": "integer",
-                    "name": "id",
-                    "in": "path"
-                }, {
-                    "description": "",
-                    "required": false,
-                    "type": "string",
-                    "name": "uri",
-                    "in": "query"
-                }, {
-                    "description": "",
-                    "required": false,
-                    "type": "string",
-                    "name": "path",
-                    "in": "query"
-                }, {
-                    "description": "",
-                    "required": false,
-                    "type": "string",
-                    "name": "key",
-                    "in": "query"
-                }, {
-                    "description": "",
-                    "required": false,
-                    "type": "string",
-                    "name": "section",
-                    "in": "query"
-                }],
-                "operationId": "subsections_read"
             }
         },
         "/api/v1/tasks/tasks/": {

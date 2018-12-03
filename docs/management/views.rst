@@ -53,7 +53,7 @@ Template
 
    Screenshot of the template modal.
 
-Each view has a template, which determines how the answers given by the user are mapped to a textual document. The template is composed using the `Django template <https://docs.djangoproject.com/en/1.11/ref/templates/language/>`_ syntax, which is a combination of regular HTML, variables, which get replaced with values when the template is evaluated (``{{ a_variable }}``), and tags, which control the logic of the template (``{% a_tag %}``).
+Each view has a template, which determines how the answers given by the user are mapped to a textual document. The template is composed using the [Django template](https://docs.djangoproject.com/en/1.11/ref/templates/language/) syntax, which is a combination of regular HTML, variables, which get replaced with values when the template is evaluated (``{{ a_variable }}``), and tags, which control the logic of the template (``{% a_tag %}``).
 
 In the first line of the view template you will find the load command for the available view tags. It makes the logic of the template available and should always be there.
 
