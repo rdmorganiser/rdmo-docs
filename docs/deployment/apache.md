@@ -81,7 +81,7 @@ python manage.py collectstatic
 
 in your virtual environment.
 
-In order to apply changes to the RDMO code (e.g. after an [upgrade](/upgrade/index.html)), the webserver
+In order to apply changes to the RDMO code (e.g. after an [upgrade](../../upgrade/index.html)), the webserver
 needs to be reloaded or the `config/wsgi.py` file needs to appear modified. This can be done using the `touch` command:
 
 ```bash
