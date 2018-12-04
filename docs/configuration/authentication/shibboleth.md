@@ -49,7 +49,7 @@ In your Apache2 virtual host configuration, add:
 <Location /Shibboleth.sso>
     SetHandler shib
 </Location>
-<LocationMatch /(account|domain|options|projects|questions|tasks|conditions|views)>
+<LocationMatch ^/(account|domain|options|projects|questions|tasks|conditions|views)>
     AuthType shibboleth
     require shibboleth
     ShibRequireSession On
