@@ -53,7 +53,7 @@ brew install texlive
 ```
 
 
-# Windows
+## Windows
 
 On Windows, the software prerequisites need to be downloaded and installed from their particular web sites.
 
