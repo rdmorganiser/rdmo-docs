@@ -17,7 +17,7 @@ Next, create a virtual host configuration. Unfortunately, the different distribu
 
 For Debian/Ubuntu in `/etc/apache2/sites-available/000-default.conf` use:
 
-```xml
+```
 <VirtualHost *:80>
     ServerAdmin webmaster@localhost
     DocumentRoot /var/www/html
@@ -46,7 +46,7 @@ For Debian/Ubuntu in `/etc/apache2/sites-available/000-default.conf` use:
 
 for CentOS 7 in `/etc/httpd/conf.d/vhosts.conf` use:
 
-```xml
+```
 <VirtualHost *:80>
     ServerAdmin webmaster@localhost
 

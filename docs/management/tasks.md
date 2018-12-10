@@ -2,15 +2,15 @@
 
 Tasks can be configured under *Tasks* in the management menu in the navigation bar.
 
-![](../../_static/img/screens/tasks.png)
+![](../_static/img/screens/tasks.png)
 > *Screenshot of the tasks management interface*
 
 On the left-hand side is the main display of all the tasks available in this installation of RDMO. Tasks show their key, title and the text describing the task. On the right side of each tasks panel, icons indicate ways to interact the element. The following options are available:
 
-* **Update** (![](../../_static/img/icons/update.png)) a task to change its properties.
-* **Update conditions** (![](../../_static/img/icons/conditions.png)) of a task. A task will only be shown to the user, if all of its conditions are evaluated `True`. The conditions themselved are configured in [the conditions management](../../management/conditions.html).
-* **Update the time frame** (![](../../_static/img/icons/timeframe.png)) of a task. The time frame is constructed from one or two dates from the user's answers. This allows for tasks about a specific deadline or special period.
-* **Delete** (![](../../_static/img/icons/delete.png)) a task. **This action cannot be undone!**
+* **Update** (![](../_static/img/icons/update.png)) a task to change its properties.
+* **Update conditions** (![](../_static/img/icons/conditions.png)) of a task. A task will only be shown to the user, if all of its conditions are evaluated `True`. The conditions themselved are configured in [the conditions management](../../management/conditions.html).
+* **Update the time frame** (![](../_static/img/icons/timeframe.png)) of a task. The time frame is constructed from one or two dates from the user's answers. This allows for tasks about a specific deadline or special period.
+* **Delete** (![](../_static/img/icons/delete.png)) a task. **This action cannot be undone!**
 
 The sidebar on the right-hand side shows additional interface items:
 

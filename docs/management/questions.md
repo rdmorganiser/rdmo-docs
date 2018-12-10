@@ -4,15 +4,15 @@ The questions management is available under *Questions* in the management menu i
 
 If there is at least one questionaire imported, it will be shown automatically. Other catalogs can be selected in the sidebar on the right-hand side afterwards.
 
-![](../../_static/img/screens/questions.png)
+![](../_static/img/screens/questions.png)
 > *Screenshot of the questions management interface*
 
 On the left-hand side is the main display of sections, questionsets, and questions for the current catalog. For sections and questionsets the title and the key is shown. For questions and question set the key and the key of the attribute they are connected to is shown. The order of the different elements is the same as in the structured interview shown to the user. On the right side of each elements panel, icons indicate ways to interact the element. The following options are available:
 
-* **Add** (![](../../_static/img/icons/add.png)) a new section, a new questionset, or a new question.
-* **Update** (![](../../_static/img/icons/update.png)) an element to change its properties.
-* **Copy** (![](../../_static/img/icons/copy.png)) a question or questionset. This will open the same modal as update. You can change some of the properties and save the elememt as a new one. This can save time when creating several similar questions.
-* **Delete** (![](../../_static/img/icons/delete.png)) an element and all of it's decendents (e.g. a question set and all the questions it contains). **This action cannot be undone!**
+* **Add** (![](../_static/img/icons/add.png)) a new section, a new questionset, or a new question.
+* **Update** (![](../_static/img/icons/update.png)) an element to change its properties.
+* **Copy** (![](../_static/img/icons/copy.png)) a question or questionset. This will open the same modal as update. You can change some of the properties and save the elememt as a new one. This can save time when creating several similar questions.
+* **Delete** (![](../_static/img/icons/delete.png)) an element and all of it's decendents (e.g. a question set and all the questions it contains). **This action cannot be undone!**
 
 The sidebar on the right-hand side shows additional interface items:
 

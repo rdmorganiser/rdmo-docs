@@ -2,14 +2,14 @@
 
 Views can be configured under *Views* in the management menu in the navigation bar.
 
-![](../../_static/img/screens/views.png)
+![](../_static/img/screens/views.png)
 > *Screenshot of the views management interface*
 
 On the left-hand side is the main display of all the views available in this installation of RDMO. Views show their key, title and description. On the right side of each views panel, icons indicate ways to interact the element. The following options are available:
 
-* **Update** (![](../../_static/img/icons/update.png)) a view to change its properties.
-* **Edit the template** (![](../../_static/img/icons/template.png)) of a view.
-* **Delete** (![](../../_static/img/icons/delete.png)) a view. **This action cannot be undone!**
+* **Update** (![](../_static/img/icons/update.png)) a view to change its properties.
+* **Edit the template** (![](../_static/img/icons/template.png)) of a view.
+* **Delete** (![](../_static/img/icons/delete.png)) a view. **This action cannot be undone!**
 
 The sidebar on the right shows additional interface items:
 
@@ -35,7 +35,7 @@ Views have different properties to control their behavior. As descibed in [the i
 
 ## View Templates
 
-![](../../_static/img/screens/template.png)
+![](../_static/img/screens/template.png)
 > *Screenshot of the template modal*
 
 Each view has a template, which determines how the answers given by the user are mapped to a textual document. The template is composed using the [Django template](https://docs.djangoproject.com/en/1.11/ref/templates/language/) syntax, which is a combination of regular HTML, variables, which get replaced with values when the template is evaluated (`{{ a_variable }}`), and tags, which control the logic of the template (`{% a_tag %}`).
