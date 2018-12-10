@@ -17,7 +17,7 @@ On the left-hand side is the main display of sections, questionsets, and questio
 The sidebar on the right-hand side shows additional interface items:
 
 * **Catalog** switches the view to a different Catalog.
-* **Filter** filters the view according to a user given string. Only elements containing this string in their ``path`` will be shown.
+* **Filter** filters the view according to a user given string. Only elements containing this string in their `path` will be shown.
 * **Options** offers additional operations:
 
   * Update the details of the current catalog

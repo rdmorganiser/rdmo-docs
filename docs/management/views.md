@@ -38,7 +38,7 @@ Views have different properties to control their behavior. As descibed in [the i
 ![](../../_static/img/screens/template.png)
 > *Screenshot of the template modal*
 
-Each view has a template, which determines how the answers given by the user are mapped to a textual document. The template is composed using the [Django template](https://docs.djangoproject.com/en/1.11/ref/templates/language/) syntax, which is a combination of regular HTML, variables, which get replaced with values when the template is evaluated (``{{ a_variable }}``), and tags, which control the logic of the template (``{% a_tag %}``).
+Each view has a template, which determines how the answers given by the user are mapped to a textual document. The template is composed using the [Django template](https://docs.djangoproject.com/en/1.11/ref/templates/language/) syntax, which is a combination of regular HTML, variables, which get replaced with values when the template is evaluated (`{{ a_variable }}`), and tags, which control the logic of the template (`{% a_tag %}`).
 
 In the first line of the view template you will find the load command for the available view tags. It makes the logic of the template available and should always be there.
 
@@ -53,7 +53,7 @@ Immediately afterwards there will probably be variable declarations which load s
 {% get_set 'project/dataset' as datasets %}
 ```
 
-Consider an attribute ``project/research_question/title`` and a user, who answered the question connected to this attribute with "To boldly go where no man has gone before.". The attribute would be available in the template as ``project/research_question/title``.
+Consider an attribute `project/research_question/title` and a user, who answered the question connected to this attribute with "To boldly go where no man has gone before.". The attribute would be available in the template as `project/research_question/title`.
 
 ```django
 The main research question of the project is: {% render_value 'project/research_question/title' %}
@@ -65,7 +65,7 @@ would, when evaluated in the context by a user in his/her project, render:
 The main research question of the project is: To boldly go where no man has gone before.
 ```
 
-Collections can be rendered using the ``for`` tag of the Django template syntax.
+Collections can be rendered using the `for` tag of the Django template syntax.
 
 ```django
 <ul>
@@ -103,7 +103,7 @@ If you prefer to use innitially declared variables. Your code would look more li
 {% endfor %}
 ```
 
-Values can be used if they meet certain conditions. If you want to display something based on a certain value being ``true`` you can for example do this. Note that there is an ``.is_false`` function as well which can be used just as the mentioned counterpart.
+Values can be used if they meet certain conditions. If you want to display something based on a certain value being `true` you can for example do this. Note that there is an `.is_false` function as well which can be used just as the mentioned counterpart.
 
 ```django
 {% get_value 'conditions.personal_data' as val %}

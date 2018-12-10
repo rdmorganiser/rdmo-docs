@@ -17,7 +17,7 @@ sudo systemctl start postgresql
 sudo systemctl enable postgresql
 ```
 
-To use PostgreSQL as your database backend install ``psycopg2`` in your virtual environment:
+To use PostgreSQL as your database backend install `psycopg2` in your virtual environment:
 
 ```bash
 pip install -r requirements/postgres.txt

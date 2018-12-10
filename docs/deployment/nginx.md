@@ -1,6 +1,6 @@
 # Nginx and Gunicorn
 
-As mentioned several times, you should create a dedicated user for RDMO. All steps for the installation, which do not need root access, should be done using this user. Here we assume this user is called ``rdmo`` and it's home is ``/srv/rdmo`` and therefore your ``rdmo-app`` is located in ``/srv/rdmo/rdmo-app``.
+As mentioned several times, you should create a dedicated user for RDMO. All steps for the installation, which do not need root access, should be done using this user. Here we assume this user is called `rdmo` and it's home is `/srv/rdmo` and therefore your `rdmo-app` is located in `/srv/rdmo/rdmo-app`.
 
 First install gunicorn inside your virtual environment:
 
@@ -8,12 +8,12 @@ First install gunicorn inside your virtual environment:
 pip install -r requirements/gunicorn.txt
 ```
 
-Then, test ``gunicorn`` using:
+Then, test `gunicorn` using:
 ```bash
 gunicorn --bind 0.0.0.0:8000 config.wsgi:application
 ```
 
-This should serve the application like ``runserver``, but without the static assets, like CSS files and images. After the test kill the ``gunicorn`` process again.
+This should serve the application like `runserver`, but without the static assets, like CSS files and images. After the test kill the `gunicorn` process again.
 
 Systemd will launch the Gunicorn process on startup and keep running. Create a new systemd service file in `/etc/systemd/system/rdmo.service` and enter (you will need root/sudo permissions for that):
 
@@ -67,7 +67,7 @@ server {
 
 Restart Nginx. RDMO should now be available on `YOURDOMAIN`. Note that the unix socket `/srv/rdmo/rdmo.sock` needs to be accessible by Nginx.
 
-As you can see from the virtual host configurations, the static assets such as CSS and JavaScript files are served independently from the reverse proxy to the gunicorn process. In order to do so they need to be gathered in the ``static_root`` directory. This can be achieved by running:
+As you can see from the virtual host configurations, the static assets such as CSS and JavaScript files are served independently from the reverse proxy to the gunicorn process. In order to do so they need to be gathered in the `static_root` directory. This can be achieved by running:
 
 ```bash
 python manage.py collectstatic
