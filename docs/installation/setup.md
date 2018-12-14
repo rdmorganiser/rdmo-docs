@@ -1,5 +1,6 @@
 # Setup the application
 
+## Basic setup
 To set up the application, create a new file `config/settings/local.py` in your cloned `rdmo-app` directory. For the example user with the home `/srv/rdmo`, this would now be `/srv/rdmo/rdmo-app/config/settings/local.py`.
 
 You can use `config/settings/sample.local.py` as template, i.e.:
@@ -17,11 +18,24 @@ Then, initialize the application, using:
 python manage.py migrate                # initializes the database
 python manage.py create_groups          # creates groups with different permissions
 python manage.py createsuperuser        # creates the admin user
-python manage.py download_vendor_files  # dowloads front-end files from the CDN
 ```
 
-After these steps, RDMO can be run using Djangos intergrated development server:
+## Third party vendor files
+By default third party vendor files (like jQuery or Bootstrap javascripts) are retrieved from the content delivery networks that they are hosted on. If you would like to aviod third party requests you could host them yourself. This can be achieved easily with two simple steps.
 
+1. download the vendor files from the cdns by running the provided script
+    ```python
+    python manage.py download_vendor_files
+    ```
+
+2. make sure your `local.py` does contain the following line
+    ```
+    VENDOR_CDN = False
+    ```
+
+## RDMO development server
+
+After these steps, RDMO can be run using Djangos intergrated development server:
 ```bash
 python manage.py runserver
 ```
