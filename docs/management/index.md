@@ -19,11 +19,23 @@ After filling out the interview, the user will be presented with follow up **tas
 
 The different elements of the RDMO datamodel have various parameters, which control their behavior in RDMO and can be configured using the different management pages, which are decribed on the following pages. In addition, all elements contain a set of common parameters:
 
-* An URI Prefix to identify the institution who created this element.
-* A key which is the internal identifier for this element.
-* An internal comment to share information to be seen by users with access to the management backend.
+__* URI Prefix__
 
-The key is used as an internal identifier and determines, together with the URI Prefix, the URI of the element. This URI is used as a global identifier for the export/import functionality.
+The URI Prefix is the first part of the URI. As every element has a URI, every element does obviously also have a URI Prefix. Semantically the prefix is only relevant when different RDMO instances share data between each other. In this case the URI prefix is used to determine which instance the data belong to. You may think of it as a kind of `unique instance identifier`.
+
+When you import a question catalog or any other content from another institution these imports do have a URI prefix different from yours. If you change elements from these third party imports we strongly recommend to always adjust the URI Prefix into your own one to make the changes persistent. This is necessary because a re-import of the third party content will overwrite by using the URI as identifier. Data in your database having the same URI as the imported ones will get updated and so overwritten. Please do also look into [Export and Import](../../management/export.html) page for a little more detail.
+
+By convention the URI prefix has to look like a URL. It does not have to be a valid URL in terms of being resolvable. You could use the URL of your RDMO instance or simply invent a string as long as you stick to the necessary scheme. The URI Prefix has to start with `http://` or `https://`. Afterwards there has to be a `host name`. Anything further like for instance a `path` is optional.
+
+__* Key__
+
+A key that is used as an internal identifier and determines, together with the URI Prefix, the URI of the element.
+
+__* Internal Comment__
+
+An internal comment to share information to be seen by users with access to the management backend.
+
+
 
 ```eval_rst
 .. toctree::
