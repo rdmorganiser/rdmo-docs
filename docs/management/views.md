@@ -106,7 +106,7 @@ If you prefer to use innitially declared variables. Your code would look more li
 Values can be used if they meet certain conditions. If you want to display something based on a certain value being `true` you can for example do this. Note that there is an `.is_false` function as well which can be used just as the mentioned counterpart.
 
 ```django
-{% get_value 'conditions.personal_data' as val %}
+{% get_value 'project/dataset/sharing/yesno' as val %}
 {% if val.is_true %}
     This will be only rendered if personal_data resolves to be true.
 {% endif %}
