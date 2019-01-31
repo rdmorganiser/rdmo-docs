@@ -65,16 +65,6 @@ would, when evaluated in the context by a user in his/her project, render:
 The main research question of the project is: To boldly go where no man has gone before.
 ```
 
-Collections can be rendered using the `for` tag of the Django template syntax.
-
-```django
-<ul>
-    {% for keyword in 'project/research_question/keywords' %}
-        <li>{% render_value keyword %}</li>
-    {% endfor %}
-</ul>
-```
-
 Lists of multiple values can also be rendered.
 
 ```django
@@ -83,17 +73,7 @@ Lists of multiple values can also be rendered.
 </p>
 ```
 
-For set entities, you can use:
-
-```django
-{% for dataset in 'project/dataset' %}
-    <p>
-        <i>Dataset {% render_set_value dataset 'project/dataset/id' %}:</i> {% 'project/dataset/usage_description' %}
-    </p>
-{% endfor %}
-```
-
-If you prefer to use innitially declared variables. Your code would look more like this.
+For set entities, you can use the initially declared variables. Your code would look like this.
 
 ```django
 {% for dataset in datasets %}
