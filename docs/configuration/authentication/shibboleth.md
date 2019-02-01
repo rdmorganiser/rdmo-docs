@@ -65,6 +65,7 @@ from rdmo.core.settings import INSTALLED_APPS, AUTHENTICATION_BACKENDS, MIDDLEWA
 
 SHIBBOLETH = True
 PROFILE_UPDATE = False
+PROFILE_DELETE = False
 
 INSTALLED_APPS += ['shibboleth']
 
@@ -85,7 +86,7 @@ LOGIN_URL = '/Shibboleth.sso/Login?target=/projects'
 LOGOUT_URL = '/Shibboleth.sso/Logout'
 ```
 
-where the keys of `SHIBBOLETH_ATTRIBUTE_MAP`, `LOGIN_URL`, and `LOGOUT_URL` need to be modified according to your setup. The setting `SHIBBOLETH = True` disables the regular login form in RDMO, and tells RDMO to disable the update form for the user profilei, so that users cannot update their credentials anymore. The `INSTALLED_APPS`, `AUTHENTICATION_BACKENDS`, and `MIDDLEWARE_CLASSES` settings enable django-shibboleth-remoteuser to be used with RDMO.
+where the keys of `SHIBBOLETH_ATTRIBUTE_MAP`, `LOGIN_URL`, and `LOGOUT_URL` need to be modified according to your setup. The setting `SHIBBOLETH = True` disables the regular login form in RDMO, and tells RDMO to disable the update or delete form for the user profile, so that users can neither update their credentials nor delete their profile anymore. Note that profile deletion is technically impossible because RDMO can delete from the Shibboleth database. The `INSTALLED_APPS`, `AUTHENTICATION_BACKENDS`, and `MIDDLEWARE_CLASSES` settings enable django-shibboleth-remoteuser to be used with RDMO.
 
 Restart the webserver.
 

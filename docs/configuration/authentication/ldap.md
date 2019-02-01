@@ -41,6 +41,7 @@ from django_auth_ldap.config import LDAPSearch
 from rdmo.core.settings import AUTHENTICATION_BACKENDS
 
 PROFILE_UPDATE = False
+PROFILE_DELETE = False
 
 AUTH_LDAP_SERVER_URI = "ldap://ldap.example.com"
 AUTH_LDAP_BIND_DN = "cn=rdmo,dc=ldap,dc=example,dc=com"
@@ -59,4 +60,4 @@ AUTHENTICATION_BACKENDS.insert(
 )
 ```
 
-The setting `PROFILE_UPDATE = False` tells RDMO to disable the update form for the user profile so that users cannot update their credentials anymore. The other settings are needed by `django-auth-ldap` and are described in the [django-auth-ldap documentation](https://pypi.org/project/django-auth-ldap).
+The setting `PROFILE_UPDATE = False` and `PROFILE_DELETE = False` tell RDMO to disable the update and deletion form for the user profile so that users can neither update their credentials nor delete their profile anymore. The other settings are needed by `django-auth-ldap` and are described in the [django-auth-ldap documentation](https://pypi.org/project/django-auth-ldap).
