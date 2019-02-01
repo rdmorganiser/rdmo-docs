@@ -19,17 +19,23 @@ After filling out the interview, the user will be presented with follow up **tas
 
 The different elements of the RDMO datamodel have various parameters, which control their behavior in RDMO and can be configured using the different management pages, which are decribed on the following pages. In addition, all elements contain a set of common parameters:
 
-__* URI Prefix__
+__* URI prefix__
 
-The URI Prefix is the first part of the URI. As every element has a URI, every element does obviously also have a URI Prefix. Semantically the prefix is only relevant when different RDMO instances share data between each other. In this case the URI prefix is used to determine which instance the data belong to. You may think of it as a kind of `unique instance identifier`.
+The URI prefix is the first part of the URI. As every element has a URI, every element does obviously also have a URI prefix. Semantically the prefix is only relevant when different RDMO instances share data between each other. In this case the URI prefix is used to determine which instance the data belong to. You may think of it as a kind of `unique instance identifier`.
 
-When you import a question catalog or any other content from another institution these imports do have a URI prefix different from yours. If you change elements from these third party imports we strongly recommend to always adjust the URI Prefix into your own one to make the changes persistent. This is necessary because a re-import of the third party content will overwrite by using the URI as identifier. Data in your database having the same URI as the imported ones will get updated and so overwritten. Please do also look into [Export and Import](../../management/export.html) page for a little more detail.
+When you import a question catalog or any other content from another institution these imports do have a URI prefix different from yours. If you change elements from these third party imports we strongly recommend to always adjust the URI prefix into your own one to make the changes persistent. This is necessary because a re-import of the third party content will overwrite by using the URI as identifier. Data in your database having the same URI as the imported ones will get updated and so overwritten. Please do also look into [Export and Import](../../management/export.html) page for a little more detail.
 
-By convention the URI prefix has to look like a URL. It does not have to be a valid URL in terms of being resolvable. In principle you could use any kind of string as long as it fits the scheme but we recommend to use the URL of your RDMO instance. The URI Prefix has to start with `http://` or `https://`. Afterwards there has to be a `host name`. Anything further like for instance a `path` is optional. Valid URI Prefixes for example are: `https://rdmorganiser.github.io/terms` or `https://rdmo.aip.de`.
+By convention the URI prefix has to look like a URL. It does not have to be a valid URL in terms of being resolvable. In principle you could use any kind of string as long as it fits the scheme but we recommend to use the URL of your RDMO instance. The URI prefix has to start with `http://` or `https://`. Afterwards there has to be a `host name`. Anything further like for instance a `path` is optional. Valid URI prefixes for example are: `https://rdmorganiser.github.io/terms` or `https://rdmo.aip.de`.
+
+In edit forms of elements you will find a button looking like this <img src="../_static/img/icons/magic-solid.svg" width="20px">. It can be used to automatically put the default URI prefix into the open form. This is very useful especially if you do not exactly remember or know the default value of your RDMO installation. The default URI prefix that this button gets is defined in the `local.py`. The button is only helpful if the value is set. We strongly recomment to add an entry like the following to your config of course having your URI prefix as value.
+
+```
+DEFAULT_URI_PREFIX = 'https://rdmo.uni-xyz.de/terms/'
+```
 
 __* Key__
 
-A key that is used as an internal identifier and determines, together with the URI Prefix, the URI of the element.
+A key that is used as an internal identifier and determines, together with the URI prefix, the URI of the element.
 
 __* Internal Comment__
 
