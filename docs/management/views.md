@@ -73,6 +73,16 @@ Lists of multiple values can also be rendered.
 </p>
 ```
 
+As equivalent for the snippet above you can also use the following which gives you more control over the list layout.
+```django
+<ul>
+{% get_values 'project/research_question/keywords' set_index=0 as text %}
+    {% for value in text %}
+        <li>{{ value.value }}</li>
+    {% endfor %}
+</ul>
+```
+
 For set entities, you can use the initially declared variables. Your code would look like this.
 
 ```django
