@@ -12,6 +12,9 @@ Source code
 Documentation
     http://rdmo.readthedocs.io
 
+FAQ
+    http://www.forschungsdaten.org/index.php/FAQs
+
 Mailing list
     https://www.listserv.dfn.de/sympa/subscribe/rdmo
 
