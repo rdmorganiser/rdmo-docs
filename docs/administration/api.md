@@ -17,16 +17,35 @@ Authorization: Token 9944b09199c62bcf9418ad846dd0e4bbdfc6ee4b
 Only `Superusers` are allowed to access the API. You can check if your user has the required permissions by having a look into the user's details. If the user does not have the Superuser status any API request will fail producing status code 403.
 
 
-## API Layout
+## API Layout / Swagger
 
-The RDMO API has the following endpoints.
+Concerning questions about the API Layout `Swagger` comes in as a handy tool because it can be used to get a detailed description of the API.
+
+### What is Swagger?
+
+Swagger is a set of tools built around the OpenAPI Specification. These tools help to design, build and document REST APIs. OpenAPI is already implemented in RDMO but usually disabled. The Swagger page in RDMO is provided by a python library called [Django REST Swagger](https://github.com/marcgibbons/django-rest-swagger).
+
+The Swagger page can help you to design API queries because it gives a well-arranged interactive overview of all the available endpoints and query parameters. If you need help to get an idea about the possibilities of the RDMO API you should have a look.
+
+### Use Swagger Tools
+
+Swagger Tools are enabled by default. The relevant entry is in your app's `urls.py` and looks like the following.
+
+```python
+path('api/v1/', include('rdmo.core.urls.swagger')),
+```
+
+Remove it or comment it out if you do not want swagger to be available. As you can see the default swagger page's url is `http://$YOUR_RDMO/api/v1/`.
+
+If you request `http://$YOUR_RDMO/api/v1/?format=openapi` you get a detailed machine processable API description in JSON format.
+
+### API Structure
 
 ```
-/api/v1/accounts/users
-/api/v1/accounts/users/{id}
-
 /api/v1/conditions/conditions
 /api/v1/conditions/conditions/{id}
+
+/api/v1/core
 
 /api/v1/domain/attributes
 /api/v1/domain/attributes/{id}
@@ -61,7 +80,7 @@ The RDMO API has the following endpoints.
 /api/v1/views/views/{id}
 ```
 
-As you can see roughly the structure is determined by the element types of which data can be fetched. The `{id}` placeholder at the end of the URLs is indicating that an element ID can be provided to fetch data of a distinct single element. So basically we have to types of requests. The first returning lists of elements and the second returning single elements. Many of the endpoints provide multiple filter functions that are accessible using request parameters. If you for example would like to retrieve information about the admin user you could use `?username=admin` as filter parameter at the end of the url.
+The API structure is roughly determined by the element types of which data can be fetched. The `{id}` placeholder at the end of the URLs is indicating that an element ID can be provided to fetch data of a distinct single element. So basically we have to types of requests. The first returning lists of elements and the second returning single elements. Many of the endpoints provide multiple filter functions that are accessible using request parameters. If you for example would like to retrieve information about the admin user you could use `?username=admin` as filter parameter at the end of the url.
 
 For practical reasons all the different filters will not be named here. But you can have a look into the [JSON description](../../_static/others/api_description.json) of the API generated using Swagger. It covers every piece of information regarding all the endpoints and their available filters. As JSON can be a hard read sometimes you could also copy and paste the content of file into the [Swagger Editor](https://editor.swagger.io) to get a more consumable version of the description. If you would like to use Swagger to interact with your RDMO's API in a web  browser you could set it up for your RDMO installation. Information about how to do that are provided below in the [Swagger paragraph](#swagger-openapi). But let's have a look at some request examples first.
 
@@ -108,30 +127,5 @@ Note that strings of course need to be url encoded.
         "http://localhost/api/v1/options/options/?uri=https%3A%2F%2Frdmorganiser.github.io%2Fterms%2Foptions%2Fresearch_fields%2F216"
 ```
 
-
-## Swagger / OpenAPI
-
-### What is Swagger?
-
-Swagger is a set of tools built around the OpenAPI Specification. These tools help to design, build and document REST APIs. OpenAPI is already implemented in RDMO but usually disabled. The Swagger page in RDMO is provided by a python library called [Django REST Swagger](https://github.com/marcgibbons/django-rest-swagger).
-
-The Swagger page can help you to design API queries because it gives a well-arranged interactive overview of all the available endpoints and query parameters. If you need help to get an idea about the possibilities of the RDMO API you should have a look.
-
-
-### Enable Swagger Tools
-
-If you want to have a look at a detailed description of all the API interfaces that RDMO provides you need to add the necessary import and setup a url scheme to access the view.
-
-All this can be achieved by adding two lines to the `config/urls.py` in your RDMO-App. Please note that `urlpatterns` is an array. Do not simply copy the snippet from below but add the array entry into your already existing one.
-
-```bash
-from rdmo.core.swagger import swagger_schema_view
-
-urlpatterns = [
-    url(r'^swagger$', swagger_schema_view.as_view()),
-]
-```
-
-The Swagger page can now be accessed at the defined URL scheme. In the case of the example above at `swagger/`. Of course you are free to change this to fit your needs.
-
-Apppend request parameter `?format=openapi` to the url to get a detailed API description in JSON format. It is the exact same description that we mentioned at the end of the [API Layout](#api-layout) paragraph above.
+## RDMO Client
+There is an RDMO Client written in Python which may help you to get started using the API. It is available on [GitHub](https://github.com/rdmorganiser/rdmo-client).
