@@ -23,9 +23,9 @@ Concerning questions about the API Layout `Swagger` comes in as a handy tool bec
 
 ### What is Swagger?
 
-Swagger is a set of tools built around the OpenAPI Specification. These tools help to design, build and document REST APIs. OpenAPI is already implemented in RDMO but usually disabled. The Swagger page in RDMO is provided by a python library called [Django REST Swagger](https://github.com/marcgibbons/django-rest-swagger).
+Swagger is a set of tools built around the OpenAPI Specification. These tools help to design, build and document REST APIs. OpenAPI is already implemented in RDMO. The Swagger page in RDMO is provided by a python library called [Django REST Swagger](https://github.com/marcgibbons/django-rest-swagger).
 
-The Swagger page can help you to design API queries because it gives a well-arranged interactive overview of all the available endpoints and query parameters. If you need help to get an idea about the possibilities of the RDMO API you should have a look.
+The interactive Swagger page can help you to design API queries because it gives a well-arranged interactive overview of all the available endpoints and query parameters. If you need help to get an idea about the possibilities of the RDMO API you should have a look.
 
 ### Use Swagger Tools
 
