@@ -23,4 +23,5 @@ This comprises [general settings](../../configuration/general.html), [database c
    export-formats
    cache
    logging
+   multisite
 ```
