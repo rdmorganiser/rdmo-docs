@@ -11,6 +11,8 @@ RDMO has three main modes for Authentication:
 If none of the modes is enabled, only a very basic login will be available and users need to be created using the Django Admin Interface.
 
 ```eval_rst
+----
+
 .. toctree::
 
    allauth

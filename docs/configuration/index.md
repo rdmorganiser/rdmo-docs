@@ -12,6 +12,8 @@ While technically the local settings file `config/settings/local.py` can be used
 This comprises [general settings](../../configuration/general.html), [database connections](../../configuration/databases.html), how to send [emails](../../configuration/email.html), the different [authentication methods](../../configuration/authentication/index.html), the usage of [themes](../../configuration/themes.html), and [caches](../../configuration/cache.html).
 
 ```eval_rst
+----
+
 .. toctree::
    :maxdepth: 2
 

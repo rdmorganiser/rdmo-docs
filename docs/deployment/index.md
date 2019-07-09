@@ -11,6 +11,8 @@ As already mentioned, RDMO can be run in two different setups:
 
 
 ```eval_rst
+----
+
 .. toctree::
    :maxdepth: 2
 

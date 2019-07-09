@@ -7,6 +7,8 @@ The admin interface is available under the link *Admin* in the navigation bar. I
 That being said, the admin interface is needed, especially after installation, to set the title and URL of the [site](../../administration/site.html), to configure [users and groups](../../administration/users.html)`, to configure the connection to [OAUTH providers](../../administration/allauth.html), and to create [tokens](../../administration/tokens.html) to be used with the API.
 
 ```eval_rst
+----
+
 .. toctree::
    :maxdepth: 2
 
