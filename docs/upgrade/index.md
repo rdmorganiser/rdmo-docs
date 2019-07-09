@@ -44,7 +44,7 @@ With version 0.9.0 we introduced the split into the `rdmo-app` and the centrally
 
 1.  In any case perform a backup of your `rdmo` directory and your database as described above.
 
-1.  Perform the steps described in [clone](../../installation/clone.html) and [packages](../../installation/packages.html)` as if you would install a new instance of RDMO.
+1.  Perform the steps described in [clone](../../installation/clone.html) and [packages](../../installation/packages.html) as if you would install a new instance of RDMO.
 
 1.  Copy your old configuration from `/path/to/old/rdmo/rdmo/settings/local.py` to `/path/to/new/rdmo-app/config/settings/local.py`. The new `config` directory replaces the old `rdmo` directory.
 
@@ -67,3 +67,10 @@ With version 0.9.0 we introduced the split into the `rdmo-app` and the centrally
 1.  Redeploy RDMO as described under deployment of [Apache](../../deployment/apache.html) or [Nginx](../../deployment/nginx.html).
 
 If you have trouble with the upgrade process, don't hesitate to contact the RDMO team for support.
+
+## Upgrade to version 0.14
+
+With version 0.14 the Python 2 support was dropped and we swiched to Django 2.2. This demands two changes to the local `rdmo-app`:
+
+* Adjust RDMO app's `config/urls.py` to Django2 schemes. The file is much simpler and shorter now. A working example can be found at https://github.com/rdmorganiser/rdmo-app/blob/master/config/urls.py
+* MIDDLEWARE_CLASSES in `config/settings/local.py` needs to be renamed to `MIDDLEWARE` only
