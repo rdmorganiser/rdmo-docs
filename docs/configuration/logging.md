@@ -1,6 +1,6 @@
 # Logging
 
-Logging in Django can be very complex and is covered extensively in the [Django documentation](https://docs.djangoproject.com/en/1.11/topics/logging/). For a suitable logging of RDMO you can add the following to your `config/settings/local.py`:
+Logging in Django can be very complex and is covered extensively in the [Django documentation](https://docs.djangoproject.com/en/stable/topics/logging/). For a suitable logging of RDMO you can add the following to your `config/settings/local.py`:
 
 ```python
 import os
