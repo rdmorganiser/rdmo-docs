@@ -27,12 +27,15 @@ Tasks have different properties to control their behavior. As descibed in [the i
 
 ### Task
 
-|Name|Explanation|
+|**Tab English**||
 |-|-|
-|Title (en)|The English title for the view. The title will be shown in the projects overview|
-|Title (de)|The German title for the view. The title will be shown in the projects overview|
-|Text (en)|The English text for the view. The text will be shown in the projects overview|
-|Text (de)|The German text for the view. The text will be shown in the projects overview|
+|Title|The English title for the task. The title will be shown in the projects overview.|
+|Help|The English help text for the task. The help text will be shown in the projects overview|
+|**Tab German**|*contains the same elements as the English one but obviously for German language content*|
+|**Tab Groups**|
+|Groups|Displays the groups for this task. If at least one group is selected, only users of these<br> groups will see this task for a project.|
+|**Tab Sites**|
+|Sites| *(Only in a multi site installation)* Displays the sites for this task. Only users of these<br> groups will see this task for a project.|
 
 ### Time frame
 

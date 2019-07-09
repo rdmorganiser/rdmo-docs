@@ -38,19 +38,26 @@ The different elements of the questionaire have different properties to control 
 
 |Name|Explanation|
 |-|-|
+|**Tab General**||
 |Order|Controls the position of the catalog in lists or in the interview|
-|Title (en)|The English title for the catalog to be displayed to the user|
-|Title (de)|The German title for the catalog to be displayed to the user|
+|**Tab English**||
+|Title|The English title for the catalog to be displayed to the user|
+|**Tab German**|*contains the same elements as the English one but obviously for German language content*|
+|**Tab Groups**|
+|Groups|Displays the groups for this catalog. If at least one group is selected, only users of these<br> groups can select this catalog for a project.|
+|**Tab Sites**|
+|Sites| (Only in a multi site installation) Displays the sites for this catalog. Only users of these<br> groups can select this catalog for a project.|
 
 ### Section
 
 |Name|Explanation|
 |-|-|
+|**Tab General**||
 |Catalog|The catalog this section belongs to. Changing the catalog will<br>move the section to a different catalog. Therefore it will not<br>be visible in the current view anymore|
 |Order|Controls the position of the section in lists or in the interview|
-|Title (en)|The English title for the section to be displayed to the user|
-|Title (de)|The German title for the section to be displayed to the user|
-
+|**Tab English**||
+|Title|The English title for the section to be displayed to the user|
+|**Tab German**|*contains the same elements as the English one but obviously for German language content*|
 
 ### Question sets
 
