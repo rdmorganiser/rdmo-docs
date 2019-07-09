@@ -2,11 +2,13 @@
 
 In order to use Shibboleth with RDMO, it needs to be deployed in a production environment using Apache2. The Setup is documented [here](../../../../deployment/apache.html).
 
-Next, install the Shibboleth Apache module for service providers from your distribution repository, e.g. for Debian/Ubuntu:
+Next, install the Shibboleth Apache module for the service provider (SP) from your distribution repository, e.g. for Debian/Ubuntu:
 
 ```bash
 sudo apt-get install libapache2-mod-shib2
 ```
+
+Under Ubuntu 18.04 LTS the `libapache2-mod-shib2` package is broken. A working description on how to install the SPcan be found under https://www.switch.ch/aai/guides/sp/installation/?os=ubuntu.
 
 In addition, [django-shibboleth-remoteuser](https://github.com/Brown-University-Library/django-shibboleth-remoteuser) needs to be installed in your RDMO virtual environment:
 
@@ -24,13 +26,17 @@ Configure your Shibboleth service provider using the files in `/etc/shibboleth/`
 In our test environent this is accomplished by editing `/etc/shibboleth/shibboleth2.xml`:
 
 ```xml
-<ApplicationDefaults entityID="https://sp.vbox/shibboleth"
-    REMOTE_USER="uid eppn persistent-id targeted-id">
+<ApplicationDefaults entityID="https://sp.test.rdmo.org/shibboleth"
+    REMOTE_USER="eppn"
+    cipherSuites="DEFAULT:!EXP:!LOW:!aNULL:!eNULL:!DES:!IDEA:!SEED:!RC4:!3DES:!kRSA:!SSLv2:!SSLv3:!TLSv1:!TLSv1.1">
 ```
 
 and `/etc/shibboleth/attribute-map.xml`:
 
 ```xml
+<Attribute name="urn:oid:1.3.6.1.4.1.5923.1.1.1.6" id="eppn">
+    <AttributeDecoder xsi:type="ScopedAttributeDecoder" caseSensitive="false"/>
+</Attribute>
 <Attribute name="urn:oid:0.9.2342.19200300.100.1.1" id="uid"/>
 <Attribute name="urn:oid:2.5.4.4" id="sn"/>
 <Attribute name="urn:oid:2.5.4.42" id="givenName"/>
@@ -56,7 +62,6 @@ In your Apache2 virtual host configuration, add:
     ShibUseHeaders On
 </LocationMatch>
 ```
-
 
 In your `config/settings/local.py` add or uncomment:
 
@@ -93,3 +98,16 @@ Restart the webserver.
 ```bash
 service apache2 restart
 ```
+
+```eval_rst
+.. warning::
+    The following feature is not available in the released version of RDMO yet. It will be part of a future version.
+```
+
+Certain Attributes from the Shibboleth Identity Provider can be mapped to Django groups, in particular to restrict the access to Catalogs and Views. This can be done by adding the following settings:
+
+```
+SHIBBOLETH_GROUP_ATTRIBUTES = ['eduPersonScopedAffiliation']
+```
+
+In this case, the attribute `eduPersonScopedAffiliation` contains a comma seperated list of groups which will be created in RDMO (if they don't exist yet) and the user will be added into these groups. Due to a limitation by [django-shibboleth-remoteuser](https://github.com/Brown-University-Library/django-shibboleth-remoteuser) the user will also be **removed from all other groups**.

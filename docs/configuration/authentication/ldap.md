@@ -12,10 +12,10 @@ On the python side, we use [django-auth-ldap](https://pypi.org/project/django-au
 pip install -r requirements/ldap.txt
 ```
 
-LDAP installations can be very different and we only discuss one particular example. We assume that the LDAP service is running on `ldap.example.com`. RDMO needs a *System Account*. In order to create it, run:
+LDAP installations can be very different and we only discuss one particular example. We assume that the LDAP service is running on `ldap.example.com`. RDMO needs an account to connect to the LDAP. In order to create it, run:
 
 ```bash
-ldapmodify -x -D 'cn=Directory Manager' -W
+ldapmodify -x -D "cn=admin,dc=ldap,dc=example,dc=com" -W
 ```
 
 on the machine running the LDAP service and type in:
@@ -59,3 +59,20 @@ AUTHENTICATION_BACKENDS.insert(
 ```
 
 The setting `PROFILE_UPDATE = False` and `PROFILE_DELETE = False` tell RDMO to disable the update and deletion form for the user profile so that users can neither update their credentials nor delete their profile anymore. The other settings are needed by `django-auth-ldap` and are described in the [django-auth-ldap documentation](https://pypi.org/project/django-auth-ldap).
+
+```eval_rst
+.. warning::
+    The following feature is not available in the released version of RDMO yet. It will be part of a future version.
+```
+
+You can also map LDAP groups to Django groups, in particular to restrict the access to Catalogs and Views. This can be done by adding the following settings:
+
+```
+AUTH_LDAP_GROUP_SEARCH = LDAPSearch(
+    "dc=ldap,dc=test,dc=rdmo,dc=org", ldap.SCOPE_SUBTREE, "(objectClass=groupOfNames)"
+)
+AUTH_LDAP_GROUP_TYPE = GroupOfNamesType(name_attr="cn")
+AUTH_LDAP_MIRROR_GROUPS = ['special']
+```
+
+where `cn` is the name of the particular group in the LDAP and `AUTH_LDAP_MIRROR_GROUPS` denotes the groups which are actually mirrored from the LDAP.
