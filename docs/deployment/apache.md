@@ -2,15 +2,16 @@
 
 In production, you should create a dedicated user for RDMO. All steps for the installation, which do not need root access, should be done using this user. As before, we assume this user is called `rdmo` and it's home is `/srv/rdmo` and therefore your `rdmo-app` is located in `/srv/rdmo/rdmo-app`.
 
-Install the Apache server and `mod_wsgi` using:
+Install the Apache server and `mod_wsgi` on Debian or Ubuntu using:
 
 ```bash
-# Debian/Ubuntu
-sudo apt install apache2 libapache2-mod-wsgi-py3  # for python3
-sudo apt install apache2 libapache2-mod-wsgi      # for python2.7
+sudo apt install apache2 libapache2-mod-wsgi-py3
+```
 
-# CentOS
-sudo yum install httpd mod_wsgi                   # only for python2.7
+On CentOS7 you need to enable the [IUS repositiry](https://ius.io/) first. Then install using:
+
+```
+sudo yum install httpd python35u-mod_wsgi
 ```
 
 Next, create a virtual host configuration. Unfortunately, the different distributions use different versions of Apache and mod_wsgi and therefore require a slightly different setup:
@@ -81,8 +82,7 @@ python manage.py collectstatic
 
 in your virtual environment.
 
-In order to apply changes to the RDMO code (e.g. after an [upgrade](../../upgrade/index.html)), the webserver
-needs to be reloaded or the `config/wsgi.py` file needs to appear modified. This can be done using the `touch` command:
+In order to apply changes to the RDMO code (e.g. after an [upgrade](../../upgrade/index.html)), the webserver needs to be reloaded or the `config/wsgi.py` file needs to appear modified. This can be done using the `touch` command:
 
 ```bash
 touch config/wsgi.py
