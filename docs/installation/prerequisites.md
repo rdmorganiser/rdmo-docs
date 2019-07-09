@@ -31,20 +31,13 @@ On Ubuntu 14.04, `python3-venv` is not available. Please use `python3.5-venv` in
 
 On RHEL/CentOS `selinux` is enabled by default. This can result in unexpected errors, depending on where you store the RDMO source code on the system. While the prefereble way is to configure it correctly (which is beyond the scope of this documentation), you can also set `selinux` to `permissive` or `disabled` in `/etc/selinux/config` (and reboot afterwards).
 
-If you want to use Python 2.7 instead of Python 3, please use the corresponding packages:
-
-```bash
-apt install python-dev python-pip python-virtualenv    # Debian/Ubuntu
-yum install python-devel python-pip python-virtualenv  # RHEL/CentOS
-```
 
 ## macOS
 
 We recommend to install the prerequisites using [brew](http://brew.sh):
 
 ```bash
-brew install python3        # for python 3
-brew install python         # for python 2
+brew install python3
 brew install git
 brew install pandoc
 
@@ -59,7 +52,6 @@ On Windows, the software prerequisites need to be downloaded and installed from 
 
 For python:
 * download from <https://www.python.org/downloads/windows/>
-* we recommend a version >= 3.4
 * don't forget to check 'Add Python to environment variables' during setup
 
 For git:

@@ -29,7 +29,7 @@ By default third party vendor files (like jQuery or Bootstrap javascripts) are r
     ```
 
 2. make sure your `local.py` does contain the following line
-    ```
+    ```python
     VENDOR_CDN = False
     ```
 

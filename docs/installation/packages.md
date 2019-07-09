@@ -8,8 +8,7 @@ Change to the `rdmo-app` directory and create a [Virtual Environment](https://do
 ```bash
 cd rdmo-app
 
-python3 -m venv env                         # for python3
-virtualenv env                              # for python2.7
+python3 -m venv env
 
 source env/bin/activate                     # on Linux or macOS
 call env\Scripts\activate.bat               # on Windows

@@ -12,4 +12,4 @@ Note that this is not the main `rdmo` repository, only the configuration files. 
 * a `requirements` directory, containing shortcuts to install the different mandatory and optional dependencies, and
 * a `manage.py` script, which is the main way to interact with your RDMO installation on the command line. Most of the following steps will use this script.
 
-The `rdmo-app` directory corresponds to a [project](https://docs.djangoproject.com/en/1.11/intro/tutorial01) in Django terms.
+The `rdmo-app` directory corresponds to a [project](https://docs.djangoproject.com/en/stable/intro/tutorial01) in Django terms.
