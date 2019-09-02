@@ -6,7 +6,7 @@ The user created in the installation process can access all features of RDMO. In
 
 ## Groups
 
-During the installation, the `./manage create-groups` command created 3 groups:
+During the installation, the `./manage setup_groups` command created 3 groups:
 
 ### Editor
 Users of the group editor can access the [management interface](../../management/index.html) and can edit all elements of the data model, except the user data entered through the structured inteview.

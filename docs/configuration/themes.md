@@ -10,9 +10,9 @@ RDMO is based on Django, which allows a high level of customization by modifying
 
 There is a `manage.py` script to simplify the theme creation. The script will create the `theme/static` and `theme/templates` folders, copy a basic set of files into them and add the necessary configuration line to `config/settings/local.py` to enable the theme. If you want to override other files, please put them into the necessary folders manually. To run the script do:
 
-``bash
+```bash
 python manage.py make_theme
-``
+```
 
 
 ## Create manually
@@ -38,7 +38,7 @@ If you want to manually create a theme you need to do the following:
 
 If you have completed the steps above templates and static files in the `theme` directory are used instead of the original files as long as they have the same relative path, e.g. the template `theme/templates/core/base_navigation.html` overrides `rdmo/core/templates/core/base_navigation.html` from the original code.
 
-Usually, the RDMO template files are located in the your virtual environment, e.g. `/srv/rdmo/rdmo-app/env/lib/python3.6/site-packages/rdmo/core/static/core/css/variables.scss`. The exact path depends on your Python version and platform. We recomended to download the original files from the [rdmo repository](https://github.com/rdmorganiser/rdmo) instead. For the example above, this would be <https://raw.githubusercontent.com/rdmorganiser/rdmo/master/rdmo/core/static/core/css/variables.scss>. Please make sure to use the raw files when downloading from GitHub. If you accidentally grab the website's html source code RDMO will throw an error.
+Usually, the RDMO template files are located in your virtual environment, e.g. `/srv/rdmo/rdmo-app/env/lib/python3.6/site-packages/rdmo/core/static/core/css/variables.scss`. The exact path depends on your Python version and platform. We recomended to download the original files from the [rdmo repository](https://github.com/rdmorganiser/rdmo) instead. For the example above, this would be <https://raw.githubusercontent.com/rdmorganiser/rdmo/master/rdmo/core/static/core/css/variables.scss>. Please make sure to use the raw files when downloading from GitHub. If you accidentally grab the website's html source code RDMO will throw an error.
 
 Some files you might want to override are:
 
