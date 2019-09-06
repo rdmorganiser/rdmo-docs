@@ -34,3 +34,12 @@ Furthermore, you might want to choose the main language for RDMO and the timezon
 LANGUAGE_CODE = 'en-us'
 TIME_ZONE = 'Europe/Berlin'
 ```
+
+If you run RDMO behind a reverse Proxy, which terminates the TLS/SSL trafic, you need to add the following:
+
+```
+USE_X_FORWARDED_HOST = True
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+```
+
+in order for RDMO to pick up the `X-Forwarded-Host` and `X-Forwarded-Proto` HTTP headers from the proxy.
