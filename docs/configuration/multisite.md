@@ -6,7 +6,7 @@ Multisite
     The following feature is not available in the released version of RDMO yet. It will be part of a future version.
 ```
 
-RDMO can be operated in a multi site setup, connecting several different `rdmo-apps` with different URLs and Themes, on one Server with one common Database. The different Sites will share their Catalogs, Views, etc., but the availability of this Content can be restricted among the Sites. Projects will have a connection to a particular site and can only be accessed on the webpage which they were created on.
+RDMO can be operated in a multi site setup, connecting several different `rdmo-apps` with different URLs and Themes, on one Server with one common Database. The different Sites will share their Catalogs, Views, etc., but the availability of this Content can be restricted among the Sites. Users can log in into any of the sites (if the authentication method allows) and projects can be shared among sites.
 
 Setup
 -----
