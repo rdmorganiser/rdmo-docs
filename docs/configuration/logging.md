@@ -3,9 +3,9 @@
 Logging in Django can be very complex and is covered extensively in the [Django documentation](https://docs.djangoproject.com/en/stable/topics/logging/). For a suitable logging of RDMO you can add the following to your `config/settings/local.py`:
 
 ```python
-iimport os
+import os
 
-LOG_LEVEL = 'DEBUG'
+LOG_LEVEL = 'INFO'          # or 'DEBUG' for the full logging
 LOG_DIR = '/var/log/rdmo/'  # this directory needs to be writable by the rdmo user
 LOGGING = {
     'version': 1,
