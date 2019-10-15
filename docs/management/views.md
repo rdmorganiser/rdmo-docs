@@ -108,7 +108,7 @@ Or checking a value within a dataset.
 
 ```django
 {% for dataset in datasets %}
-	{% get_set_value dataset 'project/dataset/id' as val %}
+    {% get_set_value dataset 'project/dataset/id' as val %}
     {% if val.is_true %}
         {% render_set_value dataset 'project/dataset/id' %}
     {% endif %}
