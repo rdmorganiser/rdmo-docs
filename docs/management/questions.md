@@ -30,7 +30,7 @@ The sidebar on the right-hand side shows additional interface items:
 
 * **Export** exports the current catalog to one of the displayed formats. While the text based formats are mainly for showing the full catalog, the XML export can be used to transfer this catalog to a different installation of RDMO.
 
-The different elements of the questionaire have different properties to control their behavior. As described in [the introduction](../../index.html), all elements have an URI prefix, a key, and an internal comment only to be seen by other managers of the RDMO installation. In addition, you can edit the parameters below:
+The different elements of the questionaire have different properties to control their behavior. As described in [the introduction](../index.html), all elements have an URI prefix, a key, and an internal comment only to be seen by other managers of the RDMO installation. In addition, you can edit the parameters below:
 
 ## Parameters
 

@@ -75,7 +75,7 @@ python manage.py collectstatic
 
 in your virtual environment.
 
-In order to apply changes to the RDMO code (e.g. after an [upgrade](../../upgrade/index.html)), the Gunicorn process needs to be restarted:
+In order to apply changes to the RDMO code (e.g. after an [upgrade](../upgrade/index.html)), the Gunicorn process needs to be restarted:
 
 ```
 sudo systemctl restart rdmo
