@@ -20,7 +20,7 @@ The sidebar on the right shows additional interface items:
 
 * **Export** exports the conditions to one of the displayed formats. While the textual formats are mainly for presentation purposes, the XML export can be used to transfer the views to a different installation of RDMO.
 
-Views have different properties to control their behavior. As descibed in [the introduction](../index.html), all elements have an URI prefix, a key, and an internal comment only to be seen by other managers of the RDMO installation. In addition, you can edit the parameters below:
+Views have different properties to control their behavior. As descibed in [the introduction](./index.html), all elements have an URI prefix, a key, and an internal comment only to be seen by other managers of the RDMO installation. In addition, you can edit the parameters below:
 
 ## Parameters
 ### View
