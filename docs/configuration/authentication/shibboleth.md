@@ -66,7 +66,7 @@ In your Apache2 virtual host configuration, add:
 In your `config/settings/local.py` add or uncomment:
 
 ```python
-from rdmo.core.settings import INSTALLED_APPS, AUTHENTICATION_BACKENDS, MIDDLEWARE_CLASSES
+from rdmo.core.settings import INSTALLED_APPS, AUTHENTICATION_BACKENDS, MIDDLEWARE
 
 SHIBBOLETH = True
 PROFILE_UPDATE = False
@@ -75,8 +75,8 @@ PROFILE_DELETE = False
 INSTALLED_APPS += ['shibboleth']
 
 AUTHENTICATION_BACKENDS.append('shibboleth.backends.ShibbolethRemoteUserBackend')
-MIDDLEWARE_CLASSES.insert(
-    MIDDLEWARE_CLASSES.index('django.contrib.auth.middleware.AuthenticationMiddleware') + 1,
+MIDDLEWARE.insert(
+    MIDDLEWARE.index('django.contrib.auth.middleware.AuthenticationMiddleware') + 1,
     'shibboleth.middleware.ShibbolethRemoteUserMiddleware'
 )
 
@@ -91,7 +91,7 @@ LOGIN_URL = '/Shibboleth.sso/Login?target=/projects'
 LOGOUT_URL = '/Shibboleth.sso/Logout'
 ```
 
-where the keys of `SHIBBOLETH_ATTRIBUTE_MAP`, `LOGIN_URL`, and `LOGOUT_URL` need to be modified according to your setup. The setting `SHIBBOLETH = True` disables the regular login form in RDMO, and tells RDMO to disable the update or delete form for the user profile, so that users can neither update their credentials nor delete their profile anymore. Note that profile deletion is technically impossible because RDMO can delete from the Shibboleth database. The `INSTALLED_APPS`, `AUTHENTICATION_BACKENDS`, and `MIDDLEWARE_CLASSES` settings enable django-shibboleth-remoteuser to be used with RDMO.
+where the keys of `SHIBBOLETH_ATTRIBUTE_MAP`, `LOGIN_URL`, and `LOGOUT_URL` need to be modified according to your setup. The setting `SHIBBOLETH = True` disables the regular login form in RDMO, and tells RDMO to disable the update or delete form for the user profile, so that users can neither update their credentials nor delete their profile anymore. Note that profile deletion is technically impossible because RDMO can delete from the Shibboleth database. The `INSTALLED_APPS`, `AUTHENTICATION_BACKENDS`, and `MIDDLEWARE` settings enable django-shibboleth-remoteuser to be used with RDMO.
 
 Restart the webserver.
 
