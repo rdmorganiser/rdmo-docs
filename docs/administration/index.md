@@ -4,7 +4,7 @@ The Django framework offers a rich administration (or short admin) interface, wh
 
 The admin interface is available under the link *Admin* in the navigation bar. It will only be needed on rare occasions, since most of the configurations of the questionaire and the other RDMO functions can be done using the more user-friendly Management interface described [in the following chapter of this documentation](../management/index.html).
 
-That being said, the admin interface is needed, especially after installation, to set the title and URL of the [site](site.html), to configure [users and groups](users.html), to configure the connection to [OAUTH providers](allauth.html), and to create [tokens](tokens.html) to be used with the API.
+That being said, the admin interface is needed, especially after installation, to set the title and URL of the [site](site.html), to configure [users and groups](users.html), to configure the connection to [OAUTH providers](allauth.html), and to create tokens to be used with the [API](api.html).
 
 ```eval_rst
 ----
