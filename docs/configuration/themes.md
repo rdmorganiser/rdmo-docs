@@ -28,6 +28,9 @@ If you want to manually create a theme you need to do the following:
 1. Add the line below to your `config/settings/local.py`:
 
     ```python
+    import os
+    from . import BASE_DIR
+
     THEME_DIR = os.path.join(BASE_DIR, 'theme')
     ```
 
