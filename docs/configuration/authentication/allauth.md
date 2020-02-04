@@ -37,6 +37,7 @@ from rdmo.core.settings import INSTALLED_APPS, AUTHENTICATION_BACKENDS
 ACCOUNT = True
 ACCOUNT_SIGNUP = True
 SOCIALACCOUNT = True
+SOCIALACCOUNT_AUTO_SIGNUP = False
 
 INSTALLED_APPS += [
     'allauth',
@@ -53,6 +54,6 @@ INSTALLED_APPS += [
 AUTHENTICATION_BACKENDS.append('allauth.account.auth_backends.AuthenticationBackend')
 ```
 
-to your `config/settings/local.py`. The setting `SOCIALACCOUNT = True` is used by RDMO to show certain parts of the user interface connected to 3rd party accounts, while as before, the lines after `INSTALLED_APPS` enable the feature to be used by RDMO. Each provider has a separate app you need to add to `INSTALLED_APPS`. A list of all providers supported by django-allauth can be found [here](http://django-allauth.readthedocs.io/en/latest/providers.html).
+to your `config/settings/local.py`. The setting `SOCIALACCOUNT = True` is used by RDMO to show certain parts of the user interface connected to 3rd party accounts, while as before, the lines after `INSTALLED_APPS` enable the feature to be used by RDMO. `SOCIALACCOUNT_AUTO_SIGNUP = True` forces new users to fill out a signup form even if the provider provides and email address. Each provider has a separate app you need to add to `INSTALLED_APPS`. A list of all providers supported by django-allauth can be found [here](http://django-allauth.readthedocs.io/en/latest/providers.html).
 
 Once the installation is complete, the credentials of your OAUTH provider need to be entered in the admin interface. This is covered in the [administration chapter](../../administration/allauth.html) of this documentation.
