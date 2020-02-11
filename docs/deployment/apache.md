@@ -77,10 +77,10 @@ Restart the Apache server: `sudo service apache2 restart`. RDMO should now be av
 As you can see from the virtual host configurations, the static assets such as CSS and JavaScript files are served independently from the WSGI-python script. In order to do so, they need to be gathered in the `static_root` directory. This can be achieved by running:
 
 ```bash
-python manage.py collectstatic
+python manage.py collectstatic --clean
 ```
 
-in your virtual environment.
+in your virtual environment  (`--clean` removes existing files before collecting).
 
 In order to apply changes to the RDMO code (e.g. after an [upgrade](../upgrade/index.html)), the webserver needs to be reloaded or the `config/wsgi.py` file needs to appear modified. This can be done using the `touch` command:
 
