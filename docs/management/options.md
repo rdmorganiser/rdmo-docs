@@ -8,9 +8,9 @@ Options and option sets can be managed under *Options* in the management menu in
 On the left-hand side is the main display of all the option sets and options available in this installation of RDMO. Option sets show their key, while options show their path and their text. On the right side of each elements panel, icons indicate ways to interact the element. The following options are available:
 
 * **Add** (![](../_static/img/icons/add.png)) a new option to an option set.
-* **Update** (![](../_static/img/icons/update.png) an option set or option to change its properties.
+* **Update** (![](../_static/img/icons/update.png)) an option set or option to change its properties.
 * **Update conditions** (![](../_static/img/icons/conditions.png)) of an option set. A question connected to an option set with one or more conditions, will not show the options of the set in the questionaire, if the condition is evaluated to be false. The conditions themselves are configured in [the conditions management](../management/conditions.html).
-* **Delete** (![](../_static/img/icons/delete.png)) an option set or option and, in the case of an option set, all of it's options. **This action cannot be undone!**
+* **Delete** (![](../_static/img/icons/delete.png)) an option set or option and, in the case of an option set, all of its options. **This action cannot be undone!**
 
 The sidebar on the right shows additional interface items:
 
