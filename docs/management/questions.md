@@ -1,6 +1,6 @@
 # Questions
 
-The questions management is available under *Questions* in the management menu in the navigation bar. This page will be empty after a fresh RDMo installation. We suggest to **first import our domain model** and, if you like, our general questionaire. The corresponding XML-files are available at <https://github.com/rdmorganiser/rdmo-catalog>.
+The questions management is available under *Questions* in the management menu in the navigation bar. This page will be empty after a fresh RDMO installation. We suggest to **first import our domain model** and, if you like, our general questionaire. The corresponding XML-files are available at <https://github.com/rdmorganiser/rdmo-catalog>.
 
 If there is at least one questionaire imported, it will be shown automatically. Other catalogs can be selected in the sidebar on the right-hand side afterwards.
 
@@ -12,11 +12,11 @@ On the left-hand side is the main display of sections, questionsets, and questio
 * **Add** (![](../_static/img/icons/add.png)) a new section, a new questionset, or a new question.
 * **Update** (![](../_static/img/icons/update.png)) an element to change its properties.
 * **Copy** (![](../_static/img/icons/copy.png)) a question or questionset. This will open the same modal as update. You can change some of the properties and save the elememt as a new one. This can save time when creating several similar questions.
-* **Delete** (![](../_static/img/icons/delete.png)) an element and all of it's decendents (e.g. a question set and all the questions it contains). **This action cannot be undone!**
+* **Delete** (![](../_static/img/icons/delete.png)) an element and all of its decendents (e.g. a question set and all the questions it contains). **This action cannot be undone!**
 
 The sidebar on the right-hand side shows additional interface items:
 
-* **Catalog** switches the view to a different Catalog.
+* **Catalog** switches the view to a different catalog.
 * **Filter** filters the view according to a user given string. Only elements containing this string in their `path` will be shown.
 * **Options** offers additional operations:
 
@@ -74,7 +74,7 @@ The different elements of the questionaire have different properties to control 
 |Plural name|English plural name displayed for the sets, if **Is collection** is activated (e.g. datasets)|
 |**Tab German**|*contains the same elements as the English one but obviously for German language content*|
 |**Tab Conditions**|
-|Conditions|Displays the conditions of the question set. If **all** select ted Conditions evaluate<br>negative, the question set is skipped in the Interview|
+|Conditions|Displays the conditions of the question set. If **all** selected conditions evaluate<br>negative, the question set is skipped in the Interview|
 
 ### Questions
 
