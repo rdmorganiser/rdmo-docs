@@ -93,7 +93,10 @@ DATABASES = {
         'HOST': '',
         'PORT': '',
         'OPTIONS': {
+            # only if you want to connect over a non-default socket
             'unix_socket': '',
+            # only for MySQL 5.7
+            'init_command': "SET GLOBAL sql_mode=(SELECT REPLACE(@@sql_mode,'ONLY_FULL_GROUP_BY',''));"
         }
     }
 }
@@ -104,7 +107,7 @@ to your `config/settings/local.py`. Here, `Name` is the name of the database, `U
 ```mysql
 CREATE USER 'rdmo'@'localhost' identified by 'not a good password';
 GRANT ALL ON `rdmo`.* to 'rdmo'@'localhost';
-CREATE DATABASE `rdmo`;
+CREATE DATABASE `rdmo` CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 ```
 
 on the MySQL-shell.
