@@ -1,43 +1,45 @@
 # Views
 
+<!--- mdtoc: toc begin -->
+
+1.	[Parameters](#parameters)
+	1.	[View](#view)
+2.	[View Templates](#view-templates)
+	1.	[Calculations](#calculations)<!--- mdtoc: toc end -->
+
 Views can be configured under *Views* in the management menu in the navigation bar.
 
 ![](../_static/img/screens/views.png)
+
 > *Screenshot of the views management interface*
 
 On the left-hand side is the main display of all the views available in this installation of RDMO. Views show their key, title and description. On the right side of each views panel, icons indicate ways to interact the element. The following options are available:
 
-* **Update** (![](../_static/img/icons/update.png)) a view to change its properties.
-* **Edit the template** (![](../_static/img/icons/template.png)) of a view.
-* **Delete** (![](../_static/img/icons/delete.png)) a view. **This action cannot be undone!**
+-	**Update** (![](../_static/img/icons/update.png)) a view to change its properties.
+-	**Edit the template** (![](../_static/img/icons/template.png)) of a view.
+-	**Delete** (![](../_static/img/icons/delete.png)) a view. **This action cannot be undone!**
 
 The sidebar on the right shows additional interface items:
 
-* **Filter** filters the view according to a user given string. Only views containing this string in their path will be shown.
-* **Options** offers additional operations:
+-	**Filter** filters the view according to a user given string. Only views containing this string in their path will be shown.
+-	**Options** offers additional operations:
 
-  * Create a new view
+	-	Create a new view
 
-* **Export** exports the conditions to one of the displayed formats. While the textual formats are mainly for presentation purposes, the XML export can be used to transfer the views to a different installation of RDMO.
+-	**Export** exports the conditions to one of the displayed formats. While the textual formats are mainly for presentation purposes, the XML export can be used to transfer the views to a different installation of RDMO.
 
 Views have different properties to control their behavior. As descibed in [the introduction](index.html), all elements have an URI prefix, a key, and an internal comment only to be seen by other managers of the RDMO installation. In addition, you can edit the parameters below:
 
 ## Parameters
+
 ### View
 
-|**Tab English**||
-|-|-|
-|Title|The English title for the view. The title will be shown in the projects overview.|
-|Help|The English help text for the view. The help text will be shown in the projects overview|
-|**Tab German**|*contains the same elements as the English one but obviously for German language content*|
-|**Tab Groups**|
-|Groups|Displays the groups for this view. If at least one group is selected, only users of these<br> groups will see this view for a project.|
-|**Tab Sites**|
-|Sites| *(Only in a multi site installation)* Displays the sites for this view. Only users of these<br> groups will see this view for a project.|
+|**Tab English**|| |-|-| |Title|The English title for the view. The title will be shown in the projects overview.| |Help|The English help text for the view. The help text will be shown in the projects overview| |**Tab German**|*contains the same elements as the English one but obviously for German language content*| |**Tab Groups**| |Groups|Displays the groups for this view. If at least one group is selected, only users of these<br> groups will see this view for a project.| |**Tab Sites**| |Sites| *(Only in a multi site installation)* Displays the sites for this view. Only users of these<br> groups will see this view for a project.|
 
 ## View Templates
 
 ![](../_static/img/screens/template.png)
+
 > *Screenshot of the template modal*
 
 Each view has a template, which determines how the answers given by the user are mapped to a textual document. The template is composed using the [Django template](https://docs.djangoproject.com/en/stable/ref/templates/language/) syntax, which is a combination of regular HTML, variables, which get replaced with values when the template is evaluated (`{{ a_variable }}`), and tags, which control the logic of the template (`{% a_tag %}`).
@@ -76,6 +78,7 @@ Lists of multiple values can also be rendered.
 ```
 
 As equivalent for the snippet above you can also use the following which gives you more control over the list layout.
+
 ```django
 <ul>
 {% get_values 'project/research_question/keywords' set_index=0 as text %}
@@ -113,6 +116,42 @@ Or checking a value within a dataset.
         {% render_set_value dataset 'project/dataset/id' %}
     {% endif %}
 {% endfor %}
+```
+
+### Calculations
+
+You can do calculations in RDMO's view templates by using filters. The package RDMO utilizes is called [django-mathfilters](https://pypi.org/project/django-mathfilters). The following operations are supported. For more information please have a look into the django mathfilters documentation which can be found at the link mentioned before.
+
+| Filter Name | Operation                |
+|-------------|--------------------------|
+| sub         | subtraction              |
+| mul         | multiplication           |
+| div         | division                 |
+| intdiv      | integer (floor) division |
+| abs         | absolute value           |
+| mod         | modulo                   |
+| addition    | addition                 |
+
+The following examples illustrate how to use the mathfilters. It is quite easy if you pay attention to two things. First step is to load the desired value into a variable. This can be achieved as usual by `get_value`. Afterwards this value can be used in calculations but it explicitely needs to be used `as_number`.
+
+For example you could do the following to get the sum of two values.
+
+```django
+{% get_value 'project/costs/creation/personnel' as val1 %}
+{% get_value 'project/costs/creation/non_personnel' as val2 %}
+
+{{ val1.as_number | addition:val2.as_number  }}
+```
+
+Note that filters can be piped after another as often as you like. You could easily do something like this. But pay attention to having the piped filters in a single line because Django templates do not support having filters spreading across multiple lines.
+
+```django
+{% get_value 'project/costs/storage/personnel' as val1 %}
+{% get_value 'project/costs/storage/non_personnel' as val2 %}
+{% get_value 'project/costs/metadata/personnel' as val3 %}
+{% get_value 'project/costs/metadata/non_personnel' as val4 %}
+
+{{ val1.as_number | addition:val2.as_number | addition:val3.as_number | addition:val4.as_number }}
 ```
 
 Please consult the documentation of the Django template syntax for all the available tags and filters: https://docs.djangoproject.com/en/stable/ref/templates/language.
