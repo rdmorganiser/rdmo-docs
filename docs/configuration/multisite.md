@@ -3,7 +3,7 @@ Multisite
 
 ```eval_rst
 .. warning::
-    The following feature is not available in the released version of RDMO yet. It will be part of a future version.
+    This is an advanced feature of RDMO.
 ```
 
 RDMO can be operated in a multi site setup, connecting several different `rdmo-apps` with different URLs and Themes, on one Server with one common Database. The different Sites will share their Catalogs, Views, etc., but the availability of this Content can be restricted among the Sites. Users can log in into any of the sites (if the authentication method allows) and projects can be shared among sites. Each of these RDMO Sites has its own `rdmo-app` directory and its own configuration (`config/settings/local.py`).

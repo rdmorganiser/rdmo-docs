@@ -25,6 +25,10 @@ Existing users can be assigned to these groups to gain access to these functions
 1. Click on the little arrow to move the group to the **Chosen groups** field.
 1. Save the user.
 
+## Roles
+
+Users can be set as `site_managers` for a specific (or the only) site under **ACCOUNTS** and **Roles**. Site managers have access to all projects of this site.
+
 ## Superuser
 
 Superusers have all permissions available and all permission checks will return positive to them. This does not only allow them to access the management and admin interfaces, but also **access all data from other user** (including the project pages).
