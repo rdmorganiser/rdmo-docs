@@ -20,7 +20,6 @@ RDMO_VERSION = '0.11'
 #
 
 import sphinx_rtd_theme
-
 # -- Markdown dependencies and config -------------------------------------
 from recommonmark.parser import CommonMarkParser
 from recommonmark.transform import AutoStructify
@@ -51,7 +50,8 @@ def setup(app):
 extensions = [
     'sphinx.ext.autodoc',
     'sphinx.ext.viewcode',
-    'sphinx_markdown_tables'
+    'sphinx_markdown_tables',
+    'recommonmark'
 ]
 
 # Add any pathes that contain templates here, relative to this directory.
@@ -60,7 +60,11 @@ templates_path = ['_templates']
 # The suffix(es) of source filenames.
 # You can specify multiple suffixes as a list of strings:
 #
-source_suffix = '.rst'
+source_suffix = {
+    '.rst': 'restructuredtext',
+    '.txt': 'markdown',
+    '.md': 'markdown',
+}
 
 # The master toctree document.
 master_doc = 'index'
