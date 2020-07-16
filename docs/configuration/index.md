@@ -26,4 +26,5 @@ This comprises [general settings](../configuration/general.html), [database conn
    cache
    logging
    multisite
+   plugins
 ```
