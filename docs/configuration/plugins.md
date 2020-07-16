@@ -22,7 +22,7 @@ The export plugin needs to be added to the `PROJECT_EXPORTS` in `config/settings
 
 ```
 PROJECT_EXPORTS = [
-    ('xml', _('as RDMO XML'), 'rdmo.projects.exports.XMLExport'),
+    ('xml', _('as RDMO XML'), 'rdmo.projects.exports.RDMOXMLExport'),
     ('csvcomma', _('as CSV (comma separated)'), 'rdmo.projects.exports.CSVCommaExport'),
     ('csvsemicolon', _('as CSV (semicolon separated)'), 'rdmo.projects.exports.CSVSemicolonExport'),
 ]
