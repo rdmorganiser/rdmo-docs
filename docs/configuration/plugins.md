@@ -30,7 +30,7 @@ To be usable by RDMO, the plugins need to be available in the virtual environmen
 	# place, e.g., madmp.py in my_plugins/
 	```
 
-As a last step, the plugins need to registered in `config/settings/local.py`. The setting depends on the class of plugin and is described below.
+As a last step, the plugins need to be registered in `config/settings/local.py`. The setting depends on the class of plugin and is described below.
 
 ## Project export plugins
 
