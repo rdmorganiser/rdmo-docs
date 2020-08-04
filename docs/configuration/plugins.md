@@ -96,7 +96,7 @@ Please refer to https://github.com/rdmorganiser/rdmo/blob/master/rdmo/projects/i
 
 We will mention two possibilities of how to install [rdmo-plugins](https://github.com/rdmorganiser/rdmo-plugins). Depending on your use case you should pick the one that fits you more. The first one using `pip` does a good job if you are just planning to use the plugins from the repo without modifying these. The other method requires to copy the necessary python files into your local app folder which has advantages if you are planning to modify existing or create your own plugins.
 
-Please note that the imports require Django's translation utils and that usually use these with an underscore. If you are getting import errors please check if you have the first of the following lines at the beginning of your `local.py`. You also need to import `PROJECT_EXPORTS` and `PROJECT_IMPORTS` as we will later append our imports to these lists. Make sure you also have the second line in your `local.py`.
+Please note that the imports require Django's translation utils and that we usually use these with an underscore. If you are getting import errors please check if you have the first of the following lines at the beginning of your `local.py`. You also need to import `PROJECT_EXPORTS` and `PROJECT_IMPORTS` as we will later append our imports to these lists. Make sure you also have the second line in your `local.py`.
 
 ```python
 from django.utils.translation import ugettext_lazy as _
