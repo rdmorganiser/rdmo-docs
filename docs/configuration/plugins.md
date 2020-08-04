@@ -69,7 +69,7 @@ Similarly, custom project imports can be created implementing a class inheriting
 
 The Plugin class needs to implement a `check()` function which takes no arguments and only returns `True` if an uploaded file can be imported by this plugin. The `self.file_name` instance variable can be used for this. In most cases, this will include opening and parsing the file.
 
-In addition, a `process()` needs to be implemented which which takes no arguments and returns `None`, but extracts the data from the file and populates the `self.project`, `self.catalog`, `self.values`, `self.snapshots`, `self.tasks` and `self.views` instance variables.
+In addition, a `process()` needs to be implemented which takes no arguments and returns `None`, but extracts the data from the file and populates the `self.project`, `self.catalog`, `self.values`, `self.snapshots`, `self.tasks` and `self.views` instance variables.
 
 The import plugin needs to be added to the `PROJECT_IMPORTS` in `config/settings/local.py`. The default settings are:
 
@@ -96,10 +96,11 @@ Please refer to https://github.com/rdmorganiser/rdmo/blob/master/rdmo/projects/i
 
 We will mention two possibilities of how to install [rdmo-plugins](https://github.com/rdmorganiser/rdmo-plugins). Depending on your use case you should pick the one that fits you more. The first one using `pip` does a good job if you are just planning to use the plugins from the repo without modifying these. The other method requires to copy the necessary python files into your local app folder which has advantages if you are planning to modify existing or create your own plugins.
 
-Please note that the imports require Django's translation utils and that usually use these with an underscore. If you are getting import errors please check if you have the following line at the beginning of your `local.py`.
+Please note that the imports require Django's translation utils and that usually use these with an underscore. If you are getting import errors please check if you have the first of the following lines at the beginning of your `local.py`. You also need to import `PROJECT_EXPORTS` and `PROJECT_IMPORTS` as we will later append our imports to these lists. Make sure you also have the second line in your `local.py`.
 
 ```python
 from django.utils.translation import ugettext_lazy as _
+from rdmo.core.settings import PROJECT_EXPORTS, PROJECT_IMPORTS
 ```
 
 ### Use pip
