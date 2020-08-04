@@ -2,8 +2,8 @@
 
 The RDMO application uses the [Django settings](https://docs.djangoproject.com/en/1.10/topics/settings) module for it's configuration. To seperate the base configuration and your local adjustments and secret information (e.g. database connections), RDMO splits the settings into two files:
 
-* `config/settings/base.py`, which is part of the git repository.
-* `config/settings/local.py`, which is ignored by git.
+-	`config/settings/base.py`, which is part of the git repository.
+-	`config/settings/local.py`, which is ignored by git.
 
 As part of the installation `config/settings/local.py` should be created from the template `config/settings/sample.local.py`.
 
@@ -25,6 +25,6 @@ This comprises [general settings](../configuration/general.html), [database conn
    export-formats
    cache
    logging
-   multisite
    plugins
+   multisite
 ```
