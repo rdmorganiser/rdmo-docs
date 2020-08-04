@@ -25,7 +25,7 @@ from recommonmark.parser import CommonMarkParser
 from recommonmark.transform import AutoStructify
 
 source_parsers = {
-    '.md': CommonMarkParser,
+    # '.md': CommonMarkParser,
 }
 
 
@@ -63,7 +63,7 @@ templates_path = ['_templates']
 source_suffix = {
     '.rst': 'restructuredtext',
     '.txt': 'markdown',
-    '.md': 'markdown',
+    # '.md': 'markdown',
 }
 
 # The master toctree document.
