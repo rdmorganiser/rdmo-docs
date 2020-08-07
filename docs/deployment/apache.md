@@ -74,6 +74,18 @@ for CentOS 7 in `/etc/httpd/conf.d/vhosts.conf` use:
 
 Restart the Apache server: `sudo service apache2 restart`. RDMO should now be available on `YOURDOMAIN`. Note that the Apache user needs to have access to `/srv/rdmo/rdmo-app/static_root/`.
 
+For distributions that use SELinux (e.g. CentOS, RHEL, Fedora), run also the following commands, then restart Apache:
+```bash
+sudo semanage fcontext -a -t httpd_sys_content_t "/srv/rdmo/rdmo-app(/.*)?"
+sudo semanage fcontext -a -t httpd_sys_rw_content_t "/srv/rdmo/rdmo-app/static_root/CACHE(/.*)?"
+sudo semanage fcontext -a -t httpd_sys_rw_content_t "/srv/rdmo/rdmo-app/log(/.*)?"
+sudo semanage fcontext -a -t httpd_sys_script_exec_t -f f "/srv/rdmo/rdmo-app/env(/.*)?/.+\.so(\.[^/]*)*"
+sudo restorecon -R -v /srv/rdmo
+sudo setsebool -P httpd_can_network_connect=1
+# Run this only if using memcached
+sudo setsebool -P httpd_can_network_memcache=1
+```
+
 As you can see from the virtual host configurations, the static assets such as CSS and JavaScript files are served independently from the WSGI-python script. In order to do so, they need to be gathered in the `static_root` directory. This can be achieved by running:
 
 ```bash
