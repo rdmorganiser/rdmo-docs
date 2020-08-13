@@ -25,8 +25,6 @@ Demo
     https://rdmo.aip.de
 ```
 
-Warning: This software is currently under development and not production ready.
-
 ```eval_rst
 .. toctree::
    :maxdepth: 2
