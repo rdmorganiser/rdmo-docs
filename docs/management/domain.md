@@ -29,3 +29,10 @@ The different elements of the domain model have different properties to control 
 |Name|Explanation|
 |-|-|
 |Parent attribute|Indicates the parent attribute in the domain model|
+
+
+## Attributes, entities, and the data model refactoring
+
+Prior to version [0.11.0](https://github.com/rdmorganiser/rdmo/releases/tag/0.11.0) (released in December 2018), the domain model distinguished between `Entities` as inner nodes and `Attributes` as leafs of the tree structure.
+Due to the data model refactoring in 0.11.0, this is no longer the case and all entries in the domain are `Attributes`.
+Note that in older publications on RDMO's domain model you might still find this nomenclature.
