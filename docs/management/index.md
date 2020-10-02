@@ -1,6 +1,6 @@
 # Management
 
-A freshly installed instance of RDMO is not very useful without a questionaire to fill out by the user and a set of DMP templates later to be populated by the given answers. The main idea of RDMO is that every question and every output can be customized by you. This, however, introduces a certain level of complexity. RDMO employs a datamodel organized along different Django apps and models (representing database tables). A graphical overview is given in the figure below:
+A freshly installed instance of RDMO is not very useful without a questionnaire to fill out by the user and a set of DMP templates later to be populated by the given answers. The main idea of RDMO is that every question and every output can be customized by you. This, however, introduces a certain level of complexity. RDMO employs a datamodel organized along different Django apps and models (representing database tables). A graphical overview is given in the figure below:
 
 ![](../_static/img/datamodel.svg)
 > *Overview of the RDMO data model*
@@ -17,7 +17,7 @@ The **domain model** is the central part of the data model and connects the ques
 
 After filling out the interview, the user will be presented with follow up **tasks** based on his/her answers. A task has a title and a text. **Time frames** can be added to tasks, which themselves are evaluating attributes of the value type "datetime", to use answers such as the beginning or the end of a project to compute meaningful tasks. Most of the time tasks will have a condition connected to them, to determine if this task is needed for a particular project or not. Tasks configured under `/tasks` are available in the management menu. More documentation about editing views can be found [here](tasks.html).
 
-The different elements of the RDMO datamodel have various parameters, which control their behavior in RDMO and can be configured using the different management pages, which are decribed on the following pages. In addition, all elements contain a set of common parameters:
+The different elements of the RDMO datamodel have various parameters, which control their behavior in RDMO and can be configured using the different management pages, which are described on the following pages. In addition, all elements contain a set of common parameters:
 
 __*URI prefix*__
 
@@ -27,7 +27,7 @@ When you import a question catalog or any other content from another institution
 
 By convention the URI prefix has to look like a URL. It does not have to be a valid URL in terms of being resolvable. In principle you could use any kind of string as long as it fits the scheme but we recommend to use the URL of your RDMO instance. The URI prefix has to start with `http://` or `https://`. Afterwards there has to be a `host name`. Anything further like for instance a `path` is optional. Valid URI prefixes for example are: `https://rdmorganiser.github.io/terms` or `https://rdmo.aip.de`.
 
-In edit forms of elements you will find a button looking like this <img src="../_static/img/icons/magic-solid.svg" width="18px">. It can be used to automatically put the default URI prefix into the open form. This is very useful especially if you do not exactly remember or know the default value of your RDMO installation. The default URI prefix that this button gets is defined in the `local.py`. The button is only helpful if the value is set. We strongly recomment to add an entry like the following to your config of course having your URI prefix as value.
+In edit forms of elements you will find a button looking like this <img src="../_static/img/icons/magic-solid.svg" width="18px">. It can be used to automatically put the default URI prefix into the open form. This is very useful especially if you do not exactly remember or know the default value of your RDMO installation. The default URI prefix that this button gets is defined in the `local.py`. The button is only helpful if the value is set. We strongly recommend to add an entry like the following to your config of course having your URI prefix as value.
 
 ```
 DEFAULT_URI_PREFIX = 'https://rdmo.uni-xyz.de/terms/'
