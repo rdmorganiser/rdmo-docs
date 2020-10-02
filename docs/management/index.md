@@ -19,7 +19,7 @@ After filling out the interview, the user will be presented with follow up **tas
 
 The different elements of the RDMO datamodel have various parameters, which control their behavior in RDMO and can be configured using the different management pages, which are decribed on the following pages. In addition, all elements contain a set of common parameters:
 
-__* URI prefix__
+__*URI prefix*__
 
 The URI prefix is the first part of the URI. As every element has a URI, every element does obviously also have a URI prefix. Semantically the prefix is only relevant when different RDMO instances share data between each other. In this case the URI prefix is used to determine which instance the data belong to. You may think of it as a kind of `unique instance identifier`.
 
@@ -33,11 +33,11 @@ In edit forms of elements you will find a button looking like this <img src="../
 DEFAULT_URI_PREFIX = 'https://rdmo.uni-xyz.de/terms/'
 ```
 
-__* Key__
+__*Key*__
 
 A key that is used as an internal identifier and determines, together with the URI prefix, the URI of the element.
 
-__* Internal Comment__
+__*Internal Comment*__
 
 An internal comment to share information to be seen by users with access to the management backend.
 
