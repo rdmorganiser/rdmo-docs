@@ -141,7 +141,9 @@ The provider can also implement a `webhook(self, request, integration)` which is
 
 Furthermore, it needs to implement a property `fields`, which returns the option fields, which users need to enter when adding an integration to a project. For GitHub, this is the repository and a secret string to secure the webhook. Please refer to the [implementation of the GitHubProvider](https://github.com/rdmorganiser/rdmo/blob/master/rdmo/services/providers.py) for more details.
 
-The plugins needs to be added to the `SERVICE_PROVIDERS` in `config/settings/local.py`. In order to use the GitHub provider from [rdmo-plugins](https://github.com/rdmorganiser/rdmo-plugins), add the following to your `config/settings/local.py`:
+### GitHub service provider
+
+The GitHub provider ships with RDMO, needs to be added to the `SERVICE_PROVIDERS` in `config/settings/local.py` in order to be used:
 
 ```python
 OPTIONSET_PROVIDERS = [
@@ -157,6 +159,10 @@ GITHUB_PROVIDER = {
     'client_secret': ''
 }
 ```
+
+Then users can add an integration to their projects, which requires setting the repo in the form `<user>/<repo>` the tasks from RDMO are send to.
+
+Additionally, but probably only if the project in RDMO is also managed by RDMO savy staff, a secret can be added to enable GitHub to communicate to RDMO when an issue has been closed. For this to work, a webhook has to be added at `https://github.com/<user>/<repo>/settings/hooks`. The webhook has to point to `https://<your rdmo url>/projects/<project_id>/integrations/<integration_id>/webhook/`, the content type is `application/json` and the secret has to be exactly the secret entered in the integration.
 
 ## Examples of how to install plugins
 

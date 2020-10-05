@@ -11,15 +11,16 @@ On the left-hand side is the main display of all the attributes available in thi
 
 * **Add** (![](../_static/img/icons/add.png)) a new attribute.
 * **Update** (![](../_static/img/icons/update.png)) an attribute to change its properties.
+* **Copy** (![](../_static/img/icons/copy.png)) an attribute. This will open a modal to set a new key.
+* **Show** (![](../_static/img/icons/show.png)) the references from, e.g. questions, to an attribute. This will open a modal.
+* **Export** (![](../_static/img/icons/export.png)) an attribute and all of its decendents as XML.
 * **Delete** (![](../_static/img/icons/delete.png)) an attribute and all of it's decendents. **The action will remove the attribute and all the attributes below. This action cannot be undone!**
 
 The sidebar on the right-hand side shows additional interface items:
 
-* **Filter** filters the view according to a user given string. Only elements containing this string in their path will be shown.
+* **Filter** filters the view according to a user given string or a given URI prefix.
 * **Options** offers additional operations:
-
   * Create a new (empty) attribute
-
 * **Export** exports the current catalog to one of the displayed formats. While the textual formats are mainly for presentation purposes, the XML export can be used to transfer the domain model to a different installation of RDMO.
 
 The different elements of the domain model have different properties to control their behavior. As described in [the introduction](index.html), all elements have an URI prefix, a key, and an internal comment only to be seen by other managers of the RDMO installation. In addition, you can edit the parameters below:

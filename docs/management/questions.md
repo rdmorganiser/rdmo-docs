@@ -11,23 +11,23 @@ On the left-hand side is the main display of sections, questionsets, and questio
 
 * **Add** (![](../_static/img/icons/add.png)) a new section, a new questionset, or a new question.
 * **Update** (![](../_static/img/icons/update.png)) an element to change its properties.
-* **Copy** (![](../_static/img/icons/copy.png)) a question or questionset. This will open the same modal as update. You can change some of the properties and save the elememt as a new one. This can save time when creating several similar questions.
+* **Copy** (![](../_static/img/icons/copy.png)) an element. This will open a modal to set a new key. Afterwards, you can change the properties of the element using the update modal.
+* **Export** (![](../_static/img/icons/export.png)) an element and all of its decendents as XML.
 * **Delete** (![](../_static/img/icons/delete.png)) an element and all of its decendents (e.g. a question set and all the questions it contains). **This action cannot be undone!**
 
 The sidebar on the right-hand side shows additional interface items:
 
 * **Catalog** switches the view to a different catalog.
-* **Filter** filters the view according to a user given string. Only elements containing this string in their `path` will be shown.
+* **Filter** filters the view according to a user given string or a given URI prefix.
 * **Options** offers additional operations:
-
-  * Update the details of the current catalog
-  * Delete the current catalog
-  * Create a new (empty) catalog
-  * Create a new (empty) section
-  * Create a new (empty) subsection
-  * Create a new (empty) question set
-  * Create a new (empty) question
-
+    * Update the details of the current catalog
+    * Copy the the current catalog
+    * Delete the current catalog
+    * Create a new (empty) catalog
+    * Create a new (empty) section
+    * Create a new (empty) subsection
+    * Create a new (empty) question set
+    * Create a new (empty) question
 * **Export** exports the current catalog to one of the displayed formats. While the text based formats are mainly for showing the full catalog, the XML export can be used to transfer this catalog to a different installation of RDMO.
 
 The different elements of the questionaire have different properties to control their behavior. As described in [the introduction](index.html), all elements have an URI prefix, a key, and an internal comment only to be seen by other managers of the RDMO installation. In addition, you can edit the parameters below:
