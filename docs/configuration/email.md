@@ -28,3 +28,24 @@ EMAIL_FROM = 'info@example.com'
 ```
 
 This is also the default backend, if no E-mail settings are added to `config/settings/local.py`.
+
+
+## Send tasks via Email
+
+Tasks can be send by users via email. To enable this function add the following to your `config/settings/local.py`:
+
+```python
+PROJECT_SEND_ISSUE = True
+
+EMAIL_RECIPIENTS_CHOICES = [
+    ('email@example.com', 'Eddy Example <email@example.com>'),
+]
+```
+
+While `PROJECT_SEND_ISSUE` enable the feature, `EMAIL_RECIPIENTS_CHOICES` determines a fixed list of recipients for mails from your RDMO instance. Instead of a fixed list or in combination, you can also set
+
+```python
+EMAIL_RECIPIENTS_INPUT = True
+```
+
+to enable users to send tasks to arbitrary addresses. **Please consider all implications of this feature. In particular, you might not want to enable this feature, if your RDMO instance is open to anyone.** The emails will be send from the `DEFAULT_FROM_EMAIL` and set the user sending the task in CC.
