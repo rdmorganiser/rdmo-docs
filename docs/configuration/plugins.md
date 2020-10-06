@@ -146,7 +146,7 @@ Furthermore, it needs to implement a property `fields`, which returns the option
 The GitHub provider ships with RDMO, needs to be added to the `SERVICE_PROVIDERS` in `config/settings/local.py` in order to be used:
 
 ```python
-OPTIONSET_PROVIDERS = [
+SERVICE_PROVIDERS = [
     ('github', _('GitHub'), 'rdmo.services.GitHubProvider'),
 ]
 ```
