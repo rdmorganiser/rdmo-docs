@@ -124,7 +124,7 @@ The plugin needs to be added to the `OPTIONSET_PROVIDERS` in `config/settings/lo
 
 ```python
 OPTIONSET_PROVIDERS = [
-    ('re3data', _('Repositories from re3data'), 'rdmo_plugins.options.Re3DataProvider'),
+    ('re3data', _('Repositories from re3data'), 'rdmo_plugins.optionsets.re3data.Re3DataProvider')
 ]
 ```
 
@@ -147,7 +147,7 @@ The GitHub provider ships with RDMO, needs to be added to the `SERVICE_PROVIDERS
 
 ```python
 SERVICE_PROVIDERS = [
-    ('github', _('GitHub'), 'rdmo.services.GitHubProvider'),
+    ('github', _('GitHub'), 'rdmo.services.providers.GitHubProvider'),
 ]
 ```
 
