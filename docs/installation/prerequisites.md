@@ -12,7 +12,7 @@ sudo apt install build-essential libxml2-dev libxslt-dev zlib1g-dev \
     git pandoc
 
 # optional, for pdf output
-sudo apt install texlive texlive-xetex
+sudo apt install texlive texlive-xetex lmodern
 ```
 
 on RHEL/CentOS use:
