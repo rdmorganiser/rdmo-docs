@@ -16,16 +16,16 @@ Views can be configured under *Views* in the management menu in the navigation b
 On the left-hand side is the main display of all the views available in this installation of RDMO. Views show their key, title and description. On the right side of each views panel, icons indicate ways to interact the element. The following options are available:
 
 -	**Update** (![](../_static/img/icons/update.png)) a view to change its properties.
+-   **Copy** (![](../_static/img/icons/copy.png)) a view. This will open a modal to set a new key.
 -	**Edit the template** (![](../_static/img/icons/template.png)) of a view.
+-   **Export** (![](../_static/img/icons/export.png)) a view as XML.
 -	**Delete** (![](../_static/img/icons/delete.png)) a view. **This action cannot be undone!**
 
 The sidebar on the right shows additional interface items:
 
--	**Filter** filters the view according to a user given string. Only views containing this string in their path will be shown.
+-	**Filter** filters the view according to a user given string or a given URI prefix.
 -	**Options** offers additional operations:
-
 	-	Create a new view
-
 -	**Export** exports the conditions to one of the displayed formats. While the textual formats are mainly for presentation purposes, the XML export can be used to transfer the views to a different installation of RDMO.
 
 Views have different properties to control their behavior. As described in [the introduction](index.html), all elements have an URI prefix, a key, and an internal comment only to be seen by other managers of the RDMO installation. In addition, you can edit the parameters below:
@@ -34,7 +34,15 @@ Views have different properties to control their behavior. As described in [the 
 
 ### View
 
-|**Tab English**|| |-|-| |Title|The English title for the view. The title will be shown in the projects overview.| |Help|The English help text for the view. The help text will be shown in the projects overview| |**Tab German**|*contains the same elements as the English one but obviously for German language content*| |**Tab Groups**| |Groups|Displays the groups for this view. If at least one group is selected, only users of these<br> groups will see this view for a project.| |**Tab Sites**| |Sites| *(Only in a multi site installation)* Displays the sites for this view. Only users of these<br> groups will see this view for a project.|
+|**Tab English**||
+|-|-|
+|Title|The English title for the view. The title will be shown in the projects overview.|
+|Help|The English help text for the view. The help text will be shown in the projects overview|
+|**Tab German**|*contains the same elements as the English one but obviously for German language content*|
+|**Tab Groups**|
+|Groups|Displays the groups for this view. If at least one group is selected, only users of these<br> groups will see this view for a project.|
+|**Tab Sites**|
+|Sites| *(Only in a multi site installation)* Displays the sites for this view. Only users of these<br> groups will see this view for a project.|
 
 ## View Templates
 

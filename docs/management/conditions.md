@@ -8,15 +8,16 @@ Conditions can be created and managed under *Conditions* in the management menu 
 On the left-hand side is the main display of all the conditions available in this installation of RDMO. Conditions show their key and a textual representation of what they evaluate. On the right side of each conditions panel, icons indicate ways to interact the element. The following options are available:
 
 * **Update** (![](../_static/img/icons/update.png)) a condition to change its properties.
+* **Copy** (![](../_static/img/icons/copy.png)) a condition. This will open a modal to set a new key.
+* **Show** (![](../_static/img/icons/show.png)) the references from, e.g. questionsets, to a condition. This will open a modal.
+* **Export** (![](../_static/img/icons/export.png)) a condition as XML.
 * **Delete** (![](../_static/img/icons/delete.png)) a condition. **This action cannot be undone!**
 
 The sidebar on the right shows additional interface items:
 
-* **Filter** filters the view according to a user given string. Only conditions containing this string in their path will be shown.
+* **Filter** filters the view according to a user given string or a given URI prefix.
 * **Options** offers additional operations:
-
   * Create a new condition
-
 * **Export** exports the conditions to one of the displayed formats. While the textual formats are mainly for presentation purposes, the XML export can be used to transfer the conditions to a different installation of RDMO.
 
 Conditions have different properties to control their behavior. As described in [the introduction](index.html), all elements have an URI prefix, a key, and an internal comment only to be seen by other managers of the RDMO installation. In addition, you can edit the parameters below.
