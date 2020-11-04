@@ -9,7 +9,7 @@ On the left-hand side is the main display of all the tasks available in this ins
 
 * **Update** (![](../_static/img/icons/update.png)) a task to change its properties.
 * **Copy** (![](../_static/img/icons/copy.png)) a task. This will open a modal to set a new key.
-* **Update conditions** (![](../_static/img/icons/conditions.png)) of a task. A task will only be shown to the user, if all of its conditions are evaluated `True`. The conditions themselved are configured in [the conditions management](../management/conditions.html).
+* **Update conditions** (![](../_static/img/icons/conditions.png)) of a task. A task will only be shown to the user, if all of its conditions are evaluated `True`. The conditions themselves are configured in [the conditions management](../management/conditions.html).
 * **Update the time frame** (![](../_static/img/icons/timeframe.png)) of a task. The time frame is constructed from one or two dates from the user's answers. This allows for tasks about a specific deadline or special period.
 * **Export** (![](../_static/img/icons/export.png)) a task as XML.
 * **Delete** (![](../_static/img/icons/delete.png)) a task. **This action cannot be undone!**
@@ -21,7 +21,7 @@ The sidebar on the right-hand side shows additional interface items:
   * Create a new task
 * **Export** exports the conditions to one of the displayed formats. While the textual formats are mainly for presentation purposes, the XML export can be used to transfer the tasks to a different installation of RDMO.
 
-Tasks have different properties to control their behavior. As descibed in [the introduction](index.html), all elements have an URI prefix, a key, and an internal comment only to be seen by other managers of the RDMO installation. In addition, you can edit the parameters below:
+Tasks have different properties to control their behavior. As described in [the introduction](index.html), all elements have an URI prefix, a key, and an internal comment only to be seen by other managers of the RDMO installation. In addition, you can edit the parameters below:
 
 ## Parameters
 
