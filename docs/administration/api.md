@@ -95,14 +95,14 @@ You could for example request...
 
 ```bash
 curl -LH "Authorization: Token $YOUR_TOKEN" \
-    "https://$YOUR_RDMO/api/v1/project/projects/1"
+    "https://$YOUR_RDMO/api/v1/projects/projects/1"
 ```
 
 2. A list of all projects
 
 ```bash
 curl -LH "Authorization: Token $YOUR_TOKEN" \
-    "https://$YOUR_RDMO/api/v1/project/projects"
+    "https://$YOUR_RDMO/api/v1/projects/projects"
 ```
 
 3. A list of users in a certain project
