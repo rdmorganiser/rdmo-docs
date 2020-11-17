@@ -12,7 +12,7 @@ sudo apt install build-essential libxml2-dev libxslt-dev zlib1g-dev \
     git pandoc
 
 # optional, for pdf output
-sudo apt install texlive texlive-xetex lmodern
+sudo apt install texlive texlive-xetex lmodern librsvg2-bin
 ```
 
 on RHEL/CentOS use:
@@ -24,7 +24,7 @@ sudo yum install gcc gcc-c++ libxml2-devel libxslt-devel \
 
 # optional, for pdf output
 sudo yum install texlive texlive-xetex texlive-mathspec texlive-euenc \
-    texlive-xetex-def texlive-xltxtra
+    texlive-xetex-def texlive-xltxtra librsvg2-tools
 ```
 
 On Ubuntu 14.04, `python3-venv` is not available. Please use `python3.5-venv` instead.
