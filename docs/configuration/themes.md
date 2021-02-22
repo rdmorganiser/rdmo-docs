@@ -46,16 +46,24 @@ Usually, the RDMO template files are located in your virtual environment, e.g. `
 Some files you might want to override are:
 
 ### SASS variables
+
 <https://github.com/rdmorganiser/rdmo/blob/master/rdmo/core/static/core/css/variables.scss> can be copied to `theme/static/core/css/variables.scss` and be used to customize colors.
 
 ### Navigation bar
+
 <https://github.com/rdmorganiser/rdmo/blob/master/rdmo/core/templates/core/base_navigation.html> can be copied to `theme/templates/core/base_navigation.html` and be used to customize the navbar.
 
 ### Home page text
+
 <https://github.com/rdmorganiser/rdmo/blob/master/rdmo/core/templates/core/home_text_en.html> and <https://github.com/rdmorganiser/rdmo/blob/master/rdmo/core/templates/core/home_text_de.html> can be copied to `theme/templates/core/home_text_en.html` and `theme/templates/core/home_text_de.html` and be used to customize text on the home page.
 
 ### Terms of Use
+
 The content displayed in the Terms of Use dialogue can be customized by putting templates to the appropriate locations. Two different files resembling the available languages can be used and should be located at `theme/templates/account/terms_of_use_de.html` and  `theme/templates/account/terms_of_use_en.html`. Set the variable `ACCOUNT_TERMS_OF_USE` to `True` in your `config/settings/local.py`.
 
 
 Note that updates to the RDMO package might render your theme incompatible to the RDMO code and cause errors. In this case the files in `theme` need to be adjusted to match their RDMO counterparts in functionality.
+
+### Emails
+
+The emails, which are send to the users can be customized as well. Of particular interest is the template for mails inviting users to projects located at <https://github.com/rdmorganiser/rdmo/blob/master/rdmo/projects/templates/projects/email>. The templates can be copied to `theme/templates/projects/email/project_invite_subject.txt` and `theme/templates/projects/email/project_invite_message.txt` and edited accordingly.
