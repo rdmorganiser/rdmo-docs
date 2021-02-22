@@ -163,3 +163,22 @@ Note that filters can be piped after another as often as you like. You could eas
 ```
 
 Please consult the documentation of the Django template syntax for all the available tags and filters: https://docs.djangoproject.com/en/stable/ref/templates/language.
+
+
+### Child projects
+
+If child projects exist, they can be accessed using `project.children` (direct childs) and `project.descendants` (all descendants, e.g. childs of childs, etc.). The `project` keyword argument in the view tags are then used to select a particular project, e.g.:
+
+```django
+{% for child in project.children %}
+    <div>
+    {% render_value 'project/title' with project=child %}
+    </div>
+{% endfor %}
+
+{% for child in project.descendants %}
+    <div>
+    {% render_value 'project/title' with project=child %}
+    </div>
+{% endfor %}
+```

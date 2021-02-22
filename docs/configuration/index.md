@@ -25,6 +25,7 @@ This comprises [general settings](../configuration/general.html), [database conn
    export-formats
    cache
    logging
+   projects
    plugins
    multisite
 ```
