@@ -89,7 +89,7 @@ sudo setsebool -P httpd_can_network_memcache=1
 As you can see from the virtual host configurations, the static assets such as CSS and JavaScript files are served independently from the WSGI-python script. In order to do so, they need to be gathered in the `static_root` directory. This can be achieved by running:
 
 ```bash
-python manage.py collectstatic --clean
+python manage.py collectstatic --clear
 ```
 
 in your virtual environment  (`--clean` removes existing files before collecting).
