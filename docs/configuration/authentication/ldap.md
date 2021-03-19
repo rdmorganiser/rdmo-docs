@@ -26,7 +26,7 @@ changetype: add
 objectclass: account
 objectclass: simplesecurityobject
 uid: rdmo
-userPassword: YOURPASSWORD
+userPassword: RDMO_LDAP_ACCOUNT_PASSWORD
 ```
 
 and end with a blank line followed by `ctrl-d`.
@@ -42,8 +42,8 @@ PROFILE_UPDATE = False
 PROFILE_DELETE = False
 
 AUTH_LDAP_SERVER_URI = "ldap://ldap.example.com"
-AUTH_LDAP_BIND_DN = "cn=rdmo,dc=ldap,dc=example,dc=com"
-AUTH_LDAP_BIND_PASSWORD = "YOURPASSWORD"
+AUTH_LDAP_BIND_DN = "uid=rdmo,dc=ldap,dc=example,dc=com"
+AUTH_LDAP_BIND_PASSWORD = "RDMO_LDAP_ACCOUNT_PASSWORD"
 AUTH_LDAP_USER_SEARCH = LDAPSearch("dc=ldap,dc=example,dc=com", ldap.SCOPE_SUBTREE, "(uid=%(user)s)")
 
 AUTH_LDAP_USER_ATTR_MAP = {
@@ -58,12 +58,13 @@ AUTHENTICATION_BACKENDS.insert(
 )
 ```
 
-The setting `PROFILE_UPDATE = False` and `PROFILE_DELETE = False` tell RDMO to disable the update and deletion form for the user profile so that users can neither update their credentials nor delete their profile anymore. The other settings are needed by `django-auth-ldap` and are described in the [django-auth-ldap documentation](https://pypi.org/project/django-auth-ldap).
+The connection can be tested using:
 
-```eval_rst
-.. warning::
-    The following feature is not available in the released version of RDMO yet. It will be part of a future version.
 ```
+ldapsearch -v -x -H 'ldap://ldap.example.com' -D "uid=rdmo,dc=ldap,dc=example,dc=com" -w RDMO_LDAP_ACCOUNT_PASSWORD -b "dc=ldap,dc=example,dc=com" -s sub 'uid=user'
+```
+
+The setting `PROFILE_UPDATE = False` and `PROFILE_DELETE = False` tell RDMO to disable the update and deletion form for the user profile so that users can neither update their credentials nor delete their profile anymore. The other settings are needed by `django-auth-ldap` and are described in the [django-auth-ldap documentation](https://pypi.org/project/django-auth-ldap).
 
 You can also map LDAP groups to Django groups, in particular to restrict the access to Catalogs and Views. This can be done by adding the following settings:
 
