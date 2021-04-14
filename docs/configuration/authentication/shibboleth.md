@@ -16,7 +16,7 @@ In addition, [django-shibboleth-remoteuser](https://github.com/Brown-University-
 pip install -r requirements/shibboleth.txt
 ```
 
-Configure your Shibboleth service provider using the files in `/etc/shibboleth/`. This may vary depending on your Identity Provider. RDMO needs the `REMOTE_SERVER` to be set and 4 attributes from your identity provider:
+Configure your Shibboleth service provider using the files in `/etc/shibboleth/`. This may vary depending on your Identity Provider. RDMO needs the `REMOTE_USER` to be set and 4 attributes from your identity provider:
 
 * a username (usually `eppn`)
 * an E-mail address (usually `mail` or `email`)
