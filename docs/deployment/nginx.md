@@ -74,10 +74,10 @@ Restart Nginx. RDMO should now be available on `YOURDOMAIN`. Note that the unix 
 As you can see from the virtual host configurations, the static assets such as CSS and JavaScript files are served independently from the reverse proxy to the gunicorn process. In order to do so they need to be gathered in the `static_root` directory. This can be achieved by running:
 
 ```bash
-python manage.py collectstatic --clean
+python manage.py collectstatic --clear
 ```
 
-in your virtual environment (`--clean` removes existing files before collecting).
+in your virtual environment (`--clear` removes existing files before collecting).
 
 In order to apply changes to the RDMO code (e.g. after an [upgrade](../upgrade/index.html)), the Gunicorn process needs to be restarted:
 
