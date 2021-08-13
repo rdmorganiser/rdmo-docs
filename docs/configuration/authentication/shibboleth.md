@@ -31,7 +31,9 @@ In our test environent this is accomplished by editing `/etc/shibboleth/shibbole
     cipherSuites="DEFAULT:!EXP:!LOW:!aNULL:!eNULL:!DES:!IDEA:!SEED:!RC4:!3DES:!kRSA:!SSLv2:!SSLv3:!TLSv1:!TLSv1.1">
 ```
 
-and `/etc/shibboleth/attribute-map.xml`:
+The `REMOTE_USER` does not have to be `eppn`. Please make sure that the field matches what is delivered by your Identity Provider (IdP). If the login does not work, a wrong configuration here is usually the problem.
+
+In addition edit `/etc/shibboleth/attribute-map.xml` for:
 
 ```xml
 <Attribute name="urn:oid:1.3.6.1.4.1.5923.1.1.1.6" id="eppn">
@@ -97,11 +99,6 @@ Restart the webserver.
 
 ```bash
 service apache2 restart
-```
-
-```eval_rst
-.. warning::
-    The following feature is not available in the released version of RDMO yet. It will be part of a future version.
 ```
 
 Certain Attributes from the Shibboleth Identity Provider can be mapped to Django groups, in particular to restrict the access to Catalogs and Views. This can be done by adding the following settings:

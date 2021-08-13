@@ -39,13 +39,9 @@ Views have different properties to control their behavior. As described in [the 
 
 | Parameter       | Explanation                                                                                                                              |
 | --------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
-| **Tab English** |                                                                                                                                          |
-| Title           | The English title for the view. The title will be shown in the projects overview.                                                        |
-| Help            | The English help text for the view. The help text will be shown in the projects overview                                                 |
-| **Tab German**  | *contains the same elements as the English one but obviously for German language content*                                                |
-| **Tab Groups**  |                                                                                                                                          |
+| Title           | The title for the view. The title will be shown in the projects overview.                                                                |
+| Help            | The help text for the view. The help text will be shown in the projects overview                                                         |
 | Groups          | Displays the groups for this view. If at least one group is selected, only users of these<br> groups will see this view for a project.   |
-| **Tab Sites**   |                                                                                                                                          |
 | Sites           | *(Only in a multi site installation)* Displays the sites for this view. Only users of these<br> groups will see this view for a project. |
 
 ## Template syntax
@@ -67,20 +63,22 @@ In the first line of the view template you will find the load command for the av
 Immediately afterwards there will probably be variable declarations which load sets into place holders and make them available throughout the whole template. These variables can for example be used in for loops as you will see later.
 
 ```django
-{% get_set 'project/partner' as partners %}
-{% get_set 'project/dataset' as datasets %}
+{% get_set 'project/partner/id' as partners %}
+{% get_set 'project/dataset/id' as datasets %}
 ```
 
 Consider an attribute `project/research_question/title` and a user, who answered the question connected to this attribute with "To boldly go where no man has gone before.". The attribute would be available in the template as `project/research_question/title`.
 
 ```django
-The main research question of the project is: {% render_value 'project/research_question/title' %}
+The main research question of the project is:
+{% render_value 'project/research_question/title' %}
 ```
 
 would, when evaluated in the context by a user in his/her project, render:
 
 ```django
-The main research question of the project is: To boldly go where no man has gone before.
+The main research question of the project is:
+To boldly go where no man has gone before.
 ```
 
 Lists of multiple values can also be rendered.
@@ -170,37 +168,96 @@ Note that filters can be piped after another as often as you like. You could eas
 
 Please consult the documentation of the Django template syntax for all the available tags and filters: https://docs.djangoproject.com/en/stable/ref/templates/language.
 
-### RDMO-specific tags and filters
+### Details on RDMO-specific tags and filters
 
-| Simple tag               |                                                                                       |
-| ------------------------ | ------------------------------------------------------------------------------------- |
-| `{% get_values %}`       | returns the value(s) of a variable                                                    |
-| `{% get_numbers %}`      | returns the value(s) of a numerical variable (possibly after coercing it to a number) |
-| `{% get_value %}`        | returns the value(s) of a variable; if empty, it returns nothing                      |
-| `{% get_number %}`       | returns the value(s) of a numerical variable; if empty, it returns 0                  |
-| `{% get_set_values %}`   | returns ???                                                                           |
-| `{% get_set_value %}`    | returns ???; if empty, it returns nothing                                             |
-| `{% get_set_prefixes %}` | returns ???; if empty, it returns nothing                                             |
-| `{% get_set_indexes %}`  | returns ???; if empty, it returns nothing                                             |
-| `{% get_sets %}`         | returns ???                                                                           |
-| `{% get_set %}`          | returns ???                                                                           |
-| `{% check_condition %}`  | returns ???                                                                           |
-		
-| Inclusion tag                        |             |
-| ------------------------------------ | ----------- |
-| `{% render_value %}`                 | returns ??? |
-| `{% render_value_list %}`            | returns ??? |
-| `{% render_value_inline_list %}`     | returns ??? |
-| `{% render_set_value %}`             | returns ??? |
-| `{% render_set_value_list %}`        | returns ??? |
-| `{% render_set_value_inline_list %}` | returns ??? |
-		
-| Filter name     |             |
-| --------------- | ----------- |
-| `.is_true`      | returns ??? |
-| `.is_false`     | returns ??? |
-| `.is_empty`     | returns ??? |
-| `.is_not_empty` | returns ??? |
+The main method to access user data in the templates is the `{% get_values %}` tag. It can be used to get all values for an attribute from a project. The `set_prefix`, `set_index`, and `index` arguments can be used to restrict the query further:
+
+* the `index` determines the list position of a value if a question was marked `is_collection`.
+* the `set_index` determines the set of a value if a questionset was marked `is_collection`.
+* the `set_prefix` determines the superior sets of a value for questionsets in questionsets which are marked `is_collection`. Multiple nested sets are possible and have the form `set_prefix='0|1'`, e.g. for the second set in the first set.
+
+```django
+{% get_values 'project/costs/storage/personnel' as values %}
+-> get all values for this attribute as variable values.
+
+{% get_values 'project/costs/storage/personnel' index=0 as values %}
+-> get only the first value (for all sets).
+
+{% get_values 'project/costs/storage/personnel' set_index=0 as values %}
+-> get the all values for the first set.
+
+{% get_values 'project/costs/storage/personnel' set_index=0 index=0 as values %}
+-> get the first value for the first set.
+
+{% get_values 'project/costs/storage/personnel' set_prefix=0 as values %}
+-> get the all values for the first set_prefix (for nested questionsets).
+```
+
+As explained above, the `{% get_numbers %}` tag is used to get the values in numerical form to do computations. The form is the same:
+
+```django
+{% get_numbers 'project/costs/storage/personnel' as values %}
+{% get_numbers 'project/costs/storage/personnel' index=0 as values %}
+{% get_numbers 'project/costs/storage/personnel' set_index=0 as values %}
+{% get_numbers 'project/costs/storage/personnel' set_index=0 index=0 as values %}
+{% get_numbers 'project/costs/storage/personnel' set_prefix=0 as values %}
+```
+
+The following shortcuts exist to obtain single values for a project: `{% get_value <attribute> %}` is the same as `{% get_values <attribute> set_prefix='' set_index=0 index=0 %}` and `{% get_number <attribute> %}` is the same as `{% get_number <attribute> set_prefix='' set_index=0 index=0 %}`.
+
+To interact with sets of values the following tags exist:
+
+```django
+{% get_set 'project/dataset/id' as sets %}
+-> gets the first value for each set
+
+{% for set in sets %}
+{% get_set_values set 'project/dataset/description' as values %}
+{% endfor %}
+-> get the values for a specific set
+```
+
+`{% get_set_value <set> <attribute> %}` is a shortcut similiar to `{% get_value <attribute> %}`.
+
+The following tags can be used to obtain the `set_prefixes` or `set_indexes` for an attribute:
+
+```django
+{% get_set_prefixes <attribute> %}
+{% get_set_indexes <attribute> set_prefix='0' %}
+```
+
+Conditions can be evaluated using the `{% check_condition %}` tag:
+
+```django
+{% check_condition <condition> %}
+-> check the condition with all values
+
+{% check_condition <condition> set_index=0 %}
+-> check the conditions only with the values from the first set
+
+{% check_condition <condition> set_prefix=0 %}
+-> check the conditions only with values with the set_prefix=0
+```
+
+#### Render values
+
+```django
+{% render_value %} like {% get_value %} but renders the value in html
+{% render_value_list %} like {% get_value %} but renders a list
+{% render_value_inline_list %} like {% get_value %} but renders an inline list
+{% render_set_value %} like {% get_set_value %} but renders the value in html
+{% render_set_value_list %} like {% get_set_value %} but renders a list
+{% render_set_value_inline_list %} like {% get_set_value %} but renders an inline list
+```
+	
+#### Filters
+
+```django
+{{ value|is_true }} returns true if the value is set and not 'no' or something similar
+{{ value|is_false }} returns true if the value is set and 'no' or something similar
+{{ value|is_empty }} returns true if the value is not set
+{{ value|is_not_empty }} returns true if the value is set
+```
 
 ### Child projects
 

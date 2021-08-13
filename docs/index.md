@@ -33,6 +33,8 @@ Demo
    deployment/index
    configuration/index
    administration/index
+   themes/index
+   plugins/index
    management/index
    upgrade/index
 ```

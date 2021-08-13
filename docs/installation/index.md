@@ -2,7 +2,7 @@
 
 For demonstration, development or testing purposes, RDMO can be installed on Linux, Windows and macOS. If you, however, to set up a production enviroment, serving RDMO over a Network or the Internet, we suggest that you use a recent Linux distribution, namely CentOS, Debian, or Ubuntu LTS.
 
-The code is mainly written in Python and should work with a Python higher than 3.5.
+The code is mainly written in Python and should work with a Python higher than 3.6.
 
 An installation of RDMO contains of three parts:
 
