@@ -2,13 +2,13 @@
 
 <!--- mdtoc: toc begin -->
 
-1.	[View configuration](#view-configuration)
-	1.	[Syntax overview](#syntax-overview)		
-	2.	[Parameters](#parameters)
+1.	[View configuration](#view-configuration)  		
+	1.	[Parameters](#parameters)
 2.	[Template syntax](#template-syntax)
-	1.	[Calculations](#calculations)
-	2.	[RDMO-specific tags and filters](#rdmo-specific-tags-and-filters)
-	3.	[Child projects](#child-projects)<!--- mdtoc: toc end -->
+	1.	[Syntax overview](#syntax-overview)
+	2.	[Calculations](#calculations)
+	3.	[RDMO-specific tags and filters](#rdmo-specific-tags-and-filters)
+	4.	[Child projects](#child-projects)<!--- mdtoc: toc end -->
 
 ## View configuration
 
