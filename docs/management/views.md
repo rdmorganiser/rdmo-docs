@@ -2,10 +2,15 @@
 
 <!--- mdtoc: toc begin -->
 
-1.	[Parameters](#parameters)
-	1.	[View](#view)
-2.	[View Templates](#view-templates)
-	1.	[Calculations](#calculations)<!--- mdtoc: toc end -->
+1.	[View configuration](#view-configuration)
+	1.	[Syntax overview](#syntax-overview)		
+	2.	[Parameters](#parameters)
+2.	[Template syntax](#template-syntax)
+	1.	[Calculations](#calculations)
+	2.	[RDMO-specific tags and filters](#rdmo-specific-tags-and-filters)
+	3.	[Child projects](#child-projects)<!--- mdtoc: toc end -->
+
+## View configuration
 
 Views can be configured under *Views* in the management menu in the navigation bar.
 
@@ -30,25 +35,26 @@ The sidebar on the right shows additional interface items:
 
 Views have different properties to control their behavior. As described in [the introduction](index.html), all elements have an URI prefix, a key, and an internal comment only to be seen by other managers of the RDMO installation. In addition, you can edit the parameters below:
 
-## Parameters
+### Parameters
 
-### View
+| Parameter       | Explanation                                                                                                                              |
+| --------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| **Tab English** |                                                                                                                                          |
+| Title           | The English title for the view. The title will be shown in the projects overview.                                                        |
+| Help            | The English help text for the view. The help text will be shown in the projects overview                                                 |
+| **Tab German**  | *contains the same elements as the English one but obviously for German language content*                                                |
+| **Tab Groups**  |                                                                                                                                          |
+| Groups          | Displays the groups for this view. If at least one group is selected, only users of these<br> groups will see this view for a project.   |
+| **Tab Sites**   |                                                                                                                                          |
+| Sites           | *(Only in a multi site installation)* Displays the sites for this view. Only users of these<br> groups will see this view for a project. |
 
-|**Tab English**||
-|-|-|
-|Title|The English title for the view. The title will be shown in the projects overview.|
-|Help|The English help text for the view. The help text will be shown in the projects overview|
-|**Tab German**|*contains the same elements as the English one but obviously for German language content*|
-|**Tab Groups**|
-|Groups|Displays the groups for this view. If at least one group is selected, only users of these<br> groups will see this view for a project.|
-|**Tab Sites**|
-|Sites| *(Only in a multi site installation)* Displays the sites for this view. Only users of these<br> groups will see this view for a project.|
-
-## View Templates
+## Template syntax
 
 ![](../_static/img/screens/template.png)
 
-> *Screenshot of the template modal*
+> *Screenshot of the template model*
+
+### Syntax overview
 
 Each view has a template, which determines how the answers given by the user are mapped to a textual document. The template is composed using the [Django template](https://docs.djangoproject.com/en/stable/ref/templates/language/) syntax, which is a combination of regular HTML, variables, which get replaced with values when the template is evaluated (`{{ a_variable }}`), and tags, which control the logic of the template (`{% a_tag %}`).
 
@@ -164,6 +170,37 @@ Note that filters can be piped after another as often as you like. You could eas
 
 Please consult the documentation of the Django template syntax for all the available tags and filters: https://docs.djangoproject.com/en/stable/ref/templates/language.
 
+### RDMO-specific tags and filters
+
+| Simple tag               |                                                                                       |
+| ------------------------ | ------------------------------------------------------------------------------------- |
+| `{% get_values %}`       | returns the value(s) of a variable                                                    |
+| `{% get_numbers %}`      | returns the value(s) of a numerical variable (possibly after coercing it to a number) |
+| `{% get_value %}`        | returns the value(s) of a variable; if empty, it returns nothing                      |
+| `{% get_number %}`       | returns the value(s) of a numerical variable; if empty, it returns 0                  |
+| `{% get_set_values %}`   | returns ???                                                                           |
+| `{% get_set_value %}`    | returns ???; if empty, it returns nothing                                             |
+| `{% get_set_prefixes %}` | returns ???; if empty, it returns nothing                                             |
+| `{% get_set_indexes %}`  | returns ???; if empty, it returns nothing                                             |
+| `{% get_sets %}`         | returns ???                                                                           |
+| `{% get_set %}`          | returns ???                                                                           |
+| `{% check_condition %}`  | returns ???                                                                           |
+		
+| Inclusion tag                        |             |
+| ------------------------------------ | ----------- |
+| `{% render_value %}`                 | returns ??? |
+| `{% render_value_list %}`            | returns ??? |
+| `{% render_value_inline_list %}`     | returns ??? |
+| `{% render_set_value %}`             | returns ??? |
+| `{% render_set_value_list %}`        | returns ??? |
+| `{% render_set_value_inline_list %}` | returns ??? |
+		
+| Filter name     |             |
+| --------------- | ----------- |
+| `.is_true`      | returns ??? |
+| `.is_false`     | returns ??? |
+| `.is_empty`     | returns ??? |
+| `.is_not_empty` | returns ??? |
 
 ### Child projects
 
