@@ -249,7 +249,7 @@ Conditions can be evaluated using the `{% check_condition %}` tag:
 {% render_set_value_list %} like {% get_set_value %} but renders a list
 {% render_set_value_inline_list %} like {% get_set_value %} but renders an inline list
 ```
-	
+
 #### Filters
 
 ```django
@@ -276,3 +276,25 @@ If child projects exist, they can be accessed using `project.children` (direct c
     </div>
 {% endfor %}
 ```
+
+## Metadata in exported documents
+
+RDMO's views can be exported as pdf documents or in other office compatible formats. These files are generated using Pandoc and can contain metadata. Pandoc is able to save metadata into exported documents. A mechanism RDMO can make use of.
+
+It is possible to add a metadata header to views, which is characterized by a surrounding `metadata` tag in angle brackets as probably known from html. Inside these brackets a set of json data can be declared holding the metadata information.
+
+An example of a metadata header would be something like this.
+
+```html
+<metadata>
+{
+    "title": "this is a very nice title",
+    "author": ["author one", "author two"],
+    "keywords": ["nothing", "something", "whatever"]
+}
+</metadata>
+```
+
+The json data are passed unmodified to Pandoc. Therefore is is important to make sure the data have a structure that Pandoc can make sense of. A more elaborated description of which tags are supported can be found in the [Pandoc manual](https://pandoc.org/MANUAL.html#metadata-blocks).
+
+Pandoc does support saving metadata from version 2.3 upwards. Make sure to meet this requirement. If a lower version of Pandoc is installed RDMO won't export any metadata into the generated documents.
