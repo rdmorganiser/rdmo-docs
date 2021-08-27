@@ -2,13 +2,13 @@
 
 ## Auto-Save
 
-By default, users need to save their input in the interview explicitely using the save button. With the `PROJECT_QUESTIONS_AUTOSAVE` can be configured:
+By default, users need to save their input in the interview explicitly using the save button. This behavior can be changed adding the `PROJECT_QUESTIONS_AUTOSAVE` entry to your configuration.
 
 ```python
 PROJECT_QUESTIONS_AUTOSAVE = True
 ```
 
-With this setting, all input **except typing into text or textarea fields** will be saved on the server immediately. This comprises, e.g. using the Navigation, radio buttons, checkboxes.
+With this setting, all input **except typing into text or text area fields** will be saved on the server immediately. This comprises, e.g. using the Navigation, radio buttons, check boxes.
 
 ## Project tasks and views
 

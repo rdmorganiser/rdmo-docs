@@ -16,7 +16,7 @@ As of now the following plugins can be created:
 -   Optionset providers (from `rdmo.options.providers.Provider`\)
 -   Service providers (from `rdmo.services.providers.Provider`\)
 
-To be usable by RDMO, the plugins need to be available in the virtual environment in which RDMO is running. There are severeal possibilities to archive this, but we suggest to use one of the following two:
+To be usable by RDMO, the plugins need to be available in the virtual environment in which RDMO is running. There are several possibilities to achieve this, but we suggest to use one of the following two:
 
 1.	If only the plugins provided in [rdmo-plugins](https://github.com/rdmorganiser/rdmo-plugins) should be used and no modifications are desired, they can be directly installed from GitHub using:
 
@@ -24,7 +24,7 @@ To be usable by RDMO, the plugins need to be available in the virtual environmen
 	pip install git+https://github.com/rdmorganiser/rdmo-plugins
 	```
 
-2.	If you intent to write plugins yourself or if you want to modify our plugins, you should create a python module in your `rdmo-app`, which is just a directory containing an empty `__ini__.py` file. Python files in this directory are then automatically available to your RDMO instance.
+2.	If you intent to write plugins yourself or if you want to modify our plugins, you should create a python module in your `rdmo-app`, which is just a directory containing an empty `__init__.py` file. Python files in this directory are then automatically available to your RDMO instance.
 
 	```bash
 	mkdir my_plugins
@@ -32,7 +32,7 @@ To be usable by RDMO, the plugins need to be available in the virtual environmen
 	# place, e.g., madmp.py in my_plugins/
 	```
 
-As a last step, the plugins need to be registered in `config/settings/local.py`. The setting depends on the class of plugin and is described in detail below. Plugins are always specified by a tuple of `(key, label, class_name)`, therfore plugin settings always look like this:
+As a last step, the plugins need to be registered in `config/settings/local.py`. The setting depends on the class of plugin and is described in detail below. Plugins are always specified by a tuple of `(key, label, class_name)`, therefore plugin settings always look like this:
 
 ```python
 EXAMPLE_PLUGIN_SETTINGS = [
@@ -104,7 +104,7 @@ Please refer to <https://github.com/rdmorganiser/rdmo/blob/master/rdmo/projects/
 
 ## Optionset providers
 
-Optionset providers allow the creation of dynamic option sets. These option sets do not need to have a fixed set of options configured in the database, but instead dynamically determine which options to display, whenever a user accesses the optionset in the interview. This can be done by fetching resources from a webservice and can be based on already given answers. The example implementation of such a plugin is the re3data optionset provider available from [rdmo-plugins](https://github.com/rdmorganiser/rdmo-plugins).
+Optionset providers allow the creation of dynamic option sets. These option sets do not need to have a fixed set of options configured in the database, but instead dynamically determine which options to display, whenever a user accesses the optionset in the interview. This can be done by fetching resources from a web service and can be based on already given answers. The example implementation of such a plugin is the re3data optionset provider available from [rdmo-plugins](https://github.com/rdmorganiser/rdmo-plugins).
 
 The only function, the plugin class needs to implement, is `get_options(self, project)`. It takes the current project as argument (so it can access the values already entered for the project), and returns the options as a list of the form:
 
@@ -135,9 +135,9 @@ The re3data optionset will query [re3data.org](https://www.re3data.org/) for rep
 
 Service providers enable users to add integrations to projects. Using these integrations, project tasks (internally called issues) can be send to external services. This can be done using a simple webhook or, more sophisticated, using the OAuth workflow. As reference implementation, RDMO comes with a GitHub provider, which can be used to push tasks to GitHub issues.
 
-The funtion `send_issue(self, request, issue, integration, subject, message, attachments)` needs to be implemented by the provider. It takes the request object, the issue to be send, the integration (which can have project specific options for the provider), and the subject, message, attachments to be send. In the case of the GitHub provider, this function performs a POST request using the GitHub API in order to create a new issue. The funtion needs to return a `HttpResponse` in the successful case, this will be a redirect. When using the OAuth workflow, a required authorization will result in a redirec to the external service, followed by a redirect to a callback whithin RDMO, and a subsequent second try to perform the POST request. This should happen transparent to the user.
+The function `send_issue(self, request, issue, integration, subject, message, attachments)` needs to be implemented by the provider. It takes the request object, the issue to be send, the integration (which can have project specific options for the provider), and the subject, message, attachments to be send. In the case of the GitHub provider, this function performs a POST request using the GitHub API in order to create a new issue. The function needs to return a `HttpResponse` in the successful case, this will be a redirect. When using the OAuth workflow, a required authorization will result in a redirect to the external service, followed by a redirect to a callback within RDMO, and a subsequent second try to perform the POST request. This should happen transparent to the user.
 
-The provider can also implement a `webhook(self, request, integration)` which is used to provide a webhook whithin RDMO to enable the external service to trigger actions, e.g. when an issue is closed.
+The provider can also implement a `webhook(self, request, integration)` which is used to provide a webhook within RDMO to enable the external service to trigger actions, e.g. when an issue is closed.
 
 Furthermore, it needs to implement a property `fields`, which returns the option fields, which users need to enter when adding an integration to a project. For GitHub, this is the repository and a secret string to secure the webhook. Please refer to the [implementation of the GitHubProvider](https://github.com/rdmorganiser/rdmo/blob/master/rdmo/services/providers.py) for more details.
 
@@ -162,7 +162,7 @@ GITHUB_PROVIDER = {
 
 Then users can add an integration to their projects, which requires setting the repo in the form `<user>/<repo>` the tasks from RDMO are send to.
 
-Additionally, but probably only if the project in RDMO is also managed by RDMO savy staff, a secret can be added to enable GitHub to communicate to RDMO when an issue has been closed. For this to work, a webhook has to be added at `https://github.com/<user>/<repo>/settings/hooks`. The webhook has to point to `https://<your rdmo url>/projects/<project_id>/integrations/<integration_id>/webhook/`, the content type is `application/json` and the secret has to be exactly the secret entered in the integration.
+Additionally, but probably only if the project in RDMO is also managed by RDMO staff, a secret can be added to enable GitHub to communicate to RDMO when an issue has been closed. For this to work, a webhook has to be added at `https://github.com/<user>/<repo>/settings/hooks`. The webhook has to point to `https://<your rdmo url>/projects/<project_id>/integrations/<integration_id>/webhook/`, the content type is `application/json` and the secret has to be exactly the secret entered in the integration.
 
 ## Examples of how to install plugins
 

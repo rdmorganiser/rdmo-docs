@@ -12,8 +12,8 @@ On the left-hand side is the main display of sections, questionsets, and questio
 * **Add** (![](../_static/img/icons/add.png)) a new section, a new questionset, or a new question.
 * **Update** (![](../_static/img/icons/update.png)) an element to change its properties.
 * **Copy** (![](../_static/img/icons/copy.png)) an element. This will open a modal to set a new key. Afterwards, you can change the properties of the element using the update modal.
-* **Export** (![](../_static/img/icons/export.png)) an element and all of its decendants as XML.
-* **Delete** (![](../_static/img/icons/delete.png)) an element and all of its decendants (e.g. a question set and all the questions it contains). **This action cannot be undone!**
+* **Export** (![](../_static/img/icons/export.png)) an element and all of its descendants as XML.
+* **Delete** (![](../_static/img/icons/delete.png)) an element and all of its descendants (e.g. a question set and all the questions it contains). **This action cannot be undone!**
 
 The sidebar on the right-hand side shows additional interface items:
 
@@ -41,8 +41,8 @@ The different elements of the questionnaire have different properties to control
 |Order|Controls the position of the catalog in lists or in the interview|
 |Title|The title for the catalog to be displayed to the user|
 |Help|The title for the catalog to be displayed to the user|
-|Groups|Displays the groups for this catalog. If at least one group is selected, <br> only users of thesegroups can select this catalog for a project.|
-|Sites| (Only in a multi site installation) Displays the sites for this catalog. <br> Only users of thesegroups can select this catalog for a project.|
+|Groups|Displays the groups for this catalog. If at least one group is selected, <br> only users of these groups can select this catalog for a project.|
+|Sites| (Only in a multi site installation) Displays the sites for this catalog. <br> Only users of these groups can select this catalog for a project.|
 
 ### Section
 
@@ -73,7 +73,7 @@ The different elements of the questionnaire have different properties to control
 |-|-|
 |Question set|The question set this question belongs to. Changing the question<br> set will move thequestion into another question set|
 |Order|Controls the position of the question in lists or in the interview|
-|Attribute|The attribute from the domain model this question is connected to.<br> The answersof the users will be connected to this attribute in the database<br> and tasks andviews reference answers using their attribute|
+|Attribute|The attribute from the domain model this question is connected to.<br> The answers of the users will be connected to this attribute in the database<br> and tasks and views reference answers using their attribute|
 |Is collection|Designates whether this question allows for multiple answers. In this case<br> additional interface elements are added to the interview to add or remove<br> answers|
 |Is optional|Designates whether this question is optional. In this case the question<br> is marked as optional to the user and excluded from the progress bar.|
 |Widget type|The type of widget for the question. The following widgets can be selected:<br>- **Text** (a one line text field)<br>- **Textarea** (a multi-line text field)<br>- **Yes/No** (a set of radio buttons for "Yes" and "No")<br>- **Checkboxes** (a set of check boxes, the question needs to be a collection)<br>- **Radio Buttons** (a set of radio buttons, the connected attribute<br>&nbsp;&nbsp;needs to have an option set)<br>- **Select drop down** (a drop down menu, the connected attribute needs to<br>&nbsp;&nbsp;have an option set)<br>- **Autocomplete** (a text field, which matches the typed content to an option)<br>- **Range slider** (a horizontal slider, the question needs to have a range)<br>- **Date picker** (a drop down element with a calendar to select a date,<br>&nbsp;&nbsp;the connected attribute needs to have the value type datetime)|

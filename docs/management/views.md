@@ -217,7 +217,7 @@ To interact with sets of values the following tags exist:
 -> get the values for a specific set
 ```
 
-`{% get_set_value <set> <attribute> %}` is a shortcut similiar to `{% get_value <attribute> %}`.
+`{% get_set_value <set> <attribute> %}` is a shortcut similar to `{% get_value <attribute> %}`.
 
 The following tags can be used to obtain the `set_prefixes` or `set_indexes` for an attribute:
 
@@ -279,7 +279,7 @@ If child projects exist, they can be accessed using `project.children` (direct c
 
 ## Metadata in exported documents
 
-RDMO's views can be exported as pdf documents or in other office compatible formats. These files are generated using Pandoc and can contain metadata. Pandoc is able to save metadata into exported documents. A mechanism RDMO can make use of.
+RDMO's views can be exported as PDF documents or in other office compatible formats. These files are generated using Pandoc and can contain metadata. Pandoc is able to save metadata into exported documents. A mechanism RDMO can make use of.
 
 It is possible to add a metadata header to views, which is characterized by a surrounding `metadata` tag in angle brackets as probably known from html. Inside these brackets a set of json data can be declared holding the metadata information.
 

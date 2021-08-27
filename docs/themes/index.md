@@ -4,7 +4,7 @@
 
 RDMO is based on Django, which allows a high level of customization by modifying the Django *templates* as well as the *static assets* (CSS files, images, etc.). There is a powerful method by which the set of files getting imported can be changed. If you create a `rdmo_theme` app in your `rdmo-app` directory the framework will use the files in this folder and not their counterparts from the RDMO source code. By doing this you can override any template or static file you desire as long as you get the folder structure right. There are two ways to create a theme. We use `rdmo_theme` as name here, but you can use a different one.
 
-In older versions of RDMO, did not use a Django app to create a theme, but simple directories `theme/static` and `theme/templates` and some additional configuration in `config/settings/__init__.py`. While this approach will continue to work and can be kept for existing instance, we ecourage the use of Django apps for new themes.
+In older versions of RDMO, did not use a Django app to create a theme, but simple directories `theme/static` and `theme/templates` and some additional configuration in `config/settings/__init__.py`. While this approach will continue to work and can be kept for existing instance, we encourage the use of Django apps for new themes.
 
 ## Create automatically
 
@@ -31,7 +31,7 @@ If you want to manually create a theme you need to do the following:
 
 1. Create a `rdmo_theme` folder containing a `static` and a `templates` directory inside your `rdmo-app` directory:
 
-    ```
+    ```shell
     mkdir -p rdmo_theme/static rdmo_theme/templates
     touch rdmo_theme/__init__.py
     ```
