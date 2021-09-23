@@ -118,8 +118,9 @@ As described in the Introduction above RDMO themes are now supposed to be Django
 
 1. Use [po edit](https://poedit.net/) or another tool of your choice to edit the po files inside the locale folder
 
-1. Finally make the messages and your translations should be displayed in RDMO
+1. Finally make the messages and your translations should be displayed in RDMO. Note that the command has to be run inside the theme's folder.
 
     ```shell
-    rdmo_theme django-admin makemessages -l de
+    cd rdmo_theme
+    django-admin makemessages -l de
     ```
