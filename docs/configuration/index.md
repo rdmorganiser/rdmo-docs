@@ -9,8 +9,6 @@ As part of the installation `config/settings/local.py` should be created from th
 
 While technically the local settings file `config/settings/local.py` can be used to override all of the settings in `config/settings/sample.local.py`, it should be used to customize the settings already available in `config/settings/sample.local.py`.
 
-This comprises [general settings](../configuration/general.html), [database connections](../configuration/databases.html), how to send [emails](../configuration/email.html), the different [authentication methods](../configuration/authentication/index.html), the usage of [themes](../configuration/themes.html), and [caches](../configuration/cache.html).
-
 ```eval_rst
 ----
 
@@ -21,11 +19,9 @@ This comprises [general settings](../configuration/general.html), [database conn
    databases
    email
    authentication/index
-   themes
    export-formats
    cache
    logging
    projects
-   plugins
    multisite
 ```

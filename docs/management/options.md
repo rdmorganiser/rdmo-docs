@@ -37,7 +37,6 @@ Option sets and options model have different properties to control their behavio
 |-|-|
 |Option set|The option set this option belongs to. Changing the<br>option set will move the option to a different option set
 |Order|Controls the position of the option in lists or in the interview
-|Text (en)|The English text for the option to be displayed to the user
-|Text (de)|The German text for the option to be displayed to the user
+|Text|The text for the option to be displayed to the user
 |Additional input|Designates whether an additional input is possible for this<br>option. In this case a text box is displayed to the radio button<br>or check box. Usually this is used for an option "Other".
 |Provider|The provider plugin for this questionset.<br>If set, it will create dynamic options for this optionset.<br>Optionset providers are described [here](../configuration/plugins.html#optionset-providers).

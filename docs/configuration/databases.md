@@ -68,8 +68,8 @@ sudo apt install mysql-client mysql-server libmysqlclient-dev        # for MySQL
 sudo apt install mariadb-client mariadb-server libmariadbclient-dev  # for MariaDB
 
 # CentOS
-sudo yum install -y mysql mysql-server mysql-devel                            # for MySQL
-sudo yum install -y mariadb mariadb-server mariadb-devel                      # for MariaDB
+sudo yum install -y mysql mysql-server mysql-devel                   # for MySQL
+sudo yum install -y mariadb mariadb-server mariadb-devel             # for MariaDB
 sudo systemctl enable mariadb
 sudo systemctl start mariadb
 sudo mysql_secure_installation

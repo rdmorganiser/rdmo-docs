@@ -7,7 +7,6 @@ RDMO uses the excellent [django-allauth](http://www.intenct.nl/projects/django-a
 To enable regular accounts in RDMO add:
 
 ```python
-
 from rdmo.core.settings import INSTALLED_APPS, AUTHENTICATION_BACKENDS
 
 ACCOUNT = True

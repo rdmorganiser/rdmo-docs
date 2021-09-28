@@ -29,14 +29,25 @@ After the upgrade a database migration might be necessary:
 python manage.py migrate
 ```
 
+Sometimes, the static vendor files need to be downloaded again:
+
+```bash
+python manage.py download_vendor_files
+```
+
 In any case you have to deploy the changes:
 
 ```
 python manage.py deploy
 ```
 
-Please check the release notes if this, or other, steps are necessary.
+The last three commands can be combined using:
 
+```
+python manage.py upgrade
+```
+
+Please check the release notes if this, or other, steps are necessary.
 
 ## Upgrade to version 0.9.0
 
