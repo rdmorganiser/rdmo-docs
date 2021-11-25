@@ -37,4 +37,5 @@ Demo
    plugins/index
    management/index
    upgrade/index
+   faq/index
 ```
