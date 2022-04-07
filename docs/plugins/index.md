@@ -14,7 +14,7 @@ As of now the following plugins can be created:
 -	Project exports (from `rdmo.projects.export.Export`\)
 -	Project imports (from `rdmo.projects.imports.Import`\)
 -   Optionset providers (from `rdmo.options.providers.Provider`\)
--   Service providers (from `rdmo.services.providers.Provider`\)
+-   Issue providers (from `rdmo.projects.providers.IssueProvider`\)
 
 To be usable by RDMO, the plugins need to be available in the virtual environment in which RDMO is running. There are several possibilities to achieve this, but we suggest to use one of the following two:
 
@@ -47,6 +47,12 @@ Custom project exports can be created by implementing a class inheriting from `r
 
 The `Export` plugin class needs to implement a `render()` function which takes no arguments and returns a `django.http.HttpResponse`. The export can be created from `self.project`, `self.snapshot` and `self.values` instance variables.
 
+Please refer to <https://github.com/rdmorganiser/rdmo/blob/master/rdmo/projects/exports.py> for the default project export plugins and code examples. The code which uses the plugin is located in <https://github.com/rdmorganiser/rdmo/blob/master/rdmo/projects/views.py> (`ProjectExportView`).
+
+A special kind of export plugins are `ExportProvider`. Instead of just returning an output file to be displayed or downloaded, they connect to a different web service. In addition to the `render()` function, they also need to implement a `submit()` function. The `render()` is displayed on the initial HTTP GET request and can show a form, e.g. to display options for the export. The `submit()` function is called on the subsequent form submisstion, the HTTP POST request.
+
+An `ExportProvider` can be combined with the `OauthProviderMixin` to use an OAuth2 authentication with the external web service. Please refer to <https://github.com/rdmorganiser/rdmo-plugins/blob/master/rdmo_plugins/exports/zenodo.py> for a simple or to <https://github.com/rdmorganiser/rdmo-plugins/blob/master/rdmo_plugins/exports/radar/providers.py> for a more complicated example.
+
 The export plugin needs to be added to the `PROJECT_EXPORTS` in `config/settings/local.py`. The default settings are:
 
 ```python
@@ -70,8 +76,6 @@ PROJECT_EXPORTS = [
 ]
 ```
 
-Please refer to <https://github.com/rdmorganiser/rdmo/blob/master/rdmo/projects/exports.py> for the default project export plugins and code examples. The code which uses the plugin is located in <https://github.com/rdmorganiser/rdmo/blob/master/rdmo/projects/views.py> (`ProjectExportView`).
-
 ## Project import plugins
 
 Similarly, custom project imports can be created implementing a class inheriting from `rdmo.projects.imports.Import`. They can be used to import project data from files which are uploaded by the user.
@@ -79,6 +83,10 @@ Similarly, custom project imports can be created implementing a class inheriting
 The Plugin class needs to implement a `check()` function which takes no arguments and only returns `True` if an uploaded file can be imported by this plugin. The `self.file_name` instance variable can be used for this. In most cases, this will include opening and parsing the file.
 
 In addition, a `process()` needs to be implemented which takes no arguments and returns `None`, but extracts the data from the file and populates the `self.project`, `self.catalog`, `self.values`, `self.snapshots`, `self.tasks` and `self.views` instance variables.
+
+Please refer to <https://github.com/rdmorganiser/rdmo/blob/master/rdmo/projects/imports.py> for the default project import plugins and code examples. The code which uses the plugin is located in <https://github.com/rdmorganiser/rdmo/blob/master/rdmo/projects/views.py> (`ProjectCreateUploadView`, `ProjectCreateImportView`, `ProjectUpdateUploadView`, `ProjectUpdateImportView`).
+
+As with the exports, it is also possible to create `ImportProvider` plugins, which import from a remote web service. In addition, these plugins need to implement a `render()` and `submit()` function, which are used on GET resp. POST requests, as for the exports. They can also be combined with OAuth2 authentification. The GitHub and GitLab import plugins, which are part of RDMO can be considered example implementations: <https://github.com/rdmorganiser/rdmo/blob/master/rdmo/projects/imports.py>.
 
 The import plugin needs to be added to the `PROJECT_IMPORTS` in `config/settings/local.py`. The default settings are:
 
@@ -96,11 +104,10 @@ PROJECT_IMPORTS = [
     ('madmp', _('from maDMP'), 'rdmo_plugins.imports.madmp.MaDMPImport'),
     ('datacite', _('from DataCite XML'), 'rdmo_plugins.imports.datacite.DataCiteImport'),
     ('radar', _('from RADAR XML'), 'rdmo_plugins.imports.radar.RadarImport'),
+    ('github', _('Import from GitHub'), 'rdmo.projects.imports.GitHubImport'),
+    ('gitlab', _('Import from GitLab'), 'rdmo.projects.imports.GitLabImport'),
 ]
 ```
-
-Please refer to <https://github.com/rdmorganiser/rdmo/blob/master/rdmo/projects/imports.py> for the default project import plugins and code examples. The code which uses the plugin is located in <https://github.com/rdmorganiser/rdmo/blob/master/rdmo/projects/views.py> (`ProjectCreateUploadView`, `ProjectCreateImportView`, `ProjectUpdateUploadView`, `ProjectUpdateImportView`).
-
 
 ## Optionset providers
 
