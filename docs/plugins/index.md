@@ -138,9 +138,11 @@ OPTIONSET_PROVIDERS = [
 The re3data optionset will query [re3data.org](https://www.re3data.org/) for repositories that match the research field of the project (as given by the `project/research_field/title` Attribute).
 
 
-## Service providers
+## Issue providers
 
-Service providers enable users to add integrations to projects. Using these integrations, project tasks (internally called issues) can be send to external services. This can be done using a simple webhook or, more sophisticated, using the OAuth workflow. As reference implementation, RDMO comes with a GitHub provider, which can be used to push tasks to GitHub issues.
+Note: Issue providers were previously referred to as service providers.
+
+Issue providers enable users to add integrations to projects. Using these integrations, project tasks (internally called issues) can be send to external services. This can be done using a simple webhook or, more sophisticated, using the OAuth workflow. As reference implementation, RDMO comes with GitHub and GitLab providers, which can be used to push tasks to GitHub or GitLab issues.
 
 The function `send_issue(self, request, issue, integration, subject, message, attachments)` needs to be implemented by the provider. It takes the request object, the issue to be send, the integration (which can have project specific options for the provider), and the subject, message, attachments to be send. In the case of the GitHub provider, this function performs a POST request using the GitHub API in order to create a new issue. The function needs to return a `HttpResponse` in the successful case, this will be a redirect. When using the OAuth workflow, a required authorization will result in a redirect to the external service, followed by a redirect to a callback within RDMO, and a subsequent second try to perform the POST request. This should happen transparent to the user.
 
@@ -148,13 +150,13 @@ The provider can also implement a `webhook(self, request, integration)` which is
 
 Furthermore, it needs to implement a property `fields`, which returns the option fields, which users need to enter when adding an integration to a project. For GitHub, this is the repository and a secret string to secure the webhook. Please refer to the [implementation of the GitHubProvider](https://github.com/rdmorganiser/rdmo/blob/master/rdmo/services/providers.py) for more details.
 
-### GitHub service provider
+### GitHub issue provider
 
 The GitHub provider ships with RDMO, needs to be added to the `SERVICE_PROVIDERS` in `config/settings/local.py` in order to be used:
 
 ```python
 SERVICE_PROVIDERS = [
-    ('github', _('GitHub'), 'rdmo.services.providers.GitHubProvider'),
+    ('github', _('GitHub'), 'rdmo.projects.providers.GitHubProvider'),
 ]
 ```
 
@@ -170,6 +172,22 @@ GITHUB_PROVIDER = {
 Then users can add an integration to their projects, which requires setting the repo in the form `<user>/<repo>` the tasks from RDMO are send to.
 
 Additionally, but probably only if the project in RDMO is also managed by RDMO staff, a secret can be added to enable GitHub to communicate to RDMO when an issue has been closed. For this to work, a webhook has to be added at `https://github.com/<user>/<repo>/settings/hooks`. The webhook has to point to `https://<your rdmo url>/projects/<project_id>/integrations/<integration_id>/webhook/`, the content type is `application/json` and the secret has to be exactly the secret entered in the integration.
+
+### GitLab issue provider
+
+The GitLab issue provider works almost exactly like the GitHub provider, with the exception that the `GITLAB_PROVIDER` setiings must contain a `gitlab_url` entry, e.g.:
+
+```python
+SERVICE_PROVIDERS = [
+    ('gitlab', _('GitLab'), 'rdmo.projects.providers.GitLabProvider'),
+]
+
+GITHUB_PROVIDER = {
+    'gitlab_url': 'https://gitlab.com',
+    'client_id': '',
+    'client_secret': ''
+}
+```
 
 ## Examples of how to install plugins
 
