@@ -23,7 +23,7 @@ AUTHENTICATION_BACKENDS.append('allauth.account.auth_backends.AuthenticationBack
 
 to your `config/settings/local.py`. The setting `ACCOUNT = True` enables the general django-allauth features in RDMO, while `ACCOUNT_SIGNUP = True` enables new users to register with your RDMO instance. `ACCOUNT_TERMS_OF_USE = False` disables the Terms of Use. If you set it to `True` every registering user will have to agree to your policy. The last lines enable django-allauth to be used by RDMO.
 
-The behavior of `django-allauth` can be further configured by the settings documented in the [django-allauth documentation](http://django-allauth.readthedocs.io/en/latest/configuration.html). RDMO sets some defaults, which can be found in `config/settings/base.py`.
+The behavior of `django-allauth` can be further configured by the settings documented in the [django-allauth documentation](http://django-allauth.readthedocs.io/en/latest/configuration.html). RDMO sets some defaults, which can be found in [rdmo/rdmo/core/settings.py](https://github.com/rdmorganiser/rdmo/blob/master/rdmo/core/settings.py) in the `rdmo` package.
 
 ## Social accounts
 
