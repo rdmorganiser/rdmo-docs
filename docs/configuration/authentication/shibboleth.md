@@ -93,7 +93,7 @@ LOGIN_URL = '/Shibboleth.sso/Login?target=/projects'
 LOGOUT_URL = '/Shibboleth.sso/Logout'
 ```
 
-where the keys of `SHIBBOLETH_ATTRIBUTE_MAP`, `LOGIN_URL`, and `LOGOUT_URL` need to be modified according to your setup. The setting `SHIBBOLETH = True` disables the regular login form in RDMO, and tells RDMO to disable the update or delete form for the user profile, so that users can neither update their credentials nor delete their profile anymore. Note that profile deletion is technically impossible because RDMO can delete from the Shibboleth database. The `INSTALLED_APPS`, `AUTHENTICATION_BACKENDS`, and `MIDDLEWARE` settings enable django-shibboleth-remoteuser to be used with RDMO.
+where the keys of `SHIBBOLETH_ATTRIBUTE_MAP`, `LOGIN_URL`, and `LOGOUT_URL` need to be modified according to your setup. The setting `SHIBBOLETH = True` disables the regular login form in RDMO, and tells RDMO to disable the update or delete form for the user profile, so that users can neither update their credentials nor delete their profile anymore. Note that profile deletion is technically impossible because RDMO can not delete from the Shibboleth database. The `INSTALLED_APPS`, `AUTHENTICATION_BACKENDS`, and `MIDDLEWARE` settings enable django-shibboleth-remoteuser to be used with RDMO.
 
 Restart the webserver.
 
@@ -108,3 +108,14 @@ SHIBBOLETH_GROUP_ATTRIBUTES = ['eduPersonScopedAffiliation']
 ```
 
 In this case, the attribute `eduPersonScopedAffiliation` contains a comma seperated list of groups which will be created in RDMO (if they don't exist yet) and the user will be added into these groups. Due to a limitation by [django-shibboleth-remoteuser](https://github.com/Brown-University-Library/django-shibboleth-remoteuser) the user will also be **removed from all other groups**.
+
+## Alternative to Shibboleth: Keycloak and Satosa
+
+The installation of Shibboleth excludes the use other authentication providers for RDMO. When it is preferred to enable authentication to a Shibboleth Identity Provider and other 3rd party providers in parallel, an alternative configuration can be set up. A keycloak instance and a SATOSA proxy can be used for this purpose.
+
+In order for the keycloak instance to be able to authenticate with the a Shibboleth-based IdP (eg. [DFN-AAI](https://doku.tid.dfn.de/de:dfnaai:start)) another service needs to be installed and configured as Identity Provider for keycloak.
+
+This service is a [SATOSA proxy](https://github.com/IdentityPython/SATOSA), which translates the communication between different authentication protocols. Then, the [SATOSA proxy](https://github.com/IdentityPython/SATOSA) needs to be registered as a Service Provider inside the DFN-AAI. Finally, the Identity Provider
+ of the institute needs to add this SATOSA proxy as a Service Provider to enable the institutional login and authentication.
+The [attributes of the DFN-AAI](https://doku.tid.dfn.de/de:aai:attributes_best_practice) which are requested and transferred can be mapped in keycloak and passed on to the `django-allauth` login in RDMO.
+
