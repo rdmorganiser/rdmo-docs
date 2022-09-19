@@ -32,7 +32,19 @@ http://127.0.0.1:8000/account/google/login/callback/
 ```
 as the Authorized redirect URI. Copy the Client-ID and the Client key.
 
-Once the credentials are obtained, you need to enter them in the admin interface. To this purpose, go to **Social applications** under **SOCIAL ACCOUNTS** and click on **Add social application**. Then:
+## Keycloak
+
+Login into the keycloak instance and add a **Client id** "rdmo" to the realm. Under Settings configure  the Client Protocol with `openid-connect` and add
+```
+ http://127.0.0.1:8000/*
+ ```
+ to the Valid Redirect URLs.
+
+ Under the Credentials tab, the Client Authenticator can be set to `Client Id and Secret` and the **Secret** can be obtained. Copy the **Client Id** and the **Secret**.  
+
+
+## Add the social application
+ Once the credentials are obtained, you need to enter them in the admin interface. To this purpose, go to **Social applications** under **SOCIAL ACCOUNTS** and click on **Add social application**. Then:
 
 1. Select the corresponding **provider**
 1. Enter a **Name** of your choice
