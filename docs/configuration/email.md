@@ -64,5 +64,5 @@ PROJECT_SEND_INVITE = False
 A timeout for this process can be set with:
 
 ```python
-PROJECT_INVITE_TIMEOUT = False
+PROJECT_INVITE_TIMEOUT = None
 ```
