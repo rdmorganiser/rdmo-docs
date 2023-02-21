@@ -90,10 +90,11 @@ SHIBBOLETH_ATTRIBUTE_MAP = {
 }
 
 LOGIN_URL = '/Shibboleth.sso/Login?target=/projects'
-LOGOUT_URL = '/Shibboleth.sso/Logout'
 ```
 
-where the keys of `SHIBBOLETH_ATTRIBUTE_MAP`, `LOGIN_URL`, and `LOGOUT_URL` need to be modified according to your setup. The setting `SHIBBOLETH = True` disables the regular login form in RDMO, and tells RDMO to disable the update or delete form for the user profile, so that users can neither update their credentials nor delete their profile anymore. Note that profile deletion is technically impossible because RDMO can not delete from the Shibboleth database. The `INSTALLED_APPS`, `AUTHENTICATION_BACKENDS`, and `MIDDLEWARE` settings enable django-shibboleth-remoteuser to be used with RDMO.
+where the keys of `SHIBBOLETH_ATTRIBUTE_MAP`, and `LOGIN_URL` need to be modified according to your setup. The setting `SHIBBOLETH = True` disables the regular login form in RDMO, and tells RDMO to disable the update or delete form for the user profile, so that users can neither update their credentials nor delete their profile anymore. Note that profile deletion is technically impossible because RDMO can not delete from the Shibboleth database. The `INSTALLED_APPS`, `AUTHENTICATION_BACKENDS`, and `MIDDLEWARE` settings enable django-shibboleth-remoteuser to be used with RDMO.
+
+The setting `LOGOUT_URL` **should not** be set to the logout endpoint of the service provider (an earlier version of the docs said so). After the logout in Django, RDMO will redirect to the `SHIBBOLETH_LOGOUT_URL` setting, which is `/Shibboleth.sso/Logout` by default.
 
 Restart the webserver.
 
