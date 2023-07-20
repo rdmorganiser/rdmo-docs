@@ -298,3 +298,13 @@ An example of a metadata header would be something like this.
 The json data are passed unmodified to Pandoc. Therefore is is important to make sure the data have a structure that Pandoc can make sense of. A more elaborated description of which tags are supported can be found in the [Pandoc manual](https://pandoc.org/MANUAL.html#metadata-blocks).
 
 Pandoc does support saving metadata from version 2.3 upwards. Make sure to meet this requirement. If a lower version of Pandoc is installed RDMO won't export any metadata into the generated documents.
+
+## Custom pandoc version
+
+It is possible to explicitly specify the location of the Pandoc binary. This is done by setting the `PYPANDOC_PANDOC` environment variable (see <https://github.com/JessicaTegner/pypandoc#specifying-the-location-of-pandoc-binaries>). This can be done in several ways, the easiest is probably to add the following code to your `config/settings/local.py`:
+
+```python
+import os
+
+os.environ.setdefault('PYPANDOC_PANDOC', '/path/to/pandoc-3.1.5/bin/pandoc')
+```
