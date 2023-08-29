@@ -33,6 +33,8 @@ ExecStart=/srv/rdmo/rdmo-app/env/bin/gunicorn \
 WantedBy=multi-user.target
 ```
 
+If RDMO runs under a subpath or your domain (or alias, e.g. <https://example.com/rdmo/>), the `SCRIPT_NAME` environment variable needs to be set for the `gunicorn` proceess, e.g. `--env SCRIPT_NAME=/rdmo`.
+
 This service needs to be started and enabled like any other service:
 
 ```bash
