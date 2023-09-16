@@ -7,7 +7,7 @@
 
 Plugins can be used to customize or extend specific actions in RDMO using custom Python code outside of the centrally maintained code base. This can be used to perform actions which are specific to a RDMO instance. With the possibility to add code to RDMO comes the danger of introducing additional bugs and security issues. Please be extra careful when using this **advanced** feature.
 
-Plugins are created by implementing Python classes (e.g. in the local `rdmo-app`), and register them in the `config/settings/local.py` file. These classes need to inherit from prepared base classes in the RDMO source code. We also provide a set of plugins [rdmo-plugins](https://github.com/rdmorganiser/rdmo-plugins), which can be used together with the domain model and the other content in [rdmo-content](https://github.com/rdmorganiser/rdmo-content).
+Plugins are created by implementing Python classes (e.g. in the local `rdmo-app`), and register them in the `config/settings/local.py` file. These classes need to inherit from prepared base classes in the RDMO source code. We also provide a set of plugins [rdmo-plugins](https://github.com/rdmorganiser/rdmo-plugins), which can be used together with the domain model and the other content in [rdmo-catalog](https://github.com/rdmorganiser/rdmo-catalog).
 
 As of now the following plugins can be created:
 
