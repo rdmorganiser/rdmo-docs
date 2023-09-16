@@ -21,7 +21,7 @@ python manage.py createsuperuser        # creates the admin user
 ```
 
 ## Third party vendor files
-By default third party vendor files (like jQuery or Bootstrap javascripts) are retrieved from the content delivery networks that they are hosted on. If you would like to aviod third party requests you could host them yourself. This can be achieved easily with two simple steps.
+By default third party vendor files (like jQuery or Bootstrap javascripts) are retrieved from the content delivery networks that they are hosted on. If you would like to avoid third party requests you could host them yourself. This can be achieved easily with two simple steps.
 
 1. download the vendor files from the cdns by running the provided script
     ```python
@@ -35,9 +35,9 @@ By default third party vendor files (like jQuery or Bootstrap javascripts) are r
 
 ## RDMO development server
 
-After these steps, RDMO can be run using Djangos intergrated development server:
+After these steps, RDMO can be run using Djangos integrated development server:
 ```bash
 python manage.py runserver
 ```
 
-Then, RDMO is available on http://127.0.0.1:8000 in your (local) browser. The different ways RDMO can be deployed are covered in the next chapter. The newly installed RDMO instance is still empty, i.e. no questionaire or views are available. They need to be [imported](../management/export.html) and/or created as described under [Management](../management/index.html).
+Then, RDMO is available on http://127.0.0.1:8000 in your (local) browser. The different ways RDMO can be deployed are covered in the next chapter. The newly installed RDMO instance is still empty, i.e. no questionnaire or views are available. They need to be [imported](../management/export.html) and/or created as described under [Management](../management/index.html).

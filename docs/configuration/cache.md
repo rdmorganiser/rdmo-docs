@@ -35,7 +35,7 @@ systemctl start memcached
 systemctl enable memcached
 ```
 
-Back in your virtual enviroment, you need to install python-memcached:
+Back in your virtual environment, you need to install python-memcached:
 
 ```bash
 pip install -r requirements/memcached.txt

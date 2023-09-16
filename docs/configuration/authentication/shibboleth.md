@@ -23,7 +23,7 @@ Configure your Shibboleth service provider using the files in `/etc/shibboleth/`
 * a first name (usually `givenName`)
 * a last name (usually `sn`)
 
-In our test environent this is accomplished by editing `/etc/shibboleth/shibboleth2.xml`:
+In our test environment this is accomplished by editing `/etc/shibboleth/shibboleth2.xml`:
 
 ```xml
 <ApplicationDefaults entityID="https://sp.test.rdmo.org/shibboleth"
@@ -116,7 +116,7 @@ Certain Attributes from the Shibboleth Identity Provider can be mapped to Django
 SHIBBOLETH_GROUP_ATTRIBUTES = ['eduPersonScopedAffiliation']
 ```
 
-In this case, the attribute `eduPersonScopedAffiliation` contains a comma seperated list of groups which will be created in RDMO (if they don't exist yet) and the user will be added into these groups. Due to a limitation by [django-shibboleth-remoteuser](https://github.com/Brown-University-Library/django-shibboleth-remoteuser) the user will also be **removed from all other groups**.
+In this case, the attribute `eduPersonScopedAffiliation` contains a comma separated list of groups which will be created in RDMO (if they don't exist yet) and the user will be added into these groups. Due to a limitation by [django-shibboleth-remoteuser](https://github.com/Brown-University-Library/django-shibboleth-remoteuser) the user will also be **removed from all other groups**.
 
 ## Legacy Shibboleth setup
 

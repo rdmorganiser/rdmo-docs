@@ -13,8 +13,8 @@ On the left-hand side is the main display of all the attributes available in thi
 * **Update** (![](../_static/img/icons/update.png)) an attribute to change its properties.
 * **Copy** (![](../_static/img/icons/copy.png)) an attribute. This will open a modal to set a new key.
 * **Show** (![](../_static/img/icons/show.png)) the references from, e.g. questions, to an attribute. This will open a modal.
-* **Export** (![](../_static/img/icons/export.png)) an attribute and all of its decendants as XML.
-* **Delete** (![](../_static/img/icons/delete.png)) an attribute and all of it's decendants. **The action will remove the attribute and all the attributes below. This action cannot be undone!**
+* **Export** (![](../_static/img/icons/export.png)) an attribute and all of its descendants as XML.
+* **Delete** (![](../_static/img/icons/delete.png)) an attribute and all of it's descendants. **The action will remove the attribute and all the attributes below. This action cannot be undone!**
 
 The sidebar on the right-hand side shows additional interface items:
 

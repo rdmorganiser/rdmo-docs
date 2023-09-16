@@ -123,7 +123,7 @@ should now create the RDMO database tables on MySQL.
 
 ## SQLite
 
-SQLite ist the default option in RDMO, but we recommend it only for a development/testing setup. It can be configured in `config/settings/local.py` by adding:
+SQLite is the default option in RDMO, but we recommend it only for a development/testing setup. It can be configured in `config/settings/local.py` by adding:
 
 ```python
 DATABASES = {

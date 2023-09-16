@@ -13,20 +13,20 @@ Setup
 
 To setup such a multi site installation, you need to start with a regular RDMO instance as described in [installation](../installation/index.html). In principle, an existing RDMO instance can be extended to a multi site installation, but in this documentation we assume a fresh installation.
 
-* Create the virtual enviroment outside the `rdmo-app`, e.g. in `/srv/rdmo/env`. In a multi site setup all RDMO sites use **the same** virtual enviroment. RDMO and the other python dependencies need to be updated only once for the whole installation.
+* Create the virtual environment outside the `rdmo-app`, e.g. in `/srv/rdmo/env`. In a multi site setup all RDMO sites use **the same** virtual environment. RDMO and the other python dependencies need to be updated only once for the whole installation.
 
 * Otherwise, follow the instructions as usual, but add `MULTISITE = True` to `config/settings/local.py`. This enables the multi site features in the user interface.
 
 * After the installation, login to the admin interface and add your additional sites in the Sites section as described [here](../administration/site.html). Note the numerical ID of the different Sites as shown in the URL when editing the Site (e.g. `http://localhost:8000/admin/sites/site/2/change/`).
 
-* Then clone a second `rdmo-app` next to the first one, but use the same virtual environement as before (so no `pip install` is required). Setup `rdmo-app2/config/settings/local.py` as usual. Include `MULTISITE = True` and `SITE_ID = X` in `rdmo-app2/config/settings/local.py`, where `X` is the ID of the site from the step before. For `DATABASE` use the **same** settings as in `rdmo-app`.
+* Then clone a second `rdmo-app` next to the first one, but use the same virtual environment as before (so no `pip install` is required). Setup `rdmo-app2/config/settings/local.py` as usual. Include `MULTISITE = True` and `SITE_ID = X` in `rdmo-app2/config/settings/local.py`, where `X` is the ID of the site from the step before. For `DATABASE` use the **same** settings as in `rdmo-app`.
 
 If you now run `./manage.py runserver 0.0.0.0:8000` in `rdmo-app` and `./manage.py runserver 0.0.0.0:8002` in `rdmo-app2`, the two sites should be working already.
 
 Deployment
 ----------
 
-The two sites are deployed seperately, regardles if using Apache or nginx. Create seperate virtual host configurations which map the particular site url to the corresponding `rdmo-app`. E.g. for Apache:
+The two sites are deployed separately, regardless if using Apache or nginx. Create separate virtual host configurations which map the particular site url to the corresponding `rdmo-app`. E.g. for Apache:
 
 ```
 <VirtualHost *:443>
@@ -83,7 +83,7 @@ and
 Shibboleth
 ----------
 
-In order to run multiple seperate sites on one machine the Service Provider needs to be configured differently. For each site but the first one, an `ApplicationOverride` needs to be configured in `/etc/shibboleth/shibboleth2.xml`, e.g.
+In order to run multiple separate sites on one machine the Service Provider needs to be configured differently. For each site but the first one, an `ApplicationOverride` needs to be configured in `/etc/shibboleth/shibboleth2.xml`, e.g.
 
 ```xml
 <SPConfig xmlns="urn:mace:shibboleth:3.0:native:sp:config"

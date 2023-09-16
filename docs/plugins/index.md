@@ -86,7 +86,7 @@ In addition, a `process()` needs to be implemented which takes no arguments and 
 
 Please refer to <https://github.com/rdmorganiser/rdmo/blob/master/rdmo/projects/imports.py> for the default project import plugins and code examples. The code which uses the plugin is located in <https://github.com/rdmorganiser/rdmo/blob/master/rdmo/projects/views.py> (`ProjectCreateUploadView`, `ProjectCreateImportView`, `ProjectUpdateUploadView`, `ProjectUpdateImportView`).
 
-As with the exports, it is also possible to create `ImportProvider` plugins, which import from a remote web service. In addition, these plugins need to implement a `render()` and `submit()` function, which are used on GET resp. POST requests, as for the exports. They can also be combined with OAuth2 authentification. The GitHub and GitLab import plugins, which are part of RDMO can be considered example implementations: <https://github.com/rdmorganiser/rdmo/blob/master/rdmo/projects/imports.py>.
+As with the exports, it is also possible to create `ImportProvider` plugins, which import from a remote web service. In addition, these plugins need to implement a `render()` and `submit()` function, which are used on GET resp. POST requests, as for the exports. They can also be combined with OAuth2 authentication. The GitHub and GitLab import plugins, which are part of RDMO can be considered example implementations: <https://github.com/rdmorganiser/rdmo/blob/master/rdmo/projects/imports.py>.
 
 The import plugin needs to be added to the `PROJECT_IMPORTS` in `config/settings/local.py`. The default settings are:
 
