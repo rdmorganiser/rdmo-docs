@@ -10,10 +10,10 @@ Source code
     https://github.com/rdmorganiser/rdmo
 
 Documentation
-    http://rdmo.readthedocs.io
+    https://rdmo.readthedocs.io
 
 FAQ
-    http://www.forschungsdaten.org/index.php/FAQs
+    https://www.forschungsdaten.org/index.php/FAQs
 
 Mailing list
     https://www.listserv.dfn.de/sympa/subscribe/rdmo

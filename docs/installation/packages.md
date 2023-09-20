@@ -24,4 +24,4 @@ pip install rdmo
 
 The virtual environment encapsulates your RDMO installation from the rest of the system. This makes it possible to run several applications with different python dependencies on one machine and to install the dependencies without root permissions.
 
-**Important:** The virtual enviroment needs to be activated, using `source env/bin/activate` or `call env\Scripts\activate.bat`, everytime a new terminal is used.
+**Important:** The virtual environment needs to be activated, using `source env/bin/activate` or `call env\Scripts\activate.bat`, every time a new terminal is used.

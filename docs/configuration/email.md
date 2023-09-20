@@ -1,6 +1,6 @@
 # E-Mail
 
-RDMO needs to send E-Mails to its users. The connection to the SMPT server is configured by several settings in your `config/settings/local.py`:
+RDMO needs to send E-Mails to its users. The connection to the SMTP server is configured by several settings in your `config/settings/local.py`:
 
 ```python
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'

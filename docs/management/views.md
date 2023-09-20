@@ -261,7 +261,7 @@ Conditions can be evaluated using the `{% check_condition %}` tag:
 
 ### Child projects
 
-If child projects exist, they can be accessed using `project.children` (direct childs) and `project.descendants` (all descendants, e.g. childs of childs, etc.). The `project` keyword argument in the view tags are then used to select a particular project, e.g.:
+If child projects exist, they can be accessed using `project.children` (direct children) and `project.descendants` (all descendants, e.g. children of children, etc.). The `project` keyword argument in the view tags are then used to select a particular project, e.g.:
 
 ```django
 {% for child in project.children %}
