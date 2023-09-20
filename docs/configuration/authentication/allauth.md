@@ -2,13 +2,17 @@
 
 RDMO uses the excellent [django-allauth](http://www.intenct.nl/projects/django-allauth) as its main authorization library. It enables workflows for user registration and password retrieval, as well as authentication from 3rd party sites using OAUTH2.
 
+The library should be installed in RDMO using:
+
+```bash
+pip install rdmo[allauth]
+```
+
 ## Accounts
 
 To enable regular accounts in RDMO add:
 
 ```python
-from rdmo.core.settings import INSTALLED_APPS, AUTHENTICATION_BACKENDS
-
 ACCOUNT = True
 ACCOUNT_SIGNUP = True
 ACCOUNT_TERMS_OF_USE = False
@@ -19,6 +23,7 @@ INSTALLED_APPS += [
 ]
 
 AUTHENTICATION_BACKENDS.append('allauth.account.auth_backends.AuthenticationBackend')
+MIDDLEWARE.append('allauth.account.middleware.AccountMiddleware')
 ```
 
 to your `config/settings/local.py`. The setting `ACCOUNT = True` enables the general django-allauth features in RDMO, while `ACCOUNT_SIGNUP = True` enables new users to register with your RDMO instance. `ACCOUNT_TERMS_OF_USE = False` disables the Terms of Use. If you set it to `True` every registering user will have to agree to your policy. The last lines enable django-allauth to be used by RDMO.
@@ -30,8 +35,6 @@ The behavior of `django-allauth` can be further configured by the settings docum
 In order to use 3rd party accounts (facebook, github, etc.) with RDMO add:
 
 ```python
-from rdmo.core.settings import INSTALLED_APPS, AUTHENTICATION_BACKENDS
-
 ACCOUNT = True
 ACCOUNT_SIGNUP = True
 SOCIALACCOUNT = True
@@ -51,6 +54,7 @@ INSTALLED_APPS += [
 ]
 
 AUTHENTICATION_BACKENDS.append('allauth.account.auth_backends.AuthenticationBackend')
+MIDDLEWARE.append('allauth.account.middleware.AccountMiddleware')
 ```
 
 to your `config/settings/local.py`. The setting `SOCIALACCOUNT = True` is used by RDMO to show certain parts of the user interface connected to 3rd party accounts, while as before, the lines after `INSTALLED_APPS` enable the feature to be used by RDMO. `SOCIALACCOUNT_AUTO_SIGNUP = True` forces new users to fill out a signup form even if the provider does provide the email address. Each provider has a separate app you need to add to `INSTALLED_APPS`. A list of all providers supported by django-allauth can be found [here](http://django-allauth.readthedocs.io/en/latest/providers.html).
@@ -66,13 +70,13 @@ In addition to the settings for Social accounts above, a few extra settings are 
 
 ```py
 SOCIALACCOUNT_PROVIDERS = {
-        'keycloak': {
-            'KEYCLOAK_URL': 'https://idm.example.com/'# keycloak instance url',
-            'KEYCLOAK_REALM': 'rdmo' # name of the realm,
-            'OVERRIDE_NAME': 'DFN-AAI' # option to override the provider name, default is Keycloak
-        },
+    'keycloak': {
+        'KEYCLOAK_URL': 'https://idm.example.com/'# keycloak instance url',
+        'KEYCLOAK_REALM': 'rdmo' # name of the realm,
+        'OVERRIDE_NAME': 'DFN-AAI' # option to override the provider name, default is Keycloak
+    },
 }
 INSTALLED_APPS += [
-        'allauth.socialaccount.providers.keycloak',
+    'allauth.socialaccount.providers.keycloak',
 ]
 ```

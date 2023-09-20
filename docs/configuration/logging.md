@@ -3,10 +3,10 @@
 Logging in Django can be very complex and is covered extensively in the [Django documentation](https://docs.djangoproject.com/en/stable/topics/logging/). For a suitable logging of RDMO you can add the following to your `config/settings/local.py`:
 
 ```python
-import os
+from pathlib import Path
 
-LOG_LEVEL = 'INFO'          # or 'DEBUG' for the full logging
-LOG_DIR = '/var/log/rdmo/'  # this directory needs to be writable by the rdmo user
+LOG_LEVEL = 'INFO'           # or 'DEBUG' for the full logging
+LOG_PATH = '/var/log/rdmo/'  # this directory needs to be writable by the rdmo user
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
@@ -35,25 +35,25 @@ LOGGING = {
         'error_log': {
             'level': 'ERROR',
             'class':'logging.FileHandler',
-            'filename': os.path.join(LOG_DIR, 'error.log'),
+            'filename': Path(LOG_PATH) / 'error.log',
             'formatter': 'default'
         },
         'ldap_log': {
             'level': 'DEBUG',
             'class': 'logging.FileHandler',
-            'filename': os.path.join(LOG_DIR, 'ldap.log'),
+            'filename': Path(LOG_PATH) / 'ldap.log',
             'formatter': 'name'
         },
         'rules_log': {
             'level': 'DEBUG',
             'class': 'logging.FileHandler',
-            'filename': os.path.join(LOG_DIR, 'rules.log'),
+            'filename': Path(LOG_PATH) / 'rules.log',
             'formatter': 'name'
         },
         'rdmo_log': {
             'level': 'DEBUG',
             'class':'logging.FileHandler',
-            'filename': os.path.join(LOG_DIR, 'rdmo.log'),
+            'filename': Path(LOG_PATH) / 'rdmo.log',
             'formatter': 'name'
         }
     },

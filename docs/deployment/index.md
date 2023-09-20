@@ -7,8 +7,8 @@ Information about how to do that can be found in the [docs of the RDMO repositor
 <br><br>
 1. In production, using a web server and the [wsgi](https://docs.djangoproject.com/en/1.10/howto/deployment/wsgi/) protocol<br>
 We suggest to use one of the following setups:
-    * [Apache2 and mod_wsgi](apache.html) (Shibboleth can only be used with this version.)
-    * [nginx, gunicorn and systemd](nginx.html)
+    * [Apache2 and mod_wsgi](apache.html) (Shibboleth can only be used with this setup.)
+    * [Gunicorn](gunicorn.html)
 
 
 ```eval_rst
@@ -19,5 +19,5 @@ We suggest to use one of the following setups:
 
    development
    apache
-   nginx
+   gunicorn
 ```

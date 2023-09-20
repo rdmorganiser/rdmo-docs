@@ -8,7 +8,8 @@ config/settings/local.py
 
 which is ignored by git and is meant to contain your local adjustments and secret information (e.g. database connections). As part of the installation process `config/settings/local.py` should be created from the template `config/settings/sample.local.py`. (Most of the Django configuration you might know from other projects is located in [rdmo/rdmo/core/settings.py](https://github.com/rdmorganiser/rdmo/blob/master/rdmo/core/settings.py) of the rdmo package repository.)
 
-While technically the local settings file `config/settings/local.py` can be used to override all of the settings in `config/settings/sample.local.py`, it should be used to customize the settings already available in `config/settings/sample.local.py`.
+The local settings file `config/settings/local.py` can be used to override all of the default settings of RDMO (see: <https://github.com/rdmorganiser/rdmo/blob/master/rdmo/core/settings.py>).
+
 
 ```eval_rst
 ----

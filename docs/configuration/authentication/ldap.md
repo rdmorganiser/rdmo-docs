@@ -9,7 +9,7 @@ sudo apt-get install libsasl2-dev libldap2-dev libssl-dev
 On the python side, we use [django-auth-ldap](https://pypi.org/project/django-auth-ldap) to connect to the LDAP server. As before, it should be installed inside the virtual environment created for RDMO using:
 
 ```bash
-pip install -r requirements/ldap.txt
+pip install rdmo[ldap]
 ```
 
 LDAP installations can be very different and we only discuss one particular example. We assume that the LDAP service is running on `ldap.example.com`. RDMO needs an account to connect to the LDAP. In order to create it, run:
@@ -36,7 +36,6 @@ Then, in your `config/settings/local.py` add or uncomment:
 ```python
 import ldap
 from django_auth_ldap.config import LDAPSearch
-from rdmo.core.settings import AUTHENTICATION_BACKENDS
 
 PROFILE_UPDATE = False
 PROFILE_DELETE = False

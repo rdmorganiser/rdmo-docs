@@ -1,7 +1,8 @@
 # Setup the application
 
 ## Basic setup
-To set up the application, create a new file `config/settings/local.py` in your cloned `rdmo-app` directory. For the example user with the home `/srv/rdmo`, this would now be `/srv/rdmo/rdmo-app/config/settings/local.py`.
+
+To set up the application, create a new file `config/settings/local.py` in your cloned `rdmo-app` directory. For the example user with the home `/srv/rdmo`, this would now be `/srv/rdmo/rdmo-app/config/settings/local.py`. This file holds the main configuration of your RDMO installation. The file is ignored by git, so when you version your `rdmo-app` on e.g. GitHub, the information in this file is not disclosed. This is nessesary, since the file contains passwords and other secret, machine-specific information.
 
 You can use `config/settings/sample.local.py` as template, i.e.:
 
@@ -16,11 +17,11 @@ Then, initialize the application, using:
 
 ```bash
 python manage.py migrate                # initializes the database
-python manage.py setup_groups           # creates groups with different permissions
 python manage.py createsuperuser        # creates the admin user
 ```
 
 ## Third party vendor files
+
 By default third party vendor files (like jQuery or Bootstrap javascripts) are retrieved from the content delivery networks that they are hosted on. If you would like to avoid third party requests you could host them yourself. This can be achieved easily with two simple steps.
 
 1. download the vendor files from the cdns by running the provided script

@@ -4,9 +4,19 @@ The users and groups of your RDMO instance can be managed under **AUTHENTICATION
 
 The user created in the installation process can access all features of RDMO. In order to allow other users to access the management or the admin interface, they need to have the required permissions assigned to them. This can be done in two ways: through groups or using the superuser flag.
 
+## Roles
+
+Users can be set as `site_managers` for a specific (or the only) site under **ACCOUNTS** and **Roles**. Site managers have access to all projects of this site.
+
+Users can also be set as `site_editors` or `site_reviewers`.
+
+Editors for a site can access the [management interface](../management/index.html) and can edit all elements, which can be edited by this site. (All elements for a regular one-site installation.) 
+
+Reviewers for a site can access the [management interface](../management/index.html), like editors, but are not allowed to change them (Save will not work). This group can be used to demonstrate the management backend of RDMO to certain users.
+
 ## Groups
 
-During the installation, the `./manage setup_groups` command created 3 groups:
+During the installation, the `./manage setup_groups` can be used to create 3 groups:
 
 ### Editor
 Users of the group editor can access the [management interface](../management/index.html) and can edit all elements of the data model, except the user data entered through the structured inteview.
@@ -24,10 +34,6 @@ Existing users can be assigned to these groups to gain access to these functions
 1. Click on the group to be assigned to the user in the **Available groups** field.
 1. Click on the little arrow to move the group to the **Chosen groups** field.
 1. Save the user.
-
-## Roles
-
-Users can be set as `site_managers` for a specific (or the only) site under **ACCOUNTS** and **Roles**. Site managers have access to all projects of this site.
 
 ## Superuser
 
