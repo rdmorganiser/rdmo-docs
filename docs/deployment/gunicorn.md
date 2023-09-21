@@ -124,9 +124,9 @@ sudo apt install apache2
 ```
 
 
-Edit the Nginx configuration as follows (again with root/sudo permissions):
+Edit the Apache configuration as follows (again with root/sudo permissions):
 
-```nginx
+```apache
 # in /etc/apache2/sites-available/default  on Debian/Ubuntu
 <VirtualHost *:80>
     ServerAdmin webmaster@localhost
@@ -146,7 +146,7 @@ Edit the Nginx configuration as follows (again with root/sudo permissions):
 </VirtualHost>
 ```
 
-Restart and enable Nginx:
+Restart and enable Apache:
 
 ```bash
 systemctl start apache2
