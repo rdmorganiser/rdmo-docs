@@ -11,8 +11,6 @@ sudo semanage fcontext -a -t httpd_sys_rw_content_t "/srv/rdmo/rdmo-app/log(/.*)
 sudo semanage fcontext -a -t httpd_sys_script_exec_t -f f "/srv/rdmo/rdmo-app/env(/.*)?/.+\.so(\.[^/]*)*"
 sudo restorecon -R -v /srv/rdmo
 sudo setsebool -P httpd_can_network_connect=1
-# Run this only if using memcached
-sudo setsebool -P httpd_can_network_memcache=1
 ```
 
 While this is the prefereble way, you can also set `selinux` to `permissive` or `disabled` in `/etc/selinux/config` (and reboot afterwards).
