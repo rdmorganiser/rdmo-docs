@@ -1,54 +1,4 @@
-# Views
-
-<!--- mdtoc: toc begin -->
-
-1.	[View configuration](#view-configuration)  		
-	1.	[Parameters](#parameters)
-2.	[Template syntax](#template-syntax)
-	1.	[Syntax overview](#syntax-overview)
-	2.	[Calculations](#calculations)
-	3.	[RDMO-specific tags and filters](#rdmo-specific-tags-and-filters)
-	4.	[Child projects](#child-projects)<!--- mdtoc: toc end -->
-
-## View configuration
-
-Views can be configured under *Views* in the management menu in the navigation bar.
-
-![](../_static/img/screens/views.png)
-
-> *Screenshot of the views management interface*
-
-On the left-hand side is the main display of all the views available in this installation of RDMO. Views show their key, title and description. On the right side of each views panel, icons indicate ways to interact the element. The following options are available:
-
--	**Update** (![](../_static/img/icons/update.png)) a view to change its properties.
--   **Copy** (![](../_static/img/icons/copy.png)) a view. This will open a modal to set a new key.
--	**Edit the template** (![](../_static/img/icons/template.png)) of a view.
--   **Export** (![](../_static/img/icons/export.png)) a view as XML.
--	**Delete** (![](../_static/img/icons/delete.png)) a view. **This action cannot be undone!**
-
-The sidebar on the right shows additional interface items:
-
--	**Filter** filters the view according to a user given string or a given URI prefix.
--	**Options** offers additional operations:
-	-	Create a new view
--	**Export** exports the conditions to one of the displayed formats. While the textual formats are mainly for presentation purposes, the XML export can be used to transfer the views to a different installation of RDMO.
-
-Views have different properties to control their behavior. As described in [the introduction](index.html), all elements have an URI prefix, a key, and an internal comment only to be seen by other managers of the RDMO installation. In addition, you can edit the parameters below:
-
-### Parameters
-
-| Parameter       | Explanation                                                                                                                              |
-| --------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
-| Title           | The title for the view. The title will be shown in the projects overview.                                                                |
-| Help            | The help text for the view. The help text will be shown in the projects overview                                                         |
-| Groups          | Displays the groups for this view. If at least one group is selected, only users of these<br> groups will see this view for a project.   |
-| Sites           | *(Only in a multi site installation)* Displays the sites for this view. Only users of these<br> groups will see this view for a project. |
-
-## Template syntax
-
-![](../_static/img/screens/template.png)
-
-> *Screenshot of the template model*
+## View template syntax
 
 ### Syntax overview
 
@@ -277,7 +227,7 @@ If child projects exist, they can be accessed using `project.children` (direct c
 {% endfor %}
 ```
 
-## Metadata in exported documents
+### Metadata in exported documents
 
 RDMO's views can be exported as PDF documents or in other office compatible formats. These files are generated using Pandoc and can contain metadata. Pandoc is able to save metadata into exported documents. A mechanism RDMO can make use of.
 
@@ -299,7 +249,7 @@ The json data are passed unmodified to Pandoc. Therefore is is important to make
 
 Pandoc does support saving metadata from version 2.3 upwards. Make sure to meet this requirement. If a lower version of Pandoc is installed RDMO won't export any metadata into the generated documents.
 
-## Custom pandoc version
+### Custom pandoc version
 
 It is possible to explicitly specify the location of the Pandoc binary. This is done by setting the `PYPANDOC_PANDOC` environment variable (see <https://github.com/JessicaTegner/pypandoc#specifying-the-location-of-pandoc-binaries>). This can be done in several ways, the easiest is probably to add the following code to your `config/settings/local.py`:
 
