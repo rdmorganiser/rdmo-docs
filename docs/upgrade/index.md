@@ -66,6 +66,18 @@ from . import MIDDLEWARE  # if this import is not alreay present in the file
 MIDDLEWARE.append('allauth.account.middleware.AccountMiddleware')
 ```
 
+RDMO 2.0.0 uses Django 4.2, which removed some functions. If you use
+
+```python
+from django.utils.translation import ugettext_lazy as _
+```
+
+in your `config/settings/local.py`, you need to change this to
+
+```python
+from django.utils.translation import gettext_lazy as _
+```
+
 We also refactored the `rdmo-app`, which people clone to start using RDMO. You should still be able to use your old `rdmo-app`, but you might take a look at <https://github.com/rdmorganiser/rdmo-app> and adopt some of the new layout to your installation.
 
 ## Upgrade to version 0.9.0
