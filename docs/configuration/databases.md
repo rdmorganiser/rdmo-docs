@@ -1,21 +1,26 @@
 # Databases
 
 RDMO can use any type of database that is supported by the Django web framework. The particular database connection is defined with the setting `DATABASES` in your `local.py`.  
-An overview of the Django database settings can be found in the [Django docs](https://docs.djangoproject.com/en/4.2/ref/settings/#databases). For the most typical types of databases, PostgreSQL, MySQL and SQLite, we show here the configuration and initialization.
+An overview of the Django database settings can be found in the [Django docs](https://docs.djangoproject.com/en/4.2/ref/settings/#databases). For the most typical types of databases, [PostgreSQL](#postgresql), [MySQL](#mysql) and [SQLite](#sqlite), we show here the configuration and [initialization](#initializing-the-database) with the `manage.py migrate` command.
 
 ### PostgreSQL
 
 PostgreSQL can be installed using:
 
-```bash
-# Debian/Ubuntu
-sudo apt install postgresql
 
-# CentOS
-sudo yum install postgresql-server postgresql-contrib
-sudo postgresql-setup initdb
-sudo systemctl start postgresql
-sudo systemctl enable postgresql
+```eval_rst
+.. tabs::
+
+   .. code-tab:: bash Debian/Ubuntu
+
+      sudo apt install postgresql
+
+   .. code-tab:: bash RHEL/CentOS
+
+      sudo yum install postgresql-server postgresql-contrib
+      sudo postgresql-setup initdb
+      sudo systemctl start postgresql
+      sudo systemctl enable postgresql
 ```
 
 To use PostgreSQL as your database backend install `psycopg2`, via the `rdmo` dependencies, in your virtual environment:
@@ -55,17 +60,22 @@ Now you can [initialize your database](#initializing-the-database).
 
 MySQL (or community-developed fork MariaDB) can be installed using:
 
-```bash
-# Debian/Ubuntu
-sudo apt install mysql-client mysql-server libmysqlclient-dev        # for MySQL
-sudo apt install mariadb-client mariadb-server libmariadbclient-dev  # for MariaDB
 
-# CentOS
-sudo yum install -y mysql mysql-server mysql-devel                   # for MySQL
-sudo yum install -y mariadb mariadb-server mariadb-devel             # for MariaDB
-sudo systemctl enable mariadb
-sudo systemctl start mariadb
-sudo mysql_secure_installation
+```eval_rst
+.. tabs::
+
+   .. code-tab:: bash Debian/Ubuntu
+
+      sudo apt install mysql-client mysql-server libmysqlclient-dev        # for MySQL
+      sudo apt install mariadb-client mariadb-server libmariadbclient-dev  # for MariaDB
+
+   .. code-tab:: bash RHEL/CentOS
+
+      sudo yum install -y mysql mysql-server mysql-devel                   # for MySQL
+      sudo yum install -y mariadb mariadb-server mariadb-devel             # for MariaDB
+      sudo systemctl enable mariadb
+      sudo systemctl start mariadb
+      sudo mysql_secure_installation
 ```
 
 To use MySQL as your database backend install `mysqlclient`, via the `rdmo` dependencies, in your virtual environment:
@@ -124,8 +134,13 @@ where `NAME` is the name of database file. Now you can [initialize your database
 
 ### Initializing the database
 
-When you have configured your database, you can initialize the database tables with a Django command [`migrate`](https://docs.djangoproject.com/en/4.2/ref/django-admin/#migrate).
+When you have configured your database, then you can initialize the database tables with a Django command [`migrate`](https://docs.djangoproject.com/en/4.2/ref/django-admin/#migrate).
 
+To check if your settings are correct, please first run:
+```bash
+python manage.py check
+```
+this should return `System check identified no issues (0 silenced).` If there are any errors, please check your settings or dependencies. When the problem cannot be solved, please contact the RDMO community for support.
 
 The command
 
