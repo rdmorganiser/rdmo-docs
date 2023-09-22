@@ -5,18 +5,26 @@ After you have obtained the `rdmo-app`, you need to install the `rdmo` package a
 
 Change to the `rdmo-app` directory and create a [Virtual Environment](https://docs.python.org/3/tutorial/venv.html) (this is done as your user or the created `rdmo` user, not as `root`):
 
-```bash
-cd rdmo-app
 
-python3 -m venv env
+```eval_rst
+.. tabs::
 
-source env/bin/activate                     # on Linux or macOS
-call env\Scripts\activate.bat               # on Windows
+   .. code-tab:: sh Linux/MacOS
 
-pip install --upgrade pip setuptools        # update pip and setuptools
+      cd rdmo-app
+      python3 -m venv env 
+      source env/bin/activate
+      pip install --upgrade pip setuptools        
+
+   .. code-tab:: shell Windows
+
+      cd rdmo-app
+      python3 -m venv env 
+      call env\Scripts\activate.bat
+      pip install --upgrade pip setuptools
 ```
 
-After the virtual environment is activated, the `rdmo` package can be installed using `pip`:
+After the virtual environment is activated and `pip` was upgraded, the `rdmo` package can be installed using `pip`:
 
 ```bash
 pip install rdmo
