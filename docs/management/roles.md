@@ -1,4 +1,4 @@
-# Role concept
+# User role concept in projects
 
 You can invite other members to your projects. You have to assign them a `role` with certain permissions to make changes.
 At the moment there the following roles:
