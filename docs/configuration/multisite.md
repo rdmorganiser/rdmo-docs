@@ -28,7 +28,7 @@ Deployment
 
 The two sites are deployed separately, regardless if using Apache or nginx. Create separate virtual host configurations which map the particular site url to the corresponding `rdmo-app`. E.g. for Apache:
 
-```
+```apache
 <VirtualHost *:443>
     ServerName example.com
 
@@ -55,7 +55,7 @@ The two sites are deployed separately, regardless if using Apache or nginx. Crea
 
 and
 
-```
+```apache
 <VirtualHost *:443>
     ServerName example.org
 
@@ -139,7 +139,7 @@ where `https://idp.test.rdmo.org` und `https://idp2.test.rdmo.org/idp/shibboleth
 
 In the virtual host configuration for each but the first site, `ShibRequestSetting applicationId <id>` needs to be added to both `<Location /Shibboleth.sso>` and `<LocationMatch /(...)>`. `<id>` is the `id` attribute of the `ApplicationOverride` node, e.g.:
 
-```
+```apache
 <Location /Shibboleth.sso>
     SetHandler shib
     ShibRequestSetting applicationId example.org
@@ -152,4 +152,3 @@ In the virtual host configuration for each but the first site, `ShibRequestSetti
     ShibRequestSetting applicationId example.org
 </LocationMatch>
 ```
-
