@@ -5,7 +5,7 @@ As mentioned several times, you should create a dedicated user for RDMO. All ste
 First install gunicorn inside your virtual environment:
 
 ```bash
-pip install -r requirements/gunicorn.txt
+pip install rdmo[gunicorn]
 ```
 
 Then, test `gunicorn` using:
@@ -58,7 +58,7 @@ ExecStop=/bin/sh -c '/usr/bin/pkill -TERM -F ${GUNICORN_PID_FILE}'
 WantedBy=multi-user.target
 ```
 
-If RDMO runs under a subpath or your domain (or alias, e.g. <https://example.com/rdmo/>), the `SCRIPT_NAME` environment variable needs to be set in the `ExecStart` call, e.g. `--env SCRIPT_NAME=/rdmo`.
+If RDMO runs under a subpath or your domain (or alias, e.g. <https://example.com/rdmo/>), when you have set a value for `BASE_URL` in your [settings](../configuration/general.html). The `SCRIPT_NAME` environment variable needs to be set in the `ExecStart` call, e.g. `--env SCRIPT_NAME=/rdmo`.
 
 After the service file is created and everytime it is changed, `systemd` needs to be reloaded:
 
