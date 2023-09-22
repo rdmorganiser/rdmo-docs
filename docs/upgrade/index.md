@@ -61,7 +61,7 @@ pip install rdmo[allauth]
 
 You also need to add the following to your `config/settings/local.py`:
 
-```python`
+```python
 from . import MIDDLEWARE  # if this import is not alreay present in the file
 MIDDLEWARE.append('allauth.account.middleware.AccountMiddleware')
 ```
