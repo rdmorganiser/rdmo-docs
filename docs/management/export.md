@@ -8,7 +8,7 @@ The export menu is displayed on the right-hand side of the screen. It consists o
 
 ## Import
 
-As mentioned above the import is context sensitive. It will only run if you select an xml file that fits to the page you are on and contains valid xml data. If the file is invalid or you accidentally picked a wrong document type, the parser will become aware of it and simply skip any import function. This will simply reload the page without any change of data.
+As mentioned above, the import is context sensitive. It will only run if you select an xml file that fits to the page you are on and contains valid xml data. If the file is invalid or you accidentally picked a wrong document type, the parser will become aware of it and simply skip any import function. This will simply reload the page without any change of data.
 
 You can select the file to import by clicking the `select xml file` text or by dragging and dropping your file onto the box containing the mentioned text.
 
