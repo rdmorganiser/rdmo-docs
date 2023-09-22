@@ -51,9 +51,9 @@ Please check the release notes if this, or other, steps are necessary.
 
 ## Upgrade to version 2.0.0
 
-With version 2.0.0 we changed the data model and introduced pages, but this transition should be automatically applied using the database migrations.
+With version 2.0.0 we have changed the data model and introduced pages, but this transition should automatically be applied to your content with the database migrations.
 
-We also reworked the rdmo package and updated some dependencies. Therefore, **if you use allauth for authentification** you need to update this dependency seperately from now using:
+We have also reworked the rdmo package and updated some dependencies. Therefore, **when you use allauth for authentification**, you need to update this dependency seperately from now on by using:
 
 ```bash
 pip install rdmo[allauth]
@@ -78,7 +78,7 @@ in your `config/settings/local.py`, you need to change this to
 from django.utils.translation import gettext_lazy as _
 ```
 
-We also refactored the `rdmo-app`, which people clone to start using RDMO. You should still be able to use your old `rdmo-app`, but you might take a look at <https://github.com/rdmorganiser/rdmo-app> and adopt some of the new layout to your installation.
+We have also refactored the `rdmo-app`, which people clone to start using RDMO. You should still be able to use your old `rdmo-app`, but you might take a look at <https://github.com/rdmorganiser/rdmo-app> and adopt some of the new layout to your installation.
 
 ## Upgrade to version 0.9.0
 
@@ -116,3 +116,10 @@ With version 0.14 the Python 2 support was dropped and we switched to Django 2.2
 
 * Adjust RDMO app's `config/urls.py` to Django2 schemes. The file is much simpler and shorter now. A working example can be found at https://github.com/rdmorganiser/rdmo-app/blob/master/config/urls.py
 * MIDDLEWARE_CLASSES in `config/settings/local.py` needs to be renamed to `MIDDLEWARE` only
+
+---
+```eval_rst
+.. warning::
+    RDMO contains all the necessary migrations. For consistency of the database,
+    please do **not** run the ``makemigrations`` command. When Django asks you for it, please contact support.
+```
