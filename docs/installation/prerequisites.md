@@ -4,27 +4,29 @@ Installing the prerequisites for RDMO differs on the different operating systems
 
 ## Linux
 
-We recommend to install the prerequisites using the packaging system of your distribution. On Debian/Ubuntu use:
+We recommend to install the prerequisites using the packaging system of your distribution. Use the following commands for Debian/Ubuntu or RHEL/CentOS.
 
-```bash
-sudo apt install build-essential libxml2-dev libxslt-dev zlib1g-dev \
-    python3-dev python3-pip python3-venv \
-    git pandoc
+```eval_rst
+.. tabs::
 
-# optional, for pdf output
-sudo apt install texlive texlive-xetex lmodern librsvg2-bin
-```
+   .. code-tab:: bash Debian/Ubuntu
 
-on RHEL/CentOS use:
+      sudo apt install build-essential libxml2-dev libxslt-dev zlib1g-dev \
+          python3-dev python3-pip python3-venv \
+          git pandoc
 
-```bash
-sudo yum install gcc gcc-c++ libxml2-devel libxslt-devel \
-    python34-devel python34-pip python34-virtualenv \
-    git pandoc
+      # optional, for pdf output
+      sudo apt install texlive texlive-xetex lmodern librsvg2-bin
 
-# optional, for pdf output
-sudo yum install texlive texlive-xetex texlive-mathspec texlive-euenc \
-    texlive-xetex-def texlive-xltxtra librsvg2-tools
+   .. code-tab:: bash RHEL/CentOS
+
+      sudo yum install gcc gcc-c++ libxml2-devel libxslt-devel \
+         python34-devel python34-pip python34-virtualenv \
+         git pandoc
+
+      # optional, for pdf output
+      sudo yum install texlive texlive-xetex texlive-mathspec texlive-euenc \
+         texlive-xetex-def texlive-xltxtra librsvg2-tools
 ```
 
 On RHEL/CentOS SELinux is enabled by default. This can result in unexpected errors, depending on where you store the RDMO source code on the system. Some guidance on how to configure SELinux is given at [here](../advanced/index.html#selinux).
