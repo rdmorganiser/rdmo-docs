@@ -1,6 +1,6 @@
 # Development setup
 
-This setup can be used to work on the core RDMO package as well as plugins. The main difference to the regular setup is that you can edit the code and see the result in your local browser immediately.
+This setup can be used to work on the core RDMO package as well as plugins. The main difference to the regular setup is that you can edit the source code and see the result in your local browser immediately.
 
 This setup should work on Linux, macOS and when using the Windows Subsystem for Linux, but unfortunately not on the regular Windows setup.
 
@@ -50,12 +50,22 @@ Change into `rdmo-app` and change to the `dev` branch of this repo. This branch 
 
 Create a Python virtual environment:
 
-```bash
-cd path/to/rdmorganiser/rdmo-app
-python3 -m venv env
-source env/bin/activate                     # on Linux or macOS
-call env\Scripts\activate.bat               # on Windows
-pip install --upgrade pip setuptools        # update pip and setuptools
+```eval_rst
+.. tabs::
+
+   .. code-tab:: bash Linux/MacOS
+
+      cd rdmo-app
+      python3 -m venv env 
+      source env/bin/activate
+      pip install --upgrade pip setuptools        
+
+   .. code-tab:: bash Windows
+
+      cd rdmo-app
+      python3 -m venv env 
+      call env\Scripts\activate.bat
+      pip install --upgrade pip setuptools
 ```
 
 Install `rdmo` in _editable_ mode:
@@ -66,7 +76,7 @@ pip install -e ../rdmo
 
 This links the cloned `rdmo` repo in a way that changes to the code will be available to the development server instantly.
 
-Create a `local.py`:
+Create a copy of `sample.local.py` with the name `local.py`:
 
 ```bash
 cp config/settings/sample.local.py config/settings/local.py
@@ -100,33 +110,45 @@ python manage.py setup_groups           # optional: create groups with different
 
 The testing data can be imported using:
 
-```bash
-# on Linux or macOS
-python manage.py loaddata ../rdmo/testing/fixtures/*
+```eval_rst
+.. tabs::
 
-# on Windows
-python manage.py loaddata ..\rdmo\testing\fixtures\accounts.json ^
-                          ..\rdmo\testing\fixtures\conditions.json ^
-                          ..\rdmo\testing\fixtures\domain.json ^
-                          ..\rdmo\testing\fixtures\groups.json ^
-                          ..\rdmo\testing\fixtures\options.json ^
-                          ..\rdmo\testing\fixtures\overlays.json ^
-                          ..\rdmo\testing\fixtures\projects.json ^
-                          ..\rdmo\testing\fixtures\questions.json ^
-                          ..\rdmo\testing\fixtures\sites.json ^
-                          ..\rdmo\testing\fixtures\tasks.json ^
-                          ..\rdmo\testing\fixtures\users.json ^
-                          ..\rdmo\testing\fixtures\views.json
+   .. code-tab:: bash Linux/MacOS
+
+      python manage.py loaddata ../rdmo/testing/fixtures/*     
+
+   .. code-tab:: bash Windows
+
+      python manage.py loaddata ..\rdmo\testing\fixtures\accounts.json ^
+                              ..\rdmo\testing\fixtures\conditions.json ^
+                              ..\rdmo\testing\fixtures\domain.json ^
+                              ..\rdmo\testing\fixtures\groups.json ^
+                              ..\rdmo\testing\fixtures\options.json ^
+                              ..\rdmo\testing\fixtures\overlays.json ^
+                              ..\rdmo\testing\fixtures\projects.json ^
+                              ..\rdmo\testing\fixtures\questions.json ^
+                              ..\rdmo\testing\fixtures\sites.json ^
+                              ..\rdmo\testing\fixtures\tasks.json ^
+                              ..\rdmo\testing\fixtures\users.json ^
+                              ..\rdmo\testing\fixtures\views.json
+
 ```
 
 The test upload files are initialized using:
 
-```bash
-cp -r ../rdmo/testing/media media_root       # on Linux or macOS
-xcopy ..\rdmo\testing\media media_root /e/s  # on Windows
+```eval_rst
+.. tabs::
+
+   .. code-tab:: bash Linux/MacOS
+
+      cp -r ../rdmo/testing/media media_root
+
+   .. code-tab:: bash Windows
+
+      xcopy ..\rdmo\testing\media media_root /e/s
 ```
 
-Starting from RDMO `1.10.0` we use [webpack](https://webpack.js.org/) to bundle the new React based front-end. For this [nodejs](https://nodejs.org) needs to be available. The preferred way is to use [nvm.sh](https://github.com/nvm-sh/nvm). It can be installed for the current user with:
+Starting from RDMO `2.0.0` we use [webpack](https://webpack.js.org/) to bundle the new React based front-end. For this [nodejs](https://nodejs.org) needs to be available. The preferred way is to use [nvm.sh](https://github.com/nvm-sh/nvm). It can be installed for the current user with:
 
 ```
 wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
@@ -140,9 +162,10 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 ```
 
-to your `.bashrc`. Then run:
+to your `.bashrc`. Then, inside of your `rdmo` repository, run:
 
 ```
+cd ../rdmo
 nvm install    # only once, to install the node version given in .nvmrc
 nvm use        # to activate the node version
 npm install    # to install the many, many javascript dependencies
@@ -196,13 +219,25 @@ python -m aiosmtpd -n -l localhost:8025
 
 In order to run the test suite, the `rdmo` repo itself can be setup in a similar way in its own virtual environment:
 
-```
-deactivate                                  # if you are already in an env
-cd path/to/rdmorganiser/rdmo
-python3 -m venv env
-source env/bin/activate                     # on Linux or macOS
-call env\Scripts\activate.bat               # on Windows
-pip install --upgrade pip setuptools        # update pip and setuptools
+
+```eval_rst
+.. tabs::
+
+   .. code-tab:: bash Linux/MacOS
+
+      deactivate                                  # if you are already in an env
+      cd path/to/rdmorganiser/rdmo
+      python3 -m venv env 
+      source env/bin/activate
+      pip install --upgrade pip setuptools        
+
+   .. code-tab:: bash Windows
+
+      deactivate                                  # if you are already in an env
+      cd path/to/rdmorganiser/rdmo
+      python3 -m venv env 
+      call env\Scripts\activate.bat
+      pip install --upgrade pip setuptools
 ```
 
 Again install `rdmo` in editable mode and install the database prerequisites:
@@ -238,9 +273,17 @@ More about testing can be found [here](testing.md).
 
 In order to include plugins into the development setup simply clone the plugin repository next to `rdmo` and `rdmo-app`, e.g. for `rdmo-plugins`:
 
-```bash
-git clone git@github.com:rdmorganiser/rdmo-plugins      # over ssh
-git clone https://github.com/rdmorganiser/rdmo-plugins  # over https
+
+```eval_rst
+.. tabs::
+
+   .. code-tab:: bash HTTPS
+
+      git clone https://github.com/rdmorganiser/rdmo-plugins
+
+   .. code-tab:: bash SSH
+
+      git clone git@github.com:rdmorganiser/rdmo-plugins
 ```
 
 Then the plugin can be added to the `env` for `rdmo-app` or `rdmo` also in _editable_ mode using:
