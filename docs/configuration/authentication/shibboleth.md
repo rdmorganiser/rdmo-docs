@@ -8,7 +8,7 @@ Next, install the Shibboleth Apache module for the service provider (SP) from yo
 sudo apt-get install libapache2-mod-shib2
 ```
 
-Under Ubuntu 18.04 LTS the `libapache2-mod-shib2` package is broken. A working description on how to install the SPcan be found under https://www.switch.ch/aai/guides/sp/installation/?os=ubuntu.
+Under Ubuntu 18.04 LTS the `libapache2-mod-shib2` package is broken. A working description on how to install the SPcan be found under [SWITCHaai guides](https://www.switch.ch/aai/guides/sp/installation/?os=ubuntu).
 
 In addition, [django-shibboleth-remoteuser](https://github.com/Brown-University-Library/django-shibboleth-remoteuser) needs to be installed in your RDMO virtual environment:
 
@@ -53,7 +53,7 @@ service shibd restart
 
 In your Apache2 virtual host configuration, add:
 
-```
+```apache
 <Location /Shibboleth.sso>
     SetHandler shib
 </Location>
@@ -112,7 +112,7 @@ service apache2 restart
 
 Certain Attributes from the Shibboleth Identity Provider can be mapped to Django groups, in particular to restrict the access to Catalogs and Views. This can be done by adding the following settings:
 
-```
+```python
 SHIBBOLETH_GROUP_ATTRIBUTES = ['eduPersonScopedAffiliation']
 ```
 
@@ -122,7 +122,7 @@ In this case, the attribute `eduPersonScopedAffiliation` contains a comma separa
 
 Before RDMO 1.11.0, we suggested a slightly different Shibboleth setup, which can still be used. The main difference is that the Shibboleth service provider "catches" every request to RDMO.
 
-```
+```apache
 <Location /Shibboleth.sso>
     SetHandler shib
 </Location>
@@ -142,7 +142,7 @@ SHIBBOLETH_LOGIN_URL = None
 
 ## Alternative to Shibboleth: Keycloak and Satosa
 
-The installation of Shibboleth excludes the use other authentication providers for RDMO. When it is preferred to enable authentication to a Shibboleth Identity Provider and other 3rd party providers in parallel, an alternative configuration can be set up. A keycloak instance and a SATOSA proxy can be used for this purpose.
+Before RDMO 1.11.0, the installation of Shibboleth excluded the use other authentication providers for RDMO. When it is preferred to enable authentication to a Shibboleth Identity Provider and other 3rd party providers in parallel, an alternative configuration can be set up. A keycloak instance and a SATOSA proxy can be used for this purpose.
 
 In order for the keycloak instance to be able to authenticate with the a Shibboleth-based IdP (eg. [DFN-AAI](https://doku.tid.dfn.de/de:dfnaai:start)) another service needs to be installed and configured as Identity Provider for keycloak.
 
