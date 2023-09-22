@@ -1,6 +1,6 @@
-## View template syntax
+# Views and their template syntax
 
-### Syntax overview
+## Syntax overview
 
 Each view has a template, which determines how the answers given by the user are mapped to a textual document. The template is composed using the [Django template](https://docs.djangoproject.com/en/stable/ref/templates/language/) syntax, which is a combination of regular HTML, variables, which get replaced with values when the template is evaluated (`{{ a_variable }}`), and tags, which control the logic of the template (`{% a_tag %}`).
 
@@ -80,7 +80,7 @@ Or checking a value within a dataset.
 {% endfor %}
 ```
 
-### Calculations
+## Calculations
 
 You can do calculations in RDMO's view templates by using filters. The package RDMO utilizes is called [django-mathfilters](https://pypi.org/project/django-mathfilters). The following operations are supported. For more information please have a look into the django mathfilters documentation which can be found at the link mentioned before.
 
@@ -118,7 +118,7 @@ Note that filters can be piped after another as often as you like. You could eas
 
 Please consult the documentation of the Django template syntax for all the available tags and filters: https://docs.djangoproject.com/en/stable/ref/templates/language.
 
-### Details on RDMO-specific tags and filters
+## Details on RDMO-specific tags and filters
 
 The main method to access user data in the templates is the `{% get_values %}` tag. It can be used to get all values for an attribute from a project. The `set_prefix`, `set_index`, and `index` arguments can be used to restrict the query further:
 
@@ -189,7 +189,7 @@ Conditions can be evaluated using the `{% check_condition %}` tag:
 -> check the conditions only with values with the set_prefix=0
 ```
 
-#### Render values
+### Render values
 
 ```django
 {% render_value %} like {% get_value %} but renders the value in html
@@ -200,7 +200,7 @@ Conditions can be evaluated using the `{% check_condition %}` tag:
 {% render_set_value_inline_list %} like {% get_set_value %} but renders an inline list
 ```
 
-#### Filters
+### Filters
 
 ```django
 {{ value|is_true }} returns true if the value is set and not 'no' or something similar
@@ -209,7 +209,7 @@ Conditions can be evaluated using the `{% check_condition %}` tag:
 {{ value|is_not_empty }} returns true if the value is set
 ```
 
-### Child projects
+## Child projects
 
 If child projects exist, they can be accessed using `project.children` (direct children) and `project.descendants` (all descendants, e.g. children of children, etc.). The `project` keyword argument in the view tags are then used to select a particular project, e.g.:
 
@@ -227,7 +227,7 @@ If child projects exist, they can be accessed using `project.children` (direct c
 {% endfor %}
 ```
 
-### Metadata in exported documents
+## Metadata in exported documents
 
 RDMO's views can be exported as PDF documents or in other office compatible formats. These files are generated using Pandoc and can contain metadata. Pandoc is able to save metadata into exported documents. A mechanism RDMO can make use of.
 
@@ -249,7 +249,7 @@ The json data are passed unmodified to Pandoc. Therefore is is important to make
 
 Pandoc does support saving metadata from version 2.3 upwards. Make sure to meet this requirement. If a lower version of Pandoc is installed RDMO won't export any metadata into the generated documents.
 
-### Custom pandoc version
+## Custom pandoc version
 
 It is possible to explicitly specify the location of the Pandoc binary. This is done by setting the `PYPANDOC_PANDOC` environment variable (see <https://github.com/JessicaTegner/pypandoc#specifying-the-location-of-pandoc-binaries>). This can be done in several ways, the easiest is probably to add the following code to your `config/settings/local.py`:
 
