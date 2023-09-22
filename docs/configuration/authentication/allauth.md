@@ -28,7 +28,7 @@ MIDDLEWARE.append('allauth.account.middleware.AccountMiddleware')
 
 to your `config/settings/local.py`. The setting `ACCOUNT = True` enables the general django-allauth features in RDMO, while `ACCOUNT_SIGNUP = True` enables new users to register with your RDMO instance. `ACCOUNT_TERMS_OF_USE = False` disables the Terms of Use. If you set it to `True` every registering user will have to agree to your policy. The last lines enable django-allauth to be used by RDMO.
 
-The behavior of `django-allauth` can be further configured by the settings documented in the [django-allauth documentation](http://django-allauth.readthedocs.io/en/latest/configuration.html). RDMO sets some defaults, which can be found in [rdmo/rdmo/core/settings.py](https://github.com/rdmorganiser/rdmo/blob/master/rdmo/core/settings.py) in the `rdmo` package.
+The behavior of `django-allauth` can be further configured by the settings documented in the [django-allauth documentation](https://django-allauth.readthedocs.io/en/latest/#contents). RDMO sets some defaults, which can be found in [rdmo/rdmo/core/settings.py](https://github.com/rdmorganiser/rdmo/blob/master/rdmo/core/settings.py) in the `rdmo` package.
 
 ## Social accounts
 
@@ -64,19 +64,27 @@ Once the installation is complete, the credentials of your OAUTH provider need t
 
 ### Keycloak as a socialaccount provider
 
-A [keycloak](https://www.keycloak.org/) instance can be enabled as a [socialaccount provider](https://django-allauth.readthedocs.io/en/latest/providers.html#keycloak) via `django-allauth`. The main motivation for using this is that it enables the option to login with the institutional [DFN-AAI](https://doku.tid.dfn.de/de:dfnaai:start) Identity Providers and another 3rd party provider (such as ORCID) at the same time in RDMO. Information about the setup and configuration of a keycloak instance can be found [here](https://www.keycloak.org/guides#getting-started). The instance can be configured with a realm specific for RDMO.
+A [keycloak](https://www.keycloak.org/) instance can be enabled as a [socialaccount provider](https://django-allauth.readthedocs.io/en/latest/socialaccount/providers/keycloak.html) via `django-allauth`. The main motivation for using this is that it enables the option to login with the institutional [DFN-AAI](https://doku.tid.dfn.de/de:dfnaai:start) Identity Providers and another 3rd party provider (such as ORCID) at the same time in RDMO. Information about the setup and configuration of a keycloak instance can be found in [Keycloack guides](https://www.keycloak.org/guides#getting-started). The instance can be configured with a realm specific for RDMO.
 
 In addition to the settings for Social accounts above, a few extra settings are required in the `config/settings/local.py` for keycloak:
 
 ```py
 SOCIALACCOUNT_PROVIDERS = {
-    'keycloak': {
-        'KEYCLOAK_URL': 'https://idm.example.com/'# keycloak instance url',
-        'KEYCLOAK_REALM': 'rdmo' # name of the realm,
-        'OVERRIDE_NAME': 'DFN-AAI' # option to override the provider name, default is Keycloak
-    },
+    "openid_connect": {
+        "APPS": [
+            {
+                "provider_id": "keycloak",
+                "name": "Keycloak",
+                "client_id": "<insert-id>",
+                "secret": "<insert-secret>",
+                "settings": {
+                    "server_url": "http://keycloak:8080/realms/master/.well-known/openid-configuration",
+                },
+            }
+        ]
+    }
 }
 INSTALLED_APPS += [
-    'allauth.socialaccount.providers.keycloak',
+    'allauth.socialaccount.providers.openid_connect',
 ]
 ```
