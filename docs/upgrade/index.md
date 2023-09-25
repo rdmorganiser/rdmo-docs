@@ -51,6 +51,16 @@ Please check the release notes if this, or other, steps are necessary.
 
 ## Upgrade to version 2.0.0
 
+**Important:** RDMO 2.0.0 uses Django 4.2 which drops support for older versions of Python (3.7), PostgreSQL (11), MySQL (5.7), and MariaDB (10.3), which are out of upstream support. Please check **before** updating if your machine is still able to run RDMO after the update. See also: https://docs.djangoproject.com/en/4.2/releases/4.2/#backwards-incompatible-changes-in-4-2.
+
+```bash
+python --version         # or python3 --version if you have still a python2 version
+ls /usr/lib/postgresql/  # should show a diretory with the version number
+mysqld --version
+``` 
+
+If your system is to old, we suggest to upgrade to the latest version of you distribution. If that is not possible, please look for means to update the software seperately. If you run into trouble, please feel free to contact us.
+
 With version 2.0.0 we have changed the data model and introduced pages, but this transition should automatically be applied to your content with the database migrations.
 
 We have also reworked the rdmo package and updated some dependencies. Therefore, **when you use allauth for authentification**, you need to update this dependency seperately from now on by using:
