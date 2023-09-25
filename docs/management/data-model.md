@@ -23,8 +23,6 @@ Note that in older publications on RDMO's domain model you might still find this
 
 After filling out the interview, the user will be presented with follow up **tasks** based on his/her answers. A task has a title and a text. **Time frames** can be added to tasks, which themselves are evaluating attributes of the value type "datetime", to use answers such as the beginning or the end of a project to compute meaningful tasks. Most of the time tasks will have a condition connected to them, to determine if this task is needed for a particular project or not. Tasks configured under `/tasks` are available in the management menu.
 
-## URI prefix
- 
 All elements contain a set of common parameters: the URI prefix, the URI path, and an internal comment.
 
 The **URI prefix** is the first part of the URI. As every element has a URI, every element does obviously also have a URI prefix. Semantically the prefix is only relevant when different RDMO instances share data between each other. In this case the URI prefix is used to determine which instance the data belong to. You may think of it as a kind of `unique instance identifier`.
