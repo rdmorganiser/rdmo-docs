@@ -59,7 +59,7 @@ ls /usr/lib/postgresql/  # should show a diretory with the version number
 mysqld --version
 ``` 
 
-If your system is to old, we suggest to upgrade to the latest version of you distribution. If that is not possible, please look for means to update the software seperately. If you run into trouble, please feel free to contact us.
+If your system is too old, we suggest to upgrade to the latest version of you distribution. If that is not possible, please look for means to update the software seperately. If you run into trouble, please feel free to contact us.
 
 With version 2.0.0 we have changed the data model and introduced pages, but this transition should automatically be applied to your content with the database migrations.
 
