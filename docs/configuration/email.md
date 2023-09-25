@@ -32,7 +32,7 @@ This is also the default backend, if no E-mail settings are added to `config/set
 
 ## Send tasks via Email
 
-[Tasks](/management/tasks.html) can be send by users via email. To enable this function add the following to your `config/settings/local.py`:
+[Tasks](/management/tasks) can be send by users via email. To enable this function add the following to your `config/settings/local.py`:
 
 ```python
 PROJECT_SEND_ISSUE = True

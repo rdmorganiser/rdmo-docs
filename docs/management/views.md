@@ -1,56 +1,6 @@
-# Views
+# Views and their template syntax
 
-<!--- mdtoc: toc begin -->
-
-1.	[View configuration](#view-configuration)  		
-	1.	[Parameters](#parameters)
-2.	[Template syntax](#template-syntax)
-	1.	[Syntax overview](#syntax-overview)
-	2.	[Calculations](#calculations)
-	3.	[RDMO-specific tags and filters](#rdmo-specific-tags-and-filters)
-	4.	[Child projects](#child-projects)<!--- mdtoc: toc end -->
-
-## View configuration
-
-Views can be configured under *Views* in the management menu in the navigation bar.
-
-![](../_static/img/screens/views.png)
-
-> *Screenshot of the views management interface*
-
-On the left-hand side is the main display of all the views available in this installation of RDMO. Views show their key, title and description. On the right side of each views panel, icons indicate ways to interact the element. The following options are available:
-
--	**Update** (![](../_static/img/icons/update.png)) a view to change its properties.
--   **Copy** (![](../_static/img/icons/copy.png)) a view. This will open a modal to set a new key.
--	**Edit the template** (![](../_static/img/icons/template.png)) of a view.
--   **Export** (![](../_static/img/icons/export.png)) a view as XML.
--	**Delete** (![](../_static/img/icons/delete.png)) a view. **This action cannot be undone!**
-
-The sidebar on the right shows additional interface items:
-
--	**Filter** filters the view according to a user given string or a given URI prefix.
--	**Options** offers additional operations:
-	-	Create a new view
--	**Export** exports the conditions to one of the displayed formats. While the textual formats are mainly for presentation purposes, the XML export can be used to transfer the views to a different installation of RDMO.
-
-Views have different properties to control their behavior. As described in [the introduction](index.html), all elements have an URI prefix, a key, and an internal comment only to be seen by other managers of the RDMO installation. In addition, you can edit the parameters below:
-
-### Parameters
-
-| Parameter       | Explanation                                                                                                                              |
-| --------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
-| Title           | The title for the view. The title will be shown in the projects overview.                                                                |
-| Help            | The help text for the view. The help text will be shown in the projects overview                                                         |
-| Groups          | Displays the groups for this view. If at least one group is selected, only users of these<br> groups will see this view for a project.   |
-| Sites           | *(Only in a multi site installation)* Displays the sites for this view. Only users of these<br> groups will see this view for a project. |
-
-## Template syntax
-
-![](../_static/img/screens/template.png)
-
-> *Screenshot of the template model*
-
-### Syntax overview
+## Syntax overview
 
 Each view has a template, which determines how the answers given by the user are mapped to a textual document. The template is composed using the [Django template](https://docs.djangoproject.com/en/stable/ref/templates/language/) syntax, which is a combination of regular HTML, variables, which get replaced with values when the template is evaluated (`{{ a_variable }}`), and tags, which control the logic of the template (`{% a_tag %}`).
 
@@ -130,7 +80,7 @@ Or checking a value within a dataset.
 {% endfor %}
 ```
 
-### Calculations
+## Calculations
 
 You can do calculations in RDMO's view templates by using filters. The package RDMO utilizes is called [django-mathfilters](https://pypi.org/project/django-mathfilters). The following operations are supported. For more information please have a look into the django mathfilters documentation which can be found at the link mentioned before.
 
@@ -168,7 +118,7 @@ Note that filters can be piped after another as often as you like. You could eas
 
 Please consult the documentation of the Django template syntax for all the available tags and filters: https://docs.djangoproject.com/en/stable/ref/templates/language.
 
-### Details on RDMO-specific tags and filters
+## Details on RDMO-specific tags and filters
 
 The main method to access user data in the templates is the `{% get_values %}` tag. It can be used to get all values for an attribute from a project. The `set_prefix`, `set_index`, and `index` arguments can be used to restrict the query further:
 
@@ -239,7 +189,7 @@ Conditions can be evaluated using the `{% check_condition %}` tag:
 -> check the conditions only with values with the set_prefix=0
 ```
 
-#### Render values
+### Render values
 
 ```django
 {% render_value %} like {% get_value %} but renders the value in html
@@ -250,7 +200,7 @@ Conditions can be evaluated using the `{% check_condition %}` tag:
 {% render_set_value_inline_list %} like {% get_set_value %} but renders an inline list
 ```
 
-#### Filters
+### Filters
 
 ```django
 {{ value|is_true }} returns true if the value is set and not 'no' or something similar
@@ -259,7 +209,7 @@ Conditions can be evaluated using the `{% check_condition %}` tag:
 {{ value|is_not_empty }} returns true if the value is set
 ```
 
-### Child projects
+## Child projects
 
 If child projects exist, they can be accessed using `project.children` (direct children) and `project.descendants` (all descendants, e.g. children of children, etc.). The `project` keyword argument in the view tags are then used to select a particular project, e.g.:
 

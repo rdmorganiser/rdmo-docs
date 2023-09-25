@@ -66,6 +66,8 @@ If you request `http://$YOUR_RDMO/api/v1/?format=openapi` you get a detailed mac
 
 /api/v1/questions/catalogs
 /api/v1/questions/catalogs/{id}
+/api/v1/questions/pages
+/api/v1/questions/pages/{id}
 /api/v1/questions/questions
 /api/v1/questions/questionsets
 /api/v1/questions/questionsets/{id}

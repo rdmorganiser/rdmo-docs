@@ -21,7 +21,7 @@ PROJECT_VIEWS = False
 
 ## Sending tasks
 
-Sending tasks from projects is described [here](/configuration/email.html).
+Sending tasks from projects is described [in the section on email](/configuration/email.html#send-tasks-via-email).
 
 ## Nested projects
 
@@ -41,8 +41,8 @@ PROJECT_FILE_QUOTA = '100Gb'
 
 ## Project import and export plugins
 
-Project import and export plugins are described [here](/plugins/index.html).
+Project import and export plugins are described [in the chapter on plugins](/plugins/index).
 
 ## Project invitations
 
-Project invitation settings are described [here](/configuration/email.html).
+Project invitation settings are described [in the section on email](/configuration/email.html#invite-users-to-projects).

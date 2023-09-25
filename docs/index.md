@@ -36,6 +36,8 @@ Demo
    themes/index
    plugins/index
    management/index
+   development/index
    upgrade/index
+   advanced/index
    faq/index
 ```

@@ -9,7 +9,7 @@ sudo apt-get install libsasl2-dev libldap2-dev libssl-dev
 On the python side, we use [django-auth-ldap](https://pypi.org/project/django-auth-ldap) to connect to the LDAP server. As before, it should be installed inside the virtual environment created for RDMO using:
 
 ```bash
-pip install -r requirements/ldap.txt
+pip install rdmo[ldap]
 ```
 
 LDAP installations can be very different and we only discuss one particular example. We assume that the LDAP service is running on `ldap.example.com`. RDMO needs an account to connect to the LDAP. In order to create it, run:
@@ -36,7 +36,6 @@ Then, in your `config/settings/local.py` add or uncomment:
 ```python
 import ldap
 from django_auth_ldap.config import LDAPSearch
-from rdmo.core.settings import AUTHENTICATION_BACKENDS
 
 PROFILE_UPDATE = False
 PROFILE_DELETE = False
@@ -64,11 +63,11 @@ The connection can be tested using:
 ldapsearch -v -x -H 'ldap://ldap.example.com' -D "uid=rdmo,dc=ldap,dc=example,dc=com" -w RDMO_LDAP_ACCOUNT_PASSWORD -b "dc=ldap,dc=example,dc=com" -s sub 'uid=user'
 ```
 
-The setting `PROFILE_UPDATE = False` and `PROFILE_DELETE = False` tell RDMO to disable the update and deletion form for the user profile so that users can neither update their credentials nor delete their profile anymore. The other settings are needed by `django-auth-ldap` and are described in the [django-auth-ldap documentation](https://pypi.org/project/django-auth-ldap).
+The setting `PROFILE_UPDATE = False` and `PROFILE_DELETE = False` tell RDMO to disable the update and deletion form for the user profile so that users can neither update their credentials nor delete their profile anymore. The other settings are needed by `django-auth-ldap` and are described in the [django-auth-ldap documentation](https://django-auth-ldap.readthedocs.io/en/latest/).
 
 You can also map LDAP groups to Django groups, in particular to restrict the access to Catalogs and Views. This can be done by adding the following settings:
 
-```
+```python
 AUTH_LDAP_GROUP_SEARCH = LDAPSearch(
     "dc=ldap,dc=test,dc=rdmo,dc=org", ldap.SCOPE_SUBTREE, "(objectClass=groupOfNames)"
 )

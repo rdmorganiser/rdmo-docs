@@ -49,13 +49,44 @@ python manage.py upgrade
 
 Please check the release notes if this, or other, steps are necessary.
 
+## Upgrade to version 2.0.0
+
+With version 2.0.0 we have changed the data model and introduced pages, but this transition should automatically be applied to your content with the database migrations.
+
+We have also reworked the rdmo package and updated some dependencies. Therefore, **when you use allauth for authentification**, you need to update this dependency seperately from now on by using:
+
+```bash
+pip install rdmo[allauth]
+```
+
+You also need to add the following to your `config/settings/local.py`:
+
+```python
+from . import MIDDLEWARE  # if this import is not alreay present in the file
+MIDDLEWARE.append('allauth.account.middleware.AccountMiddleware')
+```
+
+RDMO 2.0.0 uses Django 4.2, which removed some functions. If you use
+
+```python
+from django.utils.translation import ugettext_lazy as _
+```
+
+in your `config/settings/local.py`, you need to change this to
+
+```python
+from django.utils.translation import gettext_lazy as _
+```
+
+We have also refactored the `rdmo-app`, which people clone to start using RDMO. You should still be able to use your old `rdmo-app`, but you might take a look at [github.com/rdmorganiser/rdmo-app](https://github.com/rdmorganiser/rdmo-app) and adopt some of the new layout to your installation.
+
 ## Upgrade to version 0.9.0
 
 With version 0.9.0 we introduced the split into the `rdmo-app` and the centrally maintained `rdmo` package. Therefore a few additional steps are needed to upgrade any earlier version to 0.9.0 or beyond:
 
 1.  In any case perform a backup of your `rdmo` directory and your database as described above.
 
-1.  Perform the steps described in [clone](../installation/clone.html) and [packages](../installation/packages.html) as if you would install a new instance of RDMO.
+1.  Perform the steps described in [clone](../installation/clone) and [packages](../installation/packages) as if you would install a new instance of RDMO.
 
 1.  Copy your old configuration from `/path/to/old/rdmo/rdmo/settings/local.py` to `/path/to/new/rdmo-app/config/settings/local.py`. The new `config` directory replaces the old `rdmo` directory.
 
@@ -75,7 +106,7 @@ With version 0.9.0 we introduced the split into the `rdmo-app` and the centrally
 
 1.  Update the path to the `wsgi.py` script in your Apache or nginx configuration. It is now under `/path/to/new/rdmo-app/config/wsgi.py`.
 
-1.  Redeploy RDMO as described under deployment of [Apache](../deployment/apache.html) or [Nginx](../deployment/nginx.html).
+1.  Redeploy RDMO as described under deployment of [Apache](../deployment/apache) or [Gunicorn and Nginx](../deployment/gunicorn).
 
 If you have trouble with the upgrade process, don't hesitate to contact the RDMO team for support.
 
@@ -85,3 +116,10 @@ With version 0.14 the Python 2 support was dropped and we switched to Django 2.2
 
 * Adjust RDMO app's `config/urls.py` to Django2 schemes. The file is much simpler and shorter now. A working example can be found at https://github.com/rdmorganiser/rdmo-app/blob/master/config/urls.py
 * MIDDLEWARE_CLASSES in `config/settings/local.py` needs to be renamed to `MIDDLEWARE` only
+
+---
+```eval_rst
+.. warning::
+    RDMO contains all the necessary migrations. For consistency of the database,
+    please do **not** run the ``makemigrations`` command. When Django asks you for it, please contact support.
+```

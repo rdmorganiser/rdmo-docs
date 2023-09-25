@@ -35,10 +35,10 @@ systemctl start memcached
 systemctl enable memcached
 ```
 
-Back in your virtual environment, you need to install python-memcached:
+Back in your virtual environment, according to [docs.djangoproject.com/en/4.2/topics/cache](https://docs.djangoproject.com/en/4.2/topics/cache/#memcached), you need to install `pymemcache`:
 
 ```bash
-pip install -r requirements/memcached.txt
+pip install pymemcache
 ```
 
 and add the following to your `config/settings/local.py`:
@@ -46,12 +46,12 @@ and add the following to your `config/settings/local.py`:
 ```python
 CACHES = {
     'default': {
-        'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
+        'BACKEND': 'django.core.cache.backends.memcached.PyMemcacheCache',
         'LOCATION': '127.0.0.1:11211',
         'KEY_PREFIX': 'rdmo_default'
     },
     'api': {
-        'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
+        'BACKEND': 'django.core.cache.backends.memcached.PyMemcacheCache',
         'LOCATION': '127.0.0.1:11211',
         'KEY_PREFIX': 'rdmo_api'
     }

@@ -109,9 +109,9 @@ PROJECT_IMPORTS = [
 ]
 ```
 
-## Optionset providers
+## Option set providers
 
-Optionset providers allow the creation of dynamic option sets. These option sets do not need to have a fixed set of options configured in the database, but instead dynamically determine which options to display, whenever a user accesses the optionset in the interview. This can be done by fetching resources from a web service and can be based on already given answers. The example implementation of such a plugin is the re3data optionset provider available from [rdmo-re3data](https://github.com/rdmorganiser/rdmo-re3data).
+Option set providers allow the creation of dynamic option sets. These option sets do not need to have a fixed set of options configured in the database, but instead dynamically determine which options to display, whenever a user accesses the optionset in the interview. This can be done by fetching resources from a web service and can be based on already given answers. The example implementation of such a plugin is the re3data optionset provider available from [rdmo-re3data](https://github.com/rdmorganiser/rdmo-re3data).
 
 The only function, the plugin class needs to implement, is `get_options(self, project)`. It takes the current project as argument (so it can access the values already entered for the project), and returns the options as a list of the form:
 
@@ -127,7 +127,25 @@ The only function, the plugin class needs to implement, is `get_options(self, pr
 
 Both the `external_id` and the `text` are stored, when the user selects the option. The `text` will show up in views and exports.
 
-The plugin needs to be added to the `OPTIONSET_PROVIDERS` in `config/settings/local.py`. In order to use the re3data.org provider from [rdmo-re3data](https://github.com/rdmorganiser/rdmo-re3data), add the following to your `config/settings/local.py`:
+Option set provides can use two class attributes to enable specific behavior:
+
+* The `search` attribute can be used together with the autocomplete widget. If `search = True` the `get_options` method will get an additional argument `search`, which contains the current content of the autocomplete input field and can be used to query a remote API.
+
+* The `refresh` attribute can be used to force the interview to reload all values after the value for an option set is stored. This can be used in combination with [Django signal handlers](https://docs.djangoproject.com/en/4.2/topics/signals/), which create `Value` objects automatically, in order to dynamically prefill answers for the users.
+
+The plugin needs to be added to the `OPTIONSET_PROVIDERS` in `config/settings/local.py`:
+
+```python
+OPTIONSET_PROVIDERS = [
+    ('<plugin key>', _('<plugin label>'), 'module.path.to.the.OptionSetsProvider')
+]
+```
+
+Afterwards they can be assigned to option sets in the management interface: : _Management_ → _Option sets_ → _Create new option set_. In the _Create option set_ choose the plugin in the provider field.
+
+### Setup of re3data optionset plugin
+
+In order to use the re3data.org provider from [rdmo-re3data](https://github.com/rdmorganiser/rdmo-re3data), add the following to your `config/settings/local.py`
 
 ```python
 OPTIONSET_PROVIDERS = [
@@ -136,14 +154,12 @@ OPTIONSET_PROVIDERS = [
 ```
 
 The re3data optionset will query [re3data.org](https://www.re3data.org/) for repositories that match the research field of the project (as given by the `project/research_field/title` Attribute).
-
-### Setup of re3data optionset plugin
-
-After configuration of the re3data optionset plugin a new optionset must be added in _Management_ → _Options_ → _Create new option set_. In the _Create option set_ choose the re3data Provider in the provider field. Don't forget to choose an appropriate key.
+s
+After configuration of the re3data optionset plugin a new optionset must be added in _Management_ → _Option sets_ → _Create new option set_. In the _Create option set_ choose the re3data Provider in the provider field. Don't forget to choose an appropriate key.
 
 This plugin uses two steps and therefore needs two questions configured in your catalog. Choose _Management_ → _Questions_ and then on the right side the cataloge where you want to use the plugin.
 - The first question is the research field and must have the _Attribute_ `project/research_field/title` with the _Option set_ `options/research_fields`. Select _is collection_, if you want to select more than one research field. Select appropriate widget type like Drop-Down or Autocomplete with _Value type_ Text.
-- The second question uses the _Attribute_ of the first question `project/research_field/title`. As _Attribute_ you can use the existing one `project/dataset/sharing/repository` or create your own one (_Management_ → _Domain_, see [Domain](management/domain.html)). Select the previous created _Option set_ (re3data). Also choose appropriate _Widget type_ like _Select drop-down_ with _Value type_ Text.
+- The second question uses the _Attribute_ of the first question `project/research_field/title`. As _Attribute_ you can use the existing one `project/dataset/sharing/repository` or create your own one (_Management_ → _Domain_, see [Domain](management/domain)). Select the previous created _Option set_ (re3data). Also choose appropriate _Widget type_ like _Select drop-down_ with _Value type_ Text.
 
 
 ## Issue providers
