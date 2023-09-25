@@ -60,7 +60,7 @@ Create a Python virtual environment:
       source env/bin/activate
       pip install --upgrade pip setuptools        
 
-   .. code-tab:: bash Windows
+   .. code-tab:: pwsh Windows
 
       cd rdmo-app
       python3 -m venv env 
@@ -117,7 +117,7 @@ The testing data can be imported using:
 
       python manage.py loaddata ../rdmo/testing/fixtures/*     
 
-   .. code-tab:: bash Windows
+   .. code-tab:: pwsh Windows
 
       python manage.py loaddata ..\rdmo\testing\fixtures\accounts.json ^
                               ..\rdmo\testing\fixtures\conditions.json ^
@@ -143,7 +143,7 @@ The test upload files are initialized using:
 
       cp -r ../rdmo/testing/media media_root
 
-   .. code-tab:: bash Windows
+   .. code-tab:: pwsh Windows
 
       xcopy ..\rdmo\testing\media media_root /e/s
 ```
@@ -231,7 +231,7 @@ In order to run the test suite, the `rdmo` repo itself can be setup in a similar
       source env/bin/activate
       pip install --upgrade pip setuptools        
 
-   .. code-tab:: bash Windows
+   .. code-tab:: pwsh Windows
 
       deactivate                                  # if you are already in an env
       cd path/to/rdmorganiser/rdmo

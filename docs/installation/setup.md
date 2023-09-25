@@ -13,7 +13,7 @@ You can use `config/settings/sample.local.py` as template, i.e.:
 
       cp config/settings/sample.local.py config/settings/local.py
 
-   .. code-tab:: shell Windows
+   .. code-tab:: pwsh Windows
 
       copy config\settings\sample.local.py config\settings\local.py
 ```
