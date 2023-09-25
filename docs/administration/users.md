@@ -10,22 +10,22 @@ Users can be set as `site_managers` for a specific (or the only) site under **AC
 
 Users can also be set as `site_editors` or `site_reviewers`.
 
-Editors for a site can access the [management interface](../management/index.html) and can edit all elements, which can be edited by this site. (All elements for a regular one-site installation.) 
+Editors for a site can access the [management interface](../management/index) and can edit all elements, which can be edited by this site. (All elements for a regular one-site installation.) 
 
-Reviewers for a site can access the [management interface](../management/index.html), like editors, but are not allowed to change them (Save will not work). This group can be used to demonstrate the management backend of RDMO to certain users.
+Reviewers for a site can access the [management interface](../management/index), like editors, but are not allowed to change them (Save will not work). This group can be used to demonstrate the management backend of RDMO to certain users.
 
 ## Groups
 
 During the installation, the `./manage setup_groups` can be used to create 3 groups:
 
 ### Editor
-Users of the group editor can access the [management interface](../management/index.html) and can edit all elements of the data model, except the user data entered through the structured inteview.
+Users of the group editor can access the [management interface](../management/index) and can edit all elements of the data model, except the user data entered through the structured inteview.
 
 ### Reviewer
-Users of the group reviewer can access the [management interface](../management/index.html), like editors, but are not allowed to change them (Save will not work). This group can be used to demonstrate the management backend of RDMO to certain users.
+Users of the group reviewer can access the [management interface](../management/index), like editors, but are not allowed to change them (Save will not work). This group can be used to demonstrate the management backend of RDMO to certain users.
 
 ### API
-Users of the group api can use the programmable API to access all elements of the data model. They will need a [token](../administration/api.html#authentication) to use an api client.
+Users of the group api can use the programmable API to access all elements of the data model. They will need a [token](../administration/api#authentication) to use an api client.
 
 Existing users can be assigned to these groups to gain access to these functions:
 

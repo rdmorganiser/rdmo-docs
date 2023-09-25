@@ -4,7 +4,7 @@ RDMO offers export and import functions which are available in the right handed 
 
 ## Export
 
-The export menu is displayed on the right-hand side of the screen. It consists of a list of the supported export formats which may vary depending on what page you are on. For information about how to configure the available export formats see [here](../configuration/export-formats.html).
+The export menu is displayed on the right-hand side of the screen. It consists of a list of the supported export formats which may vary depending on what page you are on. For information about how to configure the available export formats see [here](../configuration/export-formats).
 
 ## Import
 

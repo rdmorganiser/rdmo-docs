@@ -41,7 +41,7 @@ PROJECT_FILE_QUOTA = '100Gb'
 
 ## Project import and export plugins
 
-Project import and export plugins are described [in the chapter on plugins](/plugins/index.html).
+Project import and export plugins are described [in the chapter on plugins](/plugins/index).
 
 ## Project invitations
 

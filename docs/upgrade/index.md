@@ -78,7 +78,7 @@ in your `config/settings/local.py`, you need to change this to
 from django.utils.translation import gettext_lazy as _
 ```
 
-We have also refactored the `rdmo-app`, which people clone to start using RDMO. You should still be able to use your old `rdmo-app`, but you might take a look at <https://github.com/rdmorganiser/rdmo-app> and adopt some of the new layout to your installation.
+We have also refactored the `rdmo-app`, which people clone to start using RDMO. You should still be able to use your old `rdmo-app`, but you might take a look at [github.com/rdmorganiser/rdmo-app](https://github.com/rdmorganiser/rdmo-app) and adopt some of the new layout to your installation.
 
 ## Upgrade to version 0.9.0
 
@@ -86,7 +86,7 @@ With version 0.9.0 we introduced the split into the `rdmo-app` and the centrally
 
 1.  In any case perform a backup of your `rdmo` directory and your database as described above.
 
-1.  Perform the steps described in [clone](../installation/clone.html) and [packages](../installation/packages.html) as if you would install a new instance of RDMO.
+1.  Perform the steps described in [clone](../installation/clone) and [packages](../installation/packages) as if you would install a new instance of RDMO.
 
 1.  Copy your old configuration from `/path/to/old/rdmo/rdmo/settings/local.py` to `/path/to/new/rdmo-app/config/settings/local.py`. The new `config` directory replaces the old `rdmo` directory.
 
@@ -106,7 +106,7 @@ With version 0.9.0 we introduced the split into the `rdmo-app` and the centrally
 
 1.  Update the path to the `wsgi.py` script in your Apache or nginx configuration. It is now under `/path/to/new/rdmo-app/config/wsgi.py`.
 
-1.  Redeploy RDMO as described under deployment of [Apache](../deployment/apache.html) or [Nginx](../deployment/nginx.html).
+1.  Redeploy RDMO as described under deployment of [Apache](../deployment/apache) or [Gunicorn and Nginx](../deployment/gunicorn).
 
 If you have trouble with the upgrade process, don't hesitate to contact the RDMO team for support.
 

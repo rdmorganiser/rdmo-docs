@@ -61,7 +61,7 @@ An **optional** setting, when you want to run RDMO under an alias like `http://e
 ```python
 BASE_URL = '/rdmo'
 ```
-When using this setting, also take into account the configuration under [deployment](../deployment/index.html).
+When using this setting, also take into account the configuration under [deployment](../deployment/index).
 
 ## Optional: reverse proxy
 If you run RDMO behind a reverse Proxy, which terminates the TLS/SSL traffic, you need to add the following:

@@ -57,14 +57,14 @@ AUTHENTICATION_BACKENDS.append('allauth.account.auth_backends.AuthenticationBack
 MIDDLEWARE.append('allauth.account.middleware.AccountMiddleware')
 ```
 
-to your `config/settings/local.py`. The setting `SOCIALACCOUNT = True` is used by RDMO to show certain parts of the user interface connected to 3rd party accounts, while as before, the lines after `INSTALLED_APPS` enable the feature to be used by RDMO. `SOCIALACCOUNT_AUTO_SIGNUP = True` forces new users to fill out a signup form even if the provider does provide the email address. Each provider has a separate app you need to add to `INSTALLED_APPS`. A list of all providers supported by django-allauth can be found [here](http://django-allauth.readthedocs.io/en/latest/providers.html).
+to your `config/settings/local.py`. The setting `SOCIALACCOUNT = True` is used by RDMO to show certain parts of the user interface connected to 3rd party accounts, while as before, the lines after `INSTALLED_APPS` enable the feature to be used by RDMO. `SOCIALACCOUNT_AUTO_SIGNUP = True` forces new users to fill out a signup form even if the provider does provide the email address. Each provider has a separate app you need to add to `INSTALLED_APPS`. A list of all providers supported by django-allauth can be found [here](http://django-allauth.readthedocs.io/en/latest/providers).
 
-Once the installation is complete, the credentials of your OAUTH provider need to be entered in the admin interface. This is covered in the [administration chapter](../../administration/allauth.html) of this documentation.
+Once the installation is complete, the credentials of your OAUTH provider need to be entered in the admin interface. This is covered in the [administration chapter](../../administration/allauth) of this documentation.
 
 
 ### Keycloak as a socialaccount provider
 
-A [keycloak](https://www.keycloak.org/) instance can be enabled as a [socialaccount provider](https://django-allauth.readthedocs.io/en/latest/socialaccount/providers/keycloak.html) via `django-allauth`. The main motivation for using this is that it enables the option to login with the institutional [DFN-AAI](https://doku.tid.dfn.de/de:dfnaai:start) Identity Providers and another 3rd party provider (such as ORCID) at the same time in RDMO. Information about the setup and configuration of a keycloak instance can be found in [Keycloack guides](https://www.keycloak.org/guides#getting-started). The instance can be configured with a realm specific for RDMO.
+A [keycloak](https://www.keycloak.org/) instance can be enabled as a [socialaccount provider](https://django-allauth.readthedocs.io/en/latest/socialaccount/providers/keycloak) via `django-allauth`. The main motivation for using this is that it enables the option to login with the institutional [DFN-AAI](https://doku.tid.dfn.de/de:dfnaai:start) Identity Providers and another 3rd party provider (such as ORCID) at the same time in RDMO. Information about the setup and configuration of a keycloak instance can be found in [Keycloack guides](https://www.keycloak.org/guides#getting-started). The instance can be configured with a realm specific for RDMO.
 
 In addition to the settings for Social accounts above, a few extra settings are required in the `config/settings/local.py` for keycloak:
 

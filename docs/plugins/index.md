@@ -159,7 +159,7 @@ After configuration of the re3data optionset plugin a new optionset must be adde
 
 This plugin uses two steps and therefore needs two questions configured in your catalog. Choose _Management_ → _Questions_ and then on the right side the cataloge where you want to use the plugin.
 - The first question is the research field and must have the _Attribute_ `project/research_field/title` with the _Option set_ `options/research_fields`. Select _is collection_, if you want to select more than one research field. Select appropriate widget type like Drop-Down or Autocomplete with _Value type_ Text.
-- The second question uses the _Attribute_ of the first question `project/research_field/title`. As _Attribute_ you can use the existing one `project/dataset/sharing/repository` or create your own one (_Management_ → _Domain_, see [Domain](management/domain.html)). Select the previous created _Option set_ (re3data). Also choose appropriate _Widget type_ like _Select drop-down_ with _Value type_ Text.
+- The second question uses the _Attribute_ of the first question `project/research_field/title`. As _Attribute_ you can use the existing one `project/dataset/sharing/repository` or create your own one (_Management_ → _Domain_, see [Domain](management/domain)). Select the previous created _Option set_ (re3data). Also choose appropriate _Widget type_ like _Select drop-down_ with _Value type_ Text.
 
 
 ## Issue providers
