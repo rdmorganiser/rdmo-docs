@@ -93,18 +93,27 @@ DATABASES = {
 }
 ```
 
-Since the testing fixtures that come with RDMO use a simpler password hashing algorithm, you need to add the following to
+If you want to use PostgreSQL or MySQL for the development you need to install the Python dependencies for this as well.
+
+```
+pip install -e ../"rdmo[postgres]"
+pip install -e ../"rdmo[mysql]"
+```
+
+Since the testing data that comes with RDMO use a simpler password hashing algorithm, you need to add the following to
 the settings as well:
 
 ```python
 PASSWORD_HASHERS = ("django.contrib.auth.hashers.MD5PasswordHasher",)
 ``` 
 
-If you want to use PostgreSQL or MySQL for the development you need to install the Python dependencies for this as well.
+If you want to use the browsable API, that comes with the Django Rest Framework add:
 
-```
-pip install -e ../"rdmo[postgres]"
-pip install -e ../"rdmo[mysql]"
+```python
+REST_FRAMEWORK['DEFAULT_RENDERER_CLASSES'] = (
+    'rest_framework.renderers.JSONRenderer',
+    'rest_framework.renderers.BrowsableAPIRenderer',
+)
 ```
 
 Then, initialize the application, using:
