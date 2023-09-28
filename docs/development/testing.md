@@ -13,6 +13,19 @@ cp testing/config/settings/sample.local.py testing/config/settings/local.py
 
 Afterwards edit the `local.py` as for a regular RDMO instance.
 
+The fastest way to run tests is to use the `sqlite3` engine. For testing, Django creates the data base in-memory for extra fast access. However, afterwards the database is lost, so the `--reuse-db` option (see below) will not work and the database needs to be migrated everytime you run tests. This can be circumvented by explicitely naming the location of the database on `/dev/shm`:
+
+```python
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'TEST': {
+            'NAME': '/dev/shm/db.sqlite3'
+        }
+    }
+}
+```
+
 
 Running tests
 -------------
