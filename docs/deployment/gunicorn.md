@@ -60,7 +60,7 @@ WantedBy=multi-user.target
 
 If RDMO runs under a subpath or your domain (or alias, e.g. <https://example.com/rdmo/>), when you have set a value for `BASE_URL` in your [settings](../configuration/general). The `SCRIPT_NAME` environment variable needs to be set in the `ExecStart` call, e.g. `--env SCRIPT_NAME=/rdmo`.
 
-After the service file is created and everytime it is changed, `systemd` needs to be reloaded:
+After the service file is created and every time it is changed, `systemd` needs to be reloaded:
 
 ```bash
 systemctl daemon-reload

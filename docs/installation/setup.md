@@ -2,7 +2,7 @@
 
 ## Basic setup
 
-To set up the application, create a new file `config/settings/local.py` in your cloned `rdmo-app` directory. For the example user with the home `/srv/rdmo`, this would now be `/srv/rdmo/rdmo-app/config/settings/local.py`. This file holds the main configuration of your RDMO installation. The file is ignored by git, so when you version your `rdmo-app` on e.g. GitHub, the information in this file is not disclosed. This is nessesary, since the file contains passwords and other secret, machine-specific information.
+To set up the application, create a new file `config/settings/local.py` in your cloned `rdmo-app` directory. For the example user with the home `/srv/rdmo`, this would now be `/srv/rdmo/rdmo-app/config/settings/local.py`. This file holds the main configuration of your RDMO installation. The file is ignored by git, so when you version your `rdmo-app` on e.g. GitHub, the information in this file is not disclosed. This is necessary, since the file contains passwords and other secret, machine-specific information.
 
 You can use `config/settings/sample.local.py` as template, i.e.:
 
