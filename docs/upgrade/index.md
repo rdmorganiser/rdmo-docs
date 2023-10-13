@@ -1,6 +1,6 @@
 # Upgrade
 
-The `rdmo` package can be conveniently upgraded using the `pip` command. However, before you perform any changes to your installation, please backup the important components to a save location.
+The `rdmo` package can be conveniently upgraded using the `pip` command. However, before you perform any changes to your installation, please back up the important components to a save location.
 
 A PostgreSQL or MySQL database can be database can be dumped into a file using:
 
@@ -55,15 +55,15 @@ Please check the release notes if this, or other, steps are necessary.
 
 ```bash
 python --version         # or python3 --version if you have still a python2 version
-ls /usr/lib/postgresql/  # should show a diretory with the version number
+ls /usr/lib/postgresql/  # should show a directory with the version number
 mysqld --version
 ``` 
 
-If your system is too old, we suggest to upgrade to the latest version of you distribution. If that is not possible, please look for means to update the software seperately. If you run into trouble, please feel free to contact us.
+If your system is too old, we suggest upgrading to the latest version of your distribution. If that is not possible, please look for means to update the software separately. If you run into trouble, please feel free to contact us.
 
 With version 2.0.0 we have changed the data model and introduced pages, but this transition should automatically be applied to your content with the database migrations.
 
-We have also reworked the rdmo package and updated some dependencies. Therefore, **when you use allauth for authentification**, you need to update this dependency seperately from now on by using:
+We have also reworked the rdmo package and updated some dependencies. Therefore, **when you use allauth for authentication**, you need to update this dependency separately from now on by using:
 
 ```bash
 pip install rdmo[allauth]
@@ -72,7 +72,7 @@ pip install rdmo[allauth]
 You also need to add the following to your `config/settings/local.py`:
 
 ```python
-from . import MIDDLEWARE  # if this import is not alreay present in the file
+from . import MIDDLEWARE  # if this import is not already present in the file
 MIDDLEWARE.append('allauth.account.middleware.AccountMiddleware')
 ```
 
@@ -92,7 +92,7 @@ We have also refactored the `rdmo-app`, which people clone to start using RDMO. 
 
 ## Upgrade to version 0.9.0
 
-With version 0.9.0 we introduced the split into the `rdmo-app` and the centrally maintained `rdmo` package. Therefore a few additional steps are needed to upgrade any earlier version to 0.9.0 or beyond:
+With version 0.9.0 we introduced the split into the `rdmo-app` and the centrally maintained `rdmo` package. Therefore, a few additional steps are needed to upgrade any earlier version to 0.9.0 or beyond:
 
 1.  In any case perform a backup of your `rdmo` directory and your database as described above.
 

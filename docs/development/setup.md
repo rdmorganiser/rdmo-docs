@@ -194,7 +194,7 @@ Now the development server can be started (in a different terminal) using:
 python manage.py runserver
 ```
 
-You can access the application at http://localhost:8000 in your browser and can login using different users:
+You can access the application at http://localhost:8000 in your browser and can log in using different users:
 
 ```plain
 admin    -> superuser

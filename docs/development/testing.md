@@ -13,7 +13,7 @@ cp testing/config/settings/sample.local.py testing/config/settings/local.py
 
 Afterwards edit the `local.py` as for a regular RDMO instance.
 
-The fastest way to run tests is to use the `sqlite3` engine. For testing, Django creates the data base in-memory for extra fast access. However, afterwards the database is lost, so the `--reuse-db` option (see below) will not work and the database needs to be migrated everytime you run tests. This can be circumvented by explicitely naming the location of the database on `/dev/shm`:
+The fastest way to run tests is to use the `sqlite3` engine. For testing, Django creates the data base in-memory for extra fast access. However, afterwards the database is lost, so the `--reuse-db` option (see below) will not work and the database needs to be migrated every time you run tests. This can be circumvented by explicitly naming the location of the database on `/dev/shm`:
 
 ```python
 DATABASES = {
@@ -87,4 +87,4 @@ def django_db_setup(django_db_setup, django_db_blocker):
         set_group_permissions()
 ```
 
-This file is used to load test data (so called fixtures) into the database before testing. The fixtures reside in a directory `fixtures` in your `rdmo-app`. In order to use the same fixtures as the RDMO repo does, copy all files in [rdmo/testing/fixtures](https://github.com/rdmorganiser/rdmo/tree/master/testing/fixtures) to the local directory `fixtures`. In addition to the fixtures, XML test data needs to provided in a directory `xml`. Similar to before, RDMO test data can be obtained from [rdmo/testing/xml](https://github.com/rdmorganiser/rdmo/tree/master/testing/xml).
+This file is used to load test data (so-called fixtures) into the database before testing. The fixtures reside in a directory `fixtures` in your `rdmo-app`. In order to use the same fixtures as the RDMO repo does, copy all files in [rdmo/testing/fixtures](https://github.com/rdmorganiser/rdmo/tree/master/testing/fixtures) to the local directory `fixtures`. In addition to the fixtures, XML test data needs to provided in a directory `xml`. Similar to before, RDMO test data can be obtained from [rdmo/testing/xml](https://github.com/rdmorganiser/rdmo/tree/master/testing/xml).
