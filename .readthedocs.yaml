@@ -3,11 +3,13 @@ version: 2
 build:
   os: ubuntu-22.04
   tools:
-    python: "3.9"
+    # Available Python versions for Read the Docs
+    # Ref: https://docs.readthedocs.io/en/stable/config-file/v2.html#build-tools-python
+    python: "3.11"
 
 sphinx:
-   configuration: docs/conf.py
+  configuration: docs/conf.py
 
 python:
-   install:
-   - requirements: requirements.txt
+  install:
+    - requirements: requirements.txt
