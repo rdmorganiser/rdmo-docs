@@ -2,7 +2,7 @@
 
 RDMO is a tool to support the systematic planning, organisation and implementation of the data management throughout the course of a research project. RDMO is funded by the Deutsche Forschungsgemeinschaft (DFG).
 
-```eval_rst
+```{eval-rst}
 Home Page
     https://rdmorganiser.github.io
 
@@ -25,19 +25,18 @@ Demo
     https://rdmo.aip.de
 ```
 
-```eval_rst
-.. toctree::
-   :maxdepth: 2
+```{toctree}
+:maxdepth: 2
 
-   installation/index
-   deployment/index
-   configuration/index
-   administration/index
-   themes/index
-   plugins/index
-   management/index
-   development/index
-   upgrade/index
-   advanced/index
-   faq/index
+installation/index
+deployment/index
+configuration/index
+administration/index
+themes/index
+plugins/index
+management/index
+development/index
+upgrade/index
+advanced/index
+faq/index
 ```

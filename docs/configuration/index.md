@@ -8,20 +8,18 @@ config/settings/local.py
 This `local.py` module is copied from the template `config/settings/sample.local.py`, contained in the `rdmo-app`, during the installation process. The module is ignored by git and is meant to contain your local adjustments and secret information (e.g. database connections).  
 The `config/settings/local.py` module can be used to override all of the default settings of RDMO (see: [rdmo/core/settings.py](https://github.com/rdmorganiser/rdmo/blob/master/rdmo/core/settings.py)).
 
+---
 
-```eval_rst
-----
+```{toctree}
+:maxdepth: 2
 
-.. toctree::
-   :maxdepth: 2
-
-   general
-   databases
-   email
-   authentication/index
-   export-formats
-   cache
-   logging
-   projects
-   multisite
+general
+databases
+email
+authentication/index
+export-formats
+cache
+logging
+projects
+multisite
 ```

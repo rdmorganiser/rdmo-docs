@@ -20,23 +20,6 @@ RDMO_VERSION = '1.1'
 #
 
 import sphinx_rtd_theme
-# -- Markdown dependencies and config -------------------------------------
-from recommonmark.parser import CommonMarkParser
-from recommonmark.transform import AutoStructify
-
-source_parsers = {
-    # '.md': CommonMarkParser,
-}
-
-
-def setup(app):
-    app.add_config_value('recommonmark_config', {
-        # 'auto_toc_tree_section': 'Contents',
-        'enable_auto_toc_tree': False,
-        'enable_eval_rst': True,
-    }, True)
-    app.add_transform(AutoStructify)
-
 
 # -- General configuration ------------------------------------------------
 
@@ -51,9 +34,9 @@ extensions = [
     'sphinx.ext.autodoc',
     'sphinx.ext.viewcode',
     'sphinx_markdown_tables',
-    'recommonmark',
     'sphinx_tabs.tabs',
     'sphinx_copybutton',
+    'myst_parser',
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -63,7 +46,6 @@ templates_path = ['_templates']
 # You can specify multiple suffixes as a list of strings:
 #
 source_suffix = {
-    '.rst': 'restructuredtext',
     '.txt': 'markdown',
     # '.md': 'markdown',
 }

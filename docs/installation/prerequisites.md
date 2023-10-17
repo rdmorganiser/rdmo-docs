@@ -6,7 +6,7 @@ Installing the prerequisites for RDMO differs on the different operating systems
 
 We recommend to install the prerequisites using the packaging system of your distribution. Use the following commands for Debian/Ubuntu or RHEL/CentOS.
 
-```eval_rst
+```{eval-rst}
 .. tabs::
 
    .. code-tab:: bash Debian/Ubuntu

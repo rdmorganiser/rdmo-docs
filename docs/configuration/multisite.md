@@ -1,15 +1,12 @@
-Multisite
-=========
+# Multisite
 
-```eval_rst
-.. warning::
-    This is an advanced feature of RDMO.
+```{warning}
+This is an advanced feature of RDMO.
 ```
 
 RDMO can be operated in a multi site setup, connecting several different `rdmo-apps` with different URLs and Themes, on one Server with one common Database. The different Sites will share their Catalogs, Views, etc., but the availability of this Content can be restricted among the Sites. Users can log in into any of the sites (if the authentication method allows) and projects can be shared among sites. Each of these RDMO Sites has its own `rdmo-app` directory and its own configuration (`config/settings/local.py`).
 
-Setup
------
+## Setup
 
 To setup such a multi site installation, you need to start with a regular RDMO instance as described in [installation](../installation/index). In principle, an existing RDMO instance can be extended to a multi site installation, but in this documentation we assume a fresh installation.
 
@@ -23,8 +20,7 @@ To setup such a multi site installation, you need to start with a regular RDMO i
 
 If you now run `./manage.py runserver 0.0.0.0:8000` in `rdmo-app` and `./manage.py runserver 0.0.0.0:8002` in `rdmo-app2`, the two sites should be working already.
 
-Deployment
-----------
+## Deployment
 
 The two sites are deployed separately, regardless if using Apache or nginx. Create separate virtual host configurations which map the particular site url to the corresponding `rdmo-app`. E.g. for Apache:
 
@@ -82,8 +78,7 @@ and
 
 For `gunicorn`, two seperate systemd service files need to be configured. For reasons unkown to us, the service files **must** use different `RuntimeDirectory` locations, e.g. `gunicorn/app1` and `gunicorn/app2`. `GUNICORN_BIND` and `GUNICORN_PID_FILE` need to be adjusted accordingly.
 
-Shibboleth
-----------
+## Shibboleth
 
 In order to run multiple separate sites on one machine the Service Provider needs to be configured differently. For each site but the first one, an `ApplicationOverride` needs to be configured in `/etc/shibboleth/shibboleth2.xml`, e.g.
 

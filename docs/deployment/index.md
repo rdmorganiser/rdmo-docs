@@ -10,14 +10,12 @@ We suggest to use one of the following setups:
     * [Apache2 and mod_wsgi](apache) (Shibboleth can only be used with this setup.)
     * [Gunicorn](gunicorn)
 
+---
 
-```eval_rst
-----
+```{toctree}
+:maxdepth: 2
 
-.. toctree::
-   :maxdepth: 2
-
-   development
-   apache
-   gunicorn
+development
+apache
+gunicorn
 ```
