@@ -47,7 +47,7 @@ Custom project exports can be created by implementing a class inheriting from `r
 
 The `Export` plugin class needs to implement a `render()` function which takes no arguments and returns a `django.http.HttpResponse`. The export can be created from `self.project`, `self.snapshot` and `self.values` instance variables.
 
-Please refer to <https://github.com/rdmorganiser/rdmo/blob/master/rdmo/projects/exports.py> for the default project export plugins and code examples. The code which uses the plugin is located in <https://github.com/rdmorganiser/rdmo/blob/master/rdmo/projects/views.py> (`ProjectExportView`).
+Please refer to <https://github.com/rdmorganiser/rdmo/blob/master/rdmo/projects/exports.py> for the default project export plugins and code examples. The code which uses the plugin is located in <https://github.com/rdmorganiser/rdmo/blob/master/rdmo/projects/views/project.py> (`ProjectExportView`).
 
 A special kind of export plugins are `ExportProvider`. Instead of just returning an output file to be displayed or downloaded, they connect to a different web service. In addition to the `render()` function, they also need to implement a `submit()` function. The `render()` is displayed on the initial HTTP GET request and can show a form, e.g. to display options for the export. The `submit()` function is called on the subsequent form submisstion, the HTTP POST request.
 
@@ -63,7 +63,7 @@ PROJECT_EXPORTS = [
 ]
 ```
 
-In order to use the plugins in [rdmo-catalog](https://github.com/rdmorganiser/rdmo-plugins), add the following to your `config/settings/local.py`:
+In order to use the plugins in [rdmo-plugins](https://github.com/rdmorganiser/rdmo-plugins), add the following to your `config/settings/local.py`:
 
 ```python
 PROJECT_EXPORTS = [
