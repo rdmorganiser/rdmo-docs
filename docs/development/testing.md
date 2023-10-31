@@ -51,6 +51,22 @@ pytest --cov --cov-report html  # additionally create a browsable coverage repor
 pytest --cov=rdmo/domain        # only compute coverage for the domain app
 ```
 
+end-to-end tests
+--------
+
+To test the JavaScript frontend with e2e tests, run:
+
+```bash
+playwright install chromium             # install the chromium browser
+pytest -m e2e                           # run the e2e tests with a headless browser
+pytest -m e2e --headed                  # run the e2e tests with a headed browser
+pytest -m e2e --headed --slowmo 500     # slow down the browser actions: miliseconds between actions
+```
+
+References:
+
+- https://github.com/microsoft/playwright-pytest
+- https://playwright.dev/python/docs/test-runners
 
 Testing the app
 ---------------
