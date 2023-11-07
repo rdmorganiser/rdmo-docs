@@ -1,7 +1,7 @@
 Releases
 ========
 
-0) Install `twine`: `pip install twine`
+0) Install [build](https://github.com/pypa/build) and [twine](https://github.com/pypa/twine): `python -m pip install build twine`
 
 1) Ensure tests are passing.
 
@@ -15,10 +15,10 @@ Releases
   npm run build:prod
   ```
 
-4) Build `sdist` and `bdist_wheel`:
+4) Build source-distribution and wheel with `build`:
 
   ```
-  python setup.py sdist bdist_wheel
+  python -m build
   ```
 
 5) Upload with `twine` to Test PyPI:
