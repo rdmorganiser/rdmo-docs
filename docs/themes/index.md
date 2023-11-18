@@ -78,13 +78,31 @@ Note that updates to the RDMO package might render your theme incompatible to th
 
 The emails, which are send to the users can be customized as well. Of particular interest is the template for mails inviting users to projects located at <https://github.com/rdmorganiser/rdmo/blob/master/rdmo/projects/templates/projects/email>. The templates can be copied to `rdmo_theme/templates/projects/email/project_invite_subject.txt` and `rdmo_theme/templates/projects/email/project_invite_message.txt` and edited accordingly.
 
-### Custom .po file translations inside a theme
+## Custom translations
 
 As described in the Introduction above RDMO themes are now supposed to be Django apps. Using this kind of themes brings another advantage regarding translations. It is possible to create custom .po files holding translations that then can be used along with the translations inside the RDMO core. Here are the steps to make this happen.
 
 1. Create a theme if you do not have one already
     ```shell
     python manage.py make_theme
+    ```
+
+1. Ensure that the theme has a `locale` directory on it's top level (the folder added to `INSTALLED_APPS`).
+
+1. Create the .po files for your translations. Note that the command has to be run inside the theme's folder.
+
+    ```shell
+    cd rdmo_theme
+    django-admin makemessages -l de
+    ```
+
+1. Use [po edit](https://poedit.net/) or another tool of your choice to edit the po files inside the locale folder.
+
+1. Compile the .mo files, if the tool does not do that on it's own.
+
+    ```shell
+    cd rdmo_theme
+    django-admin compilemessages -l de
     ```
 
 1. Make sure you have a folder structure equivalent to the one below. Especially regarding the location of the .po files.
@@ -106,21 +124,4 @@ As described in the Introduction above RDMO themes are now supposed to be Django
     └── templates
         └── core
             └── your_template.html
-    ```
-
-1. Define a locale path inside your `local.py` to point the Django tools to the location of the po files
-
-    ```python
-    LOCALE_PATHS = [
-        '/home/rdmo/rdmo-app/rdmo_theme/locale'
-    ]
-    ```
-
-1. Use [po edit](https://poedit.net/) or another tool of your choice to edit the po files inside the locale folder
-
-1. Finally make the messages and your translations should be displayed in RDMO. Note that the command has to be run inside the theme's folder.
-
-    ```shell
-    cd rdmo_theme
-    django-admin makemessages -l de
     ```
