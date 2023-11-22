@@ -90,7 +90,7 @@ from django.utils.translation import gettext_lazy as _
 
 We have also refactored the `rdmo-app`, which people clone to start using RDMO. You should still be able to use your old `rdmo-app`, but you might take a look at [github.com/rdmorganiser/rdmo-app](https://github.com/rdmorganiser/rdmo-app) and adopt some of the new layout to your installation.
 
-Instead of 6 seperate pages, RDMO now uses only one management interface at `/management/`. If you adjusted `base_navigation.html` in your theme, you need to change the link and the corresponding permission check. Instead of:
+Instead of 6 seperate pages, RDMO now uses only one management interface at `/management/`. If you adjusted `core/base_navigation.html` in your theme, you need to change the link and the corresponding permission check. Instead of:
 
 ```django
 {% has_perm 'questions.view_catalog' request.user as can_view_catalog %}
@@ -123,6 +123,41 @@ you need to use:
 </li>
 {% endif %}
 ```
+
+(Source file: https://github.com/rdmorganiser/rdmo/blob/2.0.0/rdmo/core/templates/core/base_navigation.html#L22.)
+
+We also needed to adjust the `core/base.html` template. In the case that you use your own `core/base.html`, make sure that the `<head>` contains the following:
+
+```django
+{% load static compress core_tags %}<!DOCTYPE html>
+<html>
+<head>
+    {% include 'core/base_head.html' %}
+
+    {% block vendor %}
+    {% vendor 'jquery' %}
+    {% vendor 'bootstrap' %}
+    {% vendor 'font-awesome' %}
+    {% endblock %}
+
+    {% block css %}
+    {% compress css %}
+    <link rel="stylesheet" type="text/x-scss" href="{% static 'core/css/base.scss' %}" />
+    <link rel="stylesheet" type="text/x-scss" href="{% static 'core/css/fonts.scss' %}" />
+    <link rel="stylesheet" type="text/x-scss" href="{% static 'core/css/footer.scss' %}" />
+    <link rel="stylesheet" type="text/x-scss" href="{% static 'core/css/utils.scss' %}" />
+    <link rel="stylesheet" type="text/x-scss" href="{% static 'core/css/style.scss' %}" />
+    {% endcompress %}
+    {% endblock %}
+
+    {% block js %}
+    {% endblock %}
+
+    {% block head %}{% endblock %}
+</head>
+```
+
+(Source file: https://github.com/rdmorganiser/rdmo/blob/2.0.0/rdmo/core/templates/core/base.html.)
 
 ## Upgrade to version 0.9.0
 
