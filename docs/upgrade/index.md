@@ -90,6 +90,40 @@ from django.utils.translation import gettext_lazy as _
 
 We have also refactored the `rdmo-app`, which people clone to start using RDMO. You should still be able to use your old `rdmo-app`, but you might take a look at [github.com/rdmorganiser/rdmo-app](https://github.com/rdmorganiser/rdmo-app) and adopt some of the new layout to your installation.
 
+Instead of 6 seperate pages, RDMO now uses only one management interface at `/management/`. If you adjusted `base_navigation.html` in your theme, you need to change the link and the corresponding permission check. Instead of:
+
+```django
+{% has_perm 'questions.view_catalog' request.user as can_view_catalog %}
+{% has_perm 'domain.view_attribute' request.user as can_view_attribute %}
+{% has_perm 'options.view_optionset' request.user as can_view_optionset %}
+{% has_perm 'conditions.view_condition' request.user as can_view_condition %}
+{% has_perm 'tasks.view_task' request.user as can_view_task %}
+{% has_perm 'views.view_view' request.user as can_view_view %}
+
+{% if can_view_catalog or can_view_attribute or can_view_optionset or can_view_condition or can_view_task or can_view_view %}
+<li class="dropdown">
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+        {% trans 'Management' %}<span class="caret"></span>
+    </a>
+    <ul class="dropdown-menu">
+        ...
+    </ul>
+</li>
+{% endif %}
+```
+
+you need to use:
+
+```django
+{% test_rule 'management.can_view_management' request.user request.site as can_view_management %}
+
+{% if can_view_management %}
+<li>
+    <a href="{% url 'management' %}">{% trans 'Management' %}</a>
+</li>
+{% endif %}
+```
+
 ## Upgrade to version 0.9.0
 
 With version 0.9.0 we introduced the split into the `rdmo-app` and the centrally maintained `rdmo` package. Therefore, a few additional steps are needed to upgrade any earlier version to 0.9.0 or beyond:
