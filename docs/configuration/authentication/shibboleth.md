@@ -10,10 +10,12 @@ sudo apt-get install libapache2-mod-shib2
 
 Under Ubuntu 18.04 LTS the `libapache2-mod-shib2` package is broken. A working description on how to install the SPcan be found under [SWITCHaai guides](https://www.switch.ch/aai/guides/sp/installation/?os=ubuntu).
 
-In addition, [django-shibboleth-remoteuser](https://github.com/Brown-University-Library/django-shibboleth-remoteuser) needs to be installed in your RDMO virtual environment:
+
+
+In addition, a version of the [django-shibboleth-remoteuser](https://github.com/Brown-University-Library/django-shibboleth-remoteuser) needs to be installed in your RDMO virtual environment. In order to prevent [encoding issues](https://github.com/rdmorganiser/rdmo/issues/77) in the names of users there is a fork of this repo available under [`rdmorganiser/django-shibboleth-remoteuser`](https://github.com/rdmorganiser/django-shibboleth-remoteuser) on Github, which can be readily installed via:
 
 ```bash
-pip install git+https://github.com/Brown-University-Library/django-shibboleth-remoteuser
+pip install git+https://github.com/rdmorganiser/django-shibboleth-remoteuser
 ```
 
 Configure your Shibboleth service provider using the files in `/etc/shibboleth/`. This may vary depending on your Identity Provider. RDMO needs the `REMOTE_USER` to be set and 4 attributes from your identity provider:
