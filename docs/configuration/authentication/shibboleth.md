@@ -142,7 +142,11 @@ In order to keep this setup in RDMO after 1.11.0 you need to disable `SHIBBOLETH
 SHIBBOLETH_LOGIN_URL = None
 ```
 
-## Alternative to Shibboleth: Keycloak and Satosa
+## Alternatives to Shibboleth
+
+Please look under [django-allauth](./allauth.html#other-3rd-party-authentication-solutions) for information on other possible alternatives.
+
+### Keycloak and Satosa
 
 Before RDMO 1.11.0, the installation of Shibboleth excluded the use other authentication providers for RDMO. When it is preferred to enable authentication to a Shibboleth Identity Provider and other 3rd party providers in parallel, an alternative configuration can be set up. A keycloak instance and a SATOSA proxy can be used for this purpose.
 

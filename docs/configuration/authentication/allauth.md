@@ -62,9 +62,9 @@ to your `config/settings/local.py`. The setting `SOCIALACCOUNT = True` is used b
 Once the installation is complete, the credentials of your OAUTH provider need to be entered in the admin interface. This is covered in the [administration chapter](../../administration/allauth) of this documentation.
 
 
-### Other 3rd party authentication solutions
+## Other 3rd party authentication solutions
 
-#### Generic OpenID Connect provider
+### Generic OpenID Connect provider
 
 The generic `openid_connect` provider from `django-allauth` allows for an easy configuration of multiple OpenID Connect providers. 
 
@@ -109,16 +109,16 @@ INSTALLED_APPS += [
 
 The **OpenID Connect** callback URL for each configured server will use the  `provider_id` as the `{id}` in `accounts/{id}/login/callback/`.
 
-#### Keycloak as a socialaccount provider
+### Keycloak as a socialaccount provider
 
 A [keycloak](https://www.keycloak.org/) instance can be enabled as a generic `openid_connect` 
  [socialaccount provider](https://docs.allauth.org/en/latest/socialaccount/providers/keycloak.html) via `django-allauth`. The main motivation for using this is that it enables the option to login with the institutional [DFN-AAI](https://doku.tid.dfn.de/de:dfnaai:start) Identity Providers (SAML) and another 3rd party provider (OIDC, such as ORCID) at the same time in RDMO. Information about the setup and configuration of a keycloak instance can be found in [Keycloack guides](https://www.keycloak.org/guides#getting-started). The instance can be configured with a realm specific for RDMO.
 
 
-#### NFDI-AAI Community AAI solutions
+### NFDI-AAI Community AAI solutions
 
 For RDMO service providers that are related to a NFDI Consortium, there might be the possibility to join a Community AAI solution in the context of the [NFDI-AAI](http://nfdi-aai.de/) project. These Identity Providers support both SAML and OIDC, where the OIDC can be readily configured in RDMO via the [generic `openid_connect` provider](#generic-openid-connect-provider) from `django-allauth`.
 
-#### SAML supported by socialaccount provider
+### SAML supported by socialaccount provider
 
 Recently, a SAML provider app has been implemented in `django-allauth` as well. This allows one to configure and enable a SAML and OIDC Identity Providers in parallel from within the RDMO deployment. However, so far, this feature has not been tested in the RDMO Community. Please find the [django-allauth docs on SAML](https://docs.allauth.org/en/latest/socialaccount/providers/saml.html#saml) for more information.
