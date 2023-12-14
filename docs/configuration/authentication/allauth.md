@@ -28,7 +28,7 @@ MIDDLEWARE.append('allauth.account.middleware.AccountMiddleware')
 
 to your `config/settings/local.py`. The setting `ACCOUNT = True` enables the general django-allauth features in RDMO, while `ACCOUNT_SIGNUP = True` enables new users to register with your RDMO instance. `ACCOUNT_TERMS_OF_USE = False` disables the Terms of Use. If you set it to `True` every registering user will have to agree to your policy. The last lines enable django-allauth to be used by RDMO.
 
-The behavior of `django-allauth` can be further configured by the settings documented in the [django-allauth documentation](https://django-allauth.readthedocs.io/en/latest/#contents). RDMO sets some defaults, which can be found in [rdmo/rdmo/core/settings.py](https://github.com/rdmorganiser/rdmo/blob/master/rdmo/core/settings.py) in the `rdmo` package.
+The behavior of `django-allauth` can be further configured by the settings documented in the [django-allauth documentation](https://django-allauth.readthedocs.io/en/latest/#contents). RDMO sets some defaults, which can be found in [rdmo/rdmo/core/settings.py](https://github.com/rdmorganiser/rdmo/blob/main/rdmo/core/settings.py) in the `rdmo` package.
 
 ## Social accounts
 

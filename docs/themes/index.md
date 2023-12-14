@@ -52,21 +52,21 @@ If you want to manually create a theme you need to do the following:
 
 If you have completed the steps above templates and static files in the `rdmo_theme` directory are used instead of the original files as long as they have the same relative path, e.g. the template `theme/templates/core/base_navigation.html` overrides `rdmo/core/templates/core/base_navigation.html` from the original code.
 
-Usually, the RDMO template files are located in your virtual environment, e.g. `/srv/rdmo/rdmo-app/env/lib/python3.6/site-packages/rdmo/core/static/core/css/variables.scss`. The exact path depends on your Python version and platform. The `make_theme` script will find the files for you. You can also download the original files from the [rdmo repository](https://github.com/rdmorganiser/rdmo) instead. For the example above, this would be <https://raw.githubusercontent.com/rdmorganiser/rdmo/master/rdmo/core/static/core/css/variables.scss>. Please make sure to use the raw files when downloading from GitHub. If you accidentally grab the website's html source code RDMO will throw an error.
+Usually, the RDMO template files are located in your virtual environment, e.g. `/srv/rdmo/rdmo-app/env/lib/python3.6/site-packages/rdmo/core/static/core/css/variables.scss`. The exact path depends on your Python version and platform. The `make_theme` script will find the files for you. You can also download the original files from the [rdmo repository](https://github.com/rdmorganiser/rdmo) instead. For the example above, this would be <https://raw.githubusercontent.com/rdmorganiser/rdmo/main/rdmo/core/static/core/css/variables.scss>. Please make sure to use the raw files when downloading from GitHub. If you accidentally grab the website's html source code RDMO will throw an error.
 
 Some files you might want to override are:
 
 ### SASS variables
 
-<https://github.com/rdmorganiser/rdmo/blob/master/rdmo/core/static/core/css/variables.scss> can be copied to `rdmo_theme/static/core/css/variables.scss` and be used to customize colors.
+<https://github.com/rdmorganiser/rdmo/blob/main/rdmo/core/static/core/css/variables.scss> can be copied to `rdmo_theme/static/core/css/variables.scss` and be used to customize colors.
 
 ### Navigation bar
 
-<https://github.com/rdmorganiser/rdmo/blob/master/rdmo/core/templates/core/base_navigation.html> can be copied to `rdmo_theme/templates/core/base_navigation.html` and be used to customize the navbar.
+<https://github.com/rdmorganiser/rdmo/blob/main/rdmo/core/templates/core/base_navigation.html> can be copied to `rdmo_theme/templates/core/base_navigation.html` and be used to customize the navbar.
 
 ### Home page text
 
-<https://github.com/rdmorganiser/rdmo/blob/master/rdmo/core/templates/core/home_text_en.html> and <https://github.com/rdmorganiser/rdmo/blob/master/rdmo/core/templates/core/home_text_de.html> can be copied to `rdmo_theme/templates/core/home_text_en.html` and `rdmo_theme/templates/core/home_text_de.html` and be used to customize text on the home page.
+<https://github.com/rdmorganiser/rdmo/blob/main/rdmo/core/templates/core/home_text_en.html> and <https://github.com/rdmorganiser/rdmo/blob/main/rdmo/core/templates/core/home_text_de.html> can be copied to `rdmo_theme/templates/core/home_text_en.html` and `rdmo_theme/templates/core/home_text_de.html` and be used to customize text on the home page.
 
 ### Terms of Use
 
@@ -76,7 +76,7 @@ Note that updates to the RDMO package might render your theme incompatible to th
 
 ### Emails
 
-The emails, which are send to the users can be customized as well. Of particular interest is the template for mails inviting users to projects located at <https://github.com/rdmorganiser/rdmo/blob/master/rdmo/projects/templates/projects/email>. The templates can be copied to `rdmo_theme/templates/projects/email/project_invite_subject.txt` and `rdmo_theme/templates/projects/email/project_invite_message.txt` and edited accordingly.
+The emails, which are send to the users can be customized as well. Of particular interest is the template for mails inviting users to projects located at <https://github.com/rdmorganiser/rdmo/blob/main/rdmo/projects/templates/projects/email>. The templates can be copied to `rdmo_theme/templates/projects/email/project_invite_subject.txt` and `rdmo_theme/templates/projects/email/project_invite_message.txt` and edited accordingly.
 
 ## Custom translations
 

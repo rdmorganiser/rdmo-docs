@@ -46,11 +46,11 @@ Custom project exports can be created by implementing a class inheriting from `r
 
 The `Export` plugin class needs to implement a `render()` function which takes no arguments and returns a `django.http.HttpResponse`. The export can be created from `self.project`, `self.snapshot` and `self.values` instance variables.
 
-Please refer to <https://github.com/rdmorganiser/rdmo/blob/master/rdmo/projects/exports.py> for the default project export plugins and code examples. The code which uses the plugin is located in <https://github.com/rdmorganiser/rdmo/blob/master/rdmo/projects/views/project.py> (`ProjectExportView`).
+Please refer to <https://github.com/rdmorganiser/rdmo/blob/main/rdmo/projects/exports.py> for the default project export plugins and code examples. The code which uses the plugin is located in <https://github.com/rdmorganiser/rdmo/blob/main/rdmo/projects/views/project.py> (`ProjectExportView`).
 
 A special kind of export plugins are `ExportProvider`. Instead of just returning an output file to be displayed or downloaded, they connect to a different web service. In addition to the `render()` function, they also need to implement a `submit()` function. The `render()` is displayed on the initial HTTP GET request and can show a form, e.g. to display options for the export. The `submit()` function is called on the subsequent form submisstion, the HTTP POST request.
 
-An `ExportProvider` can be combined with the `OauthProviderMixin` to use an OAuth2 authentication with the external web service. Please refer to <https://github.com/rdmorganiser/rdmo-plugins/blob/master/rdmo_plugins/exports/zenodo.py> for a simple or to <https://github.com/rdmorganiser/rdmo-plugins/blob/master/rdmo_plugins/exports/radar/providers.py> for a more complicated example.
+An `ExportProvider` can be combined with the `OauthProviderMixin` to use an OAuth2 authentication with the external web service. Please refer to <https://github.com/rdmorganiser/rdmo-plugins/blob/main/rdmo_plugins/exports/zenodo.py> for a simple or to <https://github.com/rdmorganiser/rdmo-plugins/blob/main/rdmo_plugins/exports/radar/providers.py> for a more complicated example.
 
 The export plugin needs to be added to the `PROJECT_EXPORTS` in `config/settings/local.py`. The default settings are:
 
@@ -83,9 +83,9 @@ The Plugin class needs to implement a `check()` function which takes no argument
 
 In addition, a `process()` needs to be implemented which takes no arguments and returns `None`, but extracts the data from the file and populates the `self.project`, `self.catalog`, `self.values`, `self.snapshots`, `self.tasks` and `self.views` instance variables.
 
-Please refer to <https://github.com/rdmorganiser/rdmo/blob/master/rdmo/projects/imports.py> for the default project import plugins and code examples. The code which uses the plugin is located in <https://github.com/rdmorganiser/rdmo/blob/master/rdmo/projects/views.py> (`ProjectCreateUploadView`, `ProjectCreateImportView`, `ProjectUpdateUploadView`, `ProjectUpdateImportView`).
+Please refer to <https://github.com/rdmorganiser/rdmo/blob/main/rdmo/projects/imports.py> for the default project import plugins and code examples. The code which uses the plugin is located in <https://github.com/rdmorganiser/rdmo/blob/main/rdmo/projects/views.py> (`ProjectCreateUploadView`, `ProjectCreateImportView`, `ProjectUpdateUploadView`, `ProjectUpdateImportView`).
 
-As with the exports, it is also possible to create `ImportProvider` plugins, which import from a remote web service. In addition, these plugins need to implement a `render()` and `submit()` function, which are used on GET resp. POST requests, as for the exports. They can also be combined with OAuth2 authentication. The GitHub and GitLab import plugins, which are part of RDMO can be considered example implementations: <https://github.com/rdmorganiser/rdmo/blob/master/rdmo/projects/imports.py>.
+As with the exports, it is also possible to create `ImportProvider` plugins, which import from a remote web service. In addition, these plugins need to implement a `render()` and `submit()` function, which are used on GET resp. POST requests, as for the exports. They can also be combined with OAuth2 authentication. The GitHub and GitLab import plugins, which are part of RDMO can be considered example implementations: <https://github.com/rdmorganiser/rdmo/blob/main/rdmo/projects/imports.py>.
 
 The import plugin needs to be added to the `PROJECT_IMPORTS` in `config/settings/local.py`. The default settings are:
 
@@ -171,7 +171,7 @@ The function `send_issue(self, request, issue, integration, subject, message, at
 
 The provider can also implement a `webhook(self, request, integration)` which is used to provide a webhook within RDMO to enable the external service to trigger actions, e.g. when an issue is closed.
 
-Furthermore, it needs to implement a property `fields`, which returns the option fields, which users need to enter when adding an integration to a project. For GitHub, this is the repository and a secret string to secure the webhook. Please refer to the [implementation of the GitHubProvider](https://github.com/rdmorganiser/rdmo/blob/master/rdmo/services/providers.py) for more details.
+Furthermore, it needs to implement a property `fields`, which returns the option fields, which users need to enter when adding an integration to a project. For GitHub, this is the repository and a secret string to secure the webhook. Please refer to the [implementation of the GitHubProvider](https://github.com/rdmorganiser/rdmo/blob/main/rdmo/services/providers.py) for more details.
 
 ### GitHub issue provider
 
