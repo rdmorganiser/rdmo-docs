@@ -6,7 +6,7 @@ To set up the application, create a new file `config/settings/local.py` in your 
 
 You can use `config/settings/sample.local.py` as template, i.e.:
 
-```eval_rst
+```{eval-rst}
 .. tabs::
 
    .. code-tab:: sh Linux/MacOS

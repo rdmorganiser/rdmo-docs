@@ -8,7 +8,7 @@ An overview of the Django database settings can be found in the [Django docs](ht
 PostgreSQL can be installed using:
 
 
-```eval_rst
+```{eval-rst}
 .. tabs::
 
    .. code-tab:: bash Debian/Ubuntu
@@ -61,7 +61,7 @@ Now you can [initialize your database](#initializing-the-database).
 MySQL (or community-developed fork MariaDB) can be installed using:
 
 
-```eval_rst
+```{eval-rst}
 .. tabs::
 
    .. code-tab:: bash Debian/Ubuntu

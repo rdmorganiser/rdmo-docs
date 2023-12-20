@@ -50,7 +50,7 @@ Change into `rdmo-app` and change to the `dev` branch of this repo. This branch 
 
 Create a Python virtual environment:
 
-```eval_rst
+```{eval-rst}
 .. tabs::
 
    .. code-tab:: bash Linux/MacOS
@@ -126,7 +126,7 @@ python manage.py setup_groups           # optional: create groups with different
 
 The testing data can be imported using:
 
-```eval_rst
+```{eval-rst}
 .. tabs::
 
    .. code-tab:: bash Linux/MacOS
@@ -152,7 +152,7 @@ The testing data can be imported using:
 
 The test upload files are initialized using:
 
-```eval_rst
+```{eval-rst}
 .. tabs::
 
    .. code-tab:: bash Linux/MacOS
@@ -236,7 +236,7 @@ python -m aiosmtpd -n -l localhost:8025
 In order to run the test suite, the `rdmo` repo itself can be setup in a similar way in its own virtual environment:
 
 
-```eval_rst
+```{eval-rst}
 .. tabs::
 
    .. code-tab:: bash Linux/MacOS
@@ -290,7 +290,7 @@ More about testing can be found [here](testing.md).
 In order to include plugins into the development setup simply clone the plugin repository next to `rdmo` and `rdmo-app`, e.g. for `rdmo-plugins`:
 
 
-```eval_rst
+```{eval-rst}
 .. tabs::
 
    .. code-tab:: bash HTTPS

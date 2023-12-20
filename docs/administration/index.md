@@ -6,14 +6,13 @@ The admin interface is available under the link *Admin* in the navigation bar. I
 
 That being said, the admin interface is needed, especially after installation, to set the title and URL of the [site](site), to configure [users and groups](users), to configure the connection to [OAUTH providers](allauth), and to create tokens to be used with the [API](api).
 
-```eval_rst
-----
+---
 
-.. toctree::
-   :maxdepth: 2
+```{toctree}
+:maxdepth: 2
 
-   site
-   users
-   allauth
-   api
+site
+users
+allauth
+api
 ```

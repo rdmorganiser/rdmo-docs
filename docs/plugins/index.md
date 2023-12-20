@@ -1,8 +1,7 @@
 # Plugins
 
-```eval_rst
-.. warning::
-    This is an advanced feature of RDMO.
+```{warning}
+This is an advanced feature of RDMO.
 ```
 
 Plugins can be used to customize or extend specific actions in RDMO using custom Python code outside of the centrally maintained code base. This can be used to perform actions which are specific to a RDMO instance. With the possibility to add code to RDMO comes the danger of introducing additional bugs and security issues. Please be extra careful when using this **advanced** feature.

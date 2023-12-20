@@ -197,8 +197,8 @@ With version 0.14 the Python 2 support was dropped and we switched to Django 2.2
 * MIDDLEWARE_CLASSES in `config/settings/local.py` needs to be renamed to `MIDDLEWARE` only
 
 ---
-```eval_rst
-.. warning::
-    RDMO contains all the necessary migrations. For consistency of the database,
-    please do **not** run the ``makemigrations`` command. When Django asks you for it, please contact support.
+
+```{warning}
+RDMO contains all the necessary migrations. For consistency of the database,
+please do **not** run the ``makemigrations`` command. When Django asks you for it, please contact support.
 ```

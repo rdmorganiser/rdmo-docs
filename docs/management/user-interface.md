@@ -1,5 +1,4 @@
-
-## Management user interface
+# Management user interface
 
 Since Version 2.0, RDMO uses a general management interface. The page is accessible via the "Management" button in the navigation bar and will be empty after a fresh RDMO installation. We suggest to **first import our domain model** and, if you like, our general questionnaire. The corresponding XML-files that define the RDMO content are available and described at [rdmorganiser/rdmo-catalog](https://github.com/rdmorganiser/rdmo-catalog#rdmo-catalog).
 

@@ -1,8 +1,7 @@
 # Cache
 
-```eval_rst
-.. warning::
-    As of RDMO 1.6, caching is not used anymore and memcached does not need to be installed anymore. However, if needed, we will enable this feature again in the future.
+```{warning}
+As of RDMO 1.6, caching is not used anymore and memcached does not need to be installed anymore. However, if needed, we will enable this feature again in the future.
 ```
 
 RDMO uses a cache for some of it's pages. In the development setup, this is done using local-memory caching. In production, we suggest using [memcached](https://memcached.org) Memcached can be installed on Debian/Ubuntu using:

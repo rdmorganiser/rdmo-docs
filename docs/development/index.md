@@ -4,17 +4,15 @@ RDMO is Open Source Software and we are happy to receive contributions by the co
 
 In this part of the documentation we provide some technical information on several development specific topics.
 
+---
 
-```eval_rst
-----
+```{toctree}
+:maxdepth: 2
 
-.. toctree::
-   :maxdepth: 2
-
-   setup
-   i18n
-   testing
-   fixtures
-   releases
+setup
+i18n
+testing
+fixtures
+releases
 ```
 

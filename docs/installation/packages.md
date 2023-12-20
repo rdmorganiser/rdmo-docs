@@ -6,7 +6,7 @@ After you have obtained the `rdmo-app`, you need to install the `rdmo` package a
 Change to the `rdmo-app` directory and create a [Virtual Environment](https://docs.python.org/3/tutorial/venv.html) (this is done as your user or the created `rdmo` user, not as `root`):
 
 
-```eval_rst
+```{eval-rst}
 .. tabs::
 
    .. code-tab:: sh Linux/MacOS
