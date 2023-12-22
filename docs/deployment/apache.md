@@ -47,7 +47,7 @@ As you can see from the virtual host configurations, the static assets such as C
 python manage.py collectstatic --clear
 ```
 
-in your virtual environment  (`--clean` removes existing files before collecting).
+in your virtual environment  (`--clear` removes existing files before collecting).
 
 In order to apply changes to the RDMO code (e.g. after an [upgrade](../upgrade/index)), the webserver needs to be reloaded or the `config/wsgi.py` file needs to appear modified. This can be done using the `touch` command:
 
