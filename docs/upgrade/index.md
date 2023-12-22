@@ -193,7 +193,7 @@ If you have trouble with the upgrade process, don't hesitate to contact the RDMO
 
 With version 0.14 the Python 2 support was dropped and we switched to Django 2.2. This demands two changes to the local `rdmo-app`:
 
-* Adjust RDMO app's `config/urls.py` to Django2 schemes. The file is much simpler and shorter now. A working example can be found at https://github.com/rdmorganiser/rdmo-app/blob/master/config/urls.py
+* Adjust RDMO app's `config/urls.py` to Django2 schemes. The file is much simpler and shorter now. A working example can be found at https://github.com/rdmorganiser/rdmo-app/blob/main/config/urls.py
 * MIDDLEWARE_CLASSES in `config/settings/local.py` needs to be renamed to `MIDDLEWARE` only
 
 ---

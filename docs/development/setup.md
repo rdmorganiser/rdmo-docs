@@ -43,12 +43,7 @@ You should now have two directories in `rdmorganiser`:
 
 ## Setup rdmo-app
 
-Change into `rdmo-app` and change to the `dev` branch of this repo. This branch is 
-
-
-
-
-Create a Python virtual environment:
+Change into `rdmo-app` and create a Python virtual environment:
 
 ```{eval-rst}
 .. tabs::

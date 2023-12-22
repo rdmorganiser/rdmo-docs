@@ -36,6 +36,7 @@ extensions = [
     'sphinx_markdown_tables',
     'sphinx_tabs.tabs',
     'sphinx_copybutton',
+    'sphinx_search.extension',
     'myst_parser',
 ]
 
