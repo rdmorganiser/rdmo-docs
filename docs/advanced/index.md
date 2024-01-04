@@ -14,3 +14,19 @@ sudo setsebool -P httpd_can_network_connect=1
 ```
 
 While this is the prefereble way, you can also set `selinux` to `permissive` or `disabled` in `/etc/selinux/config` (and reboot afterwards).
+
+## Multiple Reverse Proxies
+
+For special setups including multiple reverse proxies the configuration needs to be adjusted in order to successfully work.
+The reason is that [django's CSRF protection](https://docs.djangoproject.com/en/4.2/ref/csrf/#how-it-works) requires a proper request header in order to not reject the request.
+To achieve this, the first reverse proxy needs to set the corresponding X-Forwarded-* header, e.g. for nginx:
+
+```
+proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+proxy_set_header X-Forwarded-Proto $scheme;
+proxy_set_header X-Forwarded-Host $http_host;
+```
+
+All remaining proxies should not change these information, i.e. don't add such configuration.
+
+**Additionally**, RDMO has to be adjusted according to the description for [reverse proxies](../configuration/general#optional-reverse-proxy).
