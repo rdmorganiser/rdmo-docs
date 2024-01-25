@@ -39,8 +39,8 @@ In order to install RDMO on a server without (outgoing) internet connection, you
 # on the machine with internet
 mkdir packages
 cd packages
-pip download 'pip setuptools wheel'
-pip rdmo[allauth,postgres,gunicorn]' # or any other combination of optional dependencies
+pip download pip setuptools wheel
+pip rdmo[allauth,postgres,gunicorn] # or any other combination of optional dependencies
 ```
 
 The `packages` should then contain `*.whl` files for all dependencies.
