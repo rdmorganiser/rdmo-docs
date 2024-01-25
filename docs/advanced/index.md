@@ -30,3 +30,30 @@ proxy_set_header X-Forwarded-Host $http_host;
 All remaining proxies should not change these information, i.e. don't add such configuration.
 
 **Additionally**, RDMO has to be adjusted according to the description for [reverse proxies](../configuration/general#optional-reverse-proxy).
+
+# Install RDMO without internet connection
+
+In order to install RDMO on a server without (outgoing) internet connection, you need to download the Python packages on a different machine and copy the wheels to the server:
+
+```bash
+# on the machine with internet
+mkdir packages
+cd packages
+pip download 'pip setuptools wheel'
+pip rdmo[allauth,postgres,gunicorn]' # or any other combination of optional dependencies
+```
+
+The `packages` should then contain `*.whl` files for all dependencies.
+
+You also need to download the vendor files as in the regular setup:
+
+```python
+python manage.py download_vendor_files
+```
+
+Next you need to copy the `packages` and the `vendor` directory to the machine without internet. There, you copy the `vendor` directory to the `rdmo-app` directory, create a virtual env and install the pip dependencies using:
+
+```bash
+pip install --upgrade --no-index --find-links /path/to/packages/ pip setuptools wheel
+pip install --upgrade --no-index --find-links /path/to/packages/ rdmo[allauth,postgres,gunicorn]
+```
