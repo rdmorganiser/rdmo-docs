@@ -31,7 +31,7 @@ All remaining proxies should not change these information, i.e. don't add such c
 
 **Additionally**, RDMO has to be adjusted according to the description for [reverse proxies](../configuration/general#optional-reverse-proxy).
 
-# Install RDMO without internet connection
+## Install RDMO without internet connection
 
 In order to install RDMO on a server without (outgoing) internet connection, you need to download the Python packages on a different machine and copy the wheels to the server:
 
