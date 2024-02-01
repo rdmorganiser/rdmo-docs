@@ -63,6 +63,14 @@ If your system is too old, we suggest upgrading to the latest version of your di
 
 With version 2.0.0 we have changed the data model and introduced pages, but this transition should automatically be applied to your content with the database migrations.
 
+With the new version, users can be made editors (can use the management interface) and reviewers (can only view the management interface) using the Role model in the Django-Admin interface. In the [multi site setup](../configuration/multisite), this even works for specific sites. Before, groups named `editor` and `reviewer` were used for this purpose. If you used these groups before, you can continue doing so, but you need to run
+
+```bash
+python manage.py setup_groups
+```
+
+once to add the permissions to the new `Page` model to the existing groups.
+
 We have also reworked the rdmo package and updated some dependencies. Therefore, **when you use allauth for authentication**, you need to update this dependency separately from now on by using:
 
 ```bash
@@ -124,7 +132,7 @@ you need to use:
 {% endif %}
 ```
 
-(Source file: https://github.com/rdmorganiser/rdmo/blob/2.0.0/rdmo/core/templates/core/base_navigation.html#L22.)
+(Source file: <https://github.com/rdmorganiser/rdmo/blob/2.0.0/rdmo/core/templates/core/base_navigation.html#L22>)
 
 We also needed to adjust the `core/base.html` template. In the case that you use your own `core/base.html`, make sure that the `<head>` contains the following:
 
@@ -157,7 +165,7 @@ We also needed to adjust the `core/base.html` template. In the case that you use
 </head>
 ```
 
-(Source file: https://github.com/rdmorganiser/rdmo/blob/2.0.0/rdmo/core/templates/core/base.html.)
+(Source file: <https://github.com/rdmorganiser/rdmo/blob/2.0.0/rdmo/core/templates/core/base.html>)
 
 ## Upgrade to version 0.9.0
 
