@@ -29,7 +29,7 @@ proxy_set_header X-Forwarded-Host $http_host;
 
 All remaining proxies should not change these information, i.e. don't add such configuration.
 
-**Additionally**, RDMO has to be adjusted according to the description for [reverse proxies](../configuration/general#optional-reverse-proxy).
+**Additionally**, RDMO has to be adjusted according to the description for [reverse proxies](../configuration/general.html#optional-reverse-proxy).
 
 ## Install RDMO without internet connection
 

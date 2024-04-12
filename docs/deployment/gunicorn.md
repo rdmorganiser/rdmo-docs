@@ -8,6 +8,15 @@ First install gunicorn inside your virtual environment:
 pip install rdmo[gunicorn]
 ```
 
+As explained [here](../configuration/general.html#optional-reverse-proxy), you need to add the following:
+
+```
+USE_X_FORWARDED_HOST = True
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+```
+
+to your `config/settings/local.py` in order for RDMO to pick up the `X-Forwarded-Host` and `X-Forwarded-Proto` HTTP headers from the proxy.
+
 Then, test `gunicorn` using:
 ```bash
 gunicorn --bind 0.0.0.0:8000 config.wsgi:application
@@ -95,7 +104,7 @@ server {
     location / {
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
         proxy_set_header X-Forwarded-Proto $scheme;
-        proxy_set_header Host $http_host;
+        proxy_set_header X-Forwarded-Host $http_host;
         proxy_pass http://unix:/run/gunicorn/rdmo/rdmo.sock;
     }
 
@@ -112,8 +121,7 @@ systemctl start nginx
 systemctl enable nginx
 ```
 
-
- RDMO should now be available on `YOURDOMAIN`. Note that the unix socket `/srv/rdmo/rdmo.sock` needs to be accessible by Nginx.
+RDMO should now be available on `YOURDOMAIN`. Note that the unix socket `/srv/rdmo/rdmo.sock` needs to be accessible by Nginx.
 
 ## Apache2 as reverse proxy
 

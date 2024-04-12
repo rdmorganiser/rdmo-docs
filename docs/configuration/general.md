@@ -56,6 +56,7 @@ This needs to be configured **before** any data is imported or content is config
 Note that in order to use RDMO with any language, a `.po` file needs to be created (see also: [django docs on translations](https://docs.djangoproject.com/en/stable/topics/i18n/translation/)). These files contain the translations of all strings in the user interface and can be found in the [RDMO source code](https://github.com/search?q=repo%3Ardmorganiser%2Frdmo+rdmo%2Flocale%2F+django.po&type=code). RDMO ships with translations for English, German, French and Spanish. Please [contact the project](https://github.com/rdmorganiser/rdmo/issues) if you intend to use RDMO with another language, contact information can also be found on the [RDMO community website](https://rdmorganiser.github.io/). Although we will not be able to perform the translation ourselves, we are happy to support you and add the language file to the RDMO source code after review. The `.po` files define the translation of strings in the user web interface via `gettext`. The translation of any of the content items in RDMO (e.g. catalogs, option sets) is independent from these files and is defined separately through the management web interface.
 
 ## Optional: Base URL
+
 An **optional** setting, when you want to run RDMO under an alias like `http://example.com/rdmo`, is the `BASE_URL`. When you use an alias you need to set the base URL, otherwise this setting can be ignored.
 
 ```python
@@ -64,6 +65,7 @@ BASE_URL = '/rdmo'
 When using this setting, also take into account the configuration under [deployment](../deployment/index).
 
 ## Optional: reverse proxy
+
 If you run RDMO behind a reverse Proxy, which terminates the TLS/SSL traffic, you need to add the following:
 
 ```
