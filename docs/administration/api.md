@@ -1,6 +1,6 @@
 # API
 
-RDMO has an API which can be used to retrieve data in a machine readable manner. The API can be accessed with any http speaking tool that is able to provide the necessary authentication token in the request's header. In the following examples we will use `curl`.
+RDMO has an API which can be used to retrieve data in a machine readable manner. The API can be accessed with any HTTP speaking tool that is able to provide the necessary authentication token in the request's header. In the following examples we will use `curl`.
 
 ## Authentication and access
 In order to access any data entered into RDMO through the programmable API, a user needs to have a token associated with him. This is done under **AUTH TOKEN / Tokens**. To create a token, click **Add token** on the button at the right and:
@@ -19,7 +19,7 @@ Only `Superusers` are allowed to access the API. You can check if your user has 
 After creating a token, the API of an instance is accessible in multiple ways:
 
 * via the browser;
-* with the most common programming languages and the usual cURL commands (GET, POST, ...);
+* with the most common programming languages and the usual curl commands (GET, POST, ...);
 * via the Swagger interface.
 
 ## API addresses
