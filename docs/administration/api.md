@@ -62,6 +62,7 @@ The available content (catalogues, views, tasks...) within an instance can be ac
 /api/v1/views/views/{id}
 ```
 
+The project-related content (metadata, answers/values, snapshots...) can be accessed with the following URLS:
 ```
 /api/v1/projects                                                 # project "object properties" / general overview of the projects and associated entities (nearly useless)
 /api/v1/projects/projects                                        # project "data properties" / metadata for each project: title, catalog, owners, progress
@@ -80,7 +81,7 @@ The available content (catalogues, views, tasks...) within an instance can be ac
 
 The `{id}` or `{parent_lookup_project}` placeholder within a URL represents an (internally defined and immutable) element key, which can be provided to fetch data for a distinct single element (e.g. project).
 
-Many of the endpoints provide multiple filter functions that are accessible using request parameters. If you for example would like to retrieve information about the admin user you could use `?username=admin` as filter parameter at the end of the url.
+Many of the endpoints provide multiple filter functions that are accessible using request parameters. For example, to retrieve information about the admin user you can use `?username=admin` as filter parameter at the end of the URL.
 
 The list of all endpoints and their available filters is reported in the Swagger interface of the API. A static version is also available as [JSON description](../_static/others/api_description.json) file, which can be visualized with a visual editor such as the [Swagger Editor](https://editor.swagger.io).
 
@@ -100,9 +101,9 @@ Remove it or comment it out if you do not want swagger to be available. As you c
 
 If you request `http://$YOUR_RDMO/api/v1/?format=openapi` you get a detailed machine processable API description in JSON format.
 
-## API access via Curl
+## API access via `curl`
 
-A library with cURL commands is available for the most programming languages (Bash, Python, PHP, R, ...)
+Libraries with curl commands are available for the most programming languages (Bash, Python, PHP, R, ...)
 
 The following examples are written in Bash. RDMO's internal modules and plugins are written in Python.
 
