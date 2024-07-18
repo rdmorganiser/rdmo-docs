@@ -1,27 +1,27 @@
 # API
 
-RDMO has an API which can be used to retrieve data in a machine readable manner. The API can be accessed with any HTTP speaking tool that is able to provide the necessary authentication token in the request's header. In the following examples we will use `curl`.
+RDMO has an API (Application Programming Interface), which can be used to retrieve data from the database lying behind a RDMO instance in a machine readable manner in different ways:
 
-## Authentication and access
-In order to access any data entered into RDMO through the programmable API, a user needs to have a token associated with him. This is done under **AUTH TOKEN / Tokens**. To create a token, click **Add token** on the button at the right and:
+* via the [Swagger interface](#api-access-via-swagger);
+* via the [RDMO API client](#rdmo-api-client);
+* with any HTTP speaking tool providing the necessary authentication token in the request's header, such as [`curl`](#api-access-via-curl);
+* tipying the [full URL](#api-addresses) into the browser.
+
+## Authentication
+In order to access any data entered into RDMO through the programmable API, a user needs to have a token associated with him or her. This operation can be done by an instance administrator in the Admin interface under **AUTH TOKEN / Tokens**.
+
+To create a token, click **Add token** on the button at the right and:
 
 1. Select the **user** for the new token.
 1. Save the token.
 
-The created token can be used instead of the username and the password when making HTTP requests from a non-browser client. The token needs to be provided in the HTTP header in following form.
+The created token can be used instead of the username and the password when making HTTP requests from a non-browser client. The token needs to be provided in the HTTP header with the following syntax:
 
 ```
 Authorization: Token 9944b09199c62bcf9418ad846dd0e4bbdfc6ee4b
 ```
 
-Only `Superusers` are allowed to access the API. You can check if your user has the required permissions by having a look into the user's details. If the user does not have the Superuser status any API request will fail producing status code 403.
-
-After creating a token, information can be retrieved from the database lying behind an instance via the API, in multiple ways:
-
-* tipying the [full URL](#api-addresses) into the browser;
-* with [curl commands (GET, POST, ...)](#api-access-via-curl);
-* via the [Swagger interface](#api-access-via-swagger);
-* via the [RDMO API client](#rdmo-api-client)
+Only `Superusers` are allowed to access the API. You can check if your user has the required permissions by having a look into the user's details. If the user does not have the Superuser status, any API request will fail, producing the status code 403.
 
 ## API addresses
 
