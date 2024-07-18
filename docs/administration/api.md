@@ -16,11 +16,12 @@ Authorization: Token 9944b09199c62bcf9418ad846dd0e4bbdfc6ee4b
 
 Only `Superusers` are allowed to access the API. You can check if your user has the required permissions by having a look into the user's details. If the user does not have the Superuser status any API request will fail producing status code 403.
 
-After creating a token, the API of an instance is accessible in multiple ways:
+After creating a token, information can be retrieved from the database lying behind an instance via the API, in multiple ways:
 
-* via the browser;
-* with the most common programming languages and the usual curl commands (GET, POST, ...);
-* via the Swagger interface.
+* tipying the [full URL](#api-addresses) into the browser;
+* with [curl commands (GET, POST, ...)](#api-access-via-curl);
+* via the [Swagger interface](#api-access-via-swagger);
+* via the [RDMO API client](#rdmo-api-client)
 
 ## API addresses
 
@@ -85,7 +86,7 @@ Many of the endpoints provide multiple filter functions that are accessible usin
 
 The list of all endpoints and their available filters is reported in the Swagger interface of the API. A static version is also available as [JSON description](../_static/others/api_description.json) file, which can be visualized with a visual editor such as the [Swagger Editor](https://editor.swagger.io).
 
-## API access via Swagger
+## API access via the Swagger interface
 
 Swagger is a set of tools built around the OpenAPI Specification. These tools help to design, build and document REST APIs. OpenAPI is already implemented in RDMO. The Swagger page in RDMO is provided by a python library called [Django REST Swagger](https://github.com/marcgibbons/django-rest-swagger).
 
@@ -101,7 +102,7 @@ Remove it or comment it out if you do not want swagger to be available. As you c
 
 If you request `http://$YOUR_RDMO/api/v1/?format=openapi` you get a detailed machine processable API description in JSON format.
 
-## API access via `curl`
+## API access via `curl` commands
 
 Libraries with curl commands are available for the most programming languages (Bash, Python, PHP, R, ...)
 
@@ -147,5 +148,5 @@ Note that strings of course need to be url encoded.
         "http://localhost/api/v1/options/options/?uri=https%3A%2F%2Frdmorganiser.github.io%2Fterms%2Foptions%2Fresearch_fields%2F216"
 ```
 
-## RDMO Client
-There is an RDMO Client written in Python which may help you to get started using the API. It is available on [GitHub](https://github.com/rdmorganiser/rdmo-client).
+## API access via the RDMO API Client
+There is an RDMO API Client written in Python which may help you to get started using the API. It is available on [GitHub](https://github.com/rdmorganiser/rdmo-client).
