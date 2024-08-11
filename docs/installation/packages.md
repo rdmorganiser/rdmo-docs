@@ -9,14 +9,21 @@ Change to the `rdmo-app` directory and create a [Virtual Environment](https://do
 ```{eval-rst}
 .. tabs::
 
-   .. code-tab:: sh Linux/MacOS
+   .. code-tab:: bash/zsh Linux/MacOS
 
       cd rdmo-app
       python3 -m venv env 
       source env/bin/activate
       pip install --upgrade pip setuptools        
 
-   .. code-tab:: pwsh Windows
+   .. code-tab:: bash Windows
+
+      cd rdmo-app
+      python3 -m venv env 
+      source env/Scripts/activate
+      pip install --upgrade pip setuptools
+
+   .. code-tab:: cmd/pwsh Windows
 
       cd rdmo-app
       python3 -m venv env 

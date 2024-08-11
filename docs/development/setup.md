@@ -1,12 +1,14 @@
 # Development setup
 
-This setup can be used to work on the core RDMO package as well as plugins. The main difference to the regular setup is that you can edit the source code and see the result in your local browser immediately.
+If you only want to test RDMO you can use the regular [installation](../installation) with the [development server](../deployment/development) to run RDMO on your laptop or workstation. In this case, the main `rdmo` Python package is installed from PyPI, just like in the production setup and cannot be edited.
 
-This setup should work on Linux, macOS and when using the Windows Subsystem for Linux, but unfortunately not on the regular Windows setup.
+This setup should also suffice when you want to work on [themes](../themes) or [plugins](../plugins) (see also the bottom of this page). 
+
+The deveopment setup described here, can be used to work on all parts of RDMO, in particular the source code of the `rdmo` package and the front-end components written in JavaScript.
 
 ## Install prerequisites
 
-Install the prerequisites for your Linux distribution as described [in the documentation](../installation/prerequisites).
+Install the prerequisites for your system as described [for the regular setup](../installation/prerequisites).
 
 ## Obtain repositories
 
@@ -48,14 +50,21 @@ Change into `rdmo-app` and create a Python virtual environment:
 ```{eval-rst}
 .. tabs::
 
-   .. code-tab:: bash Linux/MacOS
+   .. code-tab:: bash/zsh Linux/MacOS
 
       cd rdmo-app
       python3 -m venv env 
       source env/bin/activate
       pip install --upgrade pip setuptools        
 
-   .. code-tab:: pwsh Windows
+   .. code-tab:: bash Windows
+
+      cd rdmo-app
+      python3 -m venv env 
+      source env/Scripts/activate
+      pip install --upgrade pip setuptools
+
+   .. code-tab:: cmd/pwsh Windows
 
       cd rdmo-app
       python3 -m venv env 
@@ -124,11 +133,11 @@ The testing data can be imported using:
 ```{eval-rst}
 .. tabs::
 
-   .. code-tab:: bash Linux/MacOS
+   .. code-tab:: bash/zsh Linux/MacOS/Windows
 
       python manage.py loaddata ../rdmo/testing/fixtures/*     
 
-   .. code-tab:: pwsh Windows
+   .. code-tab:: cmd/pwsh Windows
 
       python manage.py loaddata ..\rdmo\testing\fixtures\accounts.json ^
                               ..\rdmo\testing\fixtures\conditions.json ^
@@ -150,16 +159,18 @@ The test upload files are initialized using:
 ```{eval-rst}
 .. tabs::
 
-   .. code-tab:: bash Linux/MacOS
+   .. code-tab:: bash/zsh Linux/MacOS/Windows
 
       cp -r ../rdmo/testing/media media_root
 
-   .. code-tab:: pwsh Windows
+   .. code-tab:: cmd/pwsh Windows
 
       xcopy ..\rdmo\testing\media media_root /e/s
 ```
 
-Starting from RDMO `2.0.0` we use [webpack](https://webpack.js.org/) to bundle the new React based front-end. For this [nodejs](https://nodejs.org) needs to be available. The preferred way is to use [nvm.sh](https://github.com/nvm-sh/nvm). It can be installed for the current user with:
+Starting from RDMO `2.0.0` we use [webpack](https://webpack.js.org/) to bundle the new React based front-end. For this [nodejs](https://nodejs.org) needs to be available. The preferred way is to use [nvm.sh](https://github.com/nvm-sh/nvm). On (regular) Windows, Node JS needs to be installed like the other [prerequisites](../installation/prerequisites) and the `nvm` part can be skipped here.
+
+`nvm.sh` can be installed for the current user with:
 
 ```
 wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
@@ -179,6 +190,11 @@ to your `.bashrc`. Then, inside of your `rdmo` repository, run:
 cd ../rdmo
 nvm install    # only once, to install the node version given in .nvmrc
 nvm use        # to activate the node version
+```
+
+Then `npm` can be used to download and install the javascript dependencies and build the front-end:
+
+```
 npm install    # to install the many, many javascript dependencies
 npm run watch  # to build the front-end and rebuild it when changing the source
 ```
@@ -234,7 +250,7 @@ In order to run the test suite, the `rdmo` repo itself can be setup in a similar
 ```{eval-rst}
 .. tabs::
 
-   .. code-tab:: bash Linux/MacOS
+   .. code-tab:: bash/zsh Linux/MacOS
 
       deactivate                                  # if you are already in an env
       cd path/to/rdmorganiser/rdmo
@@ -242,10 +258,18 @@ In order to run the test suite, the `rdmo` repo itself can be setup in a similar
       source env/bin/activate
       pip install --upgrade pip setuptools        
 
-   .. code-tab:: pwsh Windows
+   .. code-tab:: bash Windows
 
       deactivate                                  # if you are already in an env
       cd path/to/rdmorganiser/rdmo
+      python3 -m venv env 
+      source env/Scripts/activate
+      pip install --upgrade pip setuptools
+
+   .. code-tab:: cmd/pwsh Windows
+
+      deactivate                                  # if you are already in an env
+      cd path\to\rdmorganiser\rdmo
       python3 -m venv env 
       call env\Scripts\activate.bat
       pip install --upgrade pip setuptools

@@ -47,16 +47,28 @@ brew install basictex
 
 ## Windows
 
-On Windows, we recommend to use the [Windows Subsystem for Linux (WSL)](https://learn.microsoft.com/en-us/windows/wsl/install) to run RDMO. Once WSL is activated you can install Debian or Ubuntu using the Windows App Store and use the corresponding commands.
+On Windows, we **strongly** recommend to use the [Windows Subsystem for Linux (WSL)](https://learn.microsoft.com/en-us/windows/wsl/install) to run RDMO. Once WSL is activated you can install Debian or Ubuntu using the Windows App Store and use the corresponding commands given throughout this documentation.
 
-Otherwise, the software prerequisites need to be downloaded and installed from their particular web sites.
+Otherwise, and if you the adventurous type, the software prerequisites can be downloaded and installed from their particular web sites.
 
-For Python:
-* download from <https://www.python.org/downloads/windows/>
-* don't forget to check 'Add Python to environment variables' during setup
+VS Code (we recomend this as editor and also to use the included terminal):
+* download and install from https://code.visualstudio.com/
 
-For git:
-* download from <https://gitforwindows.org>
+Python 3.12:
+* download and install from <https://www.python.org/downloads/windows/>
+* check **Add Python to environment variables** during setup
+
+Node JS (only needed with the [development setup](../development/setup)):
+* download and install from <https://node.js.org/en/download/package-manager>
+* check https://github.com/rdmorganiser/rdmo/blob/main/.nvmrc for the major version used in RDMO (currently `18`)
+
+Git:
+* download and install from <https://gitforwindows.org>
+* use the default options during installation, except:
+   * use VS Code as default editor
+   * use **Override default branch name for new repositories** and set it to "main"
+   * use **Git from the command line and also from 3rd-party software**
+   * use **Only ever fast-forward**
 
 For Pandoc:
 * download from <https://github.com/jgm/pandoc/releases>
@@ -64,4 +76,4 @@ For Pandoc:
 For pdflatex (optional, for pdf export):
 * download from <http://miktex.org/>
 
-All further steps need to be performed using the windows shell `cmd.exe`. You can open it from the Start-Menu.
+All further steps can then be performed in the Git-Bash shell either stand-alone or integrated into VS code, the windows shell `cmd.exe`, or the PowerShell. Since the commands differ slightly for the different options, please check the corresponding code examples labeled `bash` or `cmd/pwsh`.
