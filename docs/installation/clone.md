@@ -1,6 +1,6 @@
 # Obtaining the app directory
 
-The next step is to create the `rdmo-app` directory by cloning the corresponding repository into the home directory of you `rdmo` user:
+The next step is to create the `rdmo-app` directory by cloning the corresponding repository into the home directory of your `rdmo` user:
 
 ```bash
 git clone https://github.com/rdmorganiser/rdmo-app
