@@ -105,7 +105,7 @@ server {
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
         proxy_set_header X-Forwarded-Proto $scheme;
         proxy_set_header X-Forwarded-Host $http_host;
-        proxy_pass http://unix:/run/gunicorn/rdmo/rdmo.sock;
+        proxy_pass http://unix:/run/gunicorn/rdmo.sock;
     }
 
     location /static/ {
