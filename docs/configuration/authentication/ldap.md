@@ -1,5 +1,7 @@
 # LDAP
 
+## Prerequisites
+
 In order to use a LDAP backend with RDMO you need to install some prerequistes. On Debian/Ubuntu you can install them using:
 
 ```bash
@@ -31,7 +33,9 @@ userPassword: RDMO_LDAP_ACCOUNT_PASSWORD
 
 and end with a blank line followed by `ctrl-d`.
 
-Then, in your `config/settings/local.py` add or uncomment:
+## Configuration
+
+In order to use LDAP as one of your authentication backends in RDMO, edit `config/settings/local.py` and add or uncomment:
 
 ```python
 import ldap
@@ -63,7 +67,40 @@ The connection can be tested using:
 ldapsearch -v -x -H 'ldap://ldap.example.com' -D "uid=rdmo,dc=ldap,dc=example,dc=com" -w RDMO_LDAP_ACCOUNT_PASSWORD -b "dc=ldap,dc=example,dc=com" -s sub 'uid=user'
 ```
 
-The setting `PROFILE_UPDATE = False` and `PROFILE_DELETE = False` tell RDMO to disable the update and deletion form for the user profile so that users can neither update their credentials nor delete their profile anymore. The other settings are needed by `django-auth-ldap` and are described in the [django-auth-ldap documentation](https://django-auth-ldap.readthedocs.io/en/latest/).
+The setting `PROFILE_UPDATE = False` and `PROFILE_DELETE = False` tell RDMO to disable the update and deletion form for the user profile so that users can neither update their credentials nor delete their profile anymore.
+
+The other settings are needed by `django-auth-ldap` and are described in the [django-auth-ldap documentation](https://django-auth-ldap.readthedocs.io/en/latest/).
+
+For an LDAP connection to an Active Directory, the configuration differs slightly:
+
+```python
+import ldap
+from django_auth_ldap.config import LDAPSearch
+
+PROFILE_UPDATE = False
+PROFILE_DELETE = False
+
+AUTH_LDAP_SERVER_URI = "ldap://ldap.example.com"
+AUTH_LDAP_BIND_DN = "cn=RDMO_LDAP_ACCOUNT_CN,dc=ldap,dc=example,dc=com"
+AUTH_LDAP_BIND_PASSWORD = "RDMO_LDAP_ACCOUNT_PASSWORD"
+AUTH_LDAP_USER_SEARCH = LDAPSearch("dc=ldap,dc=example,dc=com", ldap.SCOPE_SUBTREE, "(sAMAccountName=%(user)s)")
+AUTH_LDAP_CONNECTION_OPTIONS = {ldap.OPT_REFERRALS: 0}
+
+AUTH_LDAP_USER_ATTR_MAP = {
+    "first_name": "givenName",
+    "last_name": "sn",
+    'email': 'mail'
+}
+
+AUTHENTICATION_BACKENDS.insert(
+    AUTHENTICATION_BACKENDS.index('django.contrib.auth.backends.ModelBackend'),
+    'django_auth_ldap.backend.LDAPBackend'
+)
+```
+
+Again, your particular setup might differ.
+
+## Groups
 
 You can also map LDAP groups to Django groups, in particular to restrict the access to Catalogs and Views. This can be done by adding the following settings:
 
