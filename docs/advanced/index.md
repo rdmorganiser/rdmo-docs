@@ -57,3 +57,17 @@ Next you need to copy the `packages` and the `vendor` directory to the machine w
 pip install --upgrade --no-index --find-links /path/to/packages/ pip setuptools wheel
 pip install --upgrade --no-index --find-links /path/to/packages/ rdmo[allauth,postgres,gunicorn]
 ```
+
+## Use uv to install a custom Python version
+
+If you want to use a different Python version than your Linux distribution provides, you can use [uv](https://github.com/astral-sh/uv) to set it up. Note that this will only work for the Gunicorn setup. First install `uv`:
+
+```bash
+curl -LsSf https://astral.sh/uv/install.sh | sh
+```
+
+Then you can create a virtual enviroment with the desired Python version using, e.g.:
+
+```bash
+uv venv env --seed --python 3.13
+```
