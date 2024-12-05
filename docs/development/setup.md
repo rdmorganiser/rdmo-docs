@@ -72,10 +72,11 @@ Change into `rdmo-app` and create a Python virtual environment:
       pip install --upgrade pip setuptools
 ```
 
-Install `rdmo` in _editable_ mode:
+Install `rdmo` in _editable_ mode incl. dev-dependencies:
 
 ```
 pip install -e ../rdmo
+pip install -e ../"rdmo[dev]"
 ```
 
 This links the cloned `rdmo` repo in a way that changes to the code will be available to the development server instantly.
@@ -114,6 +115,8 @@ PASSWORD_HASHERS = ("django.contrib.auth.hashers.MD5PasswordHasher",)
 If you want to use the browsable API, that comes with the Django Rest Framework add:
 
 ```python
+from rdmo.core.settings import REST_FRAMEWORK
+
 REST_FRAMEWORK['DEFAULT_RENDERER_CLASSES'] = (
     'rest_framework.renderers.JSONRenderer',
     'rest_framework.renderers.BrowsableAPIRenderer',
@@ -173,7 +176,7 @@ Starting from RDMO `2.0.0` we use [webpack](https://webpack.js.org/) to bundle t
 `nvm.sh` can be installed for the current user with:
 
 ```
-wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
+wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash
 ```
 
 After the installation add:
