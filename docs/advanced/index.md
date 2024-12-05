@@ -69,5 +69,5 @@ curl -LsSf https://astral.sh/uv/install.sh | sh
 Then you can create a virtual enviroment with the desired Python version using, e.g.:
 
 ```bash
-uv venv env --seed --python 3.13
+uv venv env --seed --python 3.12
 ```
