@@ -66,7 +66,7 @@ If you want to use a different Python version than your Linux distribution provi
 curl -LsSf https://astral.sh/uv/install.sh | sh
 ```
 
-Then you can create a virtual enviroment with the desired Python version using, e.g.:
+Then you can create a virtual environment with the desired Python version using, e.g.:
 
 ```bash
 uv venv env --seed --python 3.12
