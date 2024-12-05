@@ -61,6 +61,19 @@ to your `config/settings/local.py`. The setting `SOCIALACCOUNT = True` is used b
 
 Once the installation is complete, the credentials of your OAUTH provider need to be entered in the admin interface. This is covered in the [administration chapter](../../administration/allauth) of this documentation.
 
+### Groups
+
+RDMO can be configured to add users from certain 3rd party accounts automatically to certain groups, e.g. 
+
+```
+SOCIALACCOUNT_GROUPS = {
+    'gitlab': ['gitlab'],
+    'orcid': ['orcid']
+}
+```
+
+This can be used to [restrict project creation](../projects) based on authentication method.
+
 
 ## Other 3rd party authentication solutions
 
