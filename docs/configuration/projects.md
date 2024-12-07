@@ -46,3 +46,14 @@ Project import and export plugins are described [in the chapter on plugins](/plu
 ## Project invitations
 
 Project invitation settings are described [in the section on email](/configuration/email.html#invite-users-to-projects).
+
+## Restrict project creation
+
+The creation of new projects can be restricted to certain groups. This is particularly useful in a scenario where users from one authentication method (e.g. LDAP) are automatically placed in the `internal` group, while users from another (e.g. ORCID) are not:
+
+```python
+PROJECT_CREATE_RESTRICTED = True
+PROJECT_CREATE_GROUPS = [
+    'internal'
+]
+```
