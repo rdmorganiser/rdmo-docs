@@ -29,9 +29,9 @@ We recommend to install the prerequisites using the packaging system of your dis
          texlive-xetex-def texlive-xltxtra librsvg2-tools
 ```
 
-On RHEL/CentOS SELinux is enabled by default. This can result in unexpected errors, depending on where you store the RDMO source code on the system. Some guidance on how to configure SELinux is given at [here](../advanced/index).
+On RHEL/CentOS SELinux is enabled by default. This can result in unexpected errors, depending on where you store the RDMO source code on the system. Some guidance on how to configure SELinux is given at [here](../advanced/index.md#selinux).
 
-If the Python version on your system is no longer supported by RDMO, we strongly recommend that you upgrade your Linux distribution, as it is likely to be out of date. If you decide otherwise, it is relatively easy to install a different Python version using [uv](https://github.com/astral-sh/uv). Instructions can be found [here](../advanced/index).
+If the Python version on your system is no longer supported by RDMO, we strongly recommend that you upgrade your Linux distribution, as it is likely to be out of date. If you decide otherwise, it is relatively easy to install a different Python version using [uv](https://github.com/astral-sh/uv). Instructions can be found [here](../advanced/index.md#use-uv-to-install-a-custom-python-version).
 
 ## macOS
 
