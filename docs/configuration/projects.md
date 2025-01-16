@@ -21,7 +21,7 @@ PROJECT_VIEWS = False
 
 ## Sending tasks
 
-Sending tasks from projects is described [in the section on email](/configuration/email.html#send-tasks-via-email).
+Sending tasks from projects is described [in the section on email](/configuration/email.md#send-tasks-via-email).
 
 ## Nested projects
 
@@ -45,7 +45,7 @@ Project import and export plugins are described [in the chapter on plugins](/plu
 
 ## Project invitations
 
-Project invitation settings are described [in the section on email](/configuration/email.html#invite-users-to-projects).
+Project invitation settings are described [in the section on email](/configuration/email.md#invite-users-to-projects).
 
 ## Restrict project creation
 

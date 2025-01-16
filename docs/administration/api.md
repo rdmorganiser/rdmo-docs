@@ -2,9 +2,9 @@
 
 RDMO has an API (Application Programming Interface), which can be used to retrieve data from the database lying behind a RDMO instance in a machine readable manner in different ways:
 
-* via the [Swagger interface](#api-access-via-swagger);
-* via the [RDMO API client](#rdmo-api-client);
-* with any HTTP speaking tool providing the necessary authentication token in the request's header, such as [`curl`](#api-access-via-curl);
+* via the [Swagger interface](#api-access-via-the-swagger-interface);
+* via the [RDMO API client](#api-access-via-the-rdmo-api-client);
+* with any HTTP speaking tool providing the necessary authentication token in the request's header, such as [`curl`](#api-access-via-curl-commands);
 * tipying the [full URL](#api-addresses) into the browser.
 
 ## Authentication

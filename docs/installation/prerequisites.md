@@ -78,4 +78,4 @@ For Pandoc:
 For pdflatex (optional, for pdf export):
 * download from <http://miktex.org/>
 
-All further steps can then be performed in the Git-Bash shell either stand-alone or integrated into VS code, the windows shell `cmd.exe`, or the PowerShell. Since the commands differ slightly for the different options, please check the corresponding code examples labeled `bash` or `cmd/pwsh`.
+All further steps can then be performed in the Git-Bash shell either stand-alone or integrated into VS code, the windows shell `cmd.exe`, or the PowerShell. Since the commands differ slightly for the different options, please check the corresponding code examples labeled `bash` or `powershell`.

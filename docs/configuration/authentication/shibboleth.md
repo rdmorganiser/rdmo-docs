@@ -144,7 +144,7 @@ SHIBBOLETH_LOGIN_URL = None
 
 ## Alternatives to Shibboleth
 
-Please look under [django-allauth](./allauth.html#other-3rd-party-authentication-solutions) for information on other possible alternatives.
+Please look under [django-allauth](./allauth.md#other-3rd-party-authentication-solutions) for information on other possible alternatives.
 
 ### Keycloak and Satosa
 
