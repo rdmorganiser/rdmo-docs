@@ -1,14 +1,14 @@
 # Development setup
 
-If you only want to test RDMO you can use the regular [installation](../installation) with the [development server](../deployment/development) to run RDMO on your laptop or workstation. In this case, the main `rdmo` Python package is installed from PyPI, just like in the production setup and cannot be edited.
+If you only want to test RDMO you can use the regular [installation](../installation/index.md#installation) with the [development server](../deployment/development) to run RDMO on your laptop or workstation. In this case, the main `rdmo` Python package is installed from PyPI, just like in the production setup and cannot be edited.
 
-This setup should also suffice when you want to work on [themes](../themes) or [plugins](../plugins) (see also the bottom of this page). 
+This setup should also suffice when you want to work on [themes](../themes/index.md#themes) or [plugins](../plugins/index.md#plugins) (see also the bottom of this page). 
 
 The deveopment setup described here, can be used to work on all parts of RDMO, in particular the source code of the `rdmo` package and the front-end components written in JavaScript.
 
 ## Install prerequisites
 
-Install the prerequisites for your system as described [for the regular setup](../installation/prerequisites).
+Install the prerequisites for your system as described [for the regular setup](../installation/prerequisites.md#install-prerequisites).
 
 ## Obtain repositories
 
@@ -50,7 +50,7 @@ Change into `rdmo-app` and create a Python virtual environment:
 ```{eval-rst}
 .. tabs::
 
-   .. code-tab:: bash/zsh Linux/MacOS
+   .. code-tab:: bash Linux/MacOS
 
       cd rdmo-app
       python3 -m venv env 
@@ -64,7 +64,7 @@ Change into `rdmo-app` and create a Python virtual environment:
       source env/Scripts/activate
       pip install --upgrade pip setuptools
 
-   .. code-tab:: cmd/pwsh Windows
+   .. code-tab:: powershell Windows
 
       cd rdmo-app
       python3 -m venv env 
@@ -136,11 +136,11 @@ The testing data can be imported using:
 ```{eval-rst}
 .. tabs::
 
-   .. code-tab:: bash/zsh Linux/MacOS/Windows
+   .. code-tab:: bash Linux/MacOS/Windows
 
       python manage.py loaddata ../rdmo/testing/fixtures/*     
 
-   .. code-tab:: cmd/pwsh Windows
+   .. code-tab:: powershell Windows
 
       python manage.py loaddata ..\rdmo\testing\fixtures\accounts.json ^
                               ..\rdmo\testing\fixtures\conditions.json ^
@@ -162,11 +162,11 @@ The test upload files are initialized using:
 ```{eval-rst}
 .. tabs::
 
-   .. code-tab:: bash/zsh Linux/MacOS/Windows
+   .. code-tab:: bash Linux/MacOS/Windows
 
       cp -r ../rdmo/testing/media media_root
 
-   .. code-tab:: cmd/pwsh Windows
+   .. code-tab:: powershell Windows
 
       xcopy ..\rdmo\testing\media media_root /e/s
 ```
@@ -210,7 +210,7 @@ python manage.py runserver
 
 You can access the application at http://localhost:8000 in your browser and can log in using different users:
 
-```plain
+```
 admin    -> superuser
 site     -> site manager
 
@@ -253,7 +253,7 @@ In order to run the test suite, the `rdmo` repo itself can be setup in a similar
 ```{eval-rst}
 .. tabs::
 
-   .. code-tab:: bash/zsh Linux/MacOS
+   .. code-tab:: bash Linux/MacOS
 
       deactivate                                  # if you are already in an env
       cd path/to/rdmorganiser/rdmo
@@ -269,7 +269,7 @@ In order to run the test suite, the `rdmo` repo itself can be setup in a similar
       source env/Scripts/activate
       pip install --upgrade pip setuptools
 
-   .. code-tab:: cmd/pwsh Windows
+   .. code-tab:: powershell Windows
 
       deactivate                                  # if you are already in an env
       cd path\to\rdmorganiser\rdmo

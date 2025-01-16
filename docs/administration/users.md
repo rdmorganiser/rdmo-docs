@@ -25,7 +25,7 @@ Users of the group editor can access the [management interface](../management/in
 Users of the group reviewer can access the [management interface](../management/index), like editors, but are not allowed to change them (Save will not work). This group can be used to demonstrate the management backend of RDMO to certain users.
 
 ### API
-Users of the group api can use the programmable API to access all elements of the data model. They will need a [token](../administration/api#authentication) to use an api client.
+Users of the group api can use the programmable API to access all elements of the data model. They will need a [token](../administration/api.md#authentication) to use an api client.
 
 Existing users can be assigned to these groups to gain access to these functions:
 

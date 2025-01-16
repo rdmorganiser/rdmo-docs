@@ -9,7 +9,7 @@ Change to the `rdmo-app` directory and create a [Virtual Environment](https://do
 ```{eval-rst}
 .. tabs::
 
-   .. code-tab:: bash/zsh Linux/MacOS
+   .. code-tab:: bash Linux/MacOS
 
       cd rdmo-app
       python3 -m venv env 
@@ -23,7 +23,7 @@ Change to the `rdmo-app` directory and create a [Virtual Environment](https://do
       source env/Scripts/activate
       pip install --upgrade pip setuptools
 
-   .. code-tab:: cmd/pwsh Windows
+   .. code-tab:: powershell Windows
 
       cd rdmo-app
       python3 -m venv env 

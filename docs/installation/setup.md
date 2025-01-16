@@ -9,11 +9,11 @@ You can use `config/settings/sample.local.py` as template, i.e.:
 ```{eval-rst}
 .. tabs::
 
-   .. code-tab:: bash/zsh Linux/MacOS/Windows
+   .. code-tab:: bash Linux/MacOS/Windows
 
       cp config/settings/sample.local.py config/settings/local.py
 
-   .. code-tab:: cmd/pwsh Windows
+   .. code-tab:: powershell Windows
 
       copy config\settings\sample.local.py config\settings\local.py
 ```
