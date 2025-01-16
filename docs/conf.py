@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-RDMO_VERSION = '1.1'
+RDMO_VERSION = '2.2'
 
 # RDMO Documentation documentation build configuration file, created by
 # sphinx-quickstart on Fri Mar  3 11:25:56 2017.
@@ -24,8 +24,8 @@ import sphinx_rtd_theme
 # -- General configuration ------------------------------------------------
 
 # If your documentation needs a minimal Sphinx version, state it here.
-#
-# needs_sphinx = '1.0'
+
+needs_sphinx = '8.1.3'
 
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
@@ -46,20 +46,17 @@ templates_path = ['_templates']
 # The suffix(es) of source filenames.
 # You can specify multiple suffixes as a list of strings:
 #
-source_suffix = {
-    '.txt': 'markdown',
-    # '.md': 'markdown',
-}
+source_suffix = ['.txt']
 
 # The master toctree document.
 master_doc = 'index'
 
 # General information about the project.
-project = u'RDMO Documentation'
-copyright = u'2015-2018 Leibniz Institute for Astrophysics Potsdam (AIP). As part of the RDMO source code repository, this documentation is licensed under the Apache License, Version 2.0'
-author = u'RDMO project'
+project = 'RDMO Documentation'
+copyright = '2015-2018 Leibniz Institute for Astrophysics Potsdam (AIP). As part of the RDMO source code repository, this documentation is licensed under the Apache License, Version 2.0'
+author = 'RDMO project'
 
-# The version info for the project you're documenting, acts as a replacement for
+# The version info for the project yo're documenting, acts as a replacement for
 # |version| and |release|, also used in various other places throughout the
 # built documents.
 #
@@ -138,8 +135,8 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    (master_doc, 'RDMODocumentation.tex', u'RDMO Documentation Documentation',
-     u'RDMO project', 'manual'),
+    (master_doc, 'RDMODocumentation.tex', 'RDMO Documentation Documentation',
+     'RDMO project', 'manual'),
 ]
 
 
@@ -148,7 +145,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    (master_doc, 'rdmodocumentation', u'RDMO Documentation Documentation',
+    (master_doc, 'rdmodocumentation', 'RDMO Documentation Documentation',
      [author], 1)
 ]
 
@@ -159,7 +156,10 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-    (master_doc, 'RDMODocumentation', u'RDMO Documentation Documentation',
+    (master_doc, 'RDMODocumentation', 'RDMO Documentation Documentation',
      author, 'RDMODocumentation', 'One line description of project.',
      'Miscellaneous'),
 ]
+
+# -- Options for myst extensions -------------------------------------------
+myst_heading_anchors = 3  # Add anchors to headings up to level 3
