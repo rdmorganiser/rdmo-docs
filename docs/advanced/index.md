@@ -71,3 +71,34 @@ Then you can create a virtual environment with the desired Python version using,
 ```bash
 uv venv env --seed --python 3.12
 ```
+
+## Content Security Policies
+
+[Content Security Policies](https://en.wikipedia.org/wiki/Content_Security_Policy) are a security feature to tell the users browser to restrict what the web application is allowed to do. This is done by setting HTTP headers independent of the RDMO application.
+
+For NGINX, you can create the following file in `/etc/nginx/snippets/security.conf`:
+
+```nginx
+add_header Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-eval' 'unsafe-inline'; style-src 'self' 'unsafe-inline';";
+add_header Strict-Transport-Security "max-age=15768000";
+add_header X-Frame-Options "SAMEORIGIN" always;
+add_header X-Content-Type-Options "nosniff" always;
+add_header Referrer-Policy "no-referrer-when-downgrade";
+add_header Permissions-Policy "accelerometer=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=()";
+```
+
+The snippet is then included in the virtual host configuration using:
+
+```
+server {
+
+    ...
+
+    include /etc/nginx/snippets/security.conf;
+
+    ...
+
+}
+```
+
+The website <https://securityheaders.com/> can be used to check the headers.
