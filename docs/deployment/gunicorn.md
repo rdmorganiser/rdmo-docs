@@ -8,7 +8,7 @@ First install gunicorn inside your virtual environment:
 pip install rdmo[gunicorn]
 ```
 
-As explained [here](../configuration/general.html#optional-reverse-proxy), you need to add the following:
+As explained [here](../configuration/general.md#optional-reverse-proxy), you need to add the following:
 
 ```
 USE_X_FORWARDED_HOST = True

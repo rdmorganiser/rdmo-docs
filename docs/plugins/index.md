@@ -48,7 +48,7 @@ The `Export` plugin class needs to implement a `render()` function which takes n
 
 Please refer to <https://github.com/rdmorganiser/rdmo/blob/main/rdmo/projects/exports.py> for the default project export plugins and code examples. The code which uses the plugin is located in <https://github.com/rdmorganiser/rdmo/blob/main/rdmo/projects/views/project.py> (`ProjectExportView`).
 
-A special kind of export plugins are `ExportProvider`. Instead of just returning an output file to be displayed or downloaded, they connect to a different web service. In addition to the `render()` function, they also need to implement a `submit()` function. The `render()` is displayed on the initial HTTP GET request and can show a form, e.g. to display options for the export. The `submit()` function is called on the subsequent form submisstion, the HTTP POST request.
+A special kind of export plugins are `ExportProvider`. Instead of just returning an output file to be displayed or downloaded, they connect to a different web service. In addition to the `render()` function, they also need to implement a `submit()` function. The `render()` is displayed on the initial HTTP GET request and can show a form, e.g. to display options for the export. The `submit()` function is called on the subsequent form submission, the HTTP POST request.
 
 An `ExportProvider` can be combined with the `OauthProviderMixin` to use an OAuth2 authentication with the external web service. Please refer to <https://github.com/rdmorganiser/rdmo-plugins/blob/main/rdmo_plugins/exports/zenodo.py> for a simple or to <https://github.com/rdmorganiser/rdmo-plugins/blob/main/rdmo_plugins/exports/radar/providers.py> for a more complicated example.
 
@@ -91,7 +91,7 @@ The import plugin needs to be added to the `PROJECT_IMPORTS` in `config/settings
 
 ```python
 PROJECT_IMPORTS = [
-    ('xml', _('from RDMP XML'), 'rdmo.projects.imports.RDMOXMLImport'),
+    ('xml', _('from RDMO XML'), 'rdmo.projects.imports.RDMOXMLImport'),
 ]
 ```
 
@@ -99,7 +99,7 @@ In order to use the plugins in [rdmo-catalog](https://github.com/rdmorganiser/rd
 
 ```python
 PROJECT_IMPORTS = [
-    ('xml', _('from RDMP XML'), 'rdmo.projects.imports.RDMOXMLImport'),
+    ('xml', _('from RDMO XML'), 'rdmo.projects.imports.RDMOXMLImport'),
     ('madmp', _('from maDMP'), 'rdmo_plugins.imports.madmp.MaDMPImport'),
     ('datacite', _('from DataCite XML'), 'rdmo_plugins.imports.datacite.DataCiteImport'),
     ('radar', _('from RADAR XML'), 'rdmo_plugins.imports.radar.RadarImport'),
@@ -156,9 +156,9 @@ The re3data optionset will query [re3data.org](https://www.re3data.org/) for rep
 s
 After configuration of the re3data optionset plugin a new optionset must be added in _Management_ → _Option sets_ → _Create new option set_. In the _Create option set_ choose the re3data Provider in the provider field. Don't forget to choose an appropriate key.
 
-This plugin uses two steps and therefore needs two questions configured in your catalog. Choose _Management_ → _Questions_ and then on the right side the cataloge where you want to use the plugin.
+This plugin uses two steps and therefore needs two questions configured in your catalog. Choose _Management_ → _Questions_ and then on the right side the catalog where you want to use the plugin.
 - The first question is the research field and must have the _Attribute_ `project/research_field/title` with the _Option set_ `options/research_fields`. Select _is collection_, if you want to select more than one research field. Select appropriate widget type like Drop-Down or Autocomplete with _Value type_ Text.
-- The second question uses the _Attribute_ of the first question `project/research_field/title`. As _Attribute_ you can use the existing one `project/dataset/sharing/repository` or create your own one (_Management_ → _Domain_, see [Domain](management/domain)). Select the previous created _Option set_ (re3data). Also choose appropriate _Widget type_ like _Select drop-down_ with _Value type_ Text.
+- The second question uses the _Attribute_ of the first question `project/research_field/title`. As _Attribute_ you can use the existing one `project/dataset/sharing/repository` or create your own one (_Management_ → _Domain_, see [Domain](../management/data-model.md#data-model)). Select the previous created _Option set_ (re3data). Also choose appropriate _Widget type_ like _Select drop-down_ with _Value type_ Text.
 
 
 ## Issue providers
@@ -198,7 +198,7 @@ Additionally, but probably only if the project in RDMO is also managed by RDMO s
 
 ### GitLab issue provider
 
-The GitLab issue provider works almost exactly like the GitHub provider, with the exception that the `GITLAB_PROVIDER` setiings must contain a `gitlab_url` entry, e.g.:
+The GitLab issue provider works almost exactly like the GitHub provider, with the exception that the `GITLAB_PROVIDER` settings must contain a `gitlab_url` entry, e.g.:
 
 ```python
 SERVICE_PROVIDERS = [
