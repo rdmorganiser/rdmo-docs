@@ -4,7 +4,7 @@ If you only want to test RDMO you can use the regular [installation](../installa
 
 This setup should also suffice when you want to work on [themes](../themes/index.md#themes) or [plugins](../plugins/index.md#plugins) (see also the bottom of this page). 
 
-The deveopment setup described here, can be used to work on all parts of RDMO, in particular the source code of the `rdmo` package and the front-end components written in JavaScript.
+The development setup described here, can be used to work on all parts of RDMO, in particular the source code of the `rdmo` package and the front-end components written in JavaScript.
 
 ## Install prerequisites
 
@@ -57,14 +57,14 @@ Change into `rdmo-app` and create a Python virtual environment:
       source env/bin/activate
       pip install --upgrade pip setuptools        
 
-   .. code-tab:: bash Windows
+   .. code-tab:: bash Windows Bash
 
       cd rdmo-app
       python3 -m venv env 
       source env/Scripts/activate
       pip install --upgrade pip setuptools
 
-   .. code-tab:: powershell Windows
+   .. code-tab:: powershell Windows Powershell
 
       cd rdmo-app
       python3 -m venv env 
@@ -140,7 +140,7 @@ The testing data can be imported using:
 
       python manage.py loaddata ../rdmo/testing/fixtures/*     
 
-   .. code-tab:: powershell Windows
+   .. code-tab:: powershell Windows Powershell
 
       python manage.py loaddata ..\rdmo\testing\fixtures\accounts.json ^
                               ..\rdmo\testing\fixtures\conditions.json ^
@@ -166,7 +166,7 @@ The test upload files are initialized using:
 
       cp -r ../rdmo/testing/media media_root
 
-   .. code-tab:: powershell Windows
+   .. code-tab:: powershell Windows Powershell PowerShell
 
       xcopy ..\rdmo\testing\media media_root /e/s
 ```
@@ -261,7 +261,7 @@ In order to run the test suite, the `rdmo` repo itself can be setup in a similar
       source env/bin/activate
       pip install --upgrade pip setuptools        
 
-   .. code-tab:: bash Windows
+   .. code-tab:: bash Windows Bash
 
       deactivate                                  # if you are already in an env
       cd path/to/rdmorganiser/rdmo
@@ -269,13 +269,13 @@ In order to run the test suite, the `rdmo` repo itself can be setup in a similar
       source env/Scripts/activate
       pip install --upgrade pip setuptools
 
-   .. code-tab:: powershell Windows
+   .. code-tab:: powershell Windows Powershell PowerShell
 
       deactivate                                  # if you are already in an env
       cd path\to\rdmorganiser\rdmo
       python3 -m venv env 
-      call env\Scripts\activate.bat
-      pip install --upgrade pip setuptools
+      env\Scripts\Activate.ps1
+      .\env\Scripts\python.exe -m pip install -U pip setuptools
 ```
 
 Again install `rdmo` in editable mode and install the database prerequisites:
