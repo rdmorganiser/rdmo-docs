@@ -46,7 +46,9 @@ templates_path = ['_templates']
 # The suffix(es) of source filenames.
 # You can specify multiple suffixes as a list of strings:
 #
-source_suffix = ['.txt']
+source_suffix = {
+    '.md': 'markdown',
+}
 
 # The master toctree document.
 master_doc = 'index'
@@ -56,7 +58,7 @@ project = 'RDMO Documentation'
 copyright = '2015-2018 Leibniz Institute for Astrophysics Potsdam (AIP). As part of the RDMO source code repository, this documentation is licensed under the Apache License, Version 2.0'
 author = 'RDMO project'
 
-# The version info for the project yo're documenting, acts as a replacement for
+# The version info for the project you're documenting, acts as a replacement for
 # |version| and |release|, also used in various other places throughout the
 # built documents.
 #
@@ -75,13 +77,20 @@ language = 'en'
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
 # These patterns also affect html_static_path and html_extra_path
-exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store', '*~', '*.swp']
+exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store', '*~', '*.swp', '.pytest_cache', '.tox', '.venv', '.mypy_cache']
+
 
 # The name of the Pygments (syntax highlighting) style to use.
 pygments_style = 'sphinx'
 
 # If true, `todo` and `todoList` produce output, else they produce nothing.
 todo_include_todos = False
+
+
+default_role = 'any'  # keeps md style links working,'autolink' for making :doc: :ref: easier to use
+
+# for sphinx.ext.autodoc
+autodoc_typehints = "description"
 
 
 # -- Options for HTML output ----------------------------------------------
@@ -95,7 +104,12 @@ html_theme = 'sphinx_rtd_theme'
 # further.  For a list of options available for each theme, see the
 # documentation.
 #
-# html_theme_options = {}
+html_theme_options = {
+    'navigation_depth': 3,
+    'collapse_navigation': False,
+    'style_external_links': True,
+}
+
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
