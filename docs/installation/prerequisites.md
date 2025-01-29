@@ -53,7 +53,7 @@ On Windows, we **strongly** recommend to use the [Windows Subsystem for Linux (W
 
 Otherwise, and if you the adventurous type, the software prerequisites can be downloaded and installed from their particular web sites.
 
-VS Code (we recomend this as editor and also to use the included terminal):
+VS Code (we recommend this as editor and also to use the included terminal):
 * download and install from https://code.visualstudio.com/
 
 Python 3.12:

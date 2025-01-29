@@ -19,7 +19,7 @@ Reviewers for a site can access the [management interface](../management/index),
 During the installation, the `./manage setup_groups` can be used to create 3 groups:
 
 ### Editor
-Users of the group editor can access the [management interface](../management/index) and can edit all elements of the data model, except the user data entered through the structured inteview.
+Users of the group editor can access the [management interface](../management/index) and can edit all elements of the data model, except the user data entered through the structured interview.
 
 ### Reviewer
 Users of the group reviewer can access the [management interface](../management/index), like editors, but are not allowed to change them (Save will not work). This group can be used to demonstrate the management backend of RDMO to certain users.
