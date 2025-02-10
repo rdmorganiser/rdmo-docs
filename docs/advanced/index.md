@@ -101,4 +101,4 @@ server {
 }
 ```
 
-The website <https://securityheaders.com/> can be used to check the headers.
+The website <https://securityheaders.com/> can be used to check the headers. <https://djcheckup.com> checks some Django related things in addition.
