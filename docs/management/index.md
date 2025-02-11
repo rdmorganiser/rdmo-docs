@@ -12,5 +12,5 @@ data-model
 views
 export
 roles
-catalogdevelopment
+catalog-development
 ```
