@@ -1,6 +1,5 @@
 # Guide to develop a catalog in RDMO
 
-
 ## Introduction
 
 This document is a guide to creating catalogues. It contains step-by-step instructions for creating a simple Catalog. If you have never created a Data Management Plan (DMP) catalogue in RDMO, it is recommended that you work through these steps on your own instance of RDMO.  
