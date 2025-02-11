@@ -20,7 +20,7 @@ Catalog
   
 Catalogs consist of (thematically distinct) Sections, which may span multiple pages. Pages are essentially (the entire scrollable area of) screens containing the questions (possibly organised into question sets). Questions can be of different types, distinguished by the type of response expected (e.g. text box, checkbox, date picker or range slider).
 
-The ==creation of a new [*Catalog*](#Catalog) must be done in this order==, and this is the order in which it is described in this [manual](#Getting-started).
+The creation of a new [*Catalog*](#Catalog) must be done in this order, and this is the order in which it is described in this [manual](#Getting-started).
 
 ## Getting started
 
@@ -58,7 +58,7 @@ If not already done, import the default option sets:
 * Go to the `Management` section and `import` the  "optionsets.xml" file in the same way as you imported the attributes before. RDMO will again show you a summary of all the option sets being imported.  
 * Continue with the import button.
 
-# Step-by-Step guide to a first Catalog
+## Step-by-Step guide to a first Catalog
 
 In this guide we will show you how to create a simple catalog to help you get started. We will show you how to create a catalog with two sections and two pages. All the steps we provide can be repeated to create a full catalog.
 
@@ -75,7 +75,7 @@ In the end, the Catalog should look something like this mockup:
 
 The Page on the left shows the Question about the funding body, and the Page on the right allows users to create different tabs (one for each dataset). For information about the creator(s) of the dataset(s), different creators can be added using the green button.
 
-## Initial setup
+### Initial setup
 
 You should see a screen like this when you open RDMO:
 
@@ -83,7 +83,7 @@ You should see a screen like this when you open RDMO:
 > *First Page after Login*
 
 
-## Creating the new Catalog
+## Creating a new Catalog
 
 Click on `Management` in the top navigation bar. In a fresh RDMO it will look like this: 
 
@@ -119,13 +119,13 @@ There are several fields we need to fill in:
 * The `Title` text box is for the title of the Catalog. We choose "*Meaningful Catalog*".  
 * In the `Help` text box, you can enter details about the Catalog. This text will be visible to the users in the catalog overview when they create a project. So the help text should explain what this catalog is intended for (e.g. it is specifically designed for art history research projects).  
 * If your RDMO supports multiple languages, you should fill in all the fields in all the languages.   
-* You can also give your new Catalog an order. The order is just a number that determines the order in which the Catalogs are displayed in the ==various== RDMO menus. If the RDMO instance has just been set up, any small number should be fine (e.g. "1").
+* You can also give your new Catalog an order. The order is just a number that determines the order in which the Catalogs are displayed in the various RDMO menus. If the RDMO instance has just been set up, any small number should be fine (e.g. "1").
 
 ![](../_static/img/how-to-guide/catalog_buttons.PNG)
 > *Explanation of the Fields*
 
 ```{admonition} Info
-If you also see the `Sites` and `Editors` fields ==(see Figure XYZ),== you are on a hosted RDMO service / multi-site instance of RDMO. *Sites* allows you to specify on which sub-instances the *Catalog* will be available and *Editors* allows you to select who can edit the *Catalog*.
+If you also see the `Sites` and `Editors` fields , you are on a hosted RDMO service / multi-site instance of RDMO. *Sites* allows you to specify on which sub-instances the *Catalog* will be available and *Editors* allows you to select who can edit the *Catalog*.
 ```
 
 ![](../_static/img/how-to-guide/sites_editors.PNG)
@@ -150,7 +150,7 @@ Enter the `Title` of the [*Section*](#Sections). This will be displayed prominen
 
 Click `Create and continue editing` to create the new section.
 
-At the top of the web page you should now see that the section is being used in a Catalog ==(see Figure XYZ)==. You can click on the down arrow to view this catalog. It is the one we have just created. If you reuse this section later in another [*Catalog*](#Catalog), it will also appear here.
+At the top of the web page you should now see that the section is being used in a Catalog. You can click on the down arrow to view this catalog. It is the one we have just created. If you reuse this section later in another [*Catalog*](#Catalog), it will also appear here.
 
 ![](../_static/img/how-to-guide/used_sections.PNG)
 > *Indicator how often a Section is used in different Catalogs*
@@ -199,7 +199,7 @@ We will now add a new element to our page. Elements can be [*Questions*](#Questi
 https://rdmorganiser.github.io/terms/domain/project/funder/name 
 
 ```{admonition} Info
-**Important Note**: Each *Attribute* must only be used **once** in a *Catalog*. If you use an *Attribute* twice, the answers to different *Questions* will overwrite each other. ==There is only one exception, where an *Attribute* can be used more than once. We will cover this later when we create the next *Page*.==
+**Important Note**: Each *Attribute* must only be used **once** in a *Catalog*. If you use an *Attribute* twice, the answers to different *Questions* will overwrite each other. There is only one exception, where an *Attribute* can be used more than once. We will cover this later when we create the next *Page*.
 ```
 
 * The ['Widget type'](#Widget-type-also-data-type-information-type-input-options) allows you to define the type and answer possibilities of your current [*Question*](#Questions) (e.g. `Textarea` for longer answers, `Text` for short answers or `Radio buttons` for pre-defined answers).  We will cover radio buttons and pre-defined answers later when we create the [*Question set*](#Question-sets). For now, we will choose `Text,` as usually only a short line is needed for names.  
@@ -338,7 +338,7 @@ We add a new [*Question*](#Questions) to ask for the primary email address of th
 * When looking for a fitting attribute, we do not find a perfect match. For the sake of simplicity in this guide, we choose  
    `https://rdmorganiser.github.io/terms/domain/project/dataset/preservation/responsible_person/email`  
     
-==But it is not ideal, as the semantics indicate that it is the e-mail address of a person responsible for the preservation of the dataset. We could also create a new attribute, but we want to avoid this extra work for now.==  
+But it is not ideal, as the semantics indicate that it is the e-mail address of a person responsible for the preservation of the dataset. We could also create a new attribute, but we want to avoid this extra work for now.  
     
 * Click on `Create` and finish creating this [*Question*](#Questions). You should now be back at the level of our [*Question set*](#Question-sets). At the bottom of the *Elements* pane, you should now see the two questions that are part of this [*Question set*](#Question-sets).
 
@@ -388,7 +388,7 @@ It will take some time to get to know all the options that RDMO provides through
 
 * Once you have selected your optionset, click on the `save` button. This [*Question*](#Questions) form will close and you will be returned to the [*Page*](#Pages) you came from. Click `save` again to save your changes.
 
-## Check that everything has worked
+### Check that everything has worked
 
 * Click on `Catalogs` In the right-hand navigation area. This will display all available [*Catalogs*](#Catalog). Find your new [*Catalog*](#Catalog) (you can search for a phrase to reduce the number of catalogs shown).  
 * Next click on the first icon to the left, left of the pen icon, in our [*Catalog*](#Catalog) entry. 
@@ -440,7 +440,7 @@ You can fill in the first creator's data. Note that there should be a green butt
 
 Finally, you should see a radio button menu. The available options are defined in the [*Optionset*](#Option-sets) that we linked when [setting  up the question](#Add-a-Question-to-our-Page). If we wanted different options, e.g. different data volumes, we would have to create a new [*Optionset*](#Option-sets). 
 
-## How to add Options to your RDMO
+### How to add Options to your RDMO
 
 If you have never created a [*Catalog*](#Catalog) in RDMO before, we recommend you start with the step-by-step guide to [Creating a new questionnaire](#Creating-a-new-questionnaire). Creating new [*Options*](#Options) is easier than creating a new questionnaire, but knowing the parts of a questionnaire (called a *Catalog* in RDMO) will help you understand what *Options* are for.
 
@@ -454,7 +454,7 @@ First, navigate to the *Management* section in RDMO. This can be done by clickin
 
 Click on the green *New* button to start creating a new *Option set*.
 
-The top fields in the form *URI Path* and *URI Prefix* should be familiar from creating *Catalogs* \- if not, have a look at [this section](#Step-one-Create-Catalog). We choose \_\_ for URI Prefix and *OMICS\_experimental\_methods* for URI Path.
+The top fields in the form *URI Path* and *URI Prefix* should be familiar from creating *Catalogs* \- if not, have a look at [this section](#Step-one-Create-Catalog).
 
 The comment field can be used to give RDMO managers an idea of what the option set is about and how it will be used. We enter *"This option set provides various experimental methods for omics research. Intended for offering users a specialised selection of methods used to create a generated dataset."*
 
@@ -474,7 +474,7 @@ Click "Create new option".
 
 ### Creating a new option
 
-1. Again fill in the *URI Path* and, if empty, the *URI Prefix*. We use  "option\_DNA\_Methylation\_Assay".  
+1. Again fill in the *URI Path* and, if empty, the *URI Prefix*.  
      
 2. Next, fill in the *Text* (this is what RDMO will display to users) \- it should be short. We choose "DNA Methylation Assay".  
      
@@ -494,7 +494,7 @@ Click on *"Create new option"* again. We want to add "spatially resolved transcr
 
 We add *URI Path* and *Text* as well as *Help* and *View Text* as follows:
 
-* URI Path: option\_SRT  
+* URI Path: option_SRT  
 * Text: spatially resolved transcriptomics  
 * Help: Add the specific techniques (e.g. GeoMX DSP, PIXEL-seq or DNA-MERFISH) in the text field.  
 * View text:  Single-cell spatial transcriptomics methods will be used, in particular
@@ -526,8 +526,6 @@ If you do not know how to do this: Go through the [Creating a new questionnaire]
 ## Basics
 
 In this section, you will learn about the basic elements of RDMO to create your own questionnaire. To create a [*Catalog*](#Catalog) in RDMO, you need to understand the hierarchical structure and the relationships between the different [*Components*](#Catalog-components). Here's a breakdown of how to build a [*Catalog*](#Catalog) structure:
-
-## Catalog components
 
 ### Catalog
 
@@ -674,7 +672,7 @@ There is no best practice on how to choose an attribute so far. If you’re not 
       
 Cases where you'll need to create a new Attribute:  
 
-* Be sure that there is no matching attribute\! Even if the name of an attribute does not literally reflect the question, they are open enough to cover similar question content. For example, if you want to query when a campaign starts (instead of a project), you can still use the attribute “https://rdmorganiser.github.io/terms/domain/project/schedule/project\_start” (if you have not already used it in the catalog), because you want to have similar pieces of information.  
+* Be sure that there is no matching attribute\! Even if the name of an attribute does not literally reflect the question, they are open enough to cover similar question content. For example, if you want to query when a campaign starts (instead of a project), you can still use the attribute “https://rdmorganiser.github.io/terms/domain/project/schedule/project_start” (if you have not already used it in the catalog), because you want to have similar pieces of information.  
     * Discipline-Specific Information: when capturing data unique to your field that isn’t covered by existing *Attributes*. Example: Specialized lab techniques or data formats or Institution-Specific Requirements: For information specific to your institution’s policies or processes.   
     * New RDM Aspects:  
       If addressing a new area of Research Data Management not currently in the existing *Attribute* set.  
@@ -686,7 +684,7 @@ Cases where you'll need to create a new Attribute:
 
 In a next step, we will provide more detailed information on conditions, tasks and options. If you have any issues by reading and understanding or any wishes what also should be included here, feel free to make an issue or contact the rdmo group directly via [rdmo-contentgruppe@listserv.dfn.de](mailto:rdmo-contentgruppe@listserv.dfn.de). 
 
-## Authors
+### Authors
 
 | Name | Mail |
 | :---- | :---- |
@@ -699,4 +697,3 @@ In a next step, we will provide more detailed information on conditions, tasks a
 | Jürgen Rohrwild | [juergen.rohrwild@fau.de](mailto:juergen.rohrwild@fau.de) |
 | Sabine Schönau | [schoenau@ub.rwth-aachen.de](mailto:schoenau@ub.rwth-aachen.de) |
 | Kerstin Wedlich-Zachodin | [Kerstin.Wedlich@kit.edu](mailto:Kerstin.Wedlich@kit.edu) |
-| Janine Straka | [janine.straka@uni-potsdam.de](mailto:janine.straka@uni-potsdam.de) |
