@@ -5,7 +5,7 @@
 This document is a guide to creating catalogues. It contains step-by-step instructions for creating a simple Catalog. If you have never created a Data Management Plan (DMP) catalogue in RDMO, it is recommended that you work through these steps on your own instance of RDMO.  
 You will be introduced to important RDMO concepts, terminology, structure, hierarchies and dependencies, and can then apply this knowledge to create your own catalogue.  
 RDMO is a tool for creating DMPs. A DMP is a documentation of the RDM practices of your research project over the entire data lifecycle. RDMO offers several DMP catalogues, whether for a specific funder or discipline, or just generic templates for any research project. A Catalog is a set of questions about data management practices throughout the data lifecycle, so it's a comprehensive set of questions to think about and document all the data and data management practices for your research project.  
-Specialist users of RDMO with administrative rights can customise the Catalog or create new Catalogs.  
+Specialist users of RDMO with administrative rights (or have the role of editor) can customise the Catalog or create new Catalogs.  
 Before deciding to create a new Catalog, you should check whether you have the rights to do so and whether there is already a catalogue that meets your needs.
 
 ## Explanation of the general relationships
@@ -26,8 +26,8 @@ Before we can start creating our new [*Catalog*](#Catalogs), we need to make sur
 
 **Requirements**
 
-* A running RDMO instance. In this guide, we assume that we are using a freshly installed RDMO instance of version 2.X or higher.   
-* At least Editor user rights. Administrator privileges are not required. For more information see [role management](https://rdmo.readthedocs.io/en/latest/installation/setup.html).  
+* A running RDMO instance. In this guide, we assume that we are using a freshly installed RDMO instance of version 2.X or higher.
+* A user with at least the Editor Role. Administrator privileges are not required. For more information see [role management](../administration/users.md#roles).
   * Check that you can see `Management` in the top navigation bar. If so, you are an Editor and can create a new Catalog.  
 * The newly installed RDMO instance is still empty, i.e. there are no questionnaires, attributes, views, etc. available. 
 
@@ -35,7 +35,7 @@ Before we can start creating our new [*Catalog*](#Catalogs), we need to make sur
 
 If not already done, import the default [*Attributes*](#Attributes) first (you will need them later):
 
-* [Download the default attributes](https://github.com/rdmorganiser/rdmo-catalog/blob/master-rdmo2.x/rdmorganiser/domain/attributes.xml) (an xml file "attributes.xml"). You can rename this file as you wish.  
+* [Download the default attributes](https://github.com/rdmorganiser/rdmo-catalog/blob/master-rdmo2.x/rdmorganiser/domain/attributes.xml) (an xml file `attributes.xml`). You can rename this file as you wish.  
 * Go to the `Management` section in the top navigation bar.  
   Select the previously downloaded XML file from the import option on the right hand side of the web page and click on the `import` button.    
 
@@ -44,7 +44,9 @@ If not already done, import the default [*Attributes*](#Attributes) first (you w
     
 * In the next step, RDMO will show a summary of all the *Attributes* that will be imported. Continue with the import button at the top. It may take a while for the "import successful" message to appear.
 
-:::info Caution: If Attributes, Options, and Option sets are imported and they already exist, they will be updated. Any local customisation of the default Attributes / Options will be overwritten. :::
+```{admonition} Caution
+ If Attributes, Options, and Option sets are imported and they already exist, they will be updated. Any local customisation of the default Attributes / Options will be overwritten. 
+ ```
 
 ### If required/necessary: Import options and [*Option sets*](#Option-sets)
 
@@ -88,7 +90,9 @@ Click on `Management` in the top navigation bar. In a fresh RDMO it will look li
    
 Check that the heading under management is [*Catalogs*](#Catalog), if not click on `Catalogs` in the right-hand navigation pane.
 
-:::info While many RDMO instances will already have existing [*Catalogs*](#Catalog), this guide assumes that the RDMO instance is completely empty. This ensures that our screenshots are free of distracting elements, making it easier to focus on the process. If your instance contains some catalogs, that’s fine — this example will still apply. :::
+```{admonition} Info
+While many RDMO instances will already have existing [*Catalogs*](#Catalog), this guide assumes that the RDMO instance is completely empty. This ensures that our screenshots are free of distracting elements, making it easier to focus on the process. If your instance contains some catalogs, that’s fine — this example will still apply.
+```
 
 ### Step one: Create a new Catalog
 
@@ -118,7 +122,9 @@ There are several fields we need to fill in:
 ![](../_static/img/how-to-guide/catalog_buttons.PNG)
 > *Explanation of the Fields*
 
-::: info If you also see the `Sites` and `Editors` fields ==(see Figure XYZ),== you are on a hosted RDMO service / multi-site instance of RDMO. *Sites* allows you to specify on which sub-instances the *Catalog* will be available and *Editors* allows you to select who can edit the *Catalog*. :::  
+```{admonition} Info
+If you also see the `Sites` and `Editors` fields ==(see Figure XYZ),== you are on a hosted RDMO service / multi-site instance of RDMO. *Sites* allows you to specify on which sub-instances the *Catalog* will be available and *Editors* allows you to select who can edit the *Catalog*.
+```
 
 ![](../_static/img/how-to-guide/sites_editors.PNG)
 > *Sites and Editors*
@@ -190,7 +196,9 @@ We will now add a new element to our page. Elements can be [*Questions*](#Questi
 
 https://rdmorganiser.github.io/terms/domain/project/funder/name 
 
-:::info **Important Note**: Each *Attribute* must only be used **once** in a *Catalog*. If you use an *Attribute* twice, the answers to different *Questions* will overwrite each other. ==There is only one exception, where an *Attribute* can be used more than once. We will cover this later when we create the next *Page*.== :::
+```{admonition} Info
+**Important Note**: Each *Attribute* must only be used **once** in a *Catalog*. If you use an *Attribute* twice, the answers to different *Questions* will overwrite each other. ==There is only one exception, where an *Attribute* can be used more than once. We will cover this later when we create the next *Page*.==
+```
 
 * The ['Widget type'](#Widget-type-also-data-type-information-type-input-options) allows you to define the type and answer possibilities of your current [*Question*](#Questions) (e.g. `Textarea` for longer answers, `Text` for short answers or `Radio buttons` for pre-defined answers).  We will cover radio buttons and pre-defined answers later when we create the [*Question set*](#Question-sets). For now, we will choose `Text,` as usually only a short line is needed for names.  
 
@@ -220,7 +228,9 @@ By making the page a collection, we are telling RDMO that we want to allow users
 ![](../_static/img/how-to-guide/page_collection.PNG)
 > *Creating a Page as a Collection*
 
-:::info **Background information**: A [*Page*](#Pages) that is a [*Collection*](#Collection) will have several tabs. Each tab will contain the same [*Questions*](#Questions) (and [Question sets](#Question-sets)). A common case is a project with several datasets. The datasets are quite different and you expect researchers to give different answers to the same [*Question*](#Questions) for each dataset. For example, you want to ask whether the data contains personal information. A project may have datasets with and without personal data. So it makes sense to create two datasets. Each will correspond to a different tab on a [*Page*](#Pages). :::
+```{admonition} Info
+**Background information**: A [*Page*](#Pages) that is a [*Collection*](#Collection) will have several tabs. Each tab will contain the same [*Questions*](#Questions) (and [Question sets](#Question-sets)). A common case is a project with several datasets. The datasets are quite different and you expect researchers to give different answers to the same [*Question*](#Questions) for each dataset. For example, you want to ask whether the data contains personal information. A project may have datasets with and without personal data. So it makes sense to create two datasets. Each will correspond to a different tab on a [*Page*](#Pages).
+```
 
 RDMO *Pages* that are Collections will show tabs like this:
 
@@ -247,11 +257,15 @@ Note the semantics of the [*Attribute*](#Attributes) name. A **project** will ha
 
 Instead of scrolling, you can also start by typing "dataset". This will reduce the options the drop-down menu offers.
 
-:::info **Why did we assign an attribute to the page?** Remember that by checking `is collection` we have ensured that the page will have tabs. By assigning an *Attribute* to this *Page*, we give the users the ability to give the tabs a label of their choice. Without an *Attribute,* the tabs will simply be labelled "\#1", "\#2", "\#3", etc. If we want to give the users the ability to name their datasets, we need to assign an *Attribute*. It is common practice to assign an attribute called *".../id"*, if available. The *Attribute* is needed by RDMO to be able to access the user input later. :::
+```{admonition} Info
+**Why did we assign an attribute to the page?** Remember that by checking `is collection` we have ensured that the page will have tabs. By assigning an *Attribute* to this *Page*, we give the users the ability to give the tabs a label of their choice. Without an *Attribute,* the tabs will simply be labelled "\#1", "\#2", "\#3", etc. If we want to give the users the ability to name their datasets, we need to assign an *Attribute*. It is common practice to assign an attribute called *".../id"*, if available. The *Attribute* is needed by RDMO to be able to access the user input later.
+```
 
-:::info **Using one Attribute multiple times?** If we later want to ask for additional information about the datasets in the questionnaire, we could create an additional page, make it a collection and assign the **same** *attribute* (e.g. [*https://rdmorganiser.github.io/terms/domain/project/dataset/id*](https://rdmorganiser.github.io/terms/domain/project/dataset/id)). RDMO would then know that this page will also have a tab for each dataset. This is the **only exception to the rule of never using the same Attribute more than once**.
+```{admonition} Info
+**Using one Attribute multiple times?** If we later want to ask for additional information about the datasets in the questionnaire, we could create an additional page, make it a collection and assign the **same** *attribute* (e.g. [*https://rdmorganiser.github.io/terms/domain/project/dataset/id*](https://rdmorganiser.github.io/terms/domain/project/dataset/id)). RDMO would then know that this page will also have a tab for each dataset. This is the **only exception to the rule of never using the same Attribute more than once**.
 
-This is very useful if your questionnaire is longer. We will not use it in the short DMP example we are building in this guide. :::
+This is very useful if your questionnaire is longer. We will not use it in the short DMP example we are building in this guide.
+```
 
 * Now click on the button `Create and continue editing`.
 
@@ -364,9 +378,11 @@ as [*Option set*](#Option-sets).
 ![](../_static/img/how-to-guide/select_os.PNG)
 > *Selecting an Option Set*
 
-:::info **Why did we choose the radio button?** In this scenario, we want to give the user multiple choices and allow them to select one. This is achieved by using the "Radio button" Widget type. When choosing this widget type, we also need to tell RDMO where to find the answer choices. This is done by selecting the value type *Options* and then assigning an *Option set* to the *Question*. *Options sets* contain answer choices that can be used. Here we use an *Options set* that does what we want it to do.
+```{admonition} Info
+**Why did we choose the radio button?** In this scenario, we want to give the user multiple choices and allow them to select one. This is achieved by using the "Radio button" Widget type. When choosing this widget type, we also need to tell RDMO where to find the answer choices. This is done by selecting the value type *Options* and then assigning an *Option set* to the *Question*. *Options sets* contain answer choices that can be used. Here we use an *Options set* that does what we want it to do.
 
-It will take some time to get to know all the options that RDMO provides through the default *Option sets* that we installed at the very beginning of this guide. You can also create your own *Option sets* and *Options* and share them with the community if you wish. However, this is covered in a separate guide. :::
+It will take some time to get to know all the options that RDMO provides through the default *Option sets* that we installed at the very beginning of this guide. You can also create your own *Option sets* and *Options* and share them with the community if you wish. However, this is covered in a separate guide.
+```
 
 * Once you have selected your optionset, click on the `save` button. This [*Question*](#Questions) form will close and you will be returned to the [*Page*](#Pages) you came from. Click `save` again to save your changes.
 
