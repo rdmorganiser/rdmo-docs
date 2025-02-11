@@ -13,7 +13,9 @@ Before deciding to create a new Catalog, you should check whether you have the r
 ### Hierarchy of the elements of a Catalog (Some might also call it Questionnaire or Interview, depending on the version, they are working on.)
 
 Catalog
-![](../_static/img/how-to-guide/hierarchy.PNG)
+
+![Overview of the RDMO Hierarchy](../_static/img/how-to-guide/hierarchy.PNG)
+
 > *Overview of the RDMO Hierarchy*
   
 Catalogs consist of (thematically distinct) Sections, which may span multiple pages. Pages are essentially (the entire scrollable area of) screens containing the questions (possibly organised into question sets). Questions can be of different types, distinguished by the type of response expected (e.g. text box, checkbox, date picker or range slider).
@@ -58,9 +60,9 @@ If not already done, import the default option sets:
 
 # Step-by-Step guide to a first Catalog
 
-In this guide we will show you how to create a simple catalog to help you get started. We will show you how to create a catalog with two sections and two pages. All the steps we provide can be repeated to create a full catalog.   
-The \[\_Catalog\_\](\#Catalog) we have in mind should ask for:
+In this guide we will show you how to create a simple catalog to help you get started. We will show you how to create a catalog with two sections and two pages. All the steps we provide can be repeated to create a full catalog.
 
+The [*Catalog*](#Catalog) we have in mind should ask for:
 - the funding body of the project  
 - the creators of each data sets and the size of each data sets
 
