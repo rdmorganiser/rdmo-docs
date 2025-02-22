@@ -101,4 +101,17 @@ server {
 }
 ```
 
+For Apache 2, the same can be archived by adding:
+
+```
+Header set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-eval' 'unsafe-inline'; style-src 'self' 'unsafe-inline';"
+Header set Strict-Transport-Security "max-age=15768000"
+Header set X-Frame-Options "SAMEORIGIN"
+Header set X-Content-Type-Options "nosniff"
+Header set Referrer-Policy "no-referrer-when-downgrade"
+Header set Permissions-Policy "accelerometer=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=()"
+```
+
+to `/etc/apache2/conf-available/security.conf` which should be automatically added to your configuration.
+
 The website <https://securityheaders.com/> can be used to check the headers. <https://djcheckup.com> checks some Django related things in addition.
