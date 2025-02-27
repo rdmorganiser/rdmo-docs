@@ -628,7 +628,7 @@ Views can be used to select, arrange and format the answers or parts of the cata
 
 ### Attributes
 
-* *Attributes* are at the heart of RDMO, linking content elements to project values. They play a crucial role in ensuring consistency and interoperability across different [*Catalogs*](https://pad.gwdg.de/9oaFYAYlTuaw0rGrY6ltEg?view#Catalog) and RDMO instances.  
+* *Attributes* are at the heart of RDMO, linking content elements to project values. They play a crucial role in ensuring consistency and interoperability across different [*Catalogs*](#catalog) and RDMO instances.  
 * The answers given by a user are stored in this attribute and are not lost. This can be an advantage, as the answers will be displayed even if the user changes the catalog within a project created in RDMO. At the same time, however, there is a potential for danger:  
   * If you use a particular attribute for a certain question in the first catalog, but the same attribute for a different type of question in another catalog, the answers that were first entered by the user first will be retained, but may no longer make sense. If the user overwrites them in the second catalog, they will no longer make sense for the first catalog when they switch again.  
 
@@ -651,8 +651,8 @@ b) 	URI Key: The key within the path is the last word, which is separated by a s
 
 -  The URI path can be very short, containing only a few terms, or it can be very long, depending on how many levels there are. It is advisable not to make the structures too specific so that the area does not become too small and the attributes can be better used.
 
-* When creating a catalog, each [*Question*](https://pad.gwdg.de/9oaFYAYlTuaw0rGrY6ltEg?view#Questions) must use an attribute, which appears only once in it.  
-* [*Question set*](https://pad.gwdg.de/9oaFYAYlTuaw0rGrY6ltEg?view#Question-sets)s can also be linked to an attribute as well. The default attribute here is "https://rdmorganiser.github.io/terms/domain/project/dataset/id".  
+* When creating a catalog, each [*Question*](#questions) must use an attribute, which appears only once in it.  
+* [*Question sets*](#question-sets) can also be linked to an attribute as well. The default attribute here is "https://rdmorganiser.github.io/terms/domain/project/dataset/id".  
   * The use of attributes for Question sets does not affect the questions presented to users. Only when the „is collection“-Button is enabled can the user create „datasets“ when answering the catalog:  
 
 ![](../_static/img/how-to-guide/set.PNG)
