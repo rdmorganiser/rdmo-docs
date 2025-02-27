@@ -9,26 +9,26 @@ Change to the `rdmo-app` directory and create a [Virtual Environment](https://do
 ```{eval-rst}
 .. tabs::
 
-   .. code-tab:: bash/zsh Linux/MacOS
+   .. code-tab:: bash Linux/MacOS
 
       cd rdmo-app
       python3 -m venv env 
       source env/bin/activate
       pip install --upgrade pip setuptools        
 
-   .. code-tab:: bash Windows
+   .. code-tab:: bash Windows Bash
 
       cd rdmo-app
       python3 -m venv env 
       source env/Scripts/activate
       pip install --upgrade pip setuptools
 
-   .. code-tab:: cmd/pwsh Windows
+   .. code-tab:: powershell Windows Powershell
 
       cd rdmo-app
       python3 -m venv env 
-      call env\Scripts\activate.bat
-      pip install --upgrade pip setuptools
+      env\Scripts\Activate.ps1
+      .\env\Scripts\python.exe -m pip install -U pip setuptools
 ```
 
 After the virtual environment is activated and `pip` was upgraded, the `rdmo` package can be installed using `pip`:

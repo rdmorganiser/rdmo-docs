@@ -118,7 +118,7 @@ where `cn` is the name of the particular group in the LDAP and `AUTH_LDAP_MIRROR
 
 [django-auth-ldap](https://pypi.org/project/django-auth-ldap) offers a [Django signal](https://docs.djangoproject.com/en/4.2/topics/signals/) to perform follow up actions after the creation of the user model (but before saving it). See: <https://django-auth-ldap.readthedocs.io/en/latest/reference.html#django_auth_ldap.backend.populate_user>.
 
-We can use this to put every LDAP user in the `ldap` group (but not users from other authentication methods). Just put the following code in the `models.py` (which is read by the server automatcally) of the [local theme app](../themes) in your `rdmo-app`:
+We can use this to put every LDAP user in the `ldap` group (but not users from other authentication methods). Just put the following code in the `models.py` (which is read by the server automatcally) of the [local theme app](../../themes/index.md#themes) in your `rdmo-app`:
 
 ```python
 from django.contrib.auth.models import Group, User

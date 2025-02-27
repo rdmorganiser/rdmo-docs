@@ -55,7 +55,7 @@ to enable users to send tasks to arbitrary addresses. **Please consider all impl
 
 Users are invited to projects by email. If the user is already in the database, he or she will be stored with the invitation.
 
-If not, an email will be send nevertheless and any user (usually a newly created account, but also an existing account of the user with a different email address is possible). If sending emails to non registered emails is not derisired, this feature can be prevented by setting:
+If not, an email will be send nevertheless and any user (usually a newly created account, but also an existing account of the user with a different email address is possible). If sending emails to non registered emails is not desired, this feature can be prevented by setting:
 
 ```python
 PROJECT_SEND_INVITE = False

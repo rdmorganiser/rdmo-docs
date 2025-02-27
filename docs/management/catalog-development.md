@@ -20,11 +20,11 @@ Catalog
   
 Catalogs consist of (thematically distinct) Sections, which may span multiple pages. Pages are essentially (the entire scrollable area of) screens containing the questions (possibly organised into question sets). Questions can be of different types, distinguished by the type of response expected (e.g. text box, checkbox, date picker or range slider).
 
-The creation of a new [*Catalog*](#Catalog) must be done in this order, and this is the order in which it is described in this [manual](#Getting-started).
+The creation of a new [*Catalog*](#catalog) must be done in this order, and this is the order in which it is described in this [manual](#getting-started).
 
 ## Getting started
 
-Before we can start creating our new [*Catalog*](#Catalogs), we need to make sure your RDMO is set up correctly.
+Before we can start creating our new [*Catalog*](#catalog), we need to make sure your RDMO is set up correctly.
 
 **Requirements**
 
@@ -35,7 +35,7 @@ Before we can start creating our new [*Catalog*](#Catalogs), we need to make sur
 
 ### If required/necessary: Import Attributes
 
-If not already done, import the default [*Attributes*](#Attributes) first (you will need them later):
+If not already done, import the default [*Attributes*](#attributes) first (you will need them later):
 
 * [Download the default attributes](https://github.com/rdmorganiser/rdmo-catalog/blob/master-rdmo2.x/rdmorganiser/domain/attributes.xml) (an xml file `attributes.xml`). You can rename this file as you wish.  
 * Go to the `Management` section in the top navigation bar.  
@@ -50,7 +50,7 @@ If not already done, import the default [*Attributes*](#Attributes) first (you w
  If Attributes, Options, and Option sets are imported and they already exist, they will be updated. Any local customisation of the default Attributes / Options will be overwritten. 
  ```
 
-### If required/necessary: Import options and [*Option sets*](#Option-sets)
+### If required/necessary: Import options and [*Option sets*](#option-sets)
 
 If not already done, import the default option sets:
 
@@ -62,11 +62,11 @@ If not already done, import the default option sets:
 
 In this guide we will show you how to create a simple catalog to help you get started. We will show you how to create a catalog with two sections and two pages. All the steps we provide can be repeated to create a full catalog.
 
-The [*Catalog*](#Catalog) we have in mind should ask for:
+The [*Catalog*](#catalog) we have in mind should ask for:
 - the funding body of the project  
 - the creators of each data sets and the size of each data sets
 
-The funding (body) question should be on one [*Page*](#Pages) and the [*Questions*](#Questions) about the datasets on a second Page. Users can add datasets as they wish, and each dataset can have multiple creators.
+The funding (body) question should be on one [*Page*](#pages) and the [*Questions*](#questions) about the datasets on a second Page. Users can add datasets as they wish, and each dataset can have multiple creators.
 
 In the end, the Catalog should look something like this mockup:
 
@@ -90,24 +90,24 @@ Click on `Management` in the top navigation bar. In a fresh RDMO it will look li
 ![](../_static/img/how-to-guide/creating_catalog.PNG)
 > *Creating a new Catalog*
    
-Check that the heading under management is [*Catalogs*](#Catalog), if not click on `Catalogs` in the right-hand navigation pane.
+Check that the heading under management is [*Catalogs*](#catalog), if not click on `Catalogs` in the right-hand navigation pane.
 
 ```{admonition} Info
-While many RDMO instances will already have existing [*Catalogs*](#Catalog), this guide assumes that the RDMO instance is completely empty. This ensures that our screenshots are free of distracting elements, making it easier to focus on the process. If your instance contains some catalogs, that’s fine — this example will still apply.
+While many RDMO instances will already have existing [*Catalogs*](#catalog), this guide assumes that the RDMO instance is completely empty. This ensures that our screenshots are free of distracting elements, making it easier to focus on the process. If your instance contains some catalogs, that’s fine — this example will still apply.
 ```
 
 ### Step one: Create a new Catalog
 
-Now let us create a new [*Catalog*](#Catalog). Click on the green `New` button. You should now see something like this:   
+Now let us create a new [*Catalog*](#catalog). Click on the green `New` button. You should now see something like this:   
 
 ![](../_static/img/how-to-guide/createCatalog_1st_page.PNG)
 > *Creating a Catalog - Overview*
 
 There are several fields we need to fill in:
 
-* The [*URI Prefix*](#URI-prefix) should already be set by your administrator. Although you can choose a different `URI Prefix`, such as your institution’s URI, it will be used to indicate where the [*Catalog*](#Catalog) was created.  
+* The [*URI Prefix*](#uri-prefix) should already be set by your administrator. Although you can choose a different `URI Prefix`, such as your institution’s URI, it will be used to indicate where the [*Catalog*](#catalog) was created.  
 * If you change the prefix and wish to revert to the default value set for the RDMO instance, you can simply click on the "magic wand icon" to reset the entry back to the default value.  
-* The [*URI Path*](#URI-path) should be a unique label for your [*Catalog*](#Catalog). Choose a label that is appropriate for your purpose. In our example, we choose to have *"[http://rdmo.local](http://rdmo.local)"* and *"example-catalog"* as the `URI Prefix` and `URI Path` respectively. 
+* The [*URI Path*](#uri-path) should be a unique label for your [*Catalog*](#catalog). Choose a label that is appropriate for your purpose. In our example, we choose to have *"[http://rdmo.local](http://rdmo.local)"* and *"example-catalog"* as the `URI Prefix` and `URI Path` respectively. 
 
 ![](../_static/img/how-to-guide/catalog_URI.PNG)
 > *URI of the created Catalog*
@@ -135,39 +135,39 @@ For the next step, click on `Create and continue editing` at the bottom of the p
 
 ### Step two: Creating Sections
 
-We will now add a first [*Section*](#Sections) to this [*Catalog*](#Catalog). Note that you can reuse an already existing *Section* from other [*Catalogs*](#Catalog) available on your RDMO instance. Here we will create a new *Section*.
+We will now add a first [*Section*](#sections) to this [*Catalog*](#catalog). Note that you can reuse an already existing *Section* from other [*Catalogs*](#catalog) available on your RDMO instance. Here we will create a new *Section*.
 
 Under the heading "*Sections*" click on `Create new section`. You should now see something like this:
 
 ![](../_static/img/how-to-guide/create_sections.PNG)
 > *Creating Sections*
 
-By default, RDMO displays the *URI Path* of the [*Catalog*](#Catalog) the [*Section*](#Sections) is attached to \- in our case "*example-catalog*". Change the `URI Path` according to the content of the section. There are currently no best practices in the RDMO community but try to be consistent within your catalog. Here we choose “example-section-01”.
+By default, RDMO displays the *URI Path* of the [*Catalog*](#catalog) the [*Section*](#sections) is attached to \- in our case "*example-catalog*". Change the `URI Path` according to the content of the section. There are currently no best practices in the RDMO community but try to be consistent within your catalog. Here we choose “example-section-01”.
 
 Note that you must use a different `URI Path` because each object in RDMO needs a unique URL. Otherwise, RDMO would not know which object you want to include in your DMP questionnaire. If you accidentally choose a `URI Path` that is already in use, RDMO will complain when you try to save.
 
-Enter the `Title` of the [*Section*](#Sections). This will be displayed prominently in the questionnaire. You can enter a `Short title` for this *Section* which will replace the long title in the navigation bar displayed to users of the catalog. 
+Enter the `Title` of the [*Section*](#sections). This will be displayed prominently in the questionnaire. You can enter a `Short title` for this *Section* which will replace the long title in the navigation bar displayed to users of the catalog. 
 
 Click `Create and continue editing` to create the new section.
 
-At the top of the web page you should now see that the section is being used in a Catalog. You can click on the down arrow to view this catalog. It is the one we have just created. If you reuse this section later in another [*Catalog*](#Catalog), it will also appear here.
+At the top of the web page you should now see that the section is being used in a Catalog. You can click on the down arrow to view this catalog. It is the one we have just created. If you reuse this section later in another [*Catalog*](#catalog), it will also appear here.
 
 ![](../_static/img/how-to-guide/used_sections.PNG)
 > *Indicator how often a Section is used in different Catalogs*
 
 ### Step three: Creating a Page
 
-We will now create our first [*Page*](#Pages). An RDMO page contains [*Questions*](#Questions) that are presented to the user on a single web page/screen. Think of a *Page* as the analogue of an actual paper page in a classic questionnaire. We recommend that you do not put too many questions on a page \- users do not like to scroll.
+We will now create our first [*Page*](#pages). An RDMO page contains [*Questions*](#questions) that are presented to the user on a single web page/screen. Think of a *Page* as the analogue of an actual paper page in a classic questionnaire. We recommend that you do not put too many questions on a page \- users do not like to scroll.
 
 To create a Page, click Create Page in the Section we created in the previous step. Again, you could reuse an existing Page, but we are going to create a completely new one.. 
 
 ![](../_static/img/how-to-guide/create_page.PNG)
 > *Creating a Page*
 
-* Make sure that the [*URI Path*](#URI-path) is unique. You can change this as shown in the previous steps.  
-* Fill in the page `Title`. In our case, we use "*Funding Body Information*" for the title. It will be displayed prominently at the top of the [*Page*](#Pages) in the questionnaire.  
+* Make sure that the [*URI Path*](#uri-path) is unique. You can change this as shown in the previous steps.  
+* Fill in the page `Title`. In our case, we use "*Funding Body Information*" for the title. It will be displayed prominently at the top of the [*Page*](#pages) in the questionnaire.  
 * Next, we enter the `Short title`. This will be used in navigation bars and menus. We will use "*Funding*" as the short title.  
-* You can also use the `Help` field to provide useful information for users, such as explaining what this [*Page*](#Pages) is about.  
+* You can also use the `Help` field to provide useful information for users, such as explaining what this [*Page*](#pages) is about.  
 * Now click on the button `Create and continue editing`.
 
 ![](../_static/img/how-to-guide/createPage_buttons.PNG)
@@ -177,24 +177,24 @@ To create a Page, click Create Page in the Section we created in the previous st
 
 Note that we do *not* check if it `is collection`, we do *not* fill in the `Name` field, and we do *not* assign an `Attribute`. You only need these fields if the page is to be a Collection. We will explain what this means in detail when we create our second page.
 
-We will also ignore the `Conditions` part for now. This feature allows us to show or hide pages (and [*Question sets*](#Question-sets) and [*Questions*](#Questions)) depending on the user's answers to previous questions. We will skip this feature for this basic guide.
+We will also ignore the `Conditions` part for now. This feature allows us to show or hide pages (and [*Question sets*](#question-sets) and [*Questions*](#questions)) depending on the user's answers to previous questions. We will skip this feature for this basic guide.
 
 ### Add elements to our *Page*: Questions
 
-We will now add a new element to our page. Elements can be [*Questions*](#Questions) or *Question sets*. In our example, we want to use this first [*Page*](#Pages) to ask [*Questions*](#Questions) on the project’s funding, so we will click on `Create new question` in the *Elements* area.
+We will now add a new element to our page. Elements can be [*Questions*](#questions) or *Question sets*. In our example, we want to use this first [*Page*](#pages) to ask [*Questions*](#questions) on the project’s funding, so we will click on `Create new question` in the *Elements* area.
 
 ![](../_static/img/how-to-guide/add_elements.PNG)
 > *Add Elements to the Page*
 
 * Fill in the `URI Prefix` and `URI Path` as before. Note that the path must be unique.  
-* In the `Text` field, type the [*Question*](#Questions) you want to ask. Here we have written, *"Who is funding the project?"*.  
+* In the `Text` field, type the [*Question*](#questions) you want to ask. Here we have written, *"Who is funding the project?"*.  
 * The `Help` field again provides helpful information. In this case, here is an example of an entry:
 
 ![](../_static/img/how-to-guide/create_question.PNG)
 > *Create a Question*
 
-* **Other remarks**: We do not need the `Name` field, as the [*Question*](#Questions) is **not** a [*Collection*](#Collection). But it would be no problem to enter some text in this field.  
-* Next, we will select an [*Attribute*](#Attributes). In the next sections we will look at the use of attributes in more detail. For this example, we have chosen
+* **Other remarks**: We do not need the `Name` field, as the [*Question*](#questions) is **not** a [*Collection*](#collection). But it would be no problem to enter some text in this field.  
+* Next, we will select an [*Attribute*](#attributes). In the next sections we will look at the use of attributes in more detail. For this example, we have chosen
 
 https://rdmorganiser.github.io/terms/domain/project/funder/name 
 
@@ -202,36 +202,36 @@ https://rdmorganiser.github.io/terms/domain/project/funder/name
 **Important Note**: Each *Attribute* must only be used **once** in a *Catalog*. If you use an *Attribute* twice, the answers to different *Questions* will overwrite each other. There is only one exception, where an *Attribute* can be used more than once. We will cover this later when we create the next *Page*.
 ```
 
-* The ['Widget type'](#Widget-type-also-data-type-information-type-input-options) allows you to define the type and answer possibilities of your current [*Question*](#Questions) (e.g. `Textarea` for longer answers, `Text` for short answers or `Radio buttons` for pre-defined answers).  We will cover radio buttons and pre-defined answers later when we create the [*Question set*](#Question-sets). For now, we will choose `Text,` as usually only a short line is needed for names.  
+* The ['Widget type'](#widget-type) allows you to define the type and answer possibilities of your current [*Question*](#questions) (e.g. `Textarea` for longer answers, `Text` for short answers or `Radio buttons` for pre-defined answers).  We will cover radio buttons and pre-defined answers later when we create the [*Question set*](#question-sets). For now, we will choose `Text,` as usually only a short line is needed for names.  
 
 ![](../_static/img/how-to-guide/question_widget.PNG)
 > *Provide a Widget type*
 
-* You can now click on the `Create` button. This [*Question*](#Questions) form will close and you will be returned to the [*Page*](#Pages) you came from. Click `Save` to save your changes.
+* You can now click on the `Create` button. This [*Question*](#questions) form will close and you will be returned to the [*Page*](#pages) you came from. Click `Save` to save your changes.
 
 ### Step four: Creating a Page as a Collection
 
-Now we are going to create a second [*Page*](#Pages) that will be a [*Collection*](#Collection). In our example, we want to use this page to ask [*Questions*](#Questions) about the datasets created in a project.
+Now we are going to create a second [*Page*](#pages) that will be a [*Collection*](#collection). In our example, we want to use this page to ask [*Questions*](#questions) about the datasets created in a project.
 
 By making the page a collection, we are telling RDMO that we want to allow users to answer the questions on this page multiple times \- each time for a part of the collection. In our case, they can give separate answers for each dataset. 
 
-* If you saved our previous page and proceeded, you should now be back at the *Section* level. To create a second [*Page*](#Pages), simply click `Create Page` again.  
-* If you have accidentally closed the *Section* window or taken a break, you can also start by clicking on `Catalogs` on the `Management` page. This will display all the available [*Catalogs*](#Catalog). Find your new [*Catalog*](#Catalog) (you can search for a phrase to reduce the number of catalogs shown) and click on the first icon to the left of the pen icon, in our [*Catalog*](#Catalog) entry.  This will display the current structure of the *Catalog*. Find the *Section* and click on the pen icon to start editing. Then click  on `Create Page` on the *Section* screen.
+* If you saved our previous page and proceeded, you should now be back at the *Section* level. To create a second [*Page*](#pages), simply click `Create Page` again.  
+* If you have accidentally closed the *Section* window or taken a break, you can also start by clicking on `Catalogs` on the `Management` page. This will display all the available [*Catalogs*](#catalog). Find your new [*Catalog*](#catalog) (you can search for a phrase to reduce the number of catalogs shown) and click on the first icon to the left of the pen icon, in our [*Catalog*](#catalog) entry.  This will display the current structure of the *Catalog*. Find the *Section* and click on the pen icon to start editing. Then click  on `Create Page` on the *Section* screen.
 
 ![](../_static/img/how-to-guide/catalog_list.PNG)
 > *Unfold a Catalog to edit it*
 
-* Make sure that the [*URI Path*](#URI-path) of the new *Page* is unique. You can change it as shown in the previous steps.  
-* Enter the *Page* `Title`. In our case, we use "*Dataset Information*" for the title. It will be displayed prominently at the top of the [*Page*](#Pages) in the questionnaire.  
+* Make sure that the [*URI Path*](#uri-path) of the new *Page* is unique. You can change it as shown in the previous steps.  
+* Enter the *Page* `Title`. In our case, we use "*Dataset Information*" for the title. It will be displayed prominently at the top of the [*Page*](#pages) in the questionnaire.  
 * Next, we enter the `Short title`. This will be used in navigation bars and menus. We use *"Data Info"* as the short title.  
-* You can also provide useful information for users in the `Help` field, e.g. explain what this [*Page*](#Pages) is about.  
+* You can also provide useful information for users in the `Help` field, e.g. explain what this [*Page*](#pages) is about.  
 * Click the checkbox next to `is collection`.
 
 ![](../_static/img/how-to-guide/page_collection.PNG)
 > *Creating a Page as a Collection*
 
 ```{admonition} Info
-**Background information**: A [*Page*](#Pages) that is a [*Collection*](#Collection) will have several tabs. Each tab will contain the same [*Questions*](#Questions) (and [Question sets](#Question-sets)). A common case is a project with several datasets. The datasets are quite different and you expect researchers to give different answers to the same [*Question*](#Questions) for each dataset. For example, you want to ask whether the data contains personal information. A project may have datasets with and without personal data. So it makes sense to create two datasets. Each will correspond to a different tab on a [*Page*](#Pages).
+**Background information**: A [*Page*](#pages) that is a [*Collection*](#collection) will have several tabs. Each tab will contain the same [*Questions*](#questions) (and [Question sets](#question-sets)). A common case is a project with several datasets. The datasets are quite different and you expect researchers to give different answers to the same [*Question*](#questions) for each dataset. For example, you want to ask whether the data contains personal information. A project may have datasets with and without personal data. So it makes sense to create two datasets. Each will correspond to a different tab on a [*Page*](#pages).
 ```
 
 RDMO *Pages* that are Collections will show tabs like this:
@@ -249,13 +249,13 @@ In the figure above the user has already created two tabs: "\#1" and "\#2". Each
 ![](../_static/img/how-to-guide/default_tab.PNG)
 > *Customised Tab Name* 
 
-* The next step is to select an [*Attribute*](#Attributes) (note: we did not do this for the first page we created). When you make a page (or later a questionset) a [*Collection*](#Collection), you should always assign an [*Attribute*](#Attributes) to this page. 
+* The next step is to select an [*Attribute*](#attributes) (note: we did not do this for the first page we created). When you make a page (or later a questionset) a [*Collection*](#collection), you should always assign an [*Attribute*](#attributes) to this page. 
 
-Now, click on the drop-down menu. You will see all the attributes that your RDMO instance contains. As we have imported the default RDMO [*Attributes*](#Getting-started), you should already see a large number of possible attributes. As we want to have tabs corresponding to datasets, we select the attribute:
+Now, click on the drop-down menu. You will see all the attributes that your RDMO instance contains. As we have imported the default RDMO [*Attributes*](#getting-started), you should already see a large number of possible attributes. As we want to have tabs corresponding to datasets, we select the attribute:
 
 https://rdmorganiser.github.io/terms/domain/project/dataset/id
 
-Note the semantics of the [*Attribute*](#Attributes) name. A **project** will have **datasets** and a dataset will have an **id** (e.g. its name or an acronym \- this will be set by the users when they fill in the questionnaire in RDMO).
+Note the semantics of the [*Attribute*](#attributes) name. A **project** will have **datasets** and a dataset will have an **id** (e.g. its name or an acronym \- this will be set by the users when they fill in the questionnaire in RDMO).
 
 Instead of scrolling, you can also start by typing "dataset". This will reduce the options the drop-down menu offers.
 
@@ -273,11 +273,11 @@ This is very useful if your questionnaire is longer. We will not use it in the s
 
 #### What we do not need to fill in:
 
-We will also ignore the `Conditions` part for now. This feature allows us to show or hide pages (and [*Question sets*](#Question-sets) and [*Questions*](#Questions)) depending on the user's answers to previous questions. We will skip this feature for this basic guide.
+We will also ignore the `Conditions` part for now. This feature allows us to show or hide pages (and [*Question sets*](#question-sets) and [*Questions*](#questions)) depending on the user's answers to previous questions. We will skip this feature for this basic guide.
 
 ### Add elements to our *Page*: Question set
 
-We are now going to add new elements to our page. Elements can be [*Questions*](#Questions) or a [*Question set*](#Question-sets). In our example, we want to use this second page to contain a *question set* that collects information about datasets, so we click on `Create new question set` in the *Elements* area.
+We are now going to add new elements to our page. Elements can be [*Questions*](#questions) or a [*Question set*](#question-sets). In our example, we want to use this second page to contain a *question set* that collects information about datasets, so we click on `Create new question set` in the *Elements* area.
 
 ![](../_static/img/how-to-guide/add_elements.PNG)
 > *Adding Elements to the Page*
@@ -285,19 +285,19 @@ We are now going to add new elements to our page. Elements can be [*Questions*](
 
 ### Create a new question set
 
-Again, there are several fields we need to fill in to create a new [*Question set*](#Question-sets).
+Again, there are several fields we need to fill in to create a new [*Question set*](#question-sets).
 
-* We want to query the creator(s) of the dataset. So we will fill in the usual fields ([`URI Path`](#URI-path), `Title`, `Help`, `Name`, etc.) accordingly:
+* We want to query the creator(s) of the dataset. So we will fill in the usual fields ([`URI Path`](#uri-path), `Title`, `Help`, `Name`, etc.) accordingly:
 
 ![](../_static/img/how-to-guide/qs_comment.PNG)
 > *Create a Question Set*
 
-* Since a dataset can have more than one creator, we want to be able to add (additional) creators. So we will make this [*Question set*](#Question-sets) a [*Collection*](#Collection). This will cause RDMO to display a green button to add another question block like this:
+* Since a dataset can have more than one creator, we want to be able to add (additional) creators. So we will make this [*Question set*](#question-sets) a [*Collection*](#collection). This will cause RDMO to display a green button to add another question block like this:
 
 ![](../_static/img/how-to-guide/q_example.PNG)
 > *Exemplary Question for Collections*
 
-* For the [*Attribute*](#Attributes) we have selected:  
+* For the [*Attribute*](#attributes) we have selected:  
  `https://rdmorganiser.github.io/terms/domain/project/dataset/creator`  
     
 * The label of the button is set by the `Name` field \- in our case "*Add Creator*". This is analogous to the case of a *Page,* where the label for adding a new tab was set by the `Name` field.  
@@ -306,31 +306,31 @@ Again, there are several fields we need to fill in to create a new [*Question se
 
 ### Adding a first question to our question set
 
-We are going to add a [*Question*](#Questions) that asks for the name of the contributor. To do this, we click on the `Create new question` button. If we do this in the context of our current [*Question set*](#Question-sets), the [*Question*](#Questions) will automatically be linked to the question set.
+We are going to add a [*Question*](#questions) that asks for the name of the contributor. To do this, we click on the `Create new question` button. If we do this in the context of our current [*Question set*](#question-sets), the [*Question*](#questions) will automatically be linked to the question set.
 
 ![](../_static/img/how-to-guide/q_in_qs.PNG)
 > *Including Questions into Question Sets*
 
 * Make sure that the `URI Prefix` and `URI Path` are unique.  
-* The `Text` is the [*Question*](#Questions) you want to ask. Here we can write *"Enter person's full name"* or *"What is the creator's name?"*.     
+* The `Text` is the [*Question*](#questions) you want to ask. Here we can write *"Enter person's full name"* or *"What is the creator's name?"*.     
 * The `Help` field again can be used to provide helpful information. In this case we give an example of an entry.     
-* We do not need the `Name` field, because the [*Question*](#Questions) is **not** a [*Collection*](#Collection). But it would be no problem to enter some text in this field.      
-* We also need to specify an attribute. We choose the appropriate [*Attribute*](#Attribute)  
+* We do not need the `Name` field, because the [*Question*](#questions) is **not** a [*Collection*](#collection). But it would be no problem to enter some text in this field.      
+* We also need to specify an attribute. We choose the appropriate [*Attribute*](#attributes)  
   `https://rdmorganiser.github.io/terms/domain/project/dataset/creator/name`  
     
-* The [`Widget type`](#Widget-type-also-data-type-information-type-input-options) allows you to define the type and the answer choices of your current [*Question*](#Questions). E.g. `Textarea` for long answers, `Text` for short answers, or `Radio buttons` for predefined answers.  We will look at radio buttons later when we add a second [*Question*](#Questions) to this [*Page*](#Pages). Here we will choose `Text`, as usually only one line is needed for names.     
-* Now click on `Create`. This should take you back to the [*Question set*](#Question-sets). You should also see that the [*Question set*](#Question-sets) now has one item: the [*Question*](#Questions) we just created.
+* The [`Widget type`](#widget-type) allows you to define the type and the answer choices of your current [*Question*](#questions). E.g. `Textarea` for long answers, `Text` for short answers, or `Radio buttons` for predefined answers.  We will look at radio buttons later when we add a second [*Question*](#questions) to this [*Page*](#pages). Here we will choose `Text`, as usually only one line is needed for names.     
+* Now click on `Create`. This should take you back to the [*Question set*](#question-sets). You should also see that the [*Question set*](#question-sets) now has one item: the [*Question*](#questions) we just created.
 
 ### Adding a second *Question* to our *Question set*
 
-Let us add a second [*Question*](#Questions):
+Let us add a second [*Question*](#questions):
 
-We add a new [*Question*](#Questions) to ask for the primary email address of the creator.
+We add a new [*Question*](#questions) to ask for the primary email address of the creator.
 
 ![](../_static/img/how-to-guide/question2.PNG)
 > *Including a second Question into the Question Set*
 
-* Fill in the necessary fields as explained earlier. For this [*Question*](#Questions) we will again use the widget type `Text` and use the value type `E-mail`.  
+* Fill in the necessary fields as explained earlier. For this [*Question*](#questions) we will again use the widget type `Text` and use the value type `E-mail`.  
 
 ![](../_static/img/how-to-guide/widget_email.PNG)
 > *Set up the Widget Type*
@@ -340,12 +340,12 @@ We add a new [*Question*](#Questions) to ask for the primary email address of th
     
 But it is not ideal, as the semantics indicate that it is the e-mail address of a person responsible for the preservation of the dataset. We could also create a new attribute, but we want to avoid this extra work for now.  
     
-* Click on `Create` and finish creating this [*Question*](#Questions). You should now be back at the level of our [*Question set*](#Question-sets). At the bottom of the *Elements* pane, you should now see the two questions that are part of this [*Question set*](#Question-sets).
+* Click on `Create` and finish creating this [*Question*](#questions). You should now be back at the level of our [*Question set*](#question-sets). At the bottom of the *Elements* pane, you should now see the two questions that are part of this [*Question set*](#question-sets).
 
 ![](../_static/img/how-to-guide/element_list.PNG)
 > *List of elements within a Question Set*
 
-* Now we are going to add an additional [*Question*](#Questions) to our [*Page*](#Pages) that is not part of the [*Question set*](#Question-sets). Click on `Save`.
+* Now we are going to add an additional [*Question*](#questions) to our [*Page*](#pages) that is not part of the [*Question set*](#question-sets). Click on `Save`.
 * Then click on Pages on the *Navigation bar* on the right. RDMO will display a list of all *Pages*. Type in the filter field to find our *Page* called "Dataset information" (or the title you chose).
 
 ![](../_static/img/how-to-guide/listed_pages.PNG)
@@ -355,7 +355,7 @@ But it is not ideal, as the semantics indicate that it is the e-mail address of 
 
 ### Add a *Question* to our *Page*
 
-We will now add another new element, a [*Question*](#Questions), to our *Page*.
+We will now add another new element, a [*Question*](#questions), to our *Page*.
 * Click on `Create new question` in the *Elements* area.
 
 ![](../_static/img/how-to-guide/add_elements.PNG)
@@ -367,15 +367,15 @@ This time we want to create a radio button where users can choose how much stora
 > *Create Storage Question*
 
 * Fill in the default fields as before.      
-* Assign the [*Attribute*](#Attribute)   `https://rdmorganiser.github.io/terms/domain/project/dataset/storage`  
+* Assign the [*Attribute*](#attributes)   `https://rdmorganiser.github.io/terms/domain/project/dataset/storage`  
 
-* Use [*Widget type*](#Widget-type-also-data-type-information-type-input-options) `Radio button` and the *value type* `Options`.  
+* Use [*Widget type*](#widget-type) `Radio button` and the *value type* `Options`.  
 
 ![](../_static/img/how-to-guide/widget_radio.PNG)
 > *Choose a Widget Type*
         
 * Now, click on `Option sets` and on `Add existing optionset`. We choose    `https://rdmorganiser.github.io/terms/options/dfg_dataset_size_options`   
-as [*Option set*](#Option-sets).
+as [*Option set*](#option-sets).
 
 ![](../_static/img/how-to-guide/select_os.PNG)
 > *Selecting an Option Set*
@@ -386,12 +386,12 @@ as [*Option set*](#Option-sets).
 It will take some time to get to know all the options that RDMO provides through the default *Option sets* that we installed at the very beginning of this guide. You can also create your own *Option sets* and *Options* and share them with the community if you wish. However, this is covered in a separate guide.
 ```
 
-* Once you have selected your optionset, click on the `save` button. This [*Question*](#Questions) form will close and you will be returned to the [*Page*](#Pages) you came from. Click `save` again to save your changes.
+* Once you have selected your optionset, click on the `save` button. This [*Question*](#questions) form will close and you will be returned to the [*Page*](#pages) you came from. Click `save` again to save your changes.
 
 ### Check that everything has worked
 
-* Click on `Catalogs` In the right-hand navigation area. This will display all available [*Catalogs*](#Catalog). Find your new [*Catalog*](#Catalog) (you can search for a phrase to reduce the number of catalogs shown).  
-* Next click on the first icon to the left, left of the pen icon, in our [*Catalog*](#Catalog) entry. 
+* Click on `Catalogs` In the right-hand navigation area. This will display all available [*Catalogs*](#catalog). Find your new [*Catalog*](#catalog) (you can search for a phrase to reduce the number of catalogs shown).  
+* Next click on the first icon to the left, left of the pen icon, in our [*Catalog*](#catalog) entry. 
 
 ![](../_static/img/how-to-guide/filter_catalog.PNG)
 > *Catalog Overview*    
@@ -401,7 +401,7 @@ You will see this:
 ![](../_static/img/how-to-guide/catalogelements.PNG)
 > *Catalog Overview if unfolded*
 
-This picture shows the entire structure of the [*Catalog*](#Catalog). This representation is also very useful if you want to add to or modify an existing [*Catalog*](#Catalog). Note that you can edit any component by clicking on the corresponding pen icon. The rightmost icon (double-crossed arrows) can be used to rearrange the order of items. [Icons](#Icons)
+This picture shows the entire structure of the [*Catalog*](#catalog). This representation is also very useful if you want to add to or modify an existing [*Catalog*](#catalog). Note that you can edit any component by clicking on the corresponding pen icon. The rightmost icon (double-crossed arrows) can be used to rearrange the order of items. [Icons](#icons)
 
 * Now go back to the RDMO home page (you can usually just click on the name of the RDMO instance in the top navigation bar \- it is on the very left).
 
@@ -414,7 +414,7 @@ Click on `New project`
 ![](../_static/img/how-to-guide/new_project.PNG)
 > *Empty Project List*
 
-Give the project a `Title` and choose our new [*Catalog*](#Catalog) "*Meaningful Catalog*". Add a nice description and click on `Create project`. 
+Give the project a `Title` and choose our new [*Catalog*](#catalog) "*Meaningful Catalog*". Add a nice description and click on `Create project`. 
 
 ![](../_static/img/how-to-guide/projectinformations.PNG)
 > *Provide Project Informations*
@@ -431,22 +431,22 @@ Create a first *Dataset* by clicking on the `+Dataset` button (this will generat
 ![](../_static/img/how-to-guide/select_dataset.PNG)
 > *Add a new dataset to your anwsers*
 
-The [*Page*](#Pages) should now display our [*Question set*](#Question-set) for the creators and the single [*Question*](#Questions) regarding storage volume. The title you gave the dataset should now be displayed in a tab, and you can add more tabs (for more datasets) by clicking on the `+Dataset` tab. Recall: this is why we ticked the `is collection` box in the [*Page* form](#Sixth).
+The [*Page*](#pages) should now display our [*Question set*](#question-sets) for the creators and the single [*Question*](#questions) regarding storage volume. The title you gave the dataset should now be displayed in a tab, and you can add more tabs (for more datasets) by clicking on the `+Dataset` tab. Recall: this is why we ticked the `is collection` box in the [*Page* form](#step-four-creating-a-page-as-a-collection).
 
 You can fill in the first creator's data. Note that there should be a green button to `+ Add Creator`. Press it and see if an additional field for a second creator appears. 
 
 ![](../_static/img/how-to-guide/ds_creator.PNG)
 > *Add a new Creator*
 
-Finally, you should see a radio button menu. The available options are defined in the [*Optionset*](#Option-sets) that we linked when [setting  up the question](#Add-a-Question-to-our-Page). If we wanted different options, e.g. different data volumes, we would have to create a new [*Optionset*](#Option-sets). 
+Finally, you should see a radio button menu. The available options are defined in the [*Optionset*](#option-sets) that we linked when [setting  up the question](#add-elements-to-our-page-questions). If we wanted different options, e.g. different data volumes, we would have to create a new [*Optionset*](#option-sets). 
 
 ### How to add Options to your RDMO
 
-If you have never created a [*Catalog*](#Catalog) in RDMO before, we recommend you start with the step-by-step guide to [Creating a new questionnaire](#Creating-a-new-questionnaire). Creating new [*Options*](#Options) is easier than creating a new questionnaire, but knowing the parts of a questionnaire (called a *Catalog* in RDMO) will help you understand what *Options* are for.
+If you have never created a [*Catalog*](#catalog) in RDMO before, we recommend you start with the step-by-step guide to [Creating a new Catalog](#creating-a-new-catalog). Creating new [*Options*](#options) is easier than creating a new questionnaire, but knowing the parts of a questionnaire (called a *Catalog* in RDMO) will help you understand what *Options* are for.
 
-We will assume that your RDMO already has the default domain with *Attributes* and the default *Options* (see [Initial setup](#Initial-setup) for a guide to installing these).
+We will assume that your RDMO already has the default domain with *Attributes* and the default *Options* (see [Initial setup](#initial-setup) for a guide to installing these).
 
-In this example, we want to offer users a selection of experimental techniques for an \[\[Omics\]\] project. Since  *Options* in RDMO are grouped in [*Optionsets*](#Optionsets). We will start by creating a new *Optionset*.
+In this example, we want to offer users a selection of experimental techniques for an \[\[Omics\]\] project. Since  *Options* in RDMO are grouped in [*Optionsets*](#option-sets). We will start by creating a new *Optionset*.
 
 ### Creating a new Optionset
 
@@ -454,7 +454,7 @@ First, navigate to the *Management* section in RDMO. This can be done by clickin
 
 Click on the green *New* button to start creating a new *Option set*.
 
-The top fields in the form *URI Path* and *URI Prefix* should be familiar from creating *Catalogs* \- if not, have a look at [this section](#Step-one-Create-Catalog).
+The top fields in the form *URI Path* and *URI Prefix* should be familiar from creating *Catalogs* \- if not, have a look at [this section](#step-one-create-a-new-catalog).
 
 The comment field can be used to give RDMO managers an idea of what the option set is about and how it will be used. We enter *"This option set provides various experimental methods for omics research. Intended for offering users a specialised selection of methods used to create a generated dataset."*
 
@@ -521,16 +521,16 @@ Click "Save" at the bottom.
 
 Finally, we need to use the option in a Question. If you already know how to add *Questions* to a *Catalog* try it yourself.
 
-If you do not know how to do this: Go through the [Creating a new questionnaire](#Creating-a-new-questionnaire) tutorial, except in the [Add a *Question* to our *Page*](#Add-a-Question-to-our-Page) step, you can add your new *Question set* instead of the one suggested there. The question text won't fit exactly, but you will see your *Question set* in action.
+If you do not know how to do this: Go through the [Creating a new Catalog](#creating-a-new-catalog) tutorial, except in the [Add a *Question* to our *Page*](#add-elements-to-our-page-questions) step, you can add your new *Question set* instead of the one suggested there. The question text won't fit exactly, but you will see your *Question set* in action.
 
 ## Basics
 
-In this section, you will learn about the basic elements of RDMO to create your own questionnaire. To create a [*Catalog*](#Catalog) in RDMO, you need to understand the hierarchical structure and the relationships between the different [*Components*](#Catalog-components). Here's a breakdown of how to build a [*Catalog*](#Catalog) structure:
+In this section, you will learn about the basic elements of RDMO to create your own questionnaire. To create a [*Catalog*](#catalog) in RDMO, you need to understand the hierarchical structure and the relationships between the different components. Here's a breakdown of how to build a [*Catalog*](#catalog) structure:
 
 ### Catalog
 
 * The top-level container for your questionnaire  
-* Contains multiple [*Sections*](#Sections)  
+* Contains multiple [*Sections*](#sections)  
 * Once a catalogue has been completed it can be exported in a variety of formats.
 
 ### URI prefix
@@ -541,40 +541,40 @@ In this section, you will learn about the basic elements of RDMO to create your 
 ### URI path
 
 * It is the part of the URI that comes after the prefix.  
-* It is typically a string of characters separated by forward slashes ("/") and is primarily used as an internal identifier to locate specific items or resources within the RDMO system. When combined with the [*URI Prefix*](#URI-prefix), it forms the full URI of an item.
+* It is typically a string of characters separated by forward slashes ("/") and is primarily used as an internal identifier to locate specific items or resources within the RDMO system. When combined with the [*URI Prefix*](#uri-prefix), it forms the full URI of an item.
 
 ### Sections
 
-* Main segments ofthe [*Catalog*](#Catalog).  
-* Each *Section* contains multiple [*Pages*](#Pages).  
+* Main segments of the [*Catalog*](#catalog).  
+* Each *Section* contains multiple [*Pages*](#pages).  
 * *Sections* help to break the catalog down into thematic areas.
 
 ### Pages
 
-* Subdivisions of *Sections* that contain and organise *Questions* and [*Question sets*](#Question-sets)  
+* Subdivisions of *Sections* that contain and organise *Questions* and [*Question sets*](#question-sets)  
 * A *Page* corresponds to a visible screen in the user interview process 
 
 ### Collection
 
-* A collection in RDMO allows for multiple sets of answers to the same group of [*Questions*](#Questions). You can select the collection option for a [*Page*](#Pages), [*Question*](#Questions), or [*Question set*](#Question-sets). Each instance of a collection contains the same set of [*Questions*](#Questions) but can have different answers, making it useful for cases where similar information needs to be entered multiple times. This feature creates more dynamic and flexible questionnaires that adapt to different project structures. For example, if you have a [*Page*](#Pages) about "Dataset Description" and mark it as a collection, researchers can describe multiple datasets within the same project. This is particularly useful when collecting information about multiple datasets, research methods, or project partners in a single project.  
-* At the [*Question*](#Questions) level, a collection allows the answer field to a [*Question*](#Questions) to be answered more than once.  
-* At the level of [*Question sets*](#Question-sets), the collection allows [*Option sets*](#Option-sets) to be duplicated and used multiple times.  
-* At the [*Page*](#Pages) level, collections allow users to create sets (data sets or subsets of the project data, which are always represented by tabs). This means that every [*Question*](#Questions) belonging to this page must be answered for each data set.
+* A collection in RDMO allows for multiple sets of answers to the same group of [*Questions*](#questions). You can select the collection option for a [*Page*](#pages), [*Question*](#questions), or [*Question set*](#question-sets). Each instance of a collection contains the same set of [*Questions*](#questions) but can have different answers, making it useful for cases where similar information needs to be entered multiple times. This feature creates more dynamic and flexible questionnaires that adapt to different project structures. For example, if you have a [*Page*](#pages) about "Dataset Description" and mark it as a collection, researchers can describe multiple datasets within the same project. This is particularly useful when collecting information about multiple datasets, research methods, or project partners in a single project.  
+* At the [*Question*](#questions) level, a collection allows the answer field to a [*Question*](#questions) to be answered more than once.  
+* At the level of [*Question sets*](#question-sets), the collection allows [*Option sets*](#option-sets) to be duplicated and used multiple times.  
+* At the [*Page*](#pages) level, collections allow users to create sets (data sets or subsets of the project data, which are always represented by tabs). This means that every [*Question*](#questions) belonging to this page must be answered for each data set.
 
-### Question Sets {#question-sets}
+### Question Sets
 
-* Groups of related [*Questions*](#Questions) within a [*Page*](#Pages).  
-* May contain other question sets or individual [*Questions*](#Questions).
+* Groups of related [*Questions*](#questions) within a [*Page*](#pages).  
+* May contain other question sets or individual [*Questions*](#questions).
 
-### Questions {#questions}
+### Questions
 
-* A question has a text, which will be shown in bold to the user and can accept different response formats ([Widgets](#widget-type-\(also-data-type,-information-type,-input-options\))).   
+* A question has a text, which will be shown in bold to the user and can accept different response formats ([Widgets](#widget-type)).
 * Must be associated with [*Attributes*](#attributes) in the domain model in order to store and retrieve user responses.
 
-### Widget type (also data type, information type, input options) {#widget-type-(also-data-type,-information-type,-input-options)}
+### Widget type
 
 * The data structure in which the information is stored is hierarchical. The lowest level is the answer to the question. Widget type dictates how the user will respond to a [Question](#questions).  
-* The information to be stored as an answer to a [*Question*](#Questions) is entered using one of the following input options appropriate to the [*Question*](#Questions).  
+* The information to be stored as an answer to a [*Question*](#questions) is entered using one of the following input options appropriate to the [*Question*](#questions).  
     
   1. Text line (unwrapped)  
   2. Text area consisting of a variable number of wrapped lines  
@@ -604,14 +604,14 @@ In this section, you will learn about the basic elements of RDMO to create your 
 
 With this icon set, which is available at the Catalog level, you can for example add elements or download your catalog. We explain them from the left to the right.  The first icon will show you the content of your questionnaire in a nested or hierarchical view. The second icon, the pencil, activates the edit mode of the element. With the third icon you can copy/duplicate the complete catalog. With the fourth icon, the big plus, you can add additional elements like question or question sets. The switch (fifth) icon can disable or enable a catalog. A disabled catalog will not be available for the users. With the sixth icon (lock icon) you can lock or unlock the catalog. If a catalog is locked, it isn't possible to edit the catalog. If you want to download the whole catalog, you can do this with a click on the seventh, the export icon.
 
-### Option sets {#option-sets}
+### Option sets
 
-* Predefined list of answer choices used for [*Questions*](#Questions) in RDMO catalogs. They are typically used with radio buttons, checkboxes, or dropdown menus. They provide standardized, reusable sets of answer choices that can be applied across various [*Questions*](#Questions) in RDMO questionnaires.  
-* They ensure consistency in answer choices across related [*Questions*](#Questions) and simplify the questionnaire creation process.
+* Predefined list of answer choices used for [*Questions*](#questions) in RDMO catalogs. They are typically used with radio buttons, checkboxes, or dropdown menus. They provide standardized, reusable sets of answer choices that can be applied across various [*Questions*](#questions) in RDMO questionnaires.  
+* They ensure consistency in answer choices across related [*Questions*](#questions) and simplify the questionnaire creation process.
 
 ### Options
 
-* Options are the components of [*Option sets*](#Option_set). For Example: You are creating a new *Option set* that will allow users to select where their data is archived. The *Option set* should offer users these choices:  
+* Options are the components of [*Option sets*](#option-sets). For Example: You are creating a new *Option set* that will allow users to select where their data is archived. The *Option set* should offer users these choices:  
   1. "I will not archive any data."  
   2. "Data are archived in our institutional repository."  
   3. "Other: " 
@@ -620,13 +620,13 @@ Each of the three possible answers is an *Option* in RDMO.
 
 * Options can be predetermined (like numbers 1 and 2 above), or they can have an *Additional input* where users can enter text. This would be the case for option 3 above.  
 * You can reuse existing *Options* in new *Option sets* or create new ones.  
-* An *Option* has a *Text* that is shown to the user (in our example above e.g. "I will not archive any data.") as well as a *Help* text and a so-called *View text*. The *View text* is only relevant for [*Views*](#Views) and often missing in older *Options*. It determines what is displayed in RDMO views.
+* An *Option* has a *Text* that is shown to the user (in our example above e.g. "I will not archive any data.") as well as a *Help* text and a so-called *View text*. The *View text* is only relevant for [*Views*](#views) and often missing in older *Options*. It determines what is displayed in RDMO views.
 
-### Views {#views}
+### Views
 
 Views can be used to select, arrange and format the answers or parts of the catalogue. Views are useful to reformat answers and to provide a streamlined, structured display of the answers. 
 
-### Attributes {#attributes}
+### Attributes
 
 * *Attributes* are at the heart of RDMO, linking content elements to project values. They play a crucial role in ensuring consistency and interoperability across different [*Catalogs*](https://pad.gwdg.de/9oaFYAYlTuaw0rGrY6ltEg?view#Catalog) and RDMO instances.  
 * The answers given by a user are stored in this attribute and are not lost. This can be an advantage, as the answers will be displayed even if the user changes the catalog within a project created in RDMO. At the same time, however, there is a potential for danger:  
@@ -667,8 +667,8 @@ b) 	URI Key: The key within the path is the last word, which is separated by a s
 There is no best practice on how to choose an attribute so far. If you’re not sure, please contact the RDMO group.  
 
 * The steps you can take are the following:  
-  * Review Existing *Attributes*: Familiarize yourself with the [RDMO domain](https://github.com/rdmorganiser/rdmo-catalog/blob/master-rdmo2.x/rdmorganiser/domain/attributes.xml), which contains 304 (01/2025) hierarchically ordered attributes. Identify the specific information your [*Question*](#Questions) is trying to capture and look for *Attributes* that closely match your intent. *Attributes* in RDMO are organized in a tree-like structure, so navigate through the hierarchy to find the most relevant category. You can also have a look into [RDMO Terms](https://rdmorganiser.github.io/terms/) to find questions and their related attributes.  
-  * Check *Attribute* Properties: Each *Attribute* has properties such as URI, key, and parent. Ensure these properties align with the context of your [*Question*](#Questions). Example: The *Attribute* with the path `project/schedule/project_start` represents the start date of a project. The *Attribute* key is `project_start`. Its parent *Attribute* is the `project/schedule` *Attribute*, which itself is a sub-Attribute of  `project`. When creating a [*Page*](#Pages) [*Collection*](#Collection), you should select the appropriate *Attribute*. ![Overview of available Attributes][image27]  
+  * Review Existing *Attributes*: Familiarize yourself with the [RDMO domain](https://github.com/rdmorganiser/rdmo-catalog/blob/master-rdmo2.x/rdmorganiser/domain/attributes.xml), which contains 304 (01/2025) hierarchically ordered attributes. Identify the specific information your [*Question*](#questions) is trying to capture and look for *Attributes* that closely match your intent. *Attributes* in RDMO are organized in a tree-like structure, so navigate through the hierarchy to find the most relevant category. You can also have a look into [RDMO Terms](https://rdmorganiser.github.io/terms/) to find questions and their related attributes.  
+  * Check *Attribute* Properties: Each *Attribute* has properties such as URI, key, and parent. Ensure these properties align with the context of your [*Question*](#questions). Example: The *Attribute* with the path `project/schedule/project_start` represents the start date of a project. The *Attribute* key is `project_start`. Its parent *Attribute* is the `project/schedule` *Attribute*, which itself is a sub-Attribute of  `project`. When creating a [*Page*](#pages) [*Collection*](#collection), you should select the appropriate *Attribute*. ![Overview of available Attributes][image27]  
       
 Cases where you'll need to create a new Attribute:  
 

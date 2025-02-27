@@ -76,7 +76,7 @@ and
 </VirtualHost>
 ```
 
-For `gunicorn`, two seperate systemd service files need to be configured. For reasons unkown to us, the service files **must** use different `RuntimeDirectory` locations, e.g. `gunicorn/app1` and `gunicorn/app2`. `GUNICORN_BIND` and `GUNICORN_PID_FILE` need to be adjusted accordingly.
+For `gunicorn`, two separate systemd service files need to be configured. For reasons unknown to us, the service files **must** use different `RuntimeDirectory` locations, e.g. `gunicorn/app1` and `gunicorn/app2`. `GUNICORN_BIND` and `GUNICORN_PID_FILE` need to be adjusted accordingly.
 
 ## Shibboleth
 

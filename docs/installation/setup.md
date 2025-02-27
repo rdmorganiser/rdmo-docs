@@ -9,11 +9,11 @@ You can use `config/settings/sample.local.py` as template, i.e.:
 ```{eval-rst}
 .. tabs::
 
-   .. code-tab:: bash/zsh Linux/MacOS/Windows
+   .. code-tab:: bash Linux/MacOS/Windows
 
       cp config/settings/sample.local.py config/settings/local.py
 
-   .. code-tab:: cmd/pwsh Windows
+   .. code-tab:: powershell Windows Powershell
 
       copy config\settings\sample.local.py config\settings\local.py
 ```
@@ -29,7 +29,7 @@ python manage.py createsuperuser        # creates the admin user
 
 ## Third party vendor files
 
-By default third party vendor files (like jQuery or Bootstrap javascripts) are retrieved from the content delivery networks that they are hosted on. If you would like to avoid third party requests you could host them yourself. This can be achieved easily with two simple steps.
+By default third party vendor files (like jQuery or Bootstrap javascript's) are retrieved from the content delivery networks that they are hosted on. If you would like to avoid third party requests you could host them yourself. This can be achieved easily with two simple steps.
 
 1. download the vendor files from the cdns by running the provided script
     ```python
@@ -43,7 +43,7 @@ By default third party vendor files (like jQuery or Bootstrap javascripts) are r
 
 ## RDMO development server
 
-After these steps, RDMO can be run using Djangos integrated development server:
+After these steps, RDMO can be run using Django's integrated development server:
 ```bash
 python manage.py runserver
 ```

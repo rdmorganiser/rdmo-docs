@@ -3,7 +3,7 @@
 RDMO can use any type of database that is supported by the Django web framework. The particular database connection is defined with the setting `DATABASES` in your `local.py`.  
 An overview of the Django database settings can be found in the [Django docs](https://docs.djangoproject.com/en/4.2/ref/settings/#databases). For the most typical types of databases, [PostgreSQL](#postgresql), [MySQL](#mysql) and [SQLite](#sqlite), we show here the configuration and [initialization](#initializing-the-database) with the `manage.py migrate` command.
 
-### PostgreSQL
+## PostgreSQL
 
 PostgreSQL can be installed using:
 
@@ -55,7 +55,7 @@ createdb rdmo -O rdmo
 This assumes peer authentication for the rdmo user.
 Now you can [initialize your database](#initializing-the-database).
 
-### MySQL
+## MySQL
 
 
 MySQL (or community-developed fork MariaDB) can be installed using:
@@ -117,7 +117,7 @@ on the MySQL-shell.
  Now you can [initialize your database](#initializing-the-database).
 
 
-### SQLite
+## SQLite
 
 SQLite is the default option in RDMO, but we recommend it only for a development/testing setup on your local machine. It can be configured in `config/settings/local.py` by adding:
 
@@ -132,7 +132,7 @@ DATABASES = {
 
 where `NAME` is the name of database file. Now you can [initialize your database](#initializing-the-database).
 
-### Initializing the database
+## Initializing the database
 
 When you have configured your database, then you can initialize the database tables with a Django command [`migrate`](https://docs.djangoproject.com/en/4.2/ref/django-admin/#migrate).
 

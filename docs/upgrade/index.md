@@ -98,7 +98,7 @@ from django.utils.translation import gettext_lazy as _
 
 We have also refactored the `rdmo-app`, which people clone to start using RDMO. You should still be able to use your old `rdmo-app`, but you might take a look at [github.com/rdmorganiser/rdmo-app](https://github.com/rdmorganiser/rdmo-app) and adopt some of the new layout to your installation.
 
-Instead of 6 seperate pages, RDMO now uses only one management interface at `/management/`. If you adjusted `core/base_navigation.html` in your theme, you need to change the link and the corresponding permission check. Instead of:
+Instead of 6 separate pages, RDMO now uses only one management interface at `/management/`. If you adjusted `core/base_navigation.html` in your theme, you need to change the link and the corresponding permission check. Instead of:
 
 ```django
 {% has_perm 'questions.view_catalog' request.user as can_view_catalog %}
