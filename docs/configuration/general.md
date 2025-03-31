@@ -40,7 +40,7 @@ TIME_ZONE = 'Europe/Berlin'
 By default, RDMO runs with English as the first and German as the second language. It can be configured to run with up to 5 arbitrary languages. For this, the `LANGUAGES` setting need to be added to `config/settings/local.py`. E.g. for French:
 
 ```python
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import gettext_lazy as _
 LANGUAGE_CODE = 'fr-fr'
 TIME_ZONE = 'Europe/Paris'
 LANGUAGES = (

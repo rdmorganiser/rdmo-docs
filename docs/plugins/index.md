@@ -219,7 +219,7 @@ As mentioned above, there are two possibilities of how to install [rdmo-plugins]
 Please note that the imports require Django's translation utils and that we usually use these with an underscore. If you are getting import errors please check if you have the first of the following lines at the beginning of your `local.py`. You also need to import `PROJECT_EXPORTS` and `PROJECT_IMPORTS` as we will later append our imports to these lists. Make sure you also have the second line in your `local.py`.
 
 ```python
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import gettext_lazy as _
 from rdmo.core.settings import PROJECT_EXPORTS, PROJECT_IMPORTS
 ```
 

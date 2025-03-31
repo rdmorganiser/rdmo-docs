@@ -87,7 +87,7 @@ MIDDLEWARE.append('allauth.account.middleware.AccountMiddleware')
 RDMO 2.0.0 uses Django 4.2, which removed some functions. If you use
 
 ```python
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import gettext_lazy as _
 ```
 
 in your `config/settings/local.py`, you need to change this to
