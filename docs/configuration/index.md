@@ -20,6 +20,7 @@ authentication/index
 export-formats
 cache
 logging
+openapi
 projects
 multisite
 ```

@@ -125,3 +125,28 @@ As described in the Introduction above RDMO themes are now supposed to be Django
         └── core
             └── your_template.html
     ```
+
+## Markdown templates
+
+```{warning}
+This is an advanced feature of RDMO.
+```
+
+```{note}
+This feature was introduced in RDMO 2.3.
+```
+
+For special setups, RDMO allows for creation of templates or snippets written in Markdown or HTML to be injected into help texts and other content where Markdown is usually allowed. To enable this feature, use:
+
+```python
+MARKDOWN_TEMPLATES = {
+    'example': 'path/to/a/template.html',
+    ...
+}
+```
+
+where `example` is a key defined by you and the path is a **template path** (based on Django's shared template path).
+
+Then, the code `{{example}}` can be used in help texts and will be replaced by the (rendered) content of `path/to/a/template.html`.
+
+If `TEMPLATES_EXECUTE_SCRIPT_TAGS = True` (see [General settings](../configuration/general.md)) you can even inject JavaScript code. **Please check carefully if this will affect the security of your site.**

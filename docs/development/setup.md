@@ -126,7 +126,6 @@ REST_FRAMEWORK['DEFAULT_RENDERER_CLASSES'] = (
 Then, initialize the application, using:
 
 ```bash
-python manage.py download_vendor_files  # download front-end vendor files
 python manage.py migrate                # initializes the database
 python manage.py setup_groups           # optional: create groups with different permissions
 ```
@@ -200,6 +199,14 @@ Then `npm` can be used to download and install the javascript dependencies and b
 ```
 npm install    # to install the many, many javascript dependencies
 npm run watch  # to build the front-end and rebuild it when changing the source
+```
+
+If you don't want to source the `nvm.sh` enviroment in every terminal session, you can use the shortcuts`rdmo-admin`:
+
+```bash
+rdmo-admin npm install
+rdmo-admin npm run watch
+...
 ```
 
 Now the development server can be started (in a different terminal) using:

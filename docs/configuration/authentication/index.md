@@ -8,6 +8,8 @@ RDMO has three main modes for Authentication:
 
 If none of the modes is enabled, only a very basic login will be available and users need to be created using the Django Admin Interface.
 
+A custom middleware can be enabled to force users to aknowlege the [Terms of use](terms-of-use-middleware) of the instance.
+
 ---
 
 ```{toctree}
@@ -16,4 +18,5 @@ If none of the modes is enabled, only a very basic login will be available and u
 allauth
 ldap
 shibboleth
+terms-of-use-middleware
 ```

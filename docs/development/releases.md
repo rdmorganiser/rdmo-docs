@@ -1,25 +1,19 @@
 Releases
 ========
 
-0) Install [build](https://github.com/pypa/build) and [twine](https://github.com/pypa/twine): `python -m pip install build twine`
+0) Install `rdmo[dev]`.
 
 1) Ensure tests are passing.
 
-2) Update version in `rdmo/__init__.py`.
+3) Check that version in `rdmo/__init__.py`, `CHANGELOG.md` and *all the other things* are up to date.
 
-3) Build production front-end files
+4) Build production front-end files, source-distribution and wheel using:
 
-  ```
-  nvm use
-  npm install
-  npm run build:prod
+  ```python
+  rdmo-admin build
   ```
 
-4) Build source-distribution and wheel with `build`:
-
-  ```
-  python -m build
-  ```
+  which calls `npm ci` and `npm run build:prod` and `python -m build`
 
 5) Upload with `twine` to Test PyPI:
 
@@ -37,8 +31,4 @@ Releases
 
 8) Check https://pypi.org/project/rdmo/.
 
-9) Commit local changes.
-
-10) Push changes.
-
-11) Create release on [GitHub](https://github.com/rdmorganiser/rdmo/releases).
+9) Create release on [GitHub](https://github.com/rdmorganiser/rdmo/releases).

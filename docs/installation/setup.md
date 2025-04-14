@@ -29,6 +29,10 @@ python manage.py createsuperuser        # creates the admin user
 
 ## Third party vendor files
 
+```{warning}
+This step is only needed for older RDMO versions **before** RDMO 2.3.
+```
+
 By default third party vendor files (like jQuery or Bootstrap javascript's) are retrieved from the content delivery networks that they are hosted on. If you would like to avoid third party requests you could host them yourself. This can be achieved easily with two simple steps.
 
 1. download the vendor files from the cdns by running the provided script

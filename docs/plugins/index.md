@@ -75,6 +75,22 @@ PROJECT_EXPORTS = [
 ]
 ```
 
+## Snapshot export plugins
+
+```{note}
+This feature was introduced in RDMO 2.3.
+```
+
+Custom snapshot exports are created very similar to project exports. They are inherited from `rdmo.projects.export.Export` as well, the difference is that `self.snapshot` is set, but `self.project` is not. For an example, please refer to `rdmo.projects.exports.RDMOXMLExport`.
+
+The export plugin needs to be added to the `PROJECT_SNAPSHOT_EXPORTS` in `config/settings/local.py`, e.g.:
+
+```python
+PROJECT_EXPORTS = [
+    ('xml', _('as RDMO XML'), 'rdmo.projects.exports.RDMOXMLExport'),
+]
+```
+
 ## Project import plugins
 
 Similarly, custom project imports can be created implementing a class inheriting from `rdmo.projects.imports.Import`. They can be used to import project data from files which are uploaded by the user.
