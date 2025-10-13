@@ -16,7 +16,7 @@ We recommend to install the prerequisites using the packaging system of your dis
           git pandoc
 
       # optional, for pdf output
-      sudo apt install texlive texlive-xetex lmodern librsvg2-bin
+      sudo apt install texlive texlive-luatex texlive-xetex lmodern librsvg2-bin
 
    .. code-tab:: bash RHEL/CentOS
 
