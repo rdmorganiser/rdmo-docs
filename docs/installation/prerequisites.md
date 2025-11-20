@@ -60,9 +60,10 @@ Python 3.12:
 * download and install from <https://www.python.org/downloads/windows/>
 * check **Add Python to environment variables** during setup
 
-Node JS (only needed with the [development setup](../development/setup)):
-* download and install from <https://node.js.org/en/download/package-manager>
-* check https://github.com/rdmorganiser/rdmo/blob/main/.nvmrc for the major version used in RDMO (currently `18`)
+NVM for Windows (only needed with the [development setup](../development/setup)):
+* download and install from <https://github.com/coreybutler/nvm-windows>
+* NVM for Windows is not able to parse the `.nvmrc` file, therefore `nvm install 22.16` (initially)
+  and `nvm use 22.16` (in every new session) need to be called manually.
 
 Git:
 * download and install from <https://gitforwindows.org>
