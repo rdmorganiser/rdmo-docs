@@ -4,18 +4,16 @@
 
 This document is a guide to creating catalogues. It contains step-by-step instructions for creating a simple Catalog. If you have never created a Data Management Plan (DMP) catalogue in RDMO, it is recommended that you work through these steps on your own instance of RDMO.  
 You will be introduced to important RDMO concepts, terminology, structure, hierarchies and dependencies, and can then apply this knowledge to create your own catalogue.  
-RDMO is a tool for creating DMPs. A DMP is a documentation of the RDM practices of your research project over the entire data lifecycle. RDMO offers several DMP catalogues, whether for a specific funder or discipline, or just generic templates for any research project. A Catalog is a set of questions about data management practices throughout the data lifecycle, so it's a comprehensive set of questions to think about and document all the data and data management practices for your research project.  
+RDMO is a tool for creating DMPs. A DMP is a documentation of the RDM practices of your research project over the entire data lifecycle. RDMO offers several DMP catalogs, whether for a specific funder or discipline, or just generic templates for any research project. A Catalog is a set of questions about data management practices throughout the data lifecycle, so it's a comprehensive set of questions to think about and document all the data and data management practices for your research project.  
 Specialist users of RDMO with administrative rights (or have the role of editor) can customise the Catalog or create new Catalogs.  
 Before deciding to create a new Catalog, you should check whether you have the rights to do so and whether there is already a catalogue that meets your needs.
 
 ## Explanation of the general relationships
 
-### Hierarchy of the elements of a Catalog (Some might also call it Questionnaire or Interview, depending on the version, they are working on.)
-
-Catalog
+Hierarchy of the elements of a Catalog 
+Some might also call it Questionnaire or Interview, depending on the version, they are working on.
 
 ![Overview of the RDMO Hierarchy](../_static/img/how-to-guide/hierarchy.PNG)
-
 > *Overview of the RDMO Hierarchy*
   
 Catalogs consist of (thematically distinct) Sections, which may span multiple pages. Pages are essentially (the entire scrollable area of) screens containing the questions (possibly organised into question sets). Questions can be of different types, distinguished by the type of response expected (e.g. text box, checkbox, date picker or range slider).
@@ -33,7 +31,7 @@ Before we can start creating our new [*Catalog*](#catalog), we need to make sure
   * Check that you can see `Management` in the top navigation bar. If so, you are an Editor and can create a new Catalog.  
 * The newly installed RDMO instance is still empty, i.e. there are no questionnaires, attributes, views, etc. available. 
 
-### If required/necessary: Import Attributes
+### Import Attributes
 
 If not already done, import the default [*Attributes*](#attributes) first (you will need them later):
 
@@ -50,7 +48,7 @@ If not already done, import the default [*Attributes*](#attributes) first (you w
  If Attributes, Options, and Option sets are imported and they already exist, they will be updated. Any local customisation of the default Attributes / Options will be overwritten. 
  ```
 
-### If required/necessary: Import options and [*Option sets*](#option-sets)
+### Import options and [*Option sets*](#option-sets)
 
 If not already done, import the default option sets:
 
@@ -58,7 +56,7 @@ If not already done, import the default option sets:
 * Go to the `Management` section and `import` the  "optionsets.xml" file in the same way as you imported the attributes before. RDMO will again show you a summary of all the option sets being imported.  
 * Continue with the import button.
 
-## Step-by-Step guide to a first Catalog
+## Building your first Catalog
 
 In this guide we will show you how to create a simple catalog to help you get started. We will show you how to create a catalog with two sections and two pages. All the steps we provide can be repeated to create a full catalog.
 
@@ -73,7 +71,7 @@ In the end, the Catalog should look something like this mockup:
 ![](../_static/img/how-to-guide/empty_page.PNG)
 > *Empty Project Page*
 
-The Page on the left shows the Question about the funding body, and the Page on the right allows users to create different tabs (one for each dataset). For information about the creator(s) of the dataset(s), different creators can be added using the green button.
+The Page on the left shows the Question about the funding body, and the Page on the right allows users to create different tabs (one for each dataset). For information about the creator(s) of the dataset(s), different creators can be added using the button below the last creator.
 
 ### Initial setup
 
@@ -81,9 +79,6 @@ You should see a screen like this when you open RDMO:
 
 ![](../_static/img/how-to-guide/first_page.PNG)
 > *First Page after Login*
-
-
-## Creating a new Catalog
 
 Click on `Management` in the top navigation bar. In a fresh RDMO it will look like this: 
 
@@ -96,9 +91,9 @@ Check that the heading under management is [*Catalogs*](#catalog), if not click 
 While many RDMO instances will already have existing [*Catalogs*](#catalog), this guide assumes that the RDMO instance is completely empty. This ensures that our screenshots are free of distracting elements, making it easier to focus on the process. If your instance contains some catalogs, that’s fine — this example will still apply.
 ```
 
-### Step one: Create a new Catalog
+### Creating a new Catalog
 
-Now let us create a new [*Catalog*](#catalog). Click on the green `New` button. You should now see something like this:   
+Now let us create a new [*Catalog*](#catalog). Click on the `New` button at the top-right corner. You should now see something like this:   
 
 ![](../_static/img/how-to-guide/createCatalog_1st_page.PNG)
 > *Creating a Catalog - Overview*
@@ -133,7 +128,7 @@ If you also see the `Sites` and `Editors` fields , you are on a hosted RDMO serv
 
 For the next step, click on `Create and continue editing` at the bottom of the page.
 
-### Step two: Creating Sections
+### Creating Sections
 
 We will now add a first [*Section*](#sections) to this [*Catalog*](#catalog). Note that you can reuse an already existing *Section* from other [*Catalogs*](#catalog) available on your RDMO instance. Here we will create a new *Section*.
 
@@ -155,7 +150,7 @@ At the top of the web page you should now see that the section is being used in 
 ![](../_static/img/how-to-guide/used_sections.PNG)
 > *Indicator how often a Section is used in different Catalogs*
 
-### Step three: Creating a Page
+### Creating Pages
 
 We will now create our first [*Page*](#pages). An RDMO page contains [*Questions*](#questions) that are presented to the user on a single web page/screen. Think of a *Page* as the analogue of an actual paper page in a classic questionnaire. We recommend that you do not put too many questions on a page \- users do not like to scroll.
 
@@ -173,14 +168,13 @@ To create a Page, click Create Page in the Section we created in the previous st
 ![](../_static/img/how-to-guide/createPage_buttons.PNG)
 > *Creating a Page*
 
-#### What we do not need to fill in:
+**What we do not need to fill in:**
 
 Note that we do *not* check if it `is collection`, we do *not* fill in the `Name` field, and we do *not* assign an `Attribute`. You only need these fields if the page is to be a Collection. We will explain what this means in detail when we create our second page.
 
 We will also ignore the `Conditions` part for now. This feature allows us to show or hide pages (and [*Question sets*](#question-sets) and [*Questions*](#questions)) depending on the user's answers to previous questions. We will skip this feature for this basic guide.
 
-### Add elements to our *Page*: Questions
-
+### Adding Questions to Pages
 We will now add a new element to our page. Elements can be [*Questions*](#questions) or *Question sets*. In our example, we want to use this first [*Page*](#pages) to ask [*Questions*](#questions) on the project’s funding, so we will click on `Create new question` in the *Elements* area.
 
 ![](../_static/img/how-to-guide/add_elements.PNG)
@@ -209,7 +203,7 @@ https://rdmorganiser.github.io/terms/domain/project/funder/name
 
 * You can now click on the `Create` button. This [*Question*](#questions) form will close and you will be returned to the [*Page*](#pages) you came from. Click `Save` to save your changes.
 
-### Step four: Creating a Page as a Collection
+### Creating Pages as a Collection
 
 Now we are going to create a second [*Page*](#pages) that will be a [*Collection*](#collection). In our example, we want to use this page to ask [*Questions*](#questions) about the datasets created in a project.
 
@@ -271,19 +265,18 @@ This is very useful if your questionnaire is longer. We will not use it in the s
 
 * Now click on the button `Create and continue editing`.
 
-#### What we do not need to fill in:
+**What we do not need to fill in:**
 
 We will also ignore the `Conditions` part for now. This feature allows us to show or hide pages (and [*Question sets*](#question-sets) and [*Questions*](#questions)) depending on the user's answers to previous questions. We will skip this feature for this basic guide.
 
-### Add elements to our *Page*: Question set
+### Adding Question sets to Pages
 
-We are now going to add new elements to our page. Elements can be [*Questions*](#questions) or a [*Question set*](#question-sets). In our example, we want to use this second page to contain a *question set* that collects information about datasets, so we click on `Create new question set` in the *Elements* area.
+We are now going to add new elements to our page. Elements can be [*Questions*](#questions) or a [*Question set*](#question-sets). In our example, we want to use this second page to contain a *question set* that collects information about datasets. We could add existing ones by clicking on ´Add existing element´ in the *Elements* area, but in this case we will click on `Create new question set`.
 
 ![](../_static/img/how-to-guide/add_elements.PNG)
 > *Adding Elements to the Page*
 
-
-### Create a new question set
+### Creating a new Question set
 
 Again, there are several fields we need to fill in to create a new [*Question set*](#question-sets).
 
@@ -292,7 +285,7 @@ Again, there are several fields we need to fill in to create a new [*Question se
 ![](../_static/img/how-to-guide/qs_comment.PNG)
 > *Create a Question Set*
 
-* Since a dataset can have more than one creator, we want to be able to add (additional) creators. So we will make this [*Question set*](#question-sets) a [*Collection*](#collection). This will cause RDMO to display a green button to add another question block like this:
+* Since a dataset can have more than one creator, we want to be able to add (additional) creators. So we will make this [*Question set*](#question-sets) a [*Collection*](#collection). This will cause RDMO to display a button below the block to add another question block like this:
 
 ![](../_static/img/how-to-guide/q_example.PNG)
 > *Exemplary Question for Collections*
@@ -304,7 +297,7 @@ Again, there are several fields we need to fill in to create a new [*Question se
     
 * Now click on `Create and continue editing`.
 
-### Adding a first question to our question set
+### Adding Questions to Question sets
 
 We are going to add a [*Question*](#questions) that asks for the name of the contributor. To do this, we click on the `Create new question` button. If we do this in the context of our current [*Question set*](#question-sets), the [*Question*](#questions) will automatically be linked to the question set.
 
@@ -321,7 +314,7 @@ We are going to add a [*Question*](#questions) that asks for the name of the con
 * The [`Widget type`](#widget-type) allows you to define the type and the answer choices of your current [*Question*](#questions). E.g. `Textarea` for long answers, `Text` for short answers, or `Radio buttons` for predefined answers.  We will look at radio buttons later when we add a second [*Question*](#questions) to this [*Page*](#pages). Here we will choose `Text`, as usually only one line is needed for names.     
 * Now click on `Create`. This should take you back to the [*Question set*](#question-sets). You should also see that the [*Question set*](#question-sets) now has one item: the [*Question*](#questions) we just created.
 
-### Adding a second *Question* to our *Question set*
+**Adding a second Question to our Question set**
 
 Let us add a second [*Question*](#questions):
 
@@ -353,7 +346,7 @@ But it is not ideal, as the semantics indicate that it is the e-mail address of 
 
 * Click on the edit (pencil) icon to edit the *Page*.
 
-### Add a *Question* to our *Page*
+### Adding Questions to Pages
 
 We will now add another new element, a [*Question*](#questions), to our *Page*.
 * Click on `Create new question` in the *Elements* area.
@@ -407,7 +400,7 @@ This picture shows the entire structure of the [*Catalog*](#catalog). This repre
 
 You are now in the overview of all your available projects. In our case, this is an empty list.
 
-## Creating a first project with the new catalog
+### Creating a first project with the new catalog
 
 Click on `New project`
 
@@ -431,16 +424,16 @@ Create a first *Dataset* by clicking on the `+Dataset` button (this will generat
 ![](../_static/img/how-to-guide/select_dataset.PNG)
 > *Add a new dataset to your anwsers*
 
-The [*Page*](#pages) should now display our [*Question set*](#question-sets) for the creators and the single [*Question*](#questions) regarding storage volume. The title you gave the dataset should now be displayed in a tab, and you can add more tabs (for more datasets) by clicking on the `+Dataset` tab. Recall: this is why we ticked the `is collection` box in the [*Page* form](#step-four-creating-a-page-as-a-collection).
+The [*Page*](#pages) should now display our [*Question set*](#question-sets) for the creators and the single [*Question*](#questions) regarding storage volume. The title you gave the dataset should now be displayed in a tab, and you can add more tabs (for more datasets) by clicking on the `+Dataset` tab. Recall: this is why we ticked the `is collection` box in the [*Page* form](#creating-a-page-as-a-collection).
 
-You can fill in the first creator's data. Note that there should be a green button to `+ Add Creator`. Press it and see if an additional field for a second creator appears. 
+You can fill in the first creator's data. Note that there should be a button to `+ Add Creator`. Press it and see if an additional field for a second creator appears. 
 
 ![](../_static/img/how-to-guide/ds_creator.PNG)
 > *Add a new Creator*
 
 Finally, you should see a radio button menu. The available options are defined in the [*Optionset*](#option-sets) that we linked when [setting  up the question](#add-elements-to-our-page-questions). If we wanted different options, e.g. different data volumes, we would have to create a new [*Optionset*](#option-sets). 
 
-### How to add Options to your RDMO
+## How to add Options to your RDMO
 
 If you have never created a [*Catalog*](#catalog) in RDMO before, we recommend you start with the step-by-step guide to [Creating a new Catalog](#creating-a-new-catalog). Creating new [*Options*](#options) is easier than creating a new questionnaire, but knowing the parts of a questionnaire (called a *Catalog* in RDMO) will help you understand what *Options* are for.
 
@@ -452,9 +445,9 @@ In this example, we want to offer users a selection of experimental techniques f
 
 First, navigate to the *Management* section in RDMO. This can be done by clicking on  *Management* in the top navigation bar. Then click on *Option sets* in the navigation area on the right. 
 
-Click on the green *New* button to start creating a new *Option set*.
+Click on the *New* button at the top-right corner to start creating a new *Option set*.
 
-The top fields in the form *URI Path* and *URI Prefix* should be familiar from creating *Catalogs* \- if not, have a look at [this section](#step-one-create-a-new-catalog).
+The top fields in the form *URI Path* and *URI Prefix* should be familiar from creating *Catalogs* \- if not, have a look at [this section](#creating-a-new-catalog).
 
 The comment field can be used to give RDMO managers an idea of what the option set is about and how it will be used. We enter *"This option set provides various experimental methods for omics research. Intended for offering users a specialised selection of methods used to create a generated dataset."*
 
@@ -474,17 +467,17 @@ Click "Create new option".
 
 ### Creating a new option
 
-1. Again fill in the *URI Path* and, if empty, the *URI Prefix*.  
+* Again fill in the *URI Path* and, if empty, the *URI Prefix*.  
      
-2. Next, fill in the *Text* (this is what RDMO will display to users) \- it should be short. We choose "DNA Methylation Assay".  
+* Next, fill in the *Text* (this is what RDMO will display to users) \- it should be short. We choose "DNA Methylation Assay".  
      
-3. Optionally, you can also enter the *Help* text for users. This additional text will be displayed in light grey with the *Option* *Text*.  
+* Optionally, you can also enter the *Help* text for users. This additional text will be displayed in light grey with the *Option* *Text*.  
      
-4. The *View text* is only used by RDMO in views and can be used to provide a more detailed text for the option.  
+* The *View text* is only used by RDMO in views and can be used to provide a more detailed text for the option.  
      
-5. Next, the *Additional input* field must be selected. We do not need a text field or a text area for this option, so we select "-----". We will use a different choice later in this guide.  
+* Next, the *Additional input* field must be selected. We do not need a text field or a text area for this option, so we select "-----". We will use a different choice later in this guide.  
      
-6. Finally, click *Create*.
+* Finally, click *Create*.
 
 ### Creating a second new option with additional input
 
@@ -585,11 +578,11 @@ We strongly recommend that you only create and use [*Conditions*](#conditions) a
 
 ### How to create new Conditions
 
-First, navigate to the *Management* section in RDMO. This can be done by clicking on ``Management` in the top navigation bar. Then click on ``Conditions` in the navigation area on the right and all [*Conditions*](#conditions) available will appear. You can filter the *Conditions* using search terms, or by the URI prefixes used or the site in the case of a multi-site instance.
+First, navigate to the *Management* section in RDMO. This can be done by clicking on `Management` in the top navigation bar. Then click on `Conditions` in the navigation area on the right and all [*Conditions*](#conditions) available will appear. You can filter the *Conditions* using search terms, or by the URI prefixes used or the site in the case of a multi-site instance.
 
 Click on the *New* button in the top-right corner to start creating a new *Condition*.
 
-The top fields in the form *URI Path* and *URI Prefix* should be familiar from creating *Catalogs* \- if not, have a look at [this section](#step-one-create-a-new-catalog).
+The top fields in the form *URI Path* and *URI Prefix* should be familiar from creating *Catalogs* \- if not, have a look at [this section](#creating-a-new-catalog).
 
 The comment field can be used to give RDMO managers an idea of what the [*Condition*](#conditions) is about and how it will be used. We enter *"This condition checks whether sensitive data being handled in the project"*
 
@@ -706,7 +699,7 @@ For each task you can define a time frame based on the project’s start and end
 
 ### How to create new Tasks
 
-First, navigate to the *Management* section in RDMO. This can be done by clicking on ``Management` in the top navigation bar. Then click on *Tasks* in the navigation area on the right and all [*Tasks*](#tasks) available will appear. You can filter the *Tasks* using search terms, or by the URI prefixes used or the site in the case of a multi-site instance.
+First, navigate to the *Management* section in RDMO. This can be done by clicking on `Management` in the top navigation bar. Then click on *Tasks* in the navigation area on the right and all [*Tasks*](#tasks) available will appear. You can filter the *Tasks* using search terms, or by the URI prefixes used or the site in the case of a multi-site instance.
 
 Click on the *New* button in the top-right corner to start creating a new *Task*.
 
@@ -830,7 +823,7 @@ In this section, you will learn about the basic elements of RDMO to create your 
 ![](../_static/img/how-to-guide/icons.PNG)
 > *Icons*
 
-With this icon set, which is available at the Catalog level, you can for example add elements or download your catalog. We explain them from the left to the right.  The first icon will show you the content of your questionnaire in a nested or hierarchical view. The second icon, the pencil, activates the edit mode of the element. With the third icon you can copy/duplicate the complete catalog. With the fourth icon, the big plus, you can add additional elements like question or question sets. The switch (fifth) icon can disable or enable a catalog. A disabled catalog will not be available for the users. With the sixth icon (lock icon) you can lock or unlock the catalog. If a catalog is locked, it isn't possible to edit the catalog. If you want to download the whole catalog, you can do this with a click on the seventh, the export icon.
+* With this icon set, which is available at the Catalog level, you can for example add elements or download your catalog. We explain them from the left to the right.  The first icon will show you the content of your questionnaire in a nested or hierarchical view. The second icon, the pencil, activates the edit mode of the element. With the third icon you can copy/duplicate the complete catalog. With the fourth icon, the big plus, you can add additional elements like question or question sets. The switch (fifth) icon can disable or enable a catalog. A disabled catalog will not be available for the users. With the sixth icon (lock icon) you can lock or unlock the catalog. If a catalog is locked, it isn't possible to edit the catalog. If you want to download the whole catalog, you can do this with a click on the seventh, the export icon.
 
 ### Option sets
 
@@ -881,6 +874,4 @@ If you have any issues by reading and understanding or any wishes what also shou
 | Sabine Schönau | [schoenau@ub.rwth-aachen.de](mailto:schoenau@ub.rwth-aachen.de) |
 | Janine Straka | [janine.straka@uni-potsdam.de](mailto:janine.straka@uni-potsdam.de) |
 | Kerstin Wedlich-Zachodin | [Kerstin.Wedlich@kit.edu](mailto:Kerstin.Wedlich@kit.edu) |
-| Jürgen Windeck | [Juergen.Windeck@tu-darmstadt.de](mailto:Juergen.Windeck@tu-darmstadt.de)
-
-
+| Jürgen Windeck | [Juergen.Windeck@tu-darmstadt.de](mailto:Juergen.Windeck@tu-darmstadt.de) |
