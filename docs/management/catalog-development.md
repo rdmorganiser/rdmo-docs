@@ -523,6 +523,60 @@ Finally, we need to use the option in a Question. If you already know how to add
 
 If you do not know how to do this: Go through the [Creating a new Catalog](#creating-a-new-catalog) tutorial, except in the [Add a *Question* to our *Page*](#add-elements-to-our-page-questions) step, you can add your new *Question set* instead of the one suggested there. The question text won't fit exactly, but you will see your *Question set* in action.
 
+## Understanding Attributes
+
+* *Attributes* are at the heart of RDMO, linking content elements to project values. They play a crucial role in ensuring consistency and interoperability across different [*Catalogs*](#catalog) and RDMO instances.  
+* The answers given by a user are stored in this attribute and are not lost. This can be an advantage, as the answers will be displayed even if the user changes the catalog within a project created in RDMO. At the same time, however, there is a potential for danger:  
+  * If you use a particular attribute for a certain question in the first catalog, but the same attribute for a different type of question in another catalog, the answers that were first entered by the user first will be retained, but may no longer make sense. If the user overwrites them in the second catalog, they will no longer make sense for the first catalog when they switch again.  
+
+![](../_static/img/how-to-guide/wrong_attributes.PNG)
+> *One Attribute for different Contexts*
+    
+  * The answers stored in the attributes are only exchanged within a project. If the user creates another project in which they answer a different catalog, no information is transferred.  
+* The RDMO domain contains 304 (01/25) hierarchically ordered attributes covering most aspects of RDM.  
+* The attributes are logically divided into three parts:  
+
+1. URI Prefix: A character string structured as an URL. The default RDMO URI Prefix is the address of the institution, such as „https://your-institution.de/terms“.  
+
+2. Element type (in this case "/domain/")
+
+3. URI Path
+
+a)  URI Path: The path provides information about the content of the question, with the scope being defined more and more concretely through the hierarchical structure. Separated by slashes, you work your way forward until you reach the “key”. As the name of the attribute should reflect the information expected when answering the question, the scope can be narrowed down.
+
+- For example, if you want to ask who is the project manager for a project, proceed from the general to the specific as follows: All in all, these are project-specific questions. So the top level of the path is the “project”. Then you want to get general information about its coordination, so you select “coordination” next. As you are looking for a person, the next level would be “name”. The full attribute is then “ https://rdmorganiser.github.io/terms/domain/project/coordination/name”.
+
+b)  URI Key: The key within the path is the last word, which is separated by a slash, and represents the most concrete level for identifying the question.
+
+-  The URI path can be very short, containing only a few terms, or it can be very long, depending on how many levels there are. It is advisable not to make the structures too specific so that the area does not become too small and the attributes can be better used.
+
+* When creating a catalog, each [*Question*](#questions) must use an attribute, which appears only once in it.  
+* [*Question sets*](#question-sets) can also be linked to an attribute as well. The default attribute here is "https://rdmorganiser.github.io/terms/domain/project/dataset/id".  
+  * The use of attributes for Question sets does not affect the questions presented to users. Only when the „is collection“-Button is enabled can the user create „datasets“ when answering the catalog:  
+
+![](../_static/img/how-to-guide/set.PNG)
+> *Provide Datasets*
+    
+* Overview of existing *Attributes* and usage: [Attribute Overview](https://rdmorganiser.github.io/terms/)
+
+### How to choose an Attribute
+
+There is no best practice on how to choose an attribute so far. If you’re not sure, please contact the RDMO group.  
+
+* The steps you can take are the following:  
+  * Review Existing *Attributes*: Familiarize yourself with the [RDMO domain](https://github.com/rdmorganiser/rdmo-catalog/blob/master-rdmo2.x/rdmorganiser/domain/attributes.xml), which contains 304 (01/2025) hierarchically ordered attributes. Identify the specific information your [*Question*](#questions) is trying to capture and look for *Attributes* that closely match your intent. *Attributes* in RDMO are organized in a tree-like structure, so navigate through the hierarchy to find the most relevant category. You can also have a look into [RDMO Terms](https://rdmorganiser.github.io/terms/) to find questions and their related attributes.  
+  * Check *Attribute* Properties: Each *Attribute* has properties such as URI, key, and parent. Ensure these properties align with the context of your [*Question*](#questions). Example: The *Attribute* with the path `project/schedule/project_start` represents the start date of a project. The *Attribute* key is `project_start`. Its parent *Attribute* is the `project/schedule` *Attribute*, which itself is a sub-Attribute of  `project`. When creating a [*Page*](#pages) [*Collection*](#collection), you should select the appropriate *Attribute*. ![Overview of available Attributes][image27]  
+      
+**Cases where you'll need to create a new Attribute:**  
+
+* Be sure that there is no matching attribute\! Even if the name of an attribute does not literally reflect the question, they are open enough to cover similar question content. For example, if you want to query when a campaign starts (instead of a project), you can still use the attribute “https://rdmorganiser.github.io/terms/domain/project/schedule/project_start” (if you have not already used it in the catalog), because you want to have similar pieces of information.  
+    * Discipline-Specific Information: when capturing data unique to your field that isn’t covered by existing *Attributes*. Example: Specialized lab techniques or data formats or Institution-Specific Requirements: For information specific to your institution’s policies or processes.   
+    * New RDM Aspects:  
+      If addressing a new area of Research Data Management not currently in the existing *Attribute* set.  
+  * If you have created a new attribute, the catalog is no longer so easy to reuse. When setting up an RDMO instance or a release, only the attributes that are in the domain are implemented  
+    * You can contact the RDMO group and ask to include your attribute in the domain as well.  
+    * You must provide the .xml including your attributes when sharing the catalog. The document describing the attributes has to be uploaded before the catalog. When sharing the “XML full” catalog, this remark is not relevant.
+
 ## How to use Conditions in your Catalog
 
 RDMO offers the option of skipping or hiding questions that are not relevant to users with the help of  *Conditions*. This is controlled by a so-called decision question. For example, if users click on the answer option “No, no sensitive data is used”, the subsequent questions about sensitive data are automatically skipped. If a question has multiple answer options, a different condition can be selected for each option, resulting in different behaviour depending on the answer selected. For example, different *Questions sets* can be displayed or skipped. Conditions are always linked to [*Option sets*](#option-sets), [*Questions*](#questions), or [*Tasks*](#tasks) and disable or enable them. They can also be used in [*Views*](#views).
@@ -796,69 +850,23 @@ Each of the three possible answers is an *Option* in RDMO.
 * You can reuse existing *Options* in new *Option sets* or create new ones.  
 * An *Option* has a *Text* that is shown to the user (in our example above e.g. "I will not archive any data.") as well as a *Help* text and a so-called *View text*. The *View text* is only relevant for [*Views*](#views) and often missing in older *Options*. It determines what is displayed in RDMO views.
 
+### Tasks
+
+* Tasks display data management tasks which the user has to accomplish.
+
 ### Views
 
-Views can be used to select, arrange and format the answers or parts of the catalogue. Views are useful to reformat answers and to provide a streamlined, structured display of the answers. 
+* Views can be used to select, arrange and format the answers or parts of the catalogue. Views are useful to reformat answers and to provide a streamlined, structured display of the answers. 
 
 ### Attributes
 
-* *Attributes* are at the heart of RDMO, linking content elements to project values. They play a crucial role in ensuring consistency and interoperability across different [*Catalogs*](#catalog) and RDMO instances.  
-* The answers given by a user are stored in this attribute and are not lost. This can be an advantage, as the answers will be displayed even if the user changes the catalog within a project created in RDMO. At the same time, however, there is a potential for danger:  
-  * If you use a particular attribute for a certain question in the first catalog, but the same attribute for a different type of question in another catalog, the answers that were first entered by the user first will be retained, but may no longer make sense. If the user overwrites them in the second catalog, they will no longer make sense for the first catalog when they switch again.  
+* *Attributes* are at the heart of RDMO, linking content elements to project values. They play a crucial role in ensuring consistency and interoperability across different [*Catalogs*](#catalog) and RDMO instances.  You can learn more about them in the section [Understanding Attributes](#understanding-attributes).
 
-![](../_static/img/how-to-guide/wrong_attributes.PNG)
-> *One Attribute for different Contexts*
-    
-  * The answers stored in the attributes are only exchanged within a project. If the user creates another project in which they answer a different catalog, no information is transferred.  
-* The RDMO domain contains 304 (01/25) hierarchically ordered attributes covering most aspects of RDM.  
-* The attributes are logically divided into three parts:  
+## How to contribute
 
-1. URI Prefix: A character string structured as an URL. The default RDMO URI Prefix is the address of the institution, such as „https://your-institution.de/terms“.  
+If you have any issues by reading and understanding or any wishes what also should be included here, feel free to [create an issue](https://github.com/rdmorganiser/rdmo-docs/issues) or contact the rdmo group directly via [rdmo-contentgruppe@listserv.dfn.de](mailto:rdmo-contentgruppe@listserv.dfn.de). 
 
-2. URI Path
-
-a) 	URI Path: The path provides information about the content of the question, with the scope being defined more and more concretely through the hierarchical structure. Separated by slashes, you work your way forward until you reach the “key”. As the name of the attribute should reflect the information expected when answering the question, the scope can be narrowed down.
-
-- For example, if you want to ask who is the project manager for a project, proceed from the general to the specific as follows: All in all, these are project-specific questions. So the top level of the path is the “project”. Then you want to get general information about its coordination, so you select “coordination” next. As you are looking for a person, the next level would be “name”. The full attribute is then “ https://rdmorganiser.github.io/terms/domain/project/coordination/name”.
-
-b) 	URI Key: The key within the path is the last word, which is separated by a slash, and represents the most concrete level for identifying the question.
-
--  The URI path can be very short, containing only a few terms, or it can be very long, depending on how many levels there are. It is advisable not to make the structures too specific so that the area does not become too small and the attributes can be better used.
-
-* When creating a catalog, each [*Question*](#questions) must use an attribute, which appears only once in it.  
-* [*Question sets*](#question-sets) can also be linked to an attribute as well. The default attribute here is "https://rdmorganiser.github.io/terms/domain/project/dataset/id".  
-  * The use of attributes for Question sets does not affect the questions presented to users. Only when the „is collection“-Button is enabled can the user create „datasets“ when answering the catalog:  
-
-![](../_static/img/how-to-guide/set.PNG)
-> *Provide Datasets*
-    
-* Overview of existing *Attributes* and usage: [Attribute Overview](https://rdmorganiser.github.io/terms/)
-
-#### Create New Attributes Sparingly:
-
-* How to Choose an *Attribute*:  
-
-There is no best practice on how to choose an attribute so far. If you’re not sure, please contact the RDMO group.  
-
-* The steps you can take are the following:  
-  * Review Existing *Attributes*: Familiarize yourself with the [RDMO domain](https://github.com/rdmorganiser/rdmo-catalog/blob/master-rdmo2.x/rdmorganiser/domain/attributes.xml), which contains 304 (01/2025) hierarchically ordered attributes. Identify the specific information your [*Question*](#questions) is trying to capture and look for *Attributes* that closely match your intent. *Attributes* in RDMO are organized in a tree-like structure, so navigate through the hierarchy to find the most relevant category. You can also have a look into [RDMO Terms](https://rdmorganiser.github.io/terms/) to find questions and their related attributes.  
-  * Check *Attribute* Properties: Each *Attribute* has properties such as URI, key, and parent. Ensure these properties align with the context of your [*Question*](#questions). Example: The *Attribute* with the path `project/schedule/project_start` represents the start date of a project. The *Attribute* key is `project_start`. Its parent *Attribute* is the `project/schedule` *Attribute*, which itself is a sub-Attribute of  `project`. When creating a [*Page*](#pages) [*Collection*](#collection), you should select the appropriate *Attribute*. ![Overview of available Attributes][image27]  
-      
-Cases where you'll need to create a new Attribute:  
-
-* Be sure that there is no matching attribute\! Even if the name of an attribute does not literally reflect the question, they are open enough to cover similar question content. For example, if you want to query when a campaign starts (instead of a project), you can still use the attribute “https://rdmorganiser.github.io/terms/domain/project/schedule/project_start” (if you have not already used it in the catalog), because you want to have similar pieces of information.  
-    * Discipline-Specific Information: when capturing data unique to your field that isn’t covered by existing *Attributes*. Example: Specialized lab techniques or data formats or Institution-Specific Requirements: For information specific to your institution’s policies or processes.   
-    * New RDM Aspects:  
-      If addressing a new area of Research Data Management not currently in the existing *Attribute* set.  
-  * If you have created a new attribute, the catalog is no longer so easy to reuse. When setting up an RDMO instance or a release, only the attributes that are in the domain are implemented  
-    * You can contact the RDMO group and ask to include your attribute in the domain as well.  
-    * You must provide the .xml including your attributes when sharing the catalog. The document describing the attributes has to be uploaded before the catalog. When sharing the “XML full” catalog, this remark is not relevant.
-
-## Future work
-
-In a next step, we will provide more detailed information on conditions, tasks and options. If you have any issues by reading and understanding or any wishes what also should be included here, feel free to make an issue or contact the rdmo group directly via [rdmo-contentgruppe@listserv.dfn.de](mailto:rdmo-contentgruppe@listserv.dfn.de). 
-
-### Authors
+## Authors
 
 | Name | Mail |
 | :---- | :---- |
@@ -868,6 +876,11 @@ In a next step, we will provide more detailed information on conditions, tasks a
 | Iven Fellhauer | [iven.fellhauer@urz.uni-heidelberg.de](mailto:iven.fellhauer@urz.uni-heidelberg.de) |
 | Stefan Gebhardt | [stefan.gebhardt@ub.uni-muenchen.de](mailto:stefan.gebhardt@ub.uni-muenchen.de) |
 | Marisabel Gonzalez-Ocanto | [ocanto@zbmed.de](mailto:ocanto@zbmed.de) |
+| Laura Meier | [laura.meier@ub.uni-muenchen.de](mailto:laura.meier@ub.uni-muenchen.de) |
 | Jürgen Rohrwild | [juergen.rohrwild@fau.de](mailto:juergen.rohrwild@fau.de) |
 | Sabine Schönau | [schoenau@ub.rwth-aachen.de](mailto:schoenau@ub.rwth-aachen.de) |
+| Janine Straka | [janine.straka@uni-potsdam.de](mailto:janine.straka@uni-potsdam.de) |
 | Kerstin Wedlich-Zachodin | [Kerstin.Wedlich@kit.edu](mailto:Kerstin.Wedlich@kit.edu) |
+| Jürgen Windeck | [Juergen.Windeck@tu-darmstadt.de](mailto:Juergen.Windeck@tu-darmstadt.de)
+
+
