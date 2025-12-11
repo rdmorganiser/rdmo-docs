@@ -639,6 +639,66 @@ In a multi-site RDMO installation, you can control which user groups are allowed
 If you add multiple [*Conditions*](#conditions) to a [*Question*](#questions), all conditions are combined with a logical OR, which means, if just one of those conditions is met, the element is visible.
 ```
 
+## Adding Tasks to your RDMO
+
+Using tasks you can add an additional layer to your RDMO [*Catalog*](#catalogs). Tasks are visible directly on the project page and can help users remember important data management tasks. Users can open a task to view its detailed description and see the related question in the interview. 
+
+Each task is linked to a [*Condition*](#conditions) and to specific [*Catalogs*](#catalogs). When the condition is met, the task is displayed and users can interact with it and change its status (open, in progress, closed). This can be used, for example, to display a "Contact your Data Protection Officer" task when a user indicates in the interview that personal data will be collected during the research project. In addition, you can also use tasks for other purposes, e.g. to show recommendations, when a user selects certain options.
+
+For each task you can define a time frame based on the project’s start and end dates. Tasks can then be displayed relative to these dates, for example one or two months after the project starts or ends.
+
+![](../_static/img/how-to-guide/task_project_page.png)
+> *A task on the project page*
+
+### How to create new Tasks
+
+First, navigate to the *Management* section in RDMO. This can be done by clicking on ``Management` in the top navigation bar. Then click on *Tasks* in the navigation area on the right and all [*Tasks*](#tasks) available will appear. You can filter the *Tasks* using search terms, or by the URI prefixes used or the site in the case of a multi-site instance.
+
+Click on the *New* button in the top-right corner to start creating a new *Task*.
+
+The top fields in the form *URI Path* and *URI Prefix* should be familiar from creating *Catalogs* \- if not, have a look at [this section](#creating-a-new-catalog).
+
+The comment field can be used to give RDMO editors an idea of what the *Task* is about and how it will be used. We enter *"This task reminds users to identify the rights owner and to contact them if the answer in the catalog indicates that this was not done yet."*
+
+You can use the *Locked* checkbox to prevent a *Task* from being modified. By default, it is left unchecked.
+The `*Available* button indicates whether the task is visible to users. If unchecked, the task will not appear in the user’s task list.
+The *Order* determines the position of the task within the list of all existing tasks. You can choose any number that makes sense.
+
+Next, you can add the short and meaningful title (e.g. *"Contact rights owner"*) and a description (field 'text') for your task. The description specifiy what one has to do to accomplish this task (e.g. *"Clarify, if and how this restricts the possibility of long-term preservation and re-use and if the rights onwer ist willing to grant the necessary rights."*). Both will be displayed in the project overview. 
+
+Tasks depend on conditions. Each task must be linked to one or more conditions, and it will only be displayed if at least one of the conditions evaluates to true.
+
+![](../_static/img/how-to-guide/task_settings_general.png)
+> *General task settings*
+
+#### Make a task date sensitive
+
+If your *Catalog* asks users to specify dates, e.g. start and end data of the project, you can use this information to schedule tasks in relation to the dates specified. 
+
+With setting *Start date attribute* and *End data attribute* you can assign the related attributes of the questions. With *Days before* or *Days after* you can define in relation to the date stored in the attribute, when a task is visible.
+
+#### Select at least one Catalog
+
+The *Catalogs* field lets you choose the catalogs in which this task can be used. Not specifying a catalog and leaving the list empty implies that this task can be used with every catalog.
+
+![](../_static/img/how-to-guide/task_settings_date.png)
+> *Date and Catalog task settings*
+
+### How to add a task to your catalog
+
+* Open the task settings
+* Select your *Catalog* in the *Catalogs* setting at the bottom 
+
+```{admonition} Info
+If the *Catalogs* list is empty, the task is by default active for all catalogs. 
+```
+
+
+
+
+
+## Glossary: Basics
+
 In this section, you will learn about the basic elements of RDMO to create your own questionnaire. To create a [*Catalog*](#catalog) in RDMO, you need to understand the hierarchical structure and the relationships between the different components. Here's a breakdown of how to build a [*Catalog*](#catalog) structure:
 
 ### Catalog
