@@ -2,15 +2,16 @@
 
 ## Introduction
 
-This document is a guide to creating catalogues. It contains step-by-step instructions for creating a simple Catalog. If you have never created a Data Management Plan (DMP) catalogue in RDMO, it is recommended that you work through these steps on your own instance of RDMO.  
-You will be introduced to important RDMO concepts, terminology, structure, hierarchies and dependencies, and can then apply this knowledge to create your own catalogue.  
+This document is a guide to creating catalogues. It contains step-by-step instructions for creating a simple Catalog. If you have never created a Data Management Plan (DMP) catalogue in RDMO, it is recommended that you work through these steps on your own instance of RDMO. You will be introduced to important RDMO concepts, terminology, structure, hierarchies and dependencies, and can then apply this knowledge to create your own catalogue.  
+
 RDMO is a tool for creating DMPs. A DMP is a documentation of the RDM practices of your research project over the entire data lifecycle. RDMO offers several DMP catalogs, whether for a specific funder or discipline, or just generic templates for any research project. A Catalog is a set of questions about data management practices throughout the data lifecycle, so it's a comprehensive set of questions to think about and document all the data and data management practices for your research project.  
 Specialist users of RDMO with administrative rights (or have the role of editor) can customise the Catalog or create new Catalogs.  
 Before deciding to create a new Catalog, you should check whether you have the rights to do so and whether there is already a catalogue that meets your needs.
 
 ## Explanation of the general relationships
 
-Hierarchy of the elements of a Catalog 
+*Hierarchy of the elements of a Catalog*
+
 Some might also call it Questionnaire or Interview, depending on the version, they are working on.
 
 ![Overview of the RDMO Hierarchy](../_static/img/how-to-guide/hierarchy.PNG)
