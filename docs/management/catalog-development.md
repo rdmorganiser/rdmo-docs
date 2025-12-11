@@ -523,7 +523,121 @@ Finally, we need to use the option in a Question. If you already know how to add
 
 If you do not know how to do this: Go through the [Creating a new Catalog](#creating-a-new-catalog) tutorial, except in the [Add a *Question* to our *Page*](#add-elements-to-our-page-questions) step, you can add your new *Question set* instead of the one suggested there. The question text won't fit exactly, but you will see your *Question set* in action.
 
-## Basics
+## How to use Conditions in your Catalog
+
+RDMO offers the option of skipping or hiding questions that are not relevant to users with the help of  *Conditions*. This is controlled by a so-called decision question. For example, if users click on the answer option “No, no sensitive data is used”, the subsequent questions about sensitive data are automatically skipped. If a question has multiple answer options, a different condition can be selected for each option, resulting in different behaviour depending on the answer selected. For example, different *Questions sets* can be displayed or skipped. Conditions are always linked to [*Option sets*](#option-sets), [*Questions*](#questions), or [*Tasks*](#tasks) and disable or enable them. They can also be used in [*Views*](#views).
+
+We strongly recommend that you only create and use [*Conditions*](#conditions) after you have compiled a complete list of [*Questions*](#questions), because [*Conditions*](#conditions) cause [*Questions*](#conditions) to be skipped or hided. If you create and use [*Conditions*](#conditions) too early, this can have the unintended effect of your questions not being displayed in the [*Catalog*](#catalog). 
+
+### How to create new Conditions
+
+First, navigate to the *Management* section in RDMO. This can be done by clicking on ``Management` in the top navigation bar. Then click on ``Conditions` in the navigation area on the right and all [*Conditions*](#conditions) available will appear. You can filter the *Conditions* using search terms, or by the URI prefixes used or the site in the case of a multi-site instance.
+
+Click on the *New* button in the top-right corner to start creating a new *Condition*.
+
+The top fields in the form *URI Path* and *URI Prefix* should be familiar from creating *Catalogs* \- if not, have a look at [this section](#step-one-create-a-new-catalog).
+
+The comment field can be used to give RDMO managers an idea of what the [*Condition*](#conditions) is about and how it will be used. We enter *"This condition checks whether sensitive data being handled in the project"*
+
+You can use the ``Locked` checkbox to prevent the *Condition* from being changed. We leave it unchecked.
+
+![](../_static/img/how-to-guide/condition_settings.png)
+> *All condition settings*
+
+The Source defines which [*Attribute*](#attributes) is evaluated by the *Condition.* You select an *Attribute* from the *Catalog* (or you can create a new *Attribute*), and the value stored for this *Attribute* in the project is compared against the *Condition*’s target value. Whatever value the user enters or selects for that *Attribute* will be used in the comparison.
+
+The *Relation* defines **how** the value of the source *Attribute* is compared to the target value. The *Condition* relations include:
+    
+| Relation                           | Description                                                                       | Target </br> (Text) | Target </br> (Option) |
+|-----------------------------|-----------------------------------------------------------------|:----------------:|:-------------------:|
+| **is equal to (==)**           | Checks whether the answer </br> is exactly this text or option         |       ✓       |        ✓        |
+| **is not equal to (!=)**     | Checks whether the answer </br> is any text or option other than this one     |       ✓      |    ✓   |
+| **contains**      | Checks whether the text answer </br> contains the given text fragment         |       ✓       |        –        |
+| **is greater than (>)**     | Checks whether the numeric answer </br> is greater than the given value   | ✓ |  –   |
+| **is greater than or equal (>=)**  | Checks whether the numeric answer </br> is greater than or equal to the given value  |       ✓       |   –  |
+| **is less than (<)**   | Checks whether the numeric answer </br> is less than the given value  |  ✓   |     –    |
+| **is less than or equal (<=)**     | Checks whether the numeric answer </br> is less than or equal to the given value  |  ✓  |   –    |
+| **is empty**   | Checks whether no answer has been given                                                |       –       |        –        |
+| **is not empty**   | Checks whether any answer has been given                                               |       –       |        –        |
+
+The last two relational operators **is empty** and **is not empty** do not require a target value.
+
+The *Target* is the value the source attribute is compared against. Depending on the attribute, this may be:
+
+* *Text*: a string, boolean value or number to compare with the attribute value
+* *Option*: one of the predefined options (in *Option Sets*) associated with the attribute
+
+The correct type of target depends on the attribute’s configuration in the *Catalog*.
+
+#### Conditions with a Target Text (including strings, boolean values, numbers)
+
+In RDMO, text targets are used not only for strings but also for boolean values and numbers, depending on the type of the source attribute.
+
+*Text values*: For attributes that store plain text, the target is a literal string. Text comparisons are case-sensitive meaning that uppercase and lowercase letters must match exactly for a condition to evaluate as true. This allows precise control when checking specific text values but also requires that the target be entered exactly as the attribute value appears.
+
+As relation you can choose between
+
+* is equal to
+* is not equal to
+* contains
+
+*Boolean values*: Boolean attribute values are represented as numeric strings (1 = yes, 0 = no). Use these values as the target when you want the *Condition* to check whether a user selected **yes** or **no** in a boolean question.
+
+As relation you can choose between
+
+* is equal to
+* is not equal to
+
+*Numbers*: For numeric attributes, the target must be a plain number. These targets are written as plain numbers without additional formatting.
+
+As relation you can choose between
+
+* is equal to
+* is not equal to
+* is greater than
+* is greater than or equal 
+* is less than
+* is less than or equal
+
+#### Conditions with a Target Option
+
+In addition to targeting text answers, [*Conditions*](#conditions) can also be used to check selected options. In the condition settings, you can select a specific option in *Target (Option)*. For this to work correctly, do not add any text to the *Target (Text)* setting.
+
+Not all relations work with options, you can choose between two relations for *Target (Options)*:
+    
+* is equal to
+* is not equal to
+
+You can not select multiple options.
+
+#### Select *Editors* (only in multi-site instance of RDMO) 
+In a multi-site RDMO installation, you can control which user groups are allowed to edit a [*Condition*](#conditions). Under *Editors*, you can link one or more groups of *Editors*. Only members of the assigned groups will be able to modify the Condition.
+
+### How to add a condition to your Catalog
+
+#### Adding *Conditions* to *Sections*, *Pages* or *Question Sets*
+
+* Open the *Section*, *Page* or *Question Set* where you would like to add the condition
+* Scroll down to *Conditions* and Click on `Add existing condition`. A drop-down menu will appear containing all the conditions available on your RDMO instance. 
+* Click on the drop-down menu and type the name of the condition you created
+* After selecting your condition, click on `save`
+
+![](../_static/img/how-to-guide/condition_page.png)
+> *Add a condition to a page*
+
+#### Adding *Conditions* to *Questions*
+
+* Open the *Question* where you would like to add the *Condition*
+* Scroll down to *Conditions* and Click on `Add existing condition`. A drop-down menu will appear containing all the conditions available on your RDMO instance. 
+* Click on the drop-down menu and type the name of the condition you created
+* After selecting your condition, click on `save`
+
+![](../_static/img/how-to-guide/condition_question.png)
+> *Add a condition to a question*
+
+```{admonition} Info
+If you add multiple [*Conditions*](#conditions) to a [*Question*](#questions), all conditions are combined with a logical OR, which means, if just one of those conditions is met, the element is visible.
+```
 
 In this section, you will learn about the basic elements of RDMO to create your own questionnaire. To create a [*Catalog*](#catalog) in RDMO, you need to understand the hierarchical structure and the relationships between the different components. Here's a breakdown of how to build a [*Catalog*](#catalog) structure:
 
