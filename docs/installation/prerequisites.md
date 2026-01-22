@@ -17,6 +17,7 @@ We recommend to install the prerequisites using the packaging system of your dis
 
       # optional, for pdf output
       sudo apt install texlive texlive-xetex lmodern librsvg2-bin
+      sudo apt install texlive-luatex  # from Debian 13 on
 
    .. code-tab:: bash RHEL/CentOS
 
