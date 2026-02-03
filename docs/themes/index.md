@@ -68,6 +68,7 @@ Some files you might want to override are:
 
 <https://github.com/rdmorganiser/rdmo/blob/main/rdmo/core/templates/core/home_text_en.html> and <https://github.com/rdmorganiser/rdmo/blob/main/rdmo/core/templates/core/home_text_de.html> can be copied to `rdmo_theme/templates/core/home_text_en.html` and `rdmo_theme/templates/core/home_text_de.html` and be used to customize text on the home page.
 
+(terms-of-use)=
 ### Terms of Use
 
 The content displayed in the Terms of Use dialogue can be customized by putting templates to the appropriate locations. Two different files resembling the available languages can be used and should be located at `rdmo_theme/templates/account/terms_of_use_de.html` and  `rdmo_theme/templates/account/terms_of_use_en.html`. Set the variable `ACCOUNT_TERMS_OF_USE` to `True` in your `config/settings/local.py`.

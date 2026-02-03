@@ -425,14 +425,14 @@ Create a first *Dataset* by clicking on the `+Dataset` button (this will generat
 ![](../_static/img/how-to-guide/select_dataset.PNG)
 > *Add a new dataset to your anwsers*
 
-The [*Page*](#pages) should now display our [*Question set*](#question-sets) for the creators and the single [*Question*](#questions) regarding storage volume. The title you gave the dataset should now be displayed in a tab, and you can add more tabs (for more datasets) by clicking on the `+Dataset` tab. Recall: this is why we ticked the `is collection` box in the [*Page* form](#creating-a-page-as-a-collection).
+The [*Page*](#pages) should now display our [*Question set*](#question-sets) for the creators and the single [*Question*](#questions) regarding storage volume. The title you gave the dataset should now be displayed in a tab, and you can add more tabs (for more datasets) by clicking on the `+Dataset` tab. Recall: this is why we ticked the `is collection` box in the [*Page* form](#creating-pages-as-a-collection).
 
 You can fill in the first creator's data. Note that there should be a button to `+ Add Creator`. Press it and see if an additional field for a second creator appears. 
 
 ![](../_static/img/how-to-guide/ds_creator.PNG)
 > *Add a new Creator*
 
-Finally, you should see a radio button menu. The available options are defined in the [*Optionset*](#option-sets) that we linked when [setting  up the question](#add-elements-to-our-page-questions). If we wanted different options, e.g. different data volumes, we would have to create a new [*Optionset*](#option-sets). 
+Finally, you should see a radio button menu. The available options are defined in the [*Optionset*](#option-sets) that we linked when [setting  up the question](#adding-questions-to-pages). If we wanted different options, e.g. different data volumes, we would have to create a new [*Optionset*](#option-sets). 
 
 ## How to add Options to your RDMO
 
@@ -515,7 +515,7 @@ Click "Save" at the bottom.
 
 Finally, we need to use the option in a Question. If you already know how to add *Questions* to a *Catalog* try it yourself.
 
-If you do not know how to do this: Go through the [Creating a new Catalog](#creating-a-new-catalog) tutorial, except in the [Add a *Question* to our *Page*](#add-elements-to-our-page-questions) step, you can add your new *Question set* instead of the one suggested there. The question text won't fit exactly, but you will see your *Question set* in action.
+If you do not know how to do this: Go through the [Creating a new Catalog](#creating-a-new-catalog) tutorial, except in the [Add a *Question* to our *Page*](#adding-questions-to-pages) step, you can add your new *Question set* instead of the one suggested there. The question text won't fit exactly, but you will see your *Question set* in action.
 
 ## Understanding Attributes
 
@@ -689,9 +689,9 @@ If you add multiple [*Conditions*](#conditions) to a [*Question*](#questions), a
 
 ## Adding Tasks to your RDMO
 
-Using tasks you can add an additional layer to your RDMO [*Catalog*](#catalogs). Tasks are visible directly on the project page and can help users remember important data management tasks. Users can open a task to view its detailed description and see the related question in the interview. 
+Using tasks you can add an additional layer to your RDMO [*Catalog*](#catalog). Tasks are visible directly on the project page and can help users remember important data management tasks. Users can open a task to view its detailed description and see the related question in the interview. 
 
-Each task is linked to a [*Condition*](#conditions) and to specific [*Catalogs*](#catalogs). When the condition is met, the task is displayed and users can interact with it and change its status (open, in progress, closed). This can be used, for example, to display a "Contact your Data Protection Officer" task when a user indicates in the interview that personal data will be collected during the research project. In addition, you can also use tasks for other purposes, e.g. to show recommendations, when a user selects certain options.
+Each task is linked to a [*Condition*](#conditions) and to specific [*Catalogs*](#catalog). When the condition is met, the task is displayed and users can interact with it and change its status (open, in progress, closed). This can be used, for example, to display a "Contact your Data Protection Officer" task when a user indicates in the interview that personal data will be collected during the research project. In addition, you can also use tasks for other purposes, e.g. to show recommendations, when a user selects certain options.
 
 For each task you can define a time frame based on the project’s start and end dates. Tasks can then be displayed relative to these dates, for example one or two months after the project starts or ends.
 
