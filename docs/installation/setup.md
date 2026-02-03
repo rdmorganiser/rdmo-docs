@@ -7,15 +7,19 @@ To set up the application, create a new file `config/settings/local.py` in your 
 You can use `config/settings/sample.local.py` as template, i.e.:
 
 ```{eval-rst}
-.. tabs::
+.. tab-set::
 
-   .. code-tab:: bash Linux/MacOS/Windows
+   .. tab-item:: Linux/MacOS/Windows
 
-      cp config/settings/sample.local.py config/settings/local.py
+      .. code-block:: bash
 
-   .. code-tab:: powershell Windows Powershell
+         cp config/settings/sample.local.py config/settings/local.py
 
-      copy config\settings\sample.local.py config\settings\local.py
+   .. tab-item:: Windows Powershell
+
+      .. code-block:: powershell
+
+         copy config\settings\sample.local.py config\settings\local.py
 ```
 
 Most of the settings of your RDMO instance are specified in this file. The different settings are explained in detail [later in the documentation](../configuration/index). For a minimal configuration, you need to set `DEBUG = True` to see verbose error messages and serve static files, and `SECRET_KEY` to a long random string, which you will keep secret. Your database connection is configured using the `DATABASES` variable. Database configuration is covered [here in the documentation](../configuration/databases) and has to be configured first. If no `DATABASE` setting is given `sqlite3` will be used as database backend.
