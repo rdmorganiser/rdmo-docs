@@ -1,3 +1,15 @@
-.rst-content .sphinx-tabs-panel div[class^=highlight] {
+.rst-content .sd-tab-content div[class^=highlight] {
     margin-bottom: 0 !important;
+}
+
+:root {
+    --sd-color-primary: #101f70;
+    --sd-color-primary-highlight: #2130a2;
+    --sd-color-primary-text: #ffffff;
+    --sd-color-secondary: #0b144d;
+    --sd-color-secondary-highlight: #1a2a84;
+    --sd-color-tabs-underline-active: #101f70;
+    --sd-color-tabs-label-active: #101f70;
+    --sd-color-tabs-underline-hover: #2130a2;
+    --sd-color-tabs-label-hover: #2130a2;
 }
