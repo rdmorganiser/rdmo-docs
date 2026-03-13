@@ -10,9 +10,11 @@ pip install rdmo[gunicorn]
 
 As explained [here](../configuration/general.md#optional-reverse-proxy), you need to add the following:
 
-```
+```python
 USE_X_FORWARDED_HOST = True
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
+ALLAUTH_TRUSTED_CLIENT_IP_HEADER = "X-Forwarded-For"  # if django-allauth is used
 ```
 
 to your `config/settings/local.py` in order for RDMO to pick up the `X-Forwarded-Host` and `X-Forwarded-Proto` HTTP headers from the proxy.

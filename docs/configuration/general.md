@@ -68,9 +68,11 @@ When using this setting, also take into account the configuration under [deploym
 
 If you run RDMO behind a reverse Proxy, which terminates the TLS/SSL traffic, you need to add the following:
 
-```
+```python
 USE_X_FORWARDED_HOST = True
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
+ALLAUTH_TRUSTED_CLIENT_IP_HEADER = "X-Forwarded-For"  # if django-allauth is used
 ```
 
 in order for RDMO to pick up the `X-Forwarded-Host` and `X-Forwarded-Proto` HTTP headers from the proxy.
