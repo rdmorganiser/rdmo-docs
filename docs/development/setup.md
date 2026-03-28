@@ -48,28 +48,34 @@ You should now have two directories in `rdmorganiser`:
 Change into `rdmo-app` and create a Python virtual environment:
 
 ```{eval-rst}
-.. tabs::
+.. tab-set::
 
-   .. code-tab:: bash Linux/MacOS
+   .. tab-item:: Linux/MacOS
 
-      cd rdmo-app
-      python3 -m venv env 
-      source env/bin/activate
-      pip install --upgrade pip setuptools        
+      .. code-block:: bash
 
-   .. code-tab:: bash Windows Bash
+         cd rdmo-app
+         python3 -m venv env 
+         source env/bin/activate
+         pip install --upgrade pip setuptools        
 
-      cd rdmo-app
-      python3 -m venv env 
-      source env/Scripts/activate
-      pip install --upgrade pip setuptools
+   .. tab-item:: Windows Bash
 
-   .. code-tab:: powershell Windows Powershell
+      .. code-block:: bash
 
-      cd rdmo-app
-      python3 -m venv env 
-      call env\Scripts\activate.bat
-      pip install --upgrade pip setuptools
+         cd rdmo-app
+         python3 -m venv env 
+         source env/Scripts/activate
+         pip install --upgrade pip setuptools
+
+   .. tab-item:: Windows Powershell
+
+      .. code-block:: powershell
+
+         cd rdmo-app
+         python3 -m venv env 
+         call env\Scripts\activate.bat
+         pip install --upgrade pip setuptools
 ```
 
 Install `rdmo` in _editable_ mode incl. dev-dependencies:
@@ -133,41 +139,49 @@ python manage.py setup_groups           # optional: create groups with different
 The testing data can be imported using:
 
 ```{eval-rst}
-.. tabs::
+.. tab-set::
 
-   .. code-tab:: bash Linux/MacOS/Windows
+   .. tab-item:: Linux/MacOS/Windows
 
-      python manage.py loaddata ../rdmo/testing/fixtures/*     
+      .. code-block:: bash
 
-   .. code-tab:: powershell Windows Powershell
+         python manage.py loaddata ../rdmo/testing/fixtures/*     
 
-      python manage.py loaddata ..\rdmo\testing\fixtures\accounts.json ^
-                              ..\rdmo\testing\fixtures\conditions.json ^
-                              ..\rdmo\testing\fixtures\domain.json ^
-                              ..\rdmo\testing\fixtures\groups.json ^
-                              ..\rdmo\testing\fixtures\options.json ^
-                              ..\rdmo\testing\fixtures\overlays.json ^
-                              ..\rdmo\testing\fixtures\projects.json ^
-                              ..\rdmo\testing\fixtures\questions.json ^
-                              ..\rdmo\testing\fixtures\sites.json ^
-                              ..\rdmo\testing\fixtures\tasks.json ^
-                              ..\rdmo\testing\fixtures\users.json ^
-                              ..\rdmo\testing\fixtures\views.json
+   .. tab-item:: Windows Powershell
+
+      .. code-block:: powershell
+
+         python manage.py loaddata ..\rdmo\testing\fixtures\accounts.json ^
+                                 ..\rdmo\testing\fixtures\conditions.json ^
+                                 ..\rdmo\testing\fixtures\domain.json ^
+                                 ..\rdmo\testing\fixtures\groups.json ^
+                                 ..\rdmo\testing\fixtures\options.json ^
+                                 ..\rdmo\testing\fixtures\overlays.json ^
+                                 ..\rdmo\testing\fixtures\projects.json ^
+                                 ..\rdmo\testing\fixtures\questions.json ^
+                                 ..\rdmo\testing\fixtures\sites.json ^
+                                 ..\rdmo\testing\fixtures\tasks.json ^
+                                 ..\rdmo\testing\fixtures\users.json ^
+                                 ..\rdmo\testing\fixtures\views.json
 
 ```
 
 The test upload files are initialized using:
 
 ```{eval-rst}
-.. tabs::
+.. tab-set::
 
-   .. code-tab:: bash Linux/MacOS/Windows
+   .. tab-item:: Linux/MacOS/Windows
 
-      cp -r ../rdmo/testing/media media_root
+      .. code-block:: bash
 
-   .. code-tab:: powershell Windows Powershell PowerShell
+         cp -r ../rdmo/testing/media media_root
 
-      xcopy ..\rdmo\testing\media media_root /e/s
+   .. tab-item:: Windows Powershell
+
+      .. code-block:: powershell
+
+         xcopy ..\rdmo\testing\media media_root /e/s
 ```
 
 Starting from RDMO `2.0.0` we use [webpack](https://webpack.js.org/) to bundle the new React based front-end. For this [nodejs](https://nodejs.org) needs to be available. The preferred way is to use [nvm.sh](https://github.com/nvm-sh/nvm). On (regular) Windows, Node JS needs to be installed like the other [prerequisites](../installation/prerequisites) and the `nvm` part can be skipped here.
@@ -258,31 +272,37 @@ In order to run the test suite, the `rdmo` repo itself can be setup in a similar
 
 
 ```{eval-rst}
-.. tabs::
+.. tab-set::
 
-   .. code-tab:: bash Linux/MacOS
+   .. tab-item:: Linux/MacOS
 
-      deactivate                                  # if you are already in an env
-      cd path/to/rdmorganiser/rdmo
-      python3 -m venv env 
-      source env/bin/activate
-      pip install --upgrade pip setuptools        
+      .. code-block:: bash
 
-   .. code-tab:: bash Windows Bash
+         deactivate                                  # if you are already in an env
+         cd path/to/rdmorganiser/rdmo
+         python3 -m venv env 
+         source env/bin/activate
+         pip install --upgrade pip setuptools        
 
-      deactivate                                  # if you are already in an env
-      cd path/to/rdmorganiser/rdmo
-      python3 -m venv env 
-      source env/Scripts/activate
-      pip install --upgrade pip setuptools
+   .. tab-item:: Windows Bash
 
-   .. code-tab:: powershell Windows Powershell PowerShell
+      .. code-block:: bash
 
-      deactivate                                  # if you are already in an env
-      cd path\to\rdmorganiser\rdmo
-      python3 -m venv env 
-      env\Scripts\Activate.ps1
-      .\env\Scripts\python.exe -m pip install -U pip setuptools
+         deactivate                                  # if you are already in an env
+         cd path/to/rdmorganiser/rdmo
+         python3 -m venv env 
+         source env/Scripts/activate
+         pip install --upgrade pip setuptools
+
+   .. tab-item:: Windows Powershell
+
+      .. code-block:: powershell
+
+         deactivate                                  # if you are already in an env
+         cd path\to\rdmorganiser\rdmo
+         python3 -m venv env 
+         env\Scripts\Activate.ps1
+         .\env\Scripts\python.exe -m pip install -U pip setuptools
 ```
 
 Again install `rdmo` in editable mode and install the database prerequisites:
@@ -320,15 +340,19 @@ In order to include plugins into the development setup simply clone the plugin r
 
 
 ```{eval-rst}
-.. tabs::
+.. tab-set::
 
-   .. code-tab:: bash HTTPS
+   .. tab-item:: HTTPS
 
-      git clone https://github.com/rdmorganiser/rdmo-plugins
+      .. code-block:: bash
 
-   .. code-tab:: bash SSH
+         git clone https://github.com/rdmorganiser/rdmo-plugins
 
-      git clone git@github.com:rdmorganiser/rdmo-plugins
+   .. tab-item:: SSH
+
+      .. code-block:: bash
+
+         git clone git@github.com:rdmorganiser/rdmo-plugins
 ```
 
 Then the plugin can be added to the `env` for `rdmo-app` or `rdmo` also in _editable_ mode using:

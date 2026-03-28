@@ -34,7 +34,7 @@ extensions = [
     'sphinx.ext.autodoc',
     'sphinx.ext.viewcode',
     'sphinx_markdown_tables',
-    'sphinx_tabs.tabs',
+    'sphinx_design',
     'sphinx_copybutton',
     'sphinx_search.extension',
     'myst_parser',

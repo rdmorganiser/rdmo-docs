@@ -9,18 +9,22 @@ PostgreSQL can be installed using:
 
 
 ```{eval-rst}
-.. tabs::
+.. tab-set::
 
-   .. code-tab:: bash Debian/Ubuntu
+   .. tab-item:: Debian/Ubuntu
 
-      sudo apt install postgresql
+      .. code-block:: bash
 
-   .. code-tab:: bash RHEL/CentOS
+         sudo apt install postgresql
 
-      sudo yum install postgresql-server postgresql-contrib
-      sudo postgresql-setup initdb
-      sudo systemctl start postgresql
-      sudo systemctl enable postgresql
+   .. tab-item:: RHEL/CentOS
+
+      .. code-block:: bash
+
+         sudo yum install postgresql-server postgresql-contrib
+         sudo postgresql-setup initdb
+         sudo systemctl start postgresql
+         sudo systemctl enable postgresql
 ```
 
 To use PostgreSQL as your database backend install `psycopg2`, via the `rdmo` dependencies, in your virtual environment:
@@ -62,20 +66,24 @@ MySQL (or community-developed fork MariaDB) can be installed using:
 
 
 ```{eval-rst}
-.. tabs::
+.. tab-set::
 
-   .. code-tab:: bash Debian/Ubuntu
+   .. tab-item:: Debian/Ubuntu
 
-      sudo apt install mysql-client mysql-server libmysqlclient-dev        # for MySQL
-      sudo apt install mariadb-client mariadb-server libmariadbclient-dev  # for MariaDB
+      .. code-block:: bash
 
-   .. code-tab:: bash RHEL/CentOS
+         sudo apt install mysql-client mysql-server libmysqlclient-dev        # for MySQL
+         sudo apt install mariadb-client mariadb-server libmariadbclient-dev  # for MariaDB
 
-      sudo yum install -y mysql mysql-server mysql-devel                   # for MySQL
-      sudo yum install -y mariadb mariadb-server mariadb-devel             # for MariaDB
-      sudo systemctl enable mariadb
-      sudo systemctl start mariadb
-      sudo mysql_secure_installation
+   .. tab-item:: RHEL/CentOS
+
+      .. code-block:: bash
+
+         sudo yum install -y mysql mysql-server mysql-devel                   # for MySQL
+         sudo yum install -y mariadb mariadb-server mariadb-devel             # for MariaDB
+         sudo systemctl enable mariadb
+         sudo systemctl start mariadb
+         sudo mysql_secure_installation
 ```
 
 To use MySQL as your database backend install `mysqlclient`, via the `rdmo` dependencies, in your virtual environment:

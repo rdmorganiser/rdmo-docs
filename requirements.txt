@@ -2,7 +2,7 @@ sphinx
 sphinx-autobuild
 sphinx_rtd_theme
 sphinx-markdown-tables
-sphinx_tabs
+sphinx-design
 sphinx_copybutton
 readthedocs-sphinx-search
 myst-parser

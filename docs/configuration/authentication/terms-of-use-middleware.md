@@ -4,7 +4,7 @@
 This feature was introduced in RDMO 2.3.
 ```
 
-A custom middleware can be enabled to force users to aknowlege the Terms of Use (TOS) of the instance (which themselves are configured as [part of the theme](/themes/index.html#terms-of-use).
+A custom middleware can be enabled to force users to aknowlege the Terms of Use (TOS) of the instance (which themselves are configured as {ref}`part of the theme <terms-of-use>`).
 
 To enable the middleware use the following in your `config/settings/local.py`:
 
