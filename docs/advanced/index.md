@@ -115,3 +115,31 @@ Header set Permissions-Policy "accelerometer=(), camera=(), geolocation=(), gyro
 to `/etc/apache2/conf-available/security.conf` which should be automatically added to your configuration.
 
 The website <https://securityheaders.com/> can be used to check the headers. <https://djcheckup.com> checks some Django related things in addition.
+
+## Install TeX from the The TeX Users Group (TUG)
+
+Instead of the distribution packages, TeX can also be installed directly from TUG
+(see: https://www.tug.org/texlive/quickinstall.html):
+
+```bash
+mkdir /opt/texlive
+cd /opt/texlive
+
+wget https://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz
+
+perl install-tl --texdir=/opt/texlive/2026 --scheme=small --no-doc-install --no-src-install
+```
+
+This example installs to `/opt/textlive/2026`. Therefore, the `bin` directory of the install needs to be added both to `PATH` in the terminal session and in the RDMO settings:
+ 
+```bash
+# in ~/.bashrc
+export PATH=$PATH:/opt/texlive/2026/bin/x86_64-linux/
+```
+
+```python
+# in config/settings/local.py
+import os
+os.environ["PATH"] += os.pathsep + '/opt/texlive/2026/bin/x86_64-linux/'
+```
+
