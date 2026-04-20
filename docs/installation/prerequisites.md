@@ -11,23 +11,50 @@ We recommend to install the prerequisites using the packaging system of your dis
 
    .. code-tab:: bash Debian/Ubuntu
 
-      sudo apt install build-essential libxml2-dev libxslt-dev zlib1g-dev \
-          python3-dev python3-pip python3-venv \
-          git pandoc
+      sudo apt install \
+         build-essential \
+         libxml2-dev \
+         libxslt-dev \
+         python3-dev \
+         python3-pip \
+         python3-venv \
+         zlib1g-dev \
+         git \
+         pandoc
 
       # optional, for pdf output
-      sudo apt install texlive texlive-xetex lmodern librsvg2-bin
-      sudo apt install texlive-luatex  # from Debian 13 on
+      sudo apt install \
+         texlive \
+         texlive-xetex \
+         lmodern \
+         librsvg2-bin
+
+      # from Debian 13 on
+      sudo apt install \
+         texlive-luatex
 
    .. code-tab:: bash RHEL/CentOS
 
-      sudo yum install gcc gcc-c++ libxml2-devel libxslt-devel \
-         python34-devel python34-pip python34-virtualenv \
-         git pandoc
+      sudo yum install \
+         gcc \
+         gcc-c++ \
+         libxml2-devel \
+         libxslt-devel \
+         python34-devel \
+         python34-pip \
+         python34-virtualenv \
+         git \
+         pandoc
 
       # optional, for pdf output
-      sudo yum install texlive texlive-xetex texlive-mathspec texlive-euenc \
-         texlive-xetex-def texlive-xltxtra librsvg2-tools
+      sudo yum install \
+         texlive \
+         texlive-euenc \
+         texlive-mathspec \
+         texlive-xetex \
+         texlive-xetex-def \
+         texlive-xltxtra \
+         librsvg2-tools
 ```
 
 On RHEL/CentOS SELinux is enabled by default. This can result in unexpected errors, depending on where you store the RDMO source code on the system. Some guidance on how to configure SELinux is given at [here](../advanced/index.md#selinux).

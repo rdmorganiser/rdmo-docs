@@ -81,8 +81,7 @@ The RDMO service needs to be started and enabled like any other service:
 
 
 ```bash
-sudo systemctl start rdmo
-sudo systemctl enable rdmo
+sudo systemctl enable --now rdmo
 ```
 
 Gunicorn is web server which runs locally and a **reverse proxy** is needed to allow connections from the internet. This can be done with a web server, e.g. NGINX or Apache2.
@@ -101,7 +100,14 @@ Edit the Nginx configuration as follows (again with root/sudo permissions):
 # in /etc/nginx/sites-available/default  on Debian/Ubuntu
 server {
     listen 80;
-    server_name YOURDOMAIN;
+    listen [::]:80;
+
+    server_name rdmo.example.com;
+
+    error_log /var/log/nginx/rdmo.example.com.error.log;
+    access_log /var/log/nginx/rdmo.example.com.access.log;
+
+    root /var/www/html;
 
     location / {
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
@@ -119,8 +125,7 @@ server {
 Restart and enable Nginx:
 
 ```bash
-systemctl start nginx
-systemctl enable nginx
+sudo systemctl enable --now nginx
 ```
 
 RDMO should now be available on `YOURDOMAIN`. Note that the unix socket `/srv/rdmo/rdmo.sock` needs to be accessible by Nginx.
@@ -159,8 +164,7 @@ Edit the Apache configuration as follows (again with root/sudo permissions):
 Restart and enable Apache:
 
 ```bash
-systemctl start apache2
-systemctl enable apache2
+sudo systemctl enable --now apache2
 ```
 
 ## Static assets
