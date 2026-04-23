@@ -55,8 +55,8 @@ master_doc = 'index'
 
 # General information about the project.
 project = 'RDMO Documentation'
-copyright = '2015-2018 Leibniz Institute for Astrophysics Potsdam (AIP). As part of the RDMO source code repository, this documentation is licensed under the Apache License, Version 2.0'
-author = 'RDMO project'
+copyright = '2015-2026 RDMO Community and individual contributors'
+author = 'RDMO Community and individual contributors'
 
 # The version info for the project you're documenting, acts as a replacement for
 # |version| and |release|, also used in various other places throughout the
