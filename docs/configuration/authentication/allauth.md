@@ -61,6 +61,35 @@ to your `config/settings/local.py`. The setting `SOCIALACCOUNT = True` is used b
 
 Once the installation is complete, the credentials of your OAUTH provider need to be entered in the admin interface. This is covered in the [administration chapter](../../administration/allauth) of this documentation.
 
+### Email authentication
+
+When social accounts are enabled after users have been already created by admins or via the registration, those existing users need to connect their existing account manually to the respective social account. If they just log in via the social provider, a separate (and usually unwanted) account will be created. To prevent this, django-allauth provides the following settings:
+
+```python
+SOCIALACCOUNT_EMAIL_AUTHENTICATION = True               # match provider emails to existing accounts
+SOCIALACCOUNT_EMAIL_AUTHENTICATION_AUTO_CONNECT = True  # create permanent connection for matched socialaccounts and users
+```
+
+With this configuration the email provided by the social provider will be used to match an existing account. **Using this implies that the provider is fully trusted to provide only validated email addresses.** If the provider yields the email of an existing user for a social login attempt by someone else, this person will be able to take over that account. This is particularly dangerous when the provider returns *unverified* email addresses. 
+
+Instead of the global setting above, it can also be enabled selectively per provider. Example configuration for GitHub:
+
+```python
+SOCIALACCOUNT_EMAIL_AUTHENTICATION_AUTO_CONNECT = True  # global setting as above
+SOCIALACCOUNT_PROVIDERS = {
+    'github': {
+        'EMAIL_AUTHENTICATION': True,  # match provider emails to existing accounts for this provider
+        'SCOPE': ['user:email'],       # the email scope is needed to obtain emails from GitHub
+        'APPS': [
+            {
+                'client_id': '...',
+                'secret': '...'
+            }
+        ]
+    }
+}
+```
+
 ### Groups
 
 RDMO can be configured to add users from certain 3rd party accounts automatically to certain groups, e.g. 
