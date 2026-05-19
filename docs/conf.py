@@ -54,9 +54,12 @@ source_suffix = {
 master_doc = 'index'
 
 # General information about the project.
+from datetime import datetime
+current_year = datetime.now().year
+
 project = 'RDMO Documentation'
-copyright = '2015-2026 RDMO Community and individual contributors'
 author = 'RDMO Community and individual contributors'
+copyright = f"2015-{current_year} {author}"
 
 # The version info for the project you're documenting, acts as a replacement for
 # |version| and |release|, also used in various other places throughout the
