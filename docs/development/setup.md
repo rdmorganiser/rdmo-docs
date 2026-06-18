@@ -87,7 +87,8 @@ Create a copy of `sample.local.py` with the name `local.py`:
 cp config/settings/sample.local.py config/settings/local.py
 ```
 
-In the new file, set `DEBUG = True` and configure the `DATABASE` entry. The simplest way is to use Sqlite3:
+In the new file, set `DEBUG = True`, `SECRET_KEY` to a random or not-so-random string, and configure the `DATABASE`
+entry. The simplest way is to use Sqlite3:
 
 ```python
 DATABASES = {
