@@ -12,7 +12,13 @@ help:
 live:
 	sphinx-autobuild --port 8001 -b html $(SPHINXOPTS) $(SOURCEDIR) $(BUILDDIR)/html
 
-.PHONY: help livehtml livehtml Makefile
+settings:
+	python3 tools/generate_settings_reference.py
+
+check-settings:
+	python3 tools/generate_settings_reference.py --check
+
+.PHONY: help live settings check-settings Makefile
 
 # Catch-all target: route all unknown targets to Sphinx using the new
 # "make mode" option.  $(O) is meant as a shortcut for $(SPHINXOPTS).

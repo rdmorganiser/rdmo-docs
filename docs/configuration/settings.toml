@@ -1,0 +1,662 @@
+# Human-maintained documentation metadata for rdmo/core/settings.py.
+# Defaults and ordering are deliberately extracted from the RDMO source.
+
+[settings.SITE_ID]
+source = "Django"
+type = "int"
+description = "Selects the Django Site object used by this RDMO instance."
+
+[settings.DEBUG]
+source = "Django"
+type = "bool"
+description = '''Debug mode. When enabled, this provides detailed error messages and debugging information, which is useful during development but should never be enabled in production environments due to security risks.
+
+See also [DEBUG](https://docs.djangoproject.com/en/stable/ref/settings/#std:setting-DEBUG) in the Django documentation.'''
+
+[settings.INSTALLED_APPS]
+source = "Django"
+type = "list"
+description = "Lists Django applications enabled for the deployment, including RDMO, themes, and plugins."
+
+[settings.MIDDLEWARE]
+source = "Django"
+type = "list"
+description = "Lists request and response middleware executed by Django."
+
+[settings.ROOT_URLCONF]
+source = "Django"
+type = "str"
+description = "Python module containing the deployment's URL configuration."
+
+[settings.TEMPLATES]
+source = "Django"
+type = "list"
+description = "Configures Django template engines, template directories, and context processors."
+
+[settings.MESSAGE_STORAGE]
+source = "Django"
+type = "str"
+description = "Selects Django's storage backend for temporary user messages."
+
+[settings.COMPRESS_PRECOMPILERS]
+source = "django-compressor"
+type = "tuple"
+description = "Registers preprocessors used by django-compressor when compressing static assets."
+
+[settings.WSGI_APPLICATION]
+source = "Django"
+type = "str"
+description = "Python module exposing the WSGI application used by WSGI servers."
+
+[settings.AUTHENTICATION_BACKENDS]
+source = "Django"
+type = "list"
+description = '''Authentication backends control how users are authenticated. The default configuration includes both the RDMO-specific object permission backend and Django's standard model backend.'''
+
+[settings.MULTISITE]
+source = "RDMO"
+type = "bool"
+description = '''Controls whether the RDMO instance supports multiple sites. When enabled, it allows for different configurations and content for different domains.'''
+
+[settings.GROUPS]
+source = "RDMO"
+type = "bool"
+description = '''Enables or disables group-based permissions and management features in RDMO.'''
+
+[settings.LOGIN_FORM]
+source = "RDMO"
+type = "bool"
+description = '''Controls whether the login form is displayed on the site.'''
+
+[settings.PROFILE_UPDATE]
+source = "RDMO"
+type = "bool"
+description = '''Enables or disables the ability for users to update their profile information.'''
+
+[settings.PROFILE_DELETE]
+source = "RDMO"
+type = "bool"
+description = '''Enables or disables the ability for users to delete their profiles.'''
+
+[settings.ACCOUNT]
+source = "RDMO"
+type = "bool"
+description = '''Enables or disables the account management system.'''
+
+[settings.ACCOUNT_SIGNUP]
+source = "RDMO"
+type = "bool"
+description = '''Enables or disables user signup functionality.'''
+
+[settings.ACCOUNT_GROUPS]
+source = "RDMO"
+type = "list"
+description = '''Defines groups that users can be assigned to during signup.'''
+
+[settings.ACCOUNT_TERMS_OF_USE]
+source = "RDMO"
+type = "bool"
+description = '''Enables or disables terms of use acceptance during signup.'''
+
+[settings.ACCOUNT_TERMS_OF_USE_DATE]
+source = "RDMO"
+type = "None"
+description = "Date of the currently applicable terms of use; users who accepted an older version must accept again."
+
+[settings.ACCOUNT_TERMS_OF_USE_EXCLUDE_URL_PREFIXES]
+source = "RDMO"
+type = "tuple"
+description = "URL prefixes excluded from the RDMO terms-of-use acceptance check."
+
+[settings.ACCOUNT_TERMS_OF_USE_EXCLUDE_URLS]
+source = "RDMO"
+type = "tuple"
+description = "Exact URLs excluded from the RDMO terms-of-use acceptance check."
+
+[settings.ACCOUNT_TERMS_OF_USE_EXCLUDE_URL_CONTAINS]
+source = "RDMO"
+type = "list"
+description = "URL fragments excluded from the RDMO terms-of-use acceptance check."
+
+[settings.ACCOUNT_ADAPTER]
+source = "django-allauth"
+type = "str"
+description = "Allauth adapter class used to customise account behaviour in RDMO."
+
+[settings.ACCOUNT_FORMS]
+source = "django-allauth"
+type = "dict"
+description = "Allauth form classes used for RDMO login and signup flows."
+
+[settings.ACCOUNT_USER_DISPLAY]
+source = "django-allauth"
+type = "str"
+description = "Callable used by allauth to display a user name."
+
+[settings.ACCOUNT_SIGNUP_FIELDS]
+source = "django-allauth"
+type = "list"
+description = "Fields and requiredness used by the allauth signup form."
+
+[settings.ACCOUNT_ACTIVATION_DAYS]
+source = "django-allauth"
+type = "int"
+description = '''Number of days after which account activation links expire.'''
+
+[settings.ACCOUNT_EMAIL_CONFIRMATION_EXPIRE_DAYS]
+source = "django-allauth"
+type = "int"
+description = '''Number of days after which email confirmation links expire.'''
+
+[settings.ACCOUNT_EMAIL_VERIFICATION]
+source = "django-allauth"
+type = "str"
+description = '''Controls how email verification is handled. Options include `'optional'`, `'mandatory'`, or `'none'`.'''
+
+[settings.ACCOUNT_LOGIN_ON_EMAIL_CONFIRMATION]
+source = "django-allauth"
+type = "bool"
+description = "Logs a user in immediately after successful email confirmation when enabled."
+
+[settings.ACCOUNT_USERNAME_MIN_LENGTH]
+source = "django-allauth"
+type = "int"
+description = '''Minimum length required for usernames.'''
+
+[settings.ACCOUNT_PASSWORD_MIN_LENGTH]
+source = "django-allauth"
+type = "int"
+description = '''Minimum length required for passwords.'''
+
+[settings.ACCOUNT_EMAIL_MAX_LENGTH]
+source = "django-allauth"
+type = "int"
+description = "Maximum allowed length of account email addresses."
+
+[settings.ACCOUNT_PREVENT_ENUMERATION]
+source = "django-allauth"
+type = "bool"
+description = "Controls allauth's protection against account enumeration through authentication responses."
+
+[settings.ACCOUNT_ALLOW_USER_TOKEN]
+source = "RDMO"
+type = "bool"
+description = '''Enables or disables user token functionality.'''
+
+[settings.SOCIALACCOUNT]
+source = "RDMO"
+type = "bool"
+description = '''Enables or disables social account authentication.'''
+
+[settings.SOCIALACCOUNT_SIGNUP]
+source = "RDMO"
+type = "bool"
+description = '''Enables or disables signup via social accounts.'''
+
+[settings.SOCIALACCOUNT_GROUPS]
+source = "RDMO"
+type = "list"
+description = '''Defines groups that users can be assigned to during social account signup.'''
+
+[settings.SOCIALACCOUNT_AUTO_SIGNUP]
+source = "django-allauth"
+type = "bool"
+description = "Automatically completes social-account signup when the provider supplies sufficient data."
+
+[settings.SOCIALACCOUNT_ADAPTER]
+source = "django-allauth"
+type = "str"
+description = "Allauth adapter class used to customise social-account behaviour in RDMO."
+
+[settings.SOCIALACCOUNT_FORMS]
+source = "django-allauth"
+type = "dict"
+description = "Allauth form classes used during social-account signup."
+
+[settings.SOCIALACCOUNT_OPENID_CONNECT_URL_PREFIX]
+source = "django-allauth"
+type = "str"
+description = "URL prefix used by allauth's OpenID Connect provider endpoints."
+
+[settings.SHIBBOLETH]
+source = "RDMO"
+type = "bool"
+description = '''Enables or disables Shibboleth authentication.'''
+
+[settings.SHIBBOLETH_LOGIN_URL]
+source = "RDMO"
+type = "str"
+description = '''URL to the Shibboleth login endpoint.'''
+
+[settings.SHIBBOLETH_LOGOUT_URL]
+source = "RDMO"
+type = "str"
+description = '''URL to the Shibboleth logout endpoint.'''
+
+[settings.SHIBBOLETH_USERNAME_PATTERN]
+source = "RDMO"
+type = "None"
+description = '''Pattern to extract username from Shibboleth attributes.
+
+## Internationalization Settings'''
+
+[settings.LANGUAGE_CODE]
+source = "Django"
+type = "str"
+description = '''The default language code for the application.'''
+
+[settings.TIME_ZONE]
+source = "Django"
+type = "str"
+description = '''The default time zone for the application.'''
+
+[settings.LANGUAGES]
+source = "Django"
+type = "tuple"
+description = '''List of supported languages for the application.
+
+## Database Settings'''
+
+[settings.USE_I18N]
+source = "Django"
+type = "bool"
+description = "Enables Django's internationalisation framework."
+
+[settings.USE_TZ]
+source = "Django"
+type = "bool"
+description = "Stores datetimes as timezone-aware values and converts them to the active timezone."
+
+[settings.LOGIN_URL]
+source = "Django"
+type = "str"
+description = "URL or named route used when login is required."
+
+[settings.LOGIN_REDIRECT_URL]
+source = "Django"
+type = "str"
+description = "Default destination after a successful login when no safer redirect target is supplied."
+
+[settings.LOGOUT_URL]
+source = "Django"
+type = "str"
+description = "URL or named route used to log a user out."
+
+[settings.MEDIA_URL]
+source = "Django"
+type = "str"
+description = "Base URL from which user-uploaded media files are served."
+
+[settings.STATIC_URL]
+source = "Django"
+type = "str"
+description = "Base URL from which static files are served."
+
+[settings.STATICFILES_FINDERS]
+source = "Django"
+type = "tuple"
+description = "Finders Django uses to locate static files."
+
+[settings.STORAGES]
+source = "Django"
+type = "dict"
+description = "Configures Django storage backends for uploaded media and collected static files."
+
+[settings.DATABASES]
+source = "Django"
+type = "dict"
+description = '''Database configuration. The default uses SQLite for development, but production environments should use PostgreSQL or MySQL.
+
+## Email Settings'''
+
+[settings.CACHES]
+source = "Django"
+type = "dict"
+description = "Configures Django cache backends used by the deployment."
+
+[settings.REST_FRAMEWORK]
+source = "Django REST framework"
+type = "dict"
+description = "Configures Django REST framework authentication, renderers, and API versioning."
+
+[settings.SPECTACULAR_SETTINGS]
+source = "drf-spectacular"
+type = "dict"
+description = "Configures the generated OpenAPI schema and bundled API documentation views."
+
+[settings.SETTINGS_EXPORT]
+source = "django-settings-export"
+type = "list"
+description = "Lists settings exported to Django templates by django-settings-export."
+
+[settings.SETTINGS_API]
+source = "RDMO"
+type = "list"
+description = "Lists settings that RDMO exposes through its API configuration endpoint."
+
+[settings.TEMPLATES_API]
+source = "RDMO"
+type = "list"
+description = "Lists interview template fragments that RDMO exposes through its API."
+
+[settings.TEMPLATES_EXECUTE_SCRIPT_TAGS]
+source = "RDMO"
+type = "bool"
+description = "Allows script tags in configured interview template fragments. Keep disabled unless the template source is trusted."
+
+[settings.EMAIL_BACKEND]
+source = "Django"
+type = "str"
+description = '''Email backend to use for sending emails. In production, this should be configured to use a real email service.'''
+
+[settings.DEFAULT_FROM_EMAIL]
+source = "Django"
+type = "str"
+description = '''Default email address to use for sending emails.'''
+
+[settings.EMAIL_RECIPIENTS_CHOICES]
+source = "RDMO"
+type = "list"
+description = '''List of email recipients for notifications.'''
+
+[settings.EMAIL_RECIPIENTS_INPUT]
+source = "RDMO"
+type = "bool"
+description = '''Controls whether users can specify email recipients when sending notifications.'''
+
+[settings.USER_API]
+source = "RDMO"
+type = "bool"
+description = "Enables the RDMO user API endpoints."
+
+[settings.OVERLAYS]
+source = "RDMO"
+type = "dict"
+description = '''Controls which UI elements are displayed in different project contexts.'''
+
+[settings.EXPORT_FORMATS]
+source = "RDMO"
+type = "tuple"
+description = '''List of supported export formats for project data.'''
+
+[settings.EXPORT_REFERENCE_ODT_VIEWS]
+source = "RDMO"
+type = "dict"
+description = "Maps view identifiers to reference ODT documents used when exporting selected views."
+
+[settings.EXPORT_REFERENCE_DOCX_VIEWS]
+source = "RDMO"
+type = "dict"
+description = "Maps view identifiers to reference DOCX documents used when exporting selected views."
+
+[settings.EXPORT_REFERENCE_ODT]
+source = "RDMO"
+type = "None"
+description = "Path to the default reference ODT document used for exports when no view-specific document is configured."
+
+[settings.EXPORT_REFERENCE_DOCX]
+source = "RDMO"
+type = "None"
+description = "Path to the default reference DOCX document used for exports when no view-specific document is configured."
+
+[settings.EXPORT_PANDOC_ARGS]
+source = "RDMO"
+type = "dict"
+description = '''Arguments passed to pandoc when converting documents to different formats.'''
+
+[settings.EXPORT_CONTENT_DISPOSITION]
+source = "RDMO"
+type = "str"
+description = '''Controls how exported files are handled by the browser.'''
+
+[settings.EXPORT_MIN_REQUIRED_VERSION]
+source = "RDMO"
+type = "str"
+description = "Minimum Pandoc version required for RDMO document exports."
+
+[settings.MARKDOWN_TEMPLATES]
+source = "RDMO"
+type = "dict"
+description = "Maps Markdown template names to template paths used for rendering project values."
+
+[settings.MARKDOWN_CLEAN]
+source = "RDMO"
+type = "bool"
+description = "Enables sanitising rendered Markdown content before it is displayed."
+
+[settings.MARKDOWN_CLEAN_KWARGS]
+source = "RDMO"
+type = "dict"
+description = "Keyword arguments passed to the Markdown sanitiser when `MARKDOWN_CLEAN` is enabled."
+
+[settings.PROJECT_TABLE_PAGE_SIZE]
+source = "RDMO"
+type = "int"
+description = '''Number of projects to display per page in project tables.'''
+
+[settings.PROJECT_VISIBILITY]
+source = "RDMO"
+type = "bool"
+description = "Controls whether projects can be visible to users who are not project members."
+
+[settings.PROJECT_ISSUES]
+source = "RDMO"
+type = "bool"
+description = '''Enables or disables the issue tracking system for projects.'''
+
+[settings.PROJECT_ISSUE_PROVIDERS]
+source = "RDMO"
+type = "list"
+description = '''List of issue providers that can be used for project issues.'''
+
+[settings.PROJECT_VIEWS]
+source = "RDMO"
+type = "bool"
+description = '''Enables or disables the project views feature.'''
+
+[settings.PROJECT_CONTACT]
+source = "RDMO"
+type = "bool"
+description = "Enables the project contact form."
+
+[settings.PROJECT_CONTACT_RECIPIENTS]
+source = "RDMO"
+type = "list"
+description = "Recipients of messages submitted through the project contact form."
+
+[settings.PROJECT_EXPORTS]
+source = "RDMO"
+type = "list"
+description = '''List of supported project export formats.'''
+
+[settings.PROJECT_SNAPSHOT_EXPORTS]
+source = "RDMO"
+type = "list"
+description = "Lists additional export formats available for project snapshots."
+
+[settings.PROJECT_IMPORTS]
+source = "RDMO"
+type = "list"
+description = '''List of supported project import formats.'''
+
+[settings.PROJECT_IMPORTS_LIST]
+source = "RDMO"
+type = "list"
+description = "Lists import formats shown in the project-import selection interface."
+
+[settings.PROJECT_FILE_QUOTA]
+source = "RDMO"
+type = "str"
+description = '''Controls the maximum amount of storage space that can be used by files attached to projects.'''
+
+[settings.PROJECT_SEND_ISSUE]
+source = "RDMO"
+type = "bool"
+description = '''Enables or disables sending issues to users.'''
+
+[settings.PROJECT_INVITE_TIMEOUT]
+source = "RDMO"
+type = "None"
+description = '''Timeout for project invitations.'''
+
+[settings.PROJECT_INVITE_USE_PROJECT_SITE]
+source = "RDMO"
+type = "bool"
+description = "Uses the project site, rather than the current site, when building project invitation links."
+
+[settings.PROJECT_SEND_INVITE]
+source = "RDMO"
+type = "bool"
+description = '''Enables or disables sending invitations to users.'''
+
+[settings.PROJECT_VIEWS_SYNC]
+source = "RDMO"
+type = "bool"
+description = "Synchronises project views when the underlying catalogue changes."
+
+[settings.PROJECT_TASKS_SYNC]
+source = "RDMO"
+type = "bool"
+description = "Synchronises project tasks when the underlying catalogue changes."
+
+[settings.PROJECT_CREATE_RESTRICTED]
+source = "RDMO"
+type = "bool"
+description = '''The `PROJECT_CREATE_RESTRICTED` setting is a boolean flag that controls whether project creation is restricted in an RDMO instance.'''
+
+[settings.PROJECT_CREATE_GROUPS]
+source = "RDMO"
+type = "list"
+description = '''The `PROJECT_CREATE_GROUPS` setting is used to restrict who can create new projects in an RDMO instance. It's part of a broader project creation restriction system that includes the `PROJECT_CREATE_RESTRICTED` setting.'''
+
+[settings.PROJECT_VALUES_CONFLICT_THRESHOLD]
+source = "RDMO"
+type = "float"
+description = '''A time delta in seconds for detecting conflicts in project values in case multiple users edit the same project values simultaneously.'''
+
+[settings.NESTED_PROJECTS]
+source = "RDMO"
+type = "bool"
+description = '''Enables or disables nested projects.'''
+
+[settings.OPTIONSET_PROVIDERS]
+source = "RDMO"
+type = "list"
+description = '''List of option set providers.'''
+
+[settings.PROJECT_VALUES_SEARCH_LIMIT]
+source = "RDMO"
+type = "int"
+description = "Maximum number of project values returned by a value-search request."
+
+[settings.PROJECT_VALUES_VALIDATION]
+source = "RDMO"
+type = "bool"
+description = '''Enables or disables validation of project values.'''
+
+[settings.PROJECT_VALUES_VALIDATION_URL]
+source = "RDMO"
+type = "bool"
+description = '''Enables or disables URL validation.'''
+
+[settings.PROJECT_VALUES_VALIDATION_INTEGER]
+source = "RDMO"
+type = "bool"
+description = '''Enables or disables integer validation.'''
+
+[settings.PROJECT_VALUES_VALIDATION_INTEGER_MESSAGE]
+source = "RDMO"
+type = "Python expression"
+description = '''Error message for integer validation.'''
+
+[settings.PROJECT_VALUES_VALIDATION_INTEGER_REGEX]
+source = "RDMO"
+type = "Python expression"
+description = '''Regular expression for integer validation.'''
+
+[settings.PROJECT_VALUES_VALIDATION_FLOAT]
+source = "RDMO"
+type = "bool"
+description = '''Enables or disables float validation.'''
+
+[settings.PROJECT_VALUES_VALIDATION_FLOAT_MESSAGE]
+source = "RDMO"
+type = "Python expression"
+description = '''Error message for float validation.'''
+
+[settings.PROJECT_VALUES_VALIDATION_FLOAT_REGEX]
+source = "RDMO"
+type = "Python expression"
+description = '''Regular expression for float validation.'''
+
+[settings.PROJECT_VALUES_VALIDATION_BOOLEAN]
+source = "RDMO"
+type = "bool"
+description = '''Enables or disables boolean validation.'''
+
+[settings.PROJECT_VALUES_VALIDATION_BOOLEAN_MESSAGE]
+source = "RDMO"
+type = "Python expression"
+description = '''Error message for boolean validation.'''
+
+[settings.PROJECT_VALUES_VALIDATION_BOOLEAN_REGEX]
+source = "RDMO"
+type = "str"
+description = '''Regular expression for boolean validation.'''
+
+[settings.PROJECT_VALUES_VALIDATION_DATE]
+source = "RDMO"
+type = "bool"
+description = '''Enables or disables date validation.'''
+
+[settings.PROJECT_VALUES_VALIDATION_DATE_MESSAGE]
+source = "RDMO"
+type = "Python expression"
+description = '''Error message for date validation.'''
+
+[settings.PROJECT_VALUES_VALIDATION_DATE_REGEX]
+source = "RDMO"
+type = "Python expression"
+description = '''Regular expression for date validation.'''
+
+[settings.PROJECT_VALUES_VALIDATION_DATETIME]
+source = "RDMO"
+type = "bool"
+description = '''Enables or disables datetime validation.'''
+
+[settings.PROJECT_VALUES_VALIDATION_EMAIL]
+source = "RDMO"
+type = "bool"
+description = '''Enables or disables email validation.'''
+
+[settings.PROJECT_VALUES_VALIDATION_PHONE]
+source = "RDMO"
+type = "bool"
+description = '''Enables or disables phone number validation.'''
+
+[settings.PROJECT_VALUES_VALIDATION_PHONE_MESSAGE]
+source = "RDMO"
+type = "Python expression"
+description = '''Error message for phone number validation.'''
+
+[settings.PROJECT_VALUES_VALIDATION_PHONE_REGEX]
+source = "RDMO"
+type = "Python expression"
+description = '''Regular expression for phone number validation.
+
+## Other Settings'''
+
+[settings.DEFAULT_URI_PREFIX]
+source = "RDMO"
+type = "str"
+description = '''Default URI prefix used for terms and conditions.'''
+
+[settings.REPLACE_MISSING_TRANSLATION]
+source = "RDMO"
+type = "bool"
+description = '''Controls whether missing translations should be replaced with the default language version.'''
+
+[settings.DEFAULT_AUTO_FIELD]
+source = "Django"
+type = "str"
+description = "Default primary-key field type for Django models that do not declare one."

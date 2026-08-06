@@ -6,3 +6,4 @@ sphinx_tabs
 sphinx_copybutton
 readthedocs-sphinx-search
 myst-parser
+tomli; python_version < "3.11"
