@@ -317,7 +317,7 @@ More about testing can be found [here](testing.md).
 
 ## Setup plugins
 
-In order to include plugins into the development setup simply clone the plugin repository next to `rdmo` and `rdmo-app`, e.g. for `rdmo-plugins`:
+In order to include specific plugins into the development setup simply clone the plugin repository next to `rdmo` and `rdmo-app`, e.g. for the maDMP project export plugin `rdmo-plugins-madmp`:
 
 
 ```{eval-rst}
@@ -325,17 +325,17 @@ In order to include plugins into the development setup simply clone the plugin r
 
    .. code-tab:: bash HTTPS
 
-      git clone https://github.com/rdmorganiser/rdmo-plugins
+      git clone https://github.com/rdmorganiser/rdmo-plugins-madmp
 
    .. code-tab:: bash SSH
 
-      git clone git@github.com:rdmorganiser/rdmo-plugins
+      git clone git@github.com:rdmorganiser/rdmo-plugins-madmp
 ```
 
 Then the plugin can be added to the `env` for `rdmo-app` or `rdmo` also in _editable_ mode using:
 
 ```bash
-pip install -e ../rdmo-plugins
+pip install -e ../rdmo-plugins-madmp
 ```
 
 The plugin itself needs to be added to the `local.py` as described [in the documentation](../../plugins/index).
