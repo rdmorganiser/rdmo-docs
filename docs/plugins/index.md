@@ -6,7 +6,7 @@ This is an advanced feature of RDMO.
 
 Plugins can be used to customize or extend specific actions in RDMO using custom Python code outside of the centrally maintained code base. This can be used to perform actions which are specific to a RDMO instance. With the possibility to add code to RDMO comes the danger of introducing additional bugs and security issues. Please be extra careful when using this **advanced** feature.
 
-Plugins are created by implementing Python classes (e.g. in the local `rdmo-app`), and register them in the `config/settings/local.py` file. These classes need to inherit from prepared base classes in the RDMO source code. We also provide a set of plugins [rdmo-plugins](https://github.com/rdmorganiser/rdmo-plugins), which can be used together with the domain model and the other content in [rdmo-catalog](https://github.com/rdmorganiser/rdmo-catalog).
+Plugins are created by implementing Python classes (e.g. in the local `rdmo-app`), and register them in the `config/settings/local.py` file. These classes need to inherit from prepared base classes in the RDMO source code. We also provide an overview of a set of plugins [rdmo-plugins](https://github.com/rdmorganiser/rdmo-plugins), which can be used together with the domain model and the other content in [rdmo-catalog](https://github.com/rdmorganiser/rdmo-catalog).
 
 As of now the following plugins can be created:
 
@@ -17,32 +17,34 @@ As of now the following plugins can be created:
 
 To be usable by RDMO, the plugins need to be available in the virtual environment in which RDMO is running. There are several possibilities to achieve this, but we suggest to use one of the following two:
 
-1.	If only the plugins provided in [rdmo-plugins](https://github.com/rdmorganiser/rdmo-plugins) should be used and no modifications are desired, they can be directly installed from GitHub using:
+1.	If plugins, as documented in [rdmo-plugins](https://github.com/rdmorganiser/rdmo-plugins), should be used and no modifications are desired, they can be directly installed from GitHub using:
 
 	```bash
-	pip install git+https://github.com/rdmorganiser/rdmo-plugins
+	pip install git+https://github.com/rdmorganiser/rdmo-plugins-{specific-plugin-name}
+    # e.g. for the maDMP project export provider plugin
+    pip install git+https://github.com/rdmorganiser/rdmo-plugins-madmp
 	```
 
-2.	If you intent to write plugins yourself or if you want to modify our plugins, you should create a python module in your `rdmo-app`, which is just a directory containing an empty `__init__.py` file. Python files in this directory are then automatically available to your RDMO instance.
+2.	If you intent to write plugins yourself or if you want to modify our plugins, you should create a python package in your `rdmo-app`, which is just a directory containing an empty `__init__.py` file. Python files in this directory are then automatically available to your RDMO instance.
 
 	```bash
 	mkdir my_plugins
 	touch my_plugins/__init__.py
-	# place, e.g., madmp.py in my_plugins/
+	# place, e.g., rdmo_madmp/exports.py in my_plugins/
 	```
 
 As a last step, the plugins need to be registered in `config/settings/local.py`. The setting depends on the class of plugin and is described in detail below. Plugins are always specified by a tuple of `(key, label, class_name)`, therefore plugin settings always look like this:
 
 ```python
 EXAMPLE_PLUGIN_SETTINGS = [
-    ('example', _('Example'), 'module.module.module.Plugin'),
+    ('example', _('Example'), 'package.module.Plugin'),
     ...
 ]
 ```
 
 ## Project export plugins
 
-Custom project exports can be created by implementing a class inheriting from `rdmo.projects.export.Export`. They can be used to create a custom export format to be used by the users to download their project data. The RDMO-XML exports are generated using the `rdmo.projects.exports.RDMOXMLExport`. Examples from [rdmo-plugins](https://github.com/rdmorganiser/rdmo-plugins) are `DataCiteExport` or `MaDMPExport`.
+Custom project exports can be created by implementing a class inheriting from `rdmo.projects.export.Export`. They can be used to create a custom export format to be used by the users to download their project data. The RDMO-XML exports are generated using the `rdmo.projects.exports.RDMOXMLExport`. Examples are `DataCiteExport` from [rdmo-plugins-datacite](https://github.com/rdmorganiser/rdmo-plugins-datacite) or `MaDMPExport` from [rdmo-plugins-madmp](https://github.com/rdmorganiser/rdmo-plugins-madmp) .
 
 The `Export` plugin class needs to implement a `render()` function which takes no arguments and returns a `django.http.HttpResponse`. The export can be created from `self.project`, `self.snapshot` and `self.values` instance variables.
 
@@ -50,7 +52,7 @@ Please refer to <https://github.com/rdmorganiser/rdmo/blob/main/rdmo/projects/ex
 
 A special kind of export plugins are `ExportProvider`. Instead of just returning an output file to be displayed or downloaded, they connect to a different web service. In addition to the `render()` function, they also need to implement a `submit()` function. The `render()` is displayed on the initial HTTP GET request and can show a form, e.g. to display options for the export. The `submit()` function is called on the subsequent form submission, the HTTP POST request.
 
-An `ExportProvider` can be combined with the `OauthProviderMixin` to use an OAuth2 authentication with the external web service. Please refer to <https://github.com/rdmorganiser/rdmo-plugins/blob/main/rdmo_plugins/exports/zenodo.py> for a simple or to <https://github.com/rdmorganiser/rdmo-plugins/blob/main/rdmo_plugins/exports/radar/providers.py> for a more complicated example.
+An `ExportProvider` can be combined with the `OauthProviderMixin` to use an OAuth2 authentication with the external web service. Please refer to <https://github.com/rdmorganiser/rdmo-plugins-zenodo/blob/main/rdmo_zenodo/exports.py> for a simple or to <https://github.com/rdmorganiser/rdmo-plugins-radar/blob/main/rdmo_radar/exports/providers.py> for a more complicated example.
 
 The export plugin needs to be added to the `PROJECT_EXPORTS` in `config/settings/local.py`. The default settings are:
 
@@ -62,16 +64,17 @@ PROJECT_EXPORTS = [
 ]
 ```
 
-In order to use the plugins in [rdmo-plugins](https://github.com/rdmorganiser/rdmo-plugins), add the following to your `config/settings/local.py`:
+In order to use a specific plugin from the overview [rdmo-plugins](https://github.com/rdmorganiser/rdmo-plugins), add the following to your `config/settings/local.py`:
 
 ```python
 PROJECT_EXPORTS = [
     ('xml', _('as RDMO XML'), 'rdmo.projects.exports.RDMOXMLExport'),
     ('csvcomma', _('as CSV (comma separated)'), 'rdmo.projects.exports.CSVCommaExport'),
     ('csvsemicolon', _('as CSV (semicolon separated)'), 'rdmo.projects.exports.CSVSemicolonExport'),
-    ('madmp', _('as maDMP JSON'), 'rdmo_plugins.exports.madmp.MaDMPExport'),
-    ('datacite', _('as DataCite XML'), 'rdmo_plugins.exports.datacite.DataCiteExport'),
-    ('radar', _('as RADAR XML'), 'rdmo_plugins.exports.radar.RadarExport')
+    # e.g. entries for the export providers of each specific plugin
+    ('madmp', _('as maDMP JSON'), 'rdmo_madmp.exports.MaDMPExport'),
+    ('datacite', _('as DataCite XML'), 'rdmo_datacite.exports.DataCiteExport'),
+    ('radar', _('as RADAR XML'), 'rdmo_radar.exports.RadarExport')
 ]
 ```
 
@@ -99,9 +102,9 @@ The Plugin class needs to implement a `check()` function which takes no argument
 
 In addition, a `process()` needs to be implemented which takes no arguments and returns `None`, but extracts the data from the file and populates the `self.project`, `self.catalog`, `self.values`, `self.snapshots`, `self.tasks` and `self.views` instance variables.
 
-Please refer to <https://github.com/rdmorganiser/rdmo/blob/main/rdmo/projects/imports.py> for the default project import plugins and code examples. The code which uses the plugin is located in <https://github.com/rdmorganiser/rdmo/blob/main/rdmo/projects/views.py> (`ProjectCreateUploadView`, `ProjectCreateImportView`, `ProjectUpdateUploadView`, `ProjectUpdateImportView`).
+Please refer to <https://github.com/rdmorganiser/rdmo/blob/main/rdmo/projects/imports.py> for the default project import plugins and code examples. The RDMO code that the plugins re-use is located in modules of the <https://github.com/rdmorganiser/rdmo/blob/main/rdmo/projects/views> package (in the classes `ProjectCreateUploadView`, `ProjectCreateImportView`, `ProjectUpdateUploadView`, `ProjectUpdateImportView`).
 
-As with the exports, it is also possible to create `ImportProvider` plugins, which import from a remote web service. In addition, these plugins need to implement a `render()` and `submit()` function, which are used on GET resp. POST requests, as for the exports. They can also be combined with OAuth2 authentication. The GitHub and GitLab import plugins, which are part of RDMO can be considered example implementations: <https://github.com/rdmorganiser/rdmo/blob/main/rdmo/projects/imports.py>.
+As with the exports, it is also possible to create `ImportProvider` plugins, which import from a remote web service. In addition, these plugins need to implement a `render()` and `submit()` function, which are used on GET resp. POST requests, as is the case for the exports. They can also be combined with OAuth2 authentication. The [GitHub](https://github.com/rdmorganiser/rdmo-plugins-github) and [GitLab](https://github.com/rdmorganiser/rdmo-plugins-gitlab) import plugins can be considered example implementations: <https://github.com/rdmorganiser/rdmo/blob/main/rdmo/projects/imports.py>.
 
 The import plugin needs to be added to the `PROJECT_IMPORTS` in `config/settings/local.py`. The default settings are:
 
@@ -111,16 +114,17 @@ PROJECT_IMPORTS = [
 ]
 ```
 
-In order to use the plugins in [rdmo-catalog](https://github.com/rdmorganiser/rdmo-plugins), add the following to your `config/settings/local.py`:
+In order to use a specific plugin from the overview [rdmo-plugins](https://github.com/rdmorganiser/rdmo-plugins), add the following to your `config/settings/local.py`:
 
 ```python
 PROJECT_IMPORTS = [
     ('xml', _('from RDMO XML'), 'rdmo.projects.imports.RDMOXMLImport'),
-    ('madmp', _('from maDMP'), 'rdmo_plugins.imports.madmp.MaDMPImport'),
-    ('datacite', _('from DataCite XML'), 'rdmo_plugins.imports.datacite.DataCiteImport'),
-    ('radar', _('from RADAR XML'), 'rdmo_plugins.imports.radar.RadarImport'),
-    ('github', _('Import from GitHub'), 'rdmo.projects.imports.GitHubImport'),
-    ('gitlab', _('Import from GitLab'), 'rdmo.projects.imports.GitLabImport'),
+    # e.g. the entries for each specific project import plugin
+    ('madmp', _('from maDMP'), 'rdmo_madmp.imports.MaDMPImport'),
+    ('datacite', _('from DataCite XML'), 'rdmo_datacite.imports.DataCiteImport'),
+    ('radar', _('from RADAR XML'), 'rdmo_radar.imports.RadarImport'),
+    ('github', _('Import from GitHub'), 'rdmo_github.imports.GitHubImport'),
+    ('gitlab', _('Import from GitLab'), 'rdmo_gitlab.imports.GitLabImport'),
 ]
 ```
 
@@ -146,13 +150,13 @@ Option set provides can use two class attributes to enable specific behavior:
 
 * The `search` attribute can be used together with the autocomplete widget. If `search = True` the `get_options` method will get an additional argument `search`, which contains the current content of the autocomplete input field and can be used to query a remote API.
 
-* The `refresh` attribute can be used to force the interview to reload all values after the value for an option set is stored. This can be used in combination with [Django signal handlers](https://docs.djangoproject.com/en/4.2/topics/signals/), which create `Value` objects automatically, in order to dynamically prefill answers for the users.
+* The `refresh` attribute can be used to force the interview to reload all values after the value for an option set is stored. This can be used in combination with [Django signal handlers](https://docs.djangoproject.com/en/5.2/topics/signals/), which create `Value` objects automatically, in order to dynamically prefill answers for the users.
 
 The plugin needs to be added to the `OPTIONSET_PROVIDERS` in `config/settings/local.py`:
 
 ```python
 OPTIONSET_PROVIDERS = [
-    ('<plugin key>', _('<plugin label>'), 'module.path.to.the.OptionSetsProvider')
+    ('<plugin key>', _('<plugin label>'), 'package.module.SpecificOptionSetsProvider')
 ]
 ```
 
@@ -160,11 +164,11 @@ Afterwards they can be assigned to option sets in the management interface: : _M
 
 ### Setup of re3data optionset plugin
 
-In order to use the re3data.org provider from [rdmo-re3data](https://github.com/rdmorganiser/rdmo-re3data), add the following to your `config/settings/local.py`
+In order to use the re3data.org provider from [rdmo-plugins-re3data](https://github.com/rdmorganiser/rdmo-plugins-re3data), add the following to your `config/settings/local.py`
 
 ```python
 OPTIONSET_PROVIDERS = [
-    ('re3data', _('Repositories from re3data'), 'rdmo_re3data.optionsets.re3data.Re3DataProvider')
+    ('re3data', _('Repositories from re3data'), 'rdmo_re3data.providers.Re3DataProvider')
 ]
 ```
 
@@ -195,7 +199,7 @@ The GitHub provider ships with RDMO, needs to be added to the `SERVICE_PROVIDERS
 
 ```python
 SERVICE_PROVIDERS = [
-    ('github', _('GitHub'), 'rdmo.projects.providers.GitHubProvider'),
+    ('github', _('GitHub'), 'rdmo_github.providers.GitHubProvider'),
 ]
 ```
 
@@ -218,7 +222,7 @@ The GitLab issue provider works almost exactly like the GitHub provider, with th
 
 ```python
 SERVICE_PROVIDERS = [
-    ('gitlab', _('GitLab'), 'rdmo.projects.providers.GitLabProvider'),
+    ('gitlab', _('GitLab'), 'rdmo_gitlab.providers.GitLab'),
 ]
 
 GITHUB_PROVIDER = {
@@ -230,7 +234,7 @@ GITHUB_PROVIDER = {
 
 ## Examples of how to install plugins
 
-As mentioned above, there are two possibilities of how to install [rdmo-plugins](https://github.com/rdmorganiser/rdmo-plugins). Depending on your use case you should pick the one that fits you more. The first one using `pip` does a good job if you are just planning to use the plugins from the repo without modifying these. The other method requires to copy the necessary python files into your local app folder which has advantages if you are planning to modify existing or create your own plugins.
+As mentioned above, there are two possibilities of how to install a specific plugin from [rdmo-plugins](https://github.com/rdmorganiser/rdmo-plugins). Depending on your use case you should pick the one that fits you more. The first one using `pip` does a good job if you are just planning to use the plugins from the repo without modifying these. The other method requires to copy the necessary python files into your local app folder which has advantages if you are planning to modify existing or create your own plugins.
 
 Please note that the imports require Django's translation utils and that we usually use these with an underscore. If you are getting import errors please check if you have the first of the following lines at the beginning of your `local.py`. You also need to import `PROJECT_EXPORTS` and `PROJECT_IMPORTS` as we will later append our imports to these lists. Make sure you also have the second line in your `local.py`.
 
@@ -244,21 +248,22 @@ from rdmo.core.settings import PROJECT_EXPORTS, PROJECT_IMPORTS
 To install directly from github simply run
 
 ```shell
-pip install git+https://github.com/rdmorganiser/rdmo-plugins
+# e.g. for the maDMP Export Provider plugin
+pip install git+https://github.com/rdmorganiser/rdmo-plugins-madmp
 ```
 
-Afterwards you need to configure the plugins you are willing to use in your `local.py`. Here is an example of how to add different export formats. The three strings in brackets configure the url under which the export will be available, the name of the entry in the export menu and the path from where to import the plugin. The path resembles the structure in the `rdmo plugins` repository. If you look into it you will find the files containing the imported classes mentioned below. At the beginning of the path you use `rdmo_plugins` because you added `rdmo-plugins` to your installed python libraries. The dash is replaced by an underscore because python is not very fond of dashes when it comes to imports.
+Afterwards you need to configure the plugins you plan to use in your `local.py`. Here is an example of how to add different export formats. The three strings in brackets configure the url under which the export will be available (e.g. `'madmp'`), the translatable name of the entry in the export menu (e.g. `_('as madmp')`) and the path from where to import the plugin (e.g. `'rdmo_madmp.exports.MaDMPExport'`). The path resembles the structure in the `rdmo-plugins-madmp` repository. If you look into it you will find the files containing the imported classes mentioned below. At the beginning of the path you use `rdmo_madmp` because you added `rdmo-plugins-madmp` to your installed python libraries. The dash is replaced by an underscore because python is not very fond of dashes when it comes to imports.
 
 ```python
-PROJECT_EXPORTS.append(('madmp', _('as madmp'), 'rdmo_plugins.exports.madmp.MaDMPExport'))
-PROJECT_EXPORTS.append(('datacite', _('as datacite'), 'rdmo_plugins.exports.datacite.DataCiteExport'))
-PROJECT_EXPORTS.append(('radar', _('as radar'), 'rdmo_plugins.exports.radar.RadarExport'))
+PROJECT_EXPORTS.append(('madmp', _('as madmp'), 'rdmo_madmp.exports.MaDMPExport'))
+PROJECT_EXPORTS.append(('datacite', _('as datacite'), 'rdmo_datacite.exports.DataCiteExport'))
+PROJECT_EXPORTS.append(('radar', _('as radar'), 'rdmo_radar.exports.RadarExport'))
 ```
 
 ### Copy files
 
-The other method we recommend when you are planning to modify the plugins or create your own ones is to simply copy the python files into your local app folder. Let's say you create a subfolder `plugins` containing another folder `exports` in your app directory. Then you copy the `madmp.py` from the `rdmo-plugins` into `exports`. Having done this you can import this file in your local app without specifying a module path. It is found by the importer as it resides in your rdmo app folder. Your import lines in the `local.py` would look like this:
+The other method we recommend when you are planning to modify the plugins or create your own ones is to simply copy the python files into your local app folder. Let's say you create a subfolder `plugins` containing another folder `exports` (both should contain an empty `__init__.py` file to mark them as importable python pacakges) in your app directory. Then you copy the `rdmo_madmp/exports.py` from the `rdmo-plugins-madmp` into `exports` and rename the file to `madmp.py`. Having done this you can import this file in your local app without specifying a module path. It is found by the importer as it resides in your rdmo app folder. Your import lines in the `local.py` would look like this:
 
 ```python
-PROJECT_EXPORTS.append(('madmp', _('as madmp'), 'plugins.exports.datacite.DataCiteExport'))
+PROJECT_EXPORTS.append(('madmp', _('as madmp'), 'plugins.exports.madmp.MaDMPExport'))
 ```
