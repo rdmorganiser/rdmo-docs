@@ -5,8 +5,10 @@ The RDMO application uses the [Django settings](https://docs.djangoproject.com/e
 ```
 config/settings/local.py
 ```
-This `local.py` module is copied from the template `config/settings/sample.local.py`, contained in the `rdmo-app`, during the installation process. The module is ignored by git and is meant to contain your local adjustments and secret information (e.g. database connections).  
-The `config/settings/local.py` module can be used to override all of the default settings of RDMO (see: [rdmo/core/settings.py](https://github.com/rdmorganiser/rdmo/blob/main/rdmo/core/settings.py)).
+
+This `local.py` module is copied from the template `config/settings/sample.local.py`, contained in the `rdmo-app`, during the installation process. The module is ignored by git and is meant to contain your local adjustments and secret information (e.g. database connections).
+
+In principle, the `config/settings/local.py` module can be used to override all of the default settings of RDMO. A complete description of settings relevant for RDMO is given in [here](./settings).
 
 ---
 
@@ -23,4 +25,5 @@ logging
 openapi
 projects
 multisite
+settings
 ```
