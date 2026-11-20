@@ -8,7 +8,15 @@ RDMO has an API (Application Programming Interface), which can be used to retrie
 * typing the [full URL](#api-addresses) into the browser.
 
 ## Authentication
-In order to access any data entered into RDMO through the programmable API, a user needs to have a token associated with him or her. This operation can be done by an instance administrator in the Admin interface under **AUTH TOKEN / Tokens**.
+
+Technically the API supports basic authentication (username + password), session authentication, and token authentication.
+For API use beyond early exploration token authentication is preferred.
+
+There are multiple ways for admins to provide tokens.
+
+### Manual Token Creation
+
+This operation can be done by an instance administrator in the Admin interface under **AUTH TOKEN / Tokens**.
 
 To create a token, click **Add token** on the button at the right and:
 
@@ -21,7 +29,19 @@ The created token can be used instead of the username and the password when maki
 Authorization: Token 9944b09199c62bcf9418ad846dd0e4bbdfc6ee4b
 ```
 
-Only `Superusers` are allowed to access the API. You can check if your user has the required permissions by having a look into the user's details. If the user does not have the Superuser status, any API request will fail, producing the status code 403.
+### User Generated Tokens
+
+Administrators can set `ACCOUNT_ALLOW_USER_TOKEN = True` in `local.py`.
+Then users can create and refresh tokens on their own at `API Token` in the user menu or browsing to `https://$YOUR_RDMO/account/token/`.
+
+**Note:** If you use single-sign-on as access control, an API token bypasses that.
+
+## Permissions
+
+Using the API a user can automate tasks they can do in the web interface, with the permission the user has.
+
+If you find an API that rejects your request (status code 403), but you can do that in the web ui, search for a similarly named entry.
+(i.e. there is `/api/v1/questions/catalogs/` that lists catalogs for management, and `/api/v1/projects/catalogs/` that lists catalogs currently available for a projects)
 
 ## API addresses
 
@@ -32,52 +52,15 @@ Some basic information about the instance itself can be accessed with the follow
 /api/v1/core
 ```
 
-The available content (catalogues, views, tasks...) within an instance can be accessed with the following URLS:
-```
-/api/v1/domain/attributes
-/api/v1/domain/attributes/{id}
-
-/api/v1/conditions/conditions
-/api/v1/conditions/conditions/{id}
-
-/api/v1/options/optionsets
-/api/v1/options/optionsets/{id}
-/api/v1/options/options
-/api/v1/options/options/{id}
-
-/api/v1/questions/catalogs
-/api/v1/questions/catalogs/{id}
-/api/v1/questions/sections
-/api/v1/questions/sections/{id}
-/api/v1/questions/pages
-/api/v1/questions/pages/{id}
-/api/v1/questions/questionsets
-/api/v1/questions/questionsets/{id}
-/api/v1/questions/questions
-/api/v1/questions/questions/{id}
-
-/api/v1/tasks/tasks
-/api/v1/tasks/tasks/{id}
-
-/api/v1/views/views
-/api/v1/views/views/{id}
-```
-
-The project-related content (metadata, answers/values, snapshots...) can be accessed with the following URLS:
+The project-related content (metadata, answers/values, ...) can be accessed with the following URLS (excerpt):
 ```
 /api/v1/projects                                                 # project "object properties" / general overview of the projects and associated entities (nearly useless)
-/api/v1/projects/projects                                        # project "data properties" / metadata for each project: title, catalog, owners, progress
+/api/v1/projects/projects                                        # project "data properties" / metadata for every project the user can access: title, catalog, owners, progress
 /api/v1/projects/projects/{id}                                   # project "data properties" / metadata for a single project: title, catalog, owners, progress
 
-/api/v1/projects/values                                          # all values from all projects
 /api/v1/projects/projects/{parent_lookup_project}/values         # all values from one project
 /api/v1/projects/projects/{parent_lookup_project}/values/{id}    # a chosen value assignment
 /api/v1/projects/values/{id}                                     # a chosen value assignment (shorter form)
-
-/api/v1/projects/snapshots                                       # all snapshots from all projects
-/api/v1/projects/projects/{parent_lookup_project}/snapshots      # all snapshots from one project
-/api/v1/projects/projects/{parent_lookup_project}/snapshots/{id} # a chosen snapshot
-/api/v1/projects/snapshots/{id}                                  # a chosen snapshot (shorter form)
 ```
 
 The `{id}` or `{parent_lookup_project}` placeholder within a URL represents an (internally defined and immutable) element key, which can be provided to fetch data for a distinct single element (e.g. project).
@@ -92,15 +75,33 @@ Swagger is a set of tools built around the OpenAPI Specification. These tools he
 
 The interactive Swagger page can help you to design API queries because it gives a well-arranged interactive overview of all the available endpoints and query parameters. If you need help to get an idea about the possibilities of the RDMO API you should have a look.
 
-Swagger Tools are enabled by default. The relevant entry is in your app's `urls.py` and looks like the following.
+To enable API documentation you need to 
+1. install rdmo with optional dependencies (i.e. `pip install rdmo[openapi]`)
+2. configure your instance to load the dependencies. i.e. in your `local.py` add
+    ```py
+    from rdmo.core.settings import INSTALLED_APPS, REST_FRAMEWORK
 
-```python
-path('api/v1/', include('rdmo.core.urls.swagger')),
+    REST_FRAMEWORK['DEFAULT_SCHEMA_CLASS'] = 'drf_spectacular.openapi.AutoSchema'
+
+    INSTALLED_APPS += [
+        'drf_spectacular',
+        'drf_spectacular_sidecar',
+    ]
+    ```
+
+Now you can access the api documentation at `http://$YOUR_RDMO/api/` and access schema, swagger-ui and redoc from there.
+
+If you get an error or an empty page, check if the api landing page is included in `rdmp-app/config/urls.py`. You should find an import, and a path specification within `urlpatterns`.
+```py
+from rdmo.core.views import api
+
+urlpatterns = [
+    ...,
+    path('api/', api, name='api'),
+]
 ```
+In case they are missing consider updating your rdmo-app, or add them manually.
 
-Remove it or comment it out if you do not want swagger to be available. As you can see the default swagger page's url is `http://$YOUR_RDMO/api/v1/`.
-
-If you request `http://$YOUR_RDMO/api/v1/?format=openapi` you get a detailed machine processable API description in JSON format.
 
 ## API access via `curl` commands
 
